@@ -175,8 +175,6 @@ void loop()
 // This method gets called at around 44100 Hz
 void audioRateInterrupt()
 {
-  // output = active_synths[synth]->run(cycle);
-  
   // I'm using dacc_write_conversion_data() because it writes 12-bit data to
   // the DAC as opposed to 8-bit resolution that analogWrite() does.
   dacc_write_conversion_data(DACC_INTERFACE, active_synths[synth]->run(cycle));
