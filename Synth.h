@@ -27,13 +27,13 @@
 #include "ModuleOsc.h"
 #include "ModuleSequencer.h"
 #include "ModuleSmooth.h"
-#include "ModuleSpeechSound.h"
-#include "ModuleChatBot.h"
 #include "ModuleSoundToy.h"
 #include "ModuleVCA.h"
 #include "ModuleVCClockDivider.h"
+#include "ModuleVocalizer.h"
 #include "ModuleWaveshaper.h"
-
+#include "ModuleWavetable.h"
+#include "ModuleWords.h"
 
 class Synth
 {

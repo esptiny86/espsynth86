@@ -68,23 +68,57 @@ Programming notes
 // module.  If you want to add an equation, Equations.cpp is the place to do it.
 #include "Equations.h"
 
+// EquationsWavetable.h holds a small batch of equations that produce waveforms
+// that are similar to wavetables.
+#include "EquationsWavetable.h"
+
 // Include each synth
 #include "SynthArp1.h"
 #include "SynthAutoDrum.h"
-#include "SynthChatterbox.h"
+#include "SynthAudioMath.h"
 #include "SynthDrumPlayer.h"
 #include "SynthEquationPlayer.h"
 #include "SynthEquationLooper.h"
 #include "SynthEqWave.h"
-#include "SynthMumbler.h"
 #include "SynthSoundToy.h"
 #include "SynthSubtractor.h"
 #include "SynthPassthroughTest.h"
+#include "SynthTutorial1.h"
+#include "SynthPhonetics.h"
+#include "SynthVerbalizer.h"
+#include "SynthWavetable.h"
 
 #include "DueTimer.h"
 
   
 // Global variables
+
+// Create an inputs object, which contains a bunch of input modules and serves
+// as a convienient wrapper class.
+Inputs *inputs = new Inputs();
+
+// Since there are a lot of equations to share among modules, they've
+// been put into their own class, which is passed through to the 
+// modules that need access to them.
+// * Equations contains all of the core equations (the fun stuff)
+// * EquationsWavetable contains simpler equations good for generating wavetables
+Equations *equations = new Equations();
+EquationsWavetable *equations_wavetable = new EquationsWavetable();
+
+
+// Instantiate synths which are selectable via the PRG knob
+// Any new synth must be added to this list
+
+#define NUMBER_OF_SYNTHS 4
+
+Synth *active_synths[] {
+  new SynthEquationPlayer(inputs, equations),
+  new SynthEquationLooper(inputs, equations),
+  new SynthEqWave(inputs, equations),
+  new SynthVerbalizer(inputs)
+};
+
+
 
 // The 'cycle' variable increments every time the 44100Hz interrupt is called.
 // Modules use this counter to determine if their output has already been calculated
@@ -97,28 +131,6 @@ double cycle = 0;
 
 // Currently selected synth
 int synth = 0;
-
-// Create an inputs object, which contains a bunch of input modules and serves
-// as a convienient wrapper class.
-Inputs *inputs = new Inputs();
-
-// Since there are a lot of equations to share among modules, they've
-// been put into their own class, which is passed through to the 
-// modules that need access to them.  Here's where we instantiate that class.
-Equations *equations = new Equations();
-
-// Instantiate synths which are selectable via the PRG knob
-// Any new synth must be added to this list
-
-#define NUMBER_OF_SYNTHS 5
-
-Synth *active_synths[] {
-  new SynthEquationPlayer(inputs, equations),
-  new SynthEquationLooper(inputs, equations),
-  new SynthEqWave(inputs, equations),
-  new SynthMumbler(inputs),
-  new SynthArp1(inputs)
-};
 
 
 void setup()
