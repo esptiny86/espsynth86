@@ -75,7 +75,6 @@ Programming notes
 // Include each synth
 #include "SynthArp1.h"
 #include "SynthAutoDrum.h"
-#include "SynthAudioMath.h"
 #include "SynthDrumPlayer.h"
 #include "SynthEquationPlayer.h"
 #include "SynthEquationLooper.h"
@@ -115,7 +114,7 @@ Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
   new SynthEquationLooper(inputs, equations),
   new SynthEqWave(inputs, equations),
-  new SynthVerbalizer(inputs)
+  new SynthWavetable(inputs, equations_wavetable)
 };
 
 

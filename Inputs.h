@@ -20,8 +20,12 @@ class Inputs
 	// It might seem strange to use a "module" just for an input, but it's necessary because of the way
 	// the modules are strung together.  Each module can have inputs, and these inputs -must be- pointers 
 	// to other modules.  That's also why there's such thing as a ModuleConstant, since we can't set a 
-	// module's input to a number, like 43.  The input modules are global and are passed into each
-	// Synth via the constructor.
+	// module's input to a number, like 43.  A pointer to a global instance of the Inputs class is passed 
+	// into each Synth via the constructor.  From inside a synth, you can read one of the inputs with 
+	// code like:
+	//
+	//   some_module->some_input = inputs->param2;
+	//
 
 	ModuleAnalogInput *prg;
 	ModuleAnalogInput *sr;

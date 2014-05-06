@@ -1,3 +1,39 @@
+/*
+ *   +----------------------+
+ *   | ModuleEquationPlayer |
+ *   |----------------------|
+ *   > equation_input       |
+ *   > sample_rate_input    |
+ *   > param1_input         |
+ *   > param2_input         |
+ *   > param3_input         |
+ *   > reset_input          |
+ *   |                output>
+ *   +----------------------+
+ *
+ */
+// =============================================================================
+// 
+// ModuleEquationPlayer is a simple bytebeat equation player with control over
+// equation selection, sample rate, and equation parameters.  The reset input
+// is used reset playback from the beginning.
+//
+// Equations are passed in to the ModuleEquationPlayer via the constructor.
+//
+// Example usage:
+//
+//   ModuleEquationPlayer *equation_player = new ModuleEquationPlayer(equations);
+//  
+//   equation_player->equation_input    = inputs->mod;
+//   equation_player->sample_rate_input = inputs->sr;
+//   equation_player->param1_input      = inputs->param1;
+//   equation_player->param2_input      = inputs->param2;
+//   equation_player->param3_input      = inputs->param3;
+//   equation_player->reset_input       = inputs->gate;
+//
+//    this->last_module = equation_player;
+//
+
 #ifndef ModuleEquationPlayer_h
 #define ModuleEquationPlayer_h
 
@@ -19,11 +55,10 @@ class ModuleEquationPlayer : public Module
     Module *param2_input;
     Module *param3_input;
     Module *reset_input;
-    Module *mod_input;
     
   private:
     int equation;
-    uint32_t t;           // Accumulator used in equations 
+    uint32_t t;
     
     uint32_t p1;
     uint32_t p2;
@@ -39,14 +74,7 @@ class ModuleEquationPlayer : public Module
     // use when incrementing the variable fractional values
     uint64_t fixed_point_32_32_index;
     uint64_t increment_by;
-    
-    uint32_t SquareRoot(uint32_t a_nInput);
-    uint32_t exp_fix0912(uint32_t in);
-    uint32_t sin_fix1212(uint32_t in);
-    uint32_t cos_fix1212(uint32_t in);
-    uint32_t square_fix1212(uint32_t in);
-    uint32_t saw_fix1212(uint32_t x,uint32_t a);
-    
+
 };
 
 #endif

@@ -64,7 +64,7 @@ uint32_t ModuleDrumSequencer::compute()
     // Convert the standard 12 bit CV value to a 3-bit value, which ranges from 0 to 7
     uint32_t selected_pattern = this->readInput(pattern_input, CONVERT_TO_3_BIT);
     
-    my_output = bitRead(patterns[bank][selected_pattern], step) * MAX_AUDIO_VALUE;
+    my_output = bitRead(patterns[bank][selected_pattern], step) * MAX_CV;
     
     step++;
     if(step == 16) step = 0;

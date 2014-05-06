@@ -6,7 +6,7 @@
 class SynthAutoDrum : public Synth
 {
   public:
-    SynthAutoDrum(Module *inputs[]); 
+    SynthAutoDrum(Inputs *inputs); 
 };
 
 #endif

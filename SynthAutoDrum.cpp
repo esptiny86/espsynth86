@@ -1,7 +1,7 @@
 #include "Defines.h"
 #include "SynthAutoDrum.h"
 
-SynthAutoDrum::SynthAutoDrum(Module* inputs[])
+SynthAutoDrum::SynthAutoDrum(Inputs* inputs)
 {
   // Create master clock
   
@@ -52,29 +52,29 @@ SynthAutoDrum::SynthAutoDrum(Module* inputs[])
   
   ModuleDrumSequencer *kick_drum_sequencer = new ModuleDrumSequencer(0);  // bank 0 == kick drum patterns
   kick_drum_sequencer->clock_input = clock;
-  kick_drum_sequencer->pattern_input = inputs[PARAM1_INPUT];
+  kick_drum_sequencer->pattern_input = inputs->param1;
 
   ModuleDrumSequencer *snare_drum_sequencer = new ModuleDrumSequencer(1); // bank 1 == snare drum patterns
   snare_drum_sequencer->clock_input = clock;
-  snare_drum_sequencer->pattern_input = inputs[PARAM2_INPUT];
+  snare_drum_sequencer->pattern_input = inputs->param2;
 
   ModuleDrumSequencer *hihat_drum_sequencer = new ModuleDrumSequencer(2); // bank 2 == hihat drum patterns
   hihat_drum_sequencer->clock_input = clock;
-  hihat_drum_sequencer->pattern_input = inputs[PARAM3_INPUT];
+  hihat_drum_sequencer->pattern_input = inputs->param3;
 
   ModuleEqDrum *kick = new ModuleEqDrum();
   kick->trigger_input = kick_drum_sequencer;
-  kick->sample_rate_input = inputs[SR_INPUT];
+  kick->sample_rate_input = inputs->sr;
   kick->drum_selection_input = new ModuleConstant(0);
 
   ModuleEqDrum *snare = new ModuleEqDrum();
   snare->trigger_input = snare_drum_sequencer;
-  snare->sample_rate_input = inputs[SR_INPUT];
+  snare->sample_rate_input = inputs->sr;
   snare->drum_selection_input = new ModuleConstant(3);
   
   ModuleEqDrum *hihat = new ModuleEqDrum();
   hihat->trigger_input = hihat_drum_sequencer;
-  hihat->sample_rate_input = inputs[SR_INPUT];
+  hihat->sample_rate_input = inputs->sr;
   hihat->drum_selection_input = new ModuleConstant(6);
   
   ModuleMixer3 *mixer = new ModuleMixer3();

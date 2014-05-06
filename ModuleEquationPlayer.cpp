@@ -21,7 +21,6 @@ ModuleEquationPlayer::ModuleEquationPlayer(Equations *equations)
   this->param2_input = NULL;
   this->param3_input = NULL;
   this->reset_input = NULL;
-  this->mod_input = NULL;  
 }
 
 uint32_t ModuleEquationPlayer::compute()
