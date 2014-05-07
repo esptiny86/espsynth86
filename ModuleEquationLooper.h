@@ -3,14 +3,44 @@
  *   | ModuleEquationLooper |
  *   |----------------------|
  *   > sample_rate_input    |
+ *   > equation_input       |
  *   > loop_length_input    |
  *   > loop_start_input     |
- *   > equation_input       |
+ *   > param3_input         |
+ *   > gate_input           |
  *   |                output>
  *   +----------------------+
  *
  */
- 
+// =============================================================================
+// 
+// ModuleEquationPlayer is a simple bytebeat equation player with control over
+// equation selection, sample rate, and loop parameters.  It uses the same set
+// of equations as the ModuleEquationPlayer, but only allows control over one
+// variable of the equation.  (In hindsight, I could have allowed control 
+// over all three parameters, as the param1, 2, and 3 inputs of this module
+// could be controlled by other modules.)
+//
+// When the gate input is HIGH, equations will stop looping and will playback
+// continuously.
+//
+// Equations are passed in to the ModuleEquationPlayer via the constructor.
+//
+// Example usage:
+//
+//    ModuleEquationLooper *equation_looper = new ModuleEquationLooper(equations);
+//
+//    equation_looper->equation_input    = inputs->mod;
+//    equation_looper->sample_rate_input = inputs->sr;
+//    equation_looper->loop_start_input  = inputs->param1;
+//    equation_looper->loop_length_input = inputs->param2;
+//    equation_looper->param3_input      = inputs->param3;
+//    equation_looper->gate_input        = inputs->gate;
+//
+//    this->last_module = equation_looper;
+//
+
+
 #ifndef ModuleEquationLooper_h
 #define ModuleEquationLooper_h
 
@@ -27,9 +57,9 @@ class ModuleEquationLooper : public Module
     
     // Inputs
     Module *sample_rate_input;
+    Module *equation_input;    
     Module *loop_start_input;
     Module *loop_length_input;
-    Module *equation_input;
     Module *param3_input;
     Module *gate_input;
     

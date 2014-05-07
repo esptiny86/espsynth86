@@ -82,10 +82,13 @@ Programming notes
 #include "SynthSoundToy.h"
 #include "SynthSubtractor.h"
 #include "SynthPassthroughTest.h"
-#include "SynthTutorial1.h"
 #include "SynthPhonetics.h"
 #include "SynthVerbalizer.h"
 #include "SynthWavetable.h"
+
+#include "SynthTutorial1.h"
+#include "SynthTutorial2.h"
+#include "SynthTutorial3.h"
 
 #include "DueTimer.h"
 
@@ -114,7 +117,7 @@ Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
   new SynthEquationLooper(inputs, equations),
   new SynthEqWave(inputs, equations),
-  new SynthWavetable(inputs, equations_wavetable)
+  new SynthTutorial3(inputs)
 };
 
 

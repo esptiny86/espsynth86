@@ -241,8 +241,11 @@ uint32_t Equations::compute(int equation_number, uint32_t t, uint32_t p1, uint32
   }
 
 
+  // It might seem strange that the output is being bitshifed 4 bits - leaving 8 bits for
+  // the actual output and setting the 4 LSB to 0.  I experimented with 12-bit equation 
+  // output and it sounded worse, not better, than the 8-bit output.
+
   return(((uint32_t) w) << 4);
-  // return((uint32_t) w); 
 }
 
 

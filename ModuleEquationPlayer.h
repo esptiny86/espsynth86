@@ -31,7 +31,7 @@
 //   equation_player->param3_input      = inputs->param3;
 //   equation_player->reset_input       = inputs->gate;
 //
-//    this->last_module = equation_player;
+//   this->last_module = equation_player;
 //
 
 #ifndef ModuleEquationPlayer_h
@@ -69,9 +69,10 @@ class ModuleEquationPlayer : public Module
     uint32_t reset;
     uint32_t old_reset;
     
-    // 20.12 fixed point number (using the upper 20 bits for holding the usable
-    // numbers and an additional 12 bits (0-4095) for simulating fractional values for
-    // use when incrementing the variable fractional values
+    // 32.32 fixed point number (using the upper 32 bits for holding the usable
+    // numbers and an additional 32 bits).  Originally I had used a 20.12
+    // fixed point number, but limiting the equation playback index to 20 bits
+    // ended up causing the sounds (especially melodic ones) to loop in odd places.
     uint64_t fixed_point_32_32_index;
     uint64_t increment_by;
 

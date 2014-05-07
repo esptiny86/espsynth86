@@ -7,7 +7,21 @@
  *   +----------------------+
  *
  */
- 
+// =============================================================================
+// 
+// ModuleConstant is used to supply constant values to the inputs of other
+// modules.
+//
+// Example usage:
+//
+//   ModuleWavetable *wavetable = new ModuleWavetable(equations_wavetable);
+//
+//	 wavetable->equation_input = new ModuleConstant(3);
+//	 wavetable->frequency_input = sequencer;
+//
+//	 this->last_module = wavetable;
+//
+
 #ifndef ModuleConstant_h
 #define ModuleConstant_h
 
