@@ -3,10 +3,11 @@
 #include "Defines.h"
 #include "EquationsWavetable.h"
 
+// If you add or subtract equatitions from this list, you'll need to update 
+// the NUMBER_OF_WAVETABLE_EQUATIONS constant defined in defines.h
+
 uint32_t EquationsWavetable::compute(int equation_number, uint32_t t)
 {
-  equation_number = map(equation_number, 0, 4092, 0, NUMBER_OF_WAVETABLE_EQUATIONS);
-
   switch(equation_number)
   {
     

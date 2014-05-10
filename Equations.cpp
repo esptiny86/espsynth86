@@ -1,9 +1,11 @@
 #include "Defines.h"
 #include "Equations.h"
 
+// If you add or subtract equatitions from this list, you'll need to update 
+// the NUMBER_OF_EQUATIONS constant defined in defines.h
+
 uint32_t Equations::compute(int equation_number, uint32_t t, uint32_t p1, uint32_t p2, uint32_t p3)
 {
-  // equation_number = map(equation_number, 0, 4092, 0, NUMBER_OF_EQUATIONS);
 
   switch(equation_number)
   {
