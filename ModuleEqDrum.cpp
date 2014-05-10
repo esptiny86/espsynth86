@@ -25,10 +25,10 @@ uint32_t ModuleEqDrum::compute()
 {
 
   // Read inputs
-  drum_selection = this->readInput(drum_selection_input, CONVERT_TO_3_BIT); // range: 0 - 7
+  drum_selection = this->readInput(drum_selection_input, CONVERT_TO_4_BIT); // range: 0 - 15
   uint32_t trigger = readInput(trigger_input);
   increment_by = this->readInput(sample_rate_input);
-  
+
   if((trigger >= MID_CV) && !triggered) 
   {
     triggered = true;
@@ -85,6 +85,10 @@ uint32_t ModuleEqDrum::compute()
       case 6: // hihat
         w = (3000-(3000%t))*(23/t)*(w+t);
         if(t > 2000) stop_playback();
+        break;
+
+      case 7: // tuned hat
+        w = ((t^99)/(t>>5));
         break;
     }
     

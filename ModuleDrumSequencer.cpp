@@ -11,7 +11,7 @@ ModuleDrumSequencer::ModuleDrumSequencer(int bank)
   
   this->patterns = {
     { 
-      // Bank #1 = kick patterns         
+      // Bank #0 = kick patterns         
       32896,    // 1000000010000000
       32932,    // 1000000010100100
       41506,    // 1010001000100010
@@ -22,7 +22,7 @@ ModuleDrumSequencer::ModuleDrumSequencer(int bank)
       41508     // 1001000010010000
     },
     {
-      // Bank #2 = snare patterns
+      // Bank #1 = snare patterns
       2056,     // 0000100000001000
       2393,     // 0000100101011001
       2190,     // 0000100010001110
@@ -33,7 +33,7 @@ ModuleDrumSequencer::ModuleDrumSequencer(int bank)
       2230      // 0000100010110110
     },
     {
-      // Bank #3 = hihat patterns
+      // Bank #2 = hihat patterns
       65535,    // 1111111111111111
       43690,    // 1010101010101010
       47031,    // 1011011110110111
@@ -60,10 +60,10 @@ uint32_t ModuleDrumSequencer::compute()
   {
     clocked = true;
     
-    // Read scale input.
-    // Convert the standard 12 bit CV value to a 3-bit value, which ranges from 0 to 7
-    uint32_t selected_pattern = this->readInput(pattern_input, CONVERT_TO_3_BIT);
+    uint32_t selected_pattern = this->readInput(pattern_input);
     
+    selected_pattern = map(selected_pattern, 0, 4092, 0, 2);
+
     my_output = bitRead(patterns[bank][selected_pattern], step) * MAX_CV;
     
     step++;

@@ -1,3 +1,29 @@
+/*
+ *  +----------------------+
+ *  | ModuleEqDrum         |
+ *  |----------------------|
+  * > sample_rate_input    |
+ *  > drum_selection_input |
+ *  > trigger_input        |
+ *  |               output >
+ *  +----------------------+
+ *
+ */
+// =============================================================================
+// 
+// ModuleEqDrum is a bytebeat player focused on drum sounds.  Only one sound can
+// be played back simultaneously.  The drum_selection_input selects which of
+// the equations to use for playback.  Unlike many of the other bytebeat playback
+// modules, this one playsback the equation in "one-shot-mode", which is triggered
+// by a gate signal at the trigger_input.  The sample rate affects the pitch of
+// the drum sounds.
+//
+//
+// Example usage:
+//
+//  TODO
+//
+
 #ifndef ModuleEqDrum_h
 #define ModuleEqDrum_h
 

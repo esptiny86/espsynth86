@@ -34,6 +34,7 @@ Equation testing tools:
   Note: When using any bytebeat tool, make sure to set the output rate to 44,100  
 
 TODO:
+  - change map function to not map constant inputs
   - create add/subtract module
   - consider splitting ModuleLFO into: ModuleLFO(int rate) and ModuleVCLFO() 
   - use better datatypes than the uint32_t that I use everywhere out of laziness
@@ -117,7 +118,7 @@ Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
   new SynthEquationLooper(inputs, equations),
   new SynthEqWave(inputs, equations),
-  new SynthTutorial3(inputs)
+  new SynthDrumPlayer(inputs)
 };
 
 
