@@ -42,7 +42,7 @@ uint32_t ModuleEqWaveOsc::compute()
   uint32_t y = this->readInput(y_input, CONVERT_TO_7_BIT);
   
   // Select equation
-  int equation = this->readInput(equation_input);
+  int equation = this->readInput(equation_input, 0, NUMBER_OF_EQUATIONS);
 
   // Calculate the index into the wavetable
   fixed_point_10_22_index += increments[(frequency*60)>>10];

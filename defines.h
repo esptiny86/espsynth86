@@ -1,6 +1,11 @@
 #ifndef defines_h
 #define defines_h
 
+// Change these number when adding or removing equations
+
+#define NUMBER_OF_EQUATIONS 53              // # of equations in Equations.cpp
+#define NUMBER_OF_WAVETABLE_EQUATIONS 16    // # of equations in EquationsWavetable.cpp
+
 #define MAX_CV 4095
 #define MID_CV 2047
 

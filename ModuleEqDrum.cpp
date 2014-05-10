@@ -25,7 +25,7 @@ uint32_t ModuleEqDrum::compute()
 {
 
   // Read inputs
-  drum_selection = this->readInput(drum_selection_input, CONVERT_TO_4_BIT); // range: 0 - 15
+  drum_selection = this->readInput(drum_selection_input, 0, 7);
   uint32_t trigger = readInput(trigger_input);
   increment_by = this->readInput(sample_rate_input);
 

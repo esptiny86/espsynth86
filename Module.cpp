@@ -46,6 +46,25 @@ uint32_t Module::readInput(Module *module, int conversion)
   }
 }
 
+uint32_t Module::readInput(Module *module, uint32_t map_low, uint32_t map_high)
+{
+  // If someone forgot to attach a module to an input, assume they mean for that 
+  // input to be 0.
+  if(! module) return(0);
+
+  // When no_output_conversion is true, the actual output value of a module is
+  // used, instead of being mapped. no_output_conversion is set in ModuleConstant.php
+
+  if(module->no_output_conversion)
+  {
+    return(module->run(this->cycle));
+  }
+  else
+  {
+    return(map(module->run(this->cycle), 0, 4092, map_low, map_high));
+  }
+}
+
 uint32_t Module::readInput(Module *module)
 {
   if(! module) return(0);

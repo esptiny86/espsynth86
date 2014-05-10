@@ -1,12 +1,9 @@
 #include "Defines.h"
 #include "Equations.h"
 
-// Change this number when adding or removing equations
-#define NUMBER_OF_EQUATIONS 53
-
 uint32_t Equations::compute(int equation_number, uint32_t t, uint32_t p1, uint32_t p2, uint32_t p3)
 {
-  equation_number = map(equation_number, 0, 4092, 0, NUMBER_OF_EQUATIONS);
+  // equation_number = map(equation_number, 0, 4092, 0, NUMBER_OF_EQUATIONS);
 
   switch(equation_number)
   {

@@ -22,7 +22,7 @@ uint32_t ModuleEquationLooper::compute()
   // For loop_start and loop_length, I'm dropping some of the least significant 
   // bits in order to remove any noise from the incoming signal.
   
-  equation = this->readInput(equation_input);
+  equation = this->readInput(equation_input, 0, NUMBER_OF_EQUATIONS);
   increment_by = this->readInput(sample_rate_input) << 1;                         // range: 0 - 4095
   loop_length = (this->readInput(loop_length_input, CONVERT_TO_9_BIT)+1) * 120;  // range: (1 - 512) * 120
   loop_start = this->readInput(loop_start_input, CONVERT_TO_9_BIT) * 800;    // range: (0 - 511) * 800

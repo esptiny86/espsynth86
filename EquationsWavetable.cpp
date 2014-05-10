@@ -3,9 +3,6 @@
 #include "Defines.h"
 #include "EquationsWavetable.h"
 
-// Change this number when adding or removing equations
-#define NUMBER_OF_WAVETABLE_EQUATIONS 16
-
 uint32_t EquationsWavetable::compute(int equation_number, uint32_t t)
 {
   equation_number = map(equation_number, 0, 4092, 0, NUMBER_OF_WAVETABLE_EQUATIONS);

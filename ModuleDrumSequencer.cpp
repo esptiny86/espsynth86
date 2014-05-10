@@ -60,10 +60,8 @@ uint32_t ModuleDrumSequencer::compute()
   {
     clocked = true;
     
-    uint32_t selected_pattern = this->readInput(pattern_input);
+    uint32_t selected_pattern = this->readInput(pattern_input, 0, 2);
     
-    selected_pattern = map(selected_pattern, 0, 4092, 0, 2);
-
     my_output = bitRead(patterns[bank][selected_pattern], step) * MAX_CV;
     
     step++;

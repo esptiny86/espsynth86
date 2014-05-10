@@ -27,7 +27,7 @@ uint32_t ModuleEquationPlayer::compute()
 {
 
   // Read inputs
-  equation = this->readInput(equation_input);
+  equation = this->readInput(equation_input, 0, NUMBER_OF_EQUATIONS);
   increment_by = this->readInput(sample_rate_input);       // range: 0 - 4095
   p1 = this->readInput(param1_input, CONVERT_TO_8_BIT);    // range: 0 - 255 (2^8)
   p2 = this->readInput(param2_input, CONVERT_TO_8_BIT);    // range: 0 - 255 (2^8)

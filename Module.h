@@ -12,6 +12,7 @@ class Module
     uint32_t run(long cycle);        // Run this module.  This is implemented in Module.cpp
     uint32_t readInput(Module *);    // Read one of this module's inputs. This is implemented in Module.cpp
     uint32_t readInput(Module *, int conversion); // See defines.h for a list of conversions
+    uint32_t readInput(Module *, uint32_t map_low, uint32_t map_high); // Read input and map the results
     virtual uint32_t compute() = 0;  // Compute the output of the module. Pure virtual function.  This must be implemented in the derived class.
 
     // Variables

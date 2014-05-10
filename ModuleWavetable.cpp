@@ -28,7 +28,7 @@ uint32_t ModuleWavetable::compute()
   uint32_t frequency = this->readInput(frequency_input, CONVERT_TO_10_BIT);  
   
   // Select equation
-  int equation = this->readInput(equation_input);
+  int equation = this->readInput(equation_input, 0, NUMBER_OF_WAVETABLE_EQUATIONS);
 
   // Calculate the index into the wavetable
   fixed_point_10_22_index += increments[((frequency*60)>>10) + 24];
