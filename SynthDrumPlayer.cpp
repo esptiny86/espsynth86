@@ -23,20 +23,20 @@ SynthDrumPlayer::SynthDrumPlayer(Inputs* inputs)
 
   kick->trigger_input = kick_drum_sequencer;
   kick->sample_rate_input = inputs->sr;
-  kick->drum_selection_input = new ModuleConstant(1); // 0 = gritty kick, 1=tech kick
+  kick->drum_selection_input = new ModuleConstant(0);
 
   snare->trigger_input = snare_drum_sequencer;
   snare->sample_rate_input = inputs->sr;
-  snare->drum_selection_input = new ModuleConstant(3); // 3 = noise snare drum
+  snare->drum_selection_input = new ModuleConstant(3);
 
   hihat->trigger_input = hihat_drum_sequencer;
   hihat->sample_rate_input = inputs->sr;
-  hihat->drum_selection_input = new ModuleConstant(7); // 7 = tuned hat
+  hihat->drum_selection_input = new ModuleConstant(7);
 
   mixer->input_1 = kick;
   mixer->input_2 = snare;
   mixer->input_3 = hihat;
 
 
-  this->last_module = hihat;
+  this->last_module = mixer;
 }

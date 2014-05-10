@@ -88,7 +88,7 @@ uint32_t ModuleEqDrum::compute()
         break;
 
       case 7: // tuned hat
-        w = ((t^99)/(t>>5));
+        w = ((t^99)/(t>>4))<<1;
         break;
     }
     

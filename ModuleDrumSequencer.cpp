@@ -54,13 +54,17 @@ uint32_t ModuleDrumSequencer::compute()
 {
   uint32_t clock = this->readInput(clock_input);
   
-  if((clock < MID_CV) && clocked) clocked = false;
-  
+  if((clock < MID_CV) && clocked)
+  {
+    clocked = false;
+    my_output = 0;
+  }
+
   if((clock >= MID_CV) && !clocked) 
   {
     clocked = true;
     
-    uint32_t selected_pattern = this->readInput(pattern_input, 0, 2);
+    uint32_t selected_pattern = this->readInput(pattern_input, CONVERT_TO_3_BIT);
     
     my_output = bitRead(patterns[bank][selected_pattern], step) * MAX_CV;
     
