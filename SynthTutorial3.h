@@ -1,7 +1,7 @@
 // =============================================================================
 //
 // Name: SynthTutorial3
-// Type: Audio
+// Type: CV Output
 // Written by: Bret Truchan, 2014
 // 
 // Description: Very simple kick drum sequencer

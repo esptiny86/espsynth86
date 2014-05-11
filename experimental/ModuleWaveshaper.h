@@ -6,6 +6,9 @@
  *  |                      |
  *  |               output >
  *  +----------------------+
+
+!!!!!!! This module doesn't work at all yet !!!!!!!!!!!!!!!
+
  */
 
 
@@ -25,6 +28,7 @@ class ModuleWaveshaper : public Module
     
     // Inputs
     Module *audio_input; 
+    Module *amount_input;
                      
 };
 

@@ -36,8 +36,7 @@ uint32_t ModuleOsc::compute()
   frequency = this->readInput(frequency_input, CONVERT_TO_7_BIT);  
   
   // Read the wavetable input and map it to the appropriate range
-  wavetable = this->readInput(wavetable_input);
-  wavetable = map(wavetable, 0, MAX_CV, 0, 1);
+  wavetable = this->readInput(wavetable_input, 0, 1);
   
   // Calculate the index into the wavetable
   fixed_point_10_22_index += increments[frequency];

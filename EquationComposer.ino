@@ -90,6 +90,7 @@ Programming notes
 #include "SynthTutorial1.h"
 #include "SynthTutorial2.h"
 #include "SynthTutorial3.h"
+#include "SynthDrumSelektor.h"
 
 #include "DueTimer.h"
 
@@ -118,7 +119,7 @@ Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
   new SynthEquationLooper(inputs, equations),
   new SynthEqWave(inputs, equations),
-  new SynthDrumPlayer(inputs)
+  new SynthDrumSelektor(inputs)
 };
 
 

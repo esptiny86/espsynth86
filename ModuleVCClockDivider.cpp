@@ -16,7 +16,7 @@ ModuleVCClockDivider::ModuleVCClockDivider()
 uint32_t ModuleVCClockDivider::compute()
 {
   uint32_t clock = this->readInput(clock_input);
-  int clock_division = clock_divisions[map(this->readInput(clock_division_input), 0, MAX_CV, 0, 6)];
+  int clock_division = clock_divisions[this->readInput(clock_division_input, 0, 6)];
   
   if((clock < MID_CV) && clocked) clocked = false;
   

@@ -37,10 +37,7 @@ uint32_t ModuleLFO::compute()
   rate = this->readInput(frequency_input, CONVERT_TO_7_BIT);
   
   // Read wavetable input
-  // TODO: Once there are enough wavetables, remove the map() line below and instead
-  // bitshift the value down to the correct range.
-  wavetable = this->readInput(wavetable_input);
-  wavetable = map(wavetable, 0, MAX_CV, 0, this->number_of_wavetables - 1);
+  wavetable = this->readInput(wavetable_input, 0, this->number_of_wavetables - 1);
   
   fixed_point_10_22_index += increments[rate];
   if(fixed_point_10_22_index > (WAVE_SAMPLES << 22)) fixed_point_10_22_index -= (WAVE_SAMPLES << 22);

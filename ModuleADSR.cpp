@@ -53,7 +53,7 @@ void ModuleADSR::setDecayTime(uint32_t value)
 
 void ModuleADSR::setSustain(uint32_t value)
 {
-  this->sustain = value<<7; // convert from 12 bits to 19 bits
+  this->sustain = value << 7; // convert from 12 bits to 19 bits
 }
 
 void ModuleADSR::setReleaseTime(uint32_t value)
@@ -139,7 +139,7 @@ uint32_t ModuleADSR::compute()
       else
       {
         state = ADSR_INACTIVE;
-	output = 0;
+        output = 0;
       }
       
       break;

@@ -31,7 +31,6 @@
 #include "ModuleVCA.h"
 #include "ModuleVCClockDivider.h"
 #include "ModuleVocalizer.h"
-#include "ModuleWaveshaper.h"
 #include "ModuleWavetable.h"
 #include "ModuleWords.h"
 
