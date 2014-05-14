@@ -5,6 +5,8 @@
 
 #define NUMBER_OF_EQUATIONS 53              // # of equations in Equations.cpp
 #define NUMBER_OF_WAVETABLE_EQUATIONS 16    // # of equations in EquationsWavetable.cpp
+#define NUMBER_OF_WAVETABLES 23
+#define WAVE_SAMPLES 512
 
 #define MAX_CV 4095
 #define MID_CV 2047

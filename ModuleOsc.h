@@ -23,9 +23,6 @@
 #include "Arduino.h"
 #include "Module.h"
 
-#define WAVE_SAMPLES 512
-#define NUMBER_OF_WAVETABLES 2
-
 class ModuleOsc : public Module
 {
   
@@ -42,7 +39,7 @@ class ModuleOsc : public Module
     uint32_t wavetable;        // Which wavetable is currently selected
     uint32_t frequency;        // An index into the increments table
     
-    uint16_t wavetables[NUMBER_OF_WAVETABLES][WAVE_SAMPLES];
+    // uint16_t wavetables[NUMBER_OF_WAVETABLES][WAVE_SAMPLES];
     uint32_t increments[128];
     
     // 10.22 fixed point number (using the upper 10 bits for addressing the indexes 

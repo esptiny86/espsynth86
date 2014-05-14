@@ -8,13 +8,10 @@ ModuleEqDrum::ModuleEqDrum()
   w = 0;  // Initialize variables used for temporary storage
   fixed_point_20_12_index = 0;
   increment_by = 2500;
+  trigger = 0;
   triggered = false;
   playing = false;
   
-  // Prepare high pass filter
-  hpf.setCutoffFreq(255);
-  hpf.setResonance(0);  
-
   // Initialize all inputs
   this->drum_selection_input = NULL;
   this->trigger_input = NULL;
@@ -25,9 +22,9 @@ uint32_t ModuleEqDrum::compute()
 {
 
   // Read inputs
-  drum_selection = this->readInput(drum_selection_input, 0, 7);
-  uint32_t trigger = readInput(trigger_input);
-  increment_by = this->readInput(sample_rate_input);
+  drum_selection = readInput(drum_selection_input, 0, 13);
+  trigger        = readInput(trigger_input);
+  increment_by   = readInput(sample_rate_input);
 
   if((trigger >= MID_CV) && !triggered) 
   {
@@ -66,9 +63,7 @@ uint32_t ModuleEqDrum::compute()
         break;
         
       case 3: // White noise snare drum
-        // (w+t+(w>>2)) is the whitenoise sound
-        // &874356 pokes some holes for it so it mixes better with other sounds
-        w = (w+t+(w>>2))&874356; // Generate the sound
+        w = (w+t+(w>>2))&874356;
         if(t > 2000) stop_playback();
         break;
   
@@ -90,6 +85,31 @@ uint32_t ModuleEqDrum::compute()
       case 7: // tuned hat
         w = ((t^99)/(t>>4))<<1;
         break;
+
+      case 8: // Simple pulse
+        w = (t/(t>>9));
+        break;
+
+      case 9: // Noise snare
+        w = ((520 - t%(t%w))/(t>>11));
+        break;
+
+      case 10: // double noise snare
+        w = ((800 - t%(t%w))/(t>>11));
+        break;
+
+      case 11: // open snare
+        w = ((890&t%(t%126))/(t>>7))<<3;
+        break;
+
+      case 12: // metallic
+        w = ((8999&t%(t&11))/(t>>8))<<6;
+        break;
+
+      case 13: // vinal pop
+        w = ((28959^(t>>2)%(t%230))/(t>>3))<<2;
+        break;
+
     }
     
     fixed_point_20_12_index += increment_by;

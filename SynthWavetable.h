@@ -16,7 +16,7 @@
 class SynthWavetable : public Synth
 {
   public:  
-    SynthWavetable(Inputs *inputs, EquationsWavetable *equations); 
+    SynthWavetable(Inputs *inputs); 
 };
 
 #endif

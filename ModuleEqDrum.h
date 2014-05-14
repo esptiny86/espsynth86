@@ -21,7 +21,13 @@
 //
 // Example usage:
 //
-//  TODO
+//   ModuleEqDrum *drum_sound = new ModuleEqDrum();
+//
+//   drum_sound->sample_rate_input    = inputs->sr;
+//   drum_sound->drum_selection_input = inputs->mod;
+//   drum_sound->trigger_input        = inputs->gate;
+//
+//   this->last_module = drum_sound;
 //
 
 #ifndef ModuleEqDrum_h
@@ -29,7 +35,6 @@
 
 #include "Arduino.h"
 #include "Module.h"
-#include "HighPassFilter.h"
 
 class ModuleEqDrum : public Module
 {
@@ -40,21 +45,22 @@ class ModuleEqDrum : public Module
     uint32_t stop_playback();
 
     // Inputs
+    Module *sample_rate_input;    
     Module *drum_selection_input;
     Module *trigger_input;
-    Module *sample_rate_input;    
+    
     
   private:
-    int drum_selection;
+    uint32_t drum_selection;
+    uint32_t trigger;    
     boolean triggered;
     boolean playing;
-    HighPassFilter hpf;
-    
+
     uint32_t t;           // Accumulator used in equations 
     uint32_t w;           // The final output of the equation
    
-    // 19.13 fixed point number (using the upper 19 bits for holding the usable
-    // numbers and an additional 13 bits (0-8192) for simulating fractional values for
+    // 20.12 fixed point number (using the upper 20 bits for holding the usable
+    // numbers and an additional 12 bits for simulating fractional values for
     // use when incrementing the variable fractional values
     uint32_t fixed_point_20_12_index;
     uint32_t increment_by;

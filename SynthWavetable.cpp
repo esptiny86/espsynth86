@@ -1,15 +1,11 @@
 #include "SynthWavetable.h"
 
-SynthWavetable::SynthWavetable(Inputs *inputs, EquationsWavetable *equations)
+SynthWavetable::SynthWavetable(Inputs *inputs)
 {
-  ModuleWavetable *wavetable = new ModuleWavetable(equations);
-  ModuleSmooth *smooth = new ModuleSmooth();
+  ModuleOsc *osc = new ModuleOsc();
 
-  wavetable->equation_input  = inputs->mod;
-  wavetable->frequency_input = inputs->sr;
-  
-  smooth->audio_input = wavetable;
-  smooth->mix_input = inputs->param1;
+  osc->wavetable_input = inputs->mod;
+  osc->frequency_input = inputs->sr;
 
-  this->last_module = smooth;
+  this->last_module = osc;
 }

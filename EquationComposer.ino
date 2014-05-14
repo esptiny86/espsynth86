@@ -73,6 +73,9 @@ Programming notes
 // that are similar to wavetables.
 #include "EquationsWavetable.h"
 
+// More traditional array-based wavetables
+#include "Wavetables.h"
+
 // Include each synth
 #include "SynthArp1.h"
 #include "SynthAutoDrum.h"
@@ -113,13 +116,14 @@ EquationsWavetable *equations_wavetable = new EquationsWavetable();
 // Instantiate synths which are selectable via the PRG knob
 // Any new synth must be added to this list
 
-#define NUMBER_OF_SYNTHS 4
+#define NUMBER_OF_SYNTHS 5
 
 Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
   new SynthEquationLooper(inputs, equations),
   new SynthEqWave(inputs, equations),
-  new SynthDrumSelektor(inputs)
+  new SynthDrumSelektor(inputs),
+  new SynthWavetable(inputs)
 };
 
 
