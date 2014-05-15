@@ -25,7 +25,7 @@
 class SynthArp1 : public Synth
 {
   public:
-    SynthArp1(Inputs *inputs, EquationsWavetable *equations); 
+    SynthArp1(Inputs *inputs); 
 };
 
 #endif

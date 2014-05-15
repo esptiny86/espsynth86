@@ -48,7 +48,7 @@ uint32_t ModuleEqDrum::compute()
     {
       
       case 0:  // Sqrt Kick
-        w = ((SquareRoot(t%16384))<<5)&64;
+        w = (((SquareRoot(t%16384))<<5)&64)<<1;
         if(t > 16384) stop_playback();
         break;      
 

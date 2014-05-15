@@ -15,8 +15,6 @@
 #include "Arduino.h"
 #include "Module.h"
 
-#define WAVE_SAMPLES 512
-
 class ModuleLFO : public Module
 {
   
@@ -31,12 +29,10 @@ class ModuleLFO : public Module
   
     // Functions
     uint32_t compute();  
-  
+
     // Variables
     uint32_t wavetable_index;
-    uint32_t rate;
-    uint16_t wavetables[2][WAVE_SAMPLES];  // Array holding the wavetable data
-    uint16_t number_of_wavetables;         // The number of wavetables (surprise, surprise)
+    uint32_t frequency;
     uint16_t wavetable;                    // The currenly selected wavetable
     uint32_t increments[128];
     

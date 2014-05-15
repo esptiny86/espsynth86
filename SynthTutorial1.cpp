@@ -2,7 +2,7 @@
 
 SynthTutorial1::SynthTutorial1(Inputs* inputs)
 {
-  ModuleOsc *osc = new ModuleOsc();
+  ModuleWavetableOsc *osc = new ModuleWavetableOsc();
   osc->wavetable_input  = new ModuleConstant(1);
   osc->frequency_input  = inputs->sr;
   

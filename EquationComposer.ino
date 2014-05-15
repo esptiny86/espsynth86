@@ -82,9 +82,7 @@ Programming notes
 #include "SynthDrumPlayer.h"
 #include "SynthEquationPlayer.h"
 #include "SynthEquationLooper.h"
-#include "SynthEqWave.h"
 #include "SynthSoundToy.h"
-#include "SynthSubtractor.h"
 #include "SynthPassthroughTest.h"
 #include "SynthPhonetics.h"
 #include "SynthVerbalizer.h"
@@ -121,9 +119,9 @@ EquationsWavetable *equations_wavetable = new EquationsWavetable();
 Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
   new SynthEquationLooper(inputs, equations),
-  new SynthEqWave(inputs, equations),
   new SynthDrumSelektor(inputs),
-  new SynthWavetable(inputs)
+  new SynthWavetable(inputs),
+  new SynthArp1(inputs)
 };
 
 

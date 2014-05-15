@@ -23,7 +23,7 @@
 class SynthTutorial2 : public Synth
 {
   public:
-    SynthTutorial2(Inputs *inputs, EquationsWavetable *equations_wavetable); 
+    SynthTutorial2(Inputs *inputs); 
 };
 
 #endif

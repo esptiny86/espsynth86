@@ -1,6 +1,6 @@
 /*
  *  +----------------------+
- *  | ModuleOsc            |
+ *  | ModuleWavetableOsc   |
  *  |----------------------|
  *  > frequency_input      |
  *  > wavetable_input      |
@@ -10,24 +10,25 @@
  *
  *  Simple Example:
  *
- *   ModuleOsc *oscillator = new ModuleOsc();
- *   oscillator->frequency_input = inputs->sr_input;
- *   this->last_module = oscillator;
+ *   ModuleWavetableOsc *osc = new ModuleWavetableOsc();
+ *   osc->frequency_input = inputs->sr_input;
+ *   osc->wavetable_input = inputs->mod_input;
+ *   this->last_module = osc;
  *
  */
 
 
-#ifndef ModuleOsc_h
-#define ModuleOsc_h
+#ifndef ModuleWavetableOsc_h
+#define ModuleWavetableOsc_h
 
 #include "Arduino.h"
 #include "Module.h"
 
-class ModuleOsc : public Module
+class ModuleWavetableOsc : public Module
 {
   
   public:
-    ModuleOsc();
+    ModuleWavetableOsc();
     uint32_t compute();
     
     // Inputs

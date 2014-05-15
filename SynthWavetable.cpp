@@ -2,7 +2,7 @@
 
 SynthWavetable::SynthWavetable(Inputs *inputs)
 {
-  ModuleOsc *osc = new ModuleOsc();
+  ModuleWavetableOsc *osc = new ModuleWavetableOsc();
 
   osc->wavetable_input = inputs->mod;
   osc->frequency_input = inputs->sr;
