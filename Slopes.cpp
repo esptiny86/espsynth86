@@ -1,8 +1,9 @@
 
 //
 // Note: If you add more sloped, change the NUMBER_OF_SLOPES in defined.h
+// Slope values range from 0 to 255
+// 
 // See bottom of this file for more information.
-//
 
 char SLOPES[][512]  = 
 {

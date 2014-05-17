@@ -8,7 +8,6 @@
 #include "Inputs.h"
 
 #include "Module.h"
-#include "ModuleADSR.h"
 #include "ModuleArpeggio.h"
 #include "ModuleClock.h"
 #include "ModuleClockDivider.h"
@@ -16,6 +15,7 @@
 #include "ModuleCounter.h"
 #include "ModuleDelay.h"
 #include "ModuleDrumSequencer.h"
+#include "ModuleENV.h"
 #include "ModuleEqDrum.h"
 #include "ModuleEquationPlayer.h"
 #include "ModuleEquationLooper.h"
