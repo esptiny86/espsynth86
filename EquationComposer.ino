@@ -35,6 +35,8 @@ Equation testing tools:
 
 TODO:
   - create add/subtract module
+  - create sample/hold module
+  - remove notes table from oscillators
   - consider splitting ModuleLFO into: ModuleLFO(int rate) and ModuleVCLFO() 
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   
@@ -79,6 +81,7 @@ Programming notes
 #include "SynthArp1.h"
 #include "SynthAutoDrum.h"
 #include "SynthDrumPlayer.h"
+#include "SynthDrumSelektor.h"
 #include "SynthEquationPlayer.h"
 #include "SynthEquationLooper.h"
 #include "SynthSoundToy.h"
@@ -91,7 +94,8 @@ Programming notes
 #include "SynthTutorial1.h"
 #include "SynthTutorial2.h"
 #include "SynthTutorial3.h"
-#include "SynthDrumSelektor.h"
+#include "SynthTutorial4.h"
+
 
 #include "DueTimer.h"
 
@@ -121,7 +125,7 @@ Synth *active_synths[] {
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),
   new SynthWavetable(inputs),
-  new SynthMini(inputs)
+  new SynthTutorial4(inputs)
 };
 
 

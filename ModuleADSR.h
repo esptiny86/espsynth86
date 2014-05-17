@@ -1,76 +1,59 @@
 /*
- *  +------------------------+
- *  | ModuleADSR             |
- *  |------------------------|
- *  > trigger input          |
- *  |                 output >
- *  +------------------------+
- *
- *
- *  For attack, decay, and release stages, time in seconds = parameter / 410
- *
- *  For example:
- *
- *    parameter     time
- *    =================================== 
- *    1           2.5ms   (1/410 = .0024)
- *    2           4.9ms   (2/410 = .0049)
- *    3           7.3ms   (3/410 = .0073)
- *    20           50ms or .05 seconds
- *    41          100ms or .1 seconds
- *    102         250ms or .25 seconds
- *    200         488ms or .48 seconds
- *    201         490ms or .49 seconds
- *    202         493ms or .49 seconds
- *    410         1 second
- *
- *    If you know the time in milliseconds, you can calculate the parameter using:
- *    parameter = floor((milliseconds * 410) / 1000)
- *
- *    For example, if you want an attack speed of .5 seconds (500ms), it would be:
- *    attack = floor((500 * 410) / 1000) = 205
+ *  +----------------------+
+ *  | ModuleADSR           |
+ *  |----------------------|
+ *  > gate_input           |
+ *  > frequency_input      |
+ *  > slope_input          |
+ *  |                      |
+ *  |               output >
+ *  +----------------------+
  */
  
 #ifndef ModuleADSR_h
 #define ModuleADSR_h
 
+#include "Arduino.h"
 #include "Module.h"
 
-// Constants for internal ADSR states
-#define ADSR_ATTACK 0
-#define ADSR_DECAY 1
-#define ADSR_SUSTAIN 2
-#define ADSR_RELEASE 3
-#define ADSR_INACTIVE 4
+#define ADSR_INACTIVE 0
+#define ADSR_ATTACK 1
+#define ADSR_DECAY 2
+#define ADSR_SUSTAIN 3
+#define ADSR_RELEASE 4
+
 
 class ModuleADSR : public Module
 {
+  
   public:
     ModuleADSR();
-    ModuleADSR(uint32_t attack_time, uint32_t decay_time, uint32_t sustain, uint32_t release_time);
-    uint32_t compute();
-	
-    void set(uint32_t attack_time, uint32_t decay_time, uint32_t sustain, uint32_t release_time);
-    void setAttackTime(uint32_t value);
-    void setDecayTime(uint32_t value);
-    void setSustain(uint32_t value);
-    void setReleaseTime(uint32_t value);
-    
+
     // Inputs
-    Module *trigger_input;     
+    Module *frequency_input;
+    Module *slope_input;
+    Module *trigger_input;
     
   private:
-    uint16_t state;         // ADSR_ATTACK, ADSR_DECAY, etc..
-    uint32_t counter;
-    uint32_t output;
-    boolean triggered;
-    
-    uint32_t attack_time;   // measured in milliseconds
-    uint32_t decay_time;    // measured in milliseconds
-    uint32_t sustain;  // measured in milliseconds
-    uint32_t release_time;  // measured in milliseconds
+  
+    // Functions
+    uint32_t compute();  
 
+    // Variables
+    uint32_t slope_index;
+    uint32_t frequency;
+    uint16_t slope;                    // The currenly selected wavetable
+    // uint32_t increments[128];
+    uint32_t increment;
+    bool triggered;
+    int state;
+    uint32_t adsr_output;
+    
+    // 10.22 fixed point number (using the upper 10 bits for addressing the indexes 
+    // up to 1024 (we only need 600), and an additional 22 bits (0-4194304) for simulating fractional values for
+    // use when incrementing the variable fractional values
+    uint32_t fixed_point_10_22_index;
+    uint32_t increment_by;
 };
 
 #endif
-

@@ -26,6 +26,6 @@ uint32_t ModuleLowpassFilter::compute()
   lpf.setCutoffFreq(cutoff);
   lpf.setResonance(resonance);
 
-  return(lpf.next(audio));
+  return(lpf.next(audio) >> 1);
 }
 
