@@ -3,8 +3,14 @@
  *  | ModuleDrumSequencer  |
  *  |----------------------|
  *  > clock_input          |
- *  > sequence_input       |
- *  |               output >
+ *  |                      |
+ *  > kick_pattern_input   |
+ *  > snare_pattern_input  |
+ *  > hat_pattern_input    |
+ *  |                      |
+ *  |          kick_output >
+ *  |         snare_output >
+ *  |           hat_output >
  *  +----------------------+
  *
  */
@@ -37,25 +43,33 @@
 
 #include "Arduino.h"
 #include "Module.h"
+#include "ModuleOutput.h"
+
 
 class ModuleDrumSequencer : public Module
 {
   
   public:
-    ModuleDrumSequencer(int bank);
+    ModuleDrumSequencer();
     uint32_t compute();
     
     // Inputs
     Module *clock_input;
-    Module *pattern_input;
+    Module *kick_pattern_input;
+    Module *snare_pattern_input;
+    Module *hihat_pattern_input;
     
+    // Outputs
+    ModuleOutput *kick_output;
+    ModuleOutput *snare_output;
+    ModuleOutput *hihat_output;    
+
   private:
     int bank; 
     int step;
     int patterns[3][8];  // 3 banks, 8 patterns per bank
     uint32_t old_clock;
     boolean clocked;
-    uint32_t my_output;
 };
 
 #endif

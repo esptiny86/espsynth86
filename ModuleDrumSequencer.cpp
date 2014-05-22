@@ -2,12 +2,11 @@
 #include "ModuleDrumSequencer.h"
 #include "Defines.h"
 
-ModuleDrumSequencer::ModuleDrumSequencer(int bank)
+ModuleDrumSequencer::ModuleDrumSequencer()
 {
   this->clocked = false;
   this->bank = bank;
   this->step = 0;
-  this->my_output = 0;
   
   this->patterns = {
     { 
@@ -47,30 +46,43 @@ ModuleDrumSequencer::ModuleDrumSequencer(int bank)
 
   // Initialize all inputs
   this->clock_input = NULL;
-  this->pattern_input = NULL;  
+  this->kick_pattern_input = NULL;  
+  this->snare_pattern_input = NULL;  
+  this->hihat_pattern_input = NULL;  
+
+  // Instantiate all outputs
+  kick_output = new ModuleOutput(this);
+  snare_output = new ModuleOutput(this);
+  hihat_output  = new ModuleOutput(this);
 }
 
 uint32_t ModuleDrumSequencer::compute()
 {
   uint32_t clock = this->readInput(clock_input);
-  
+
   if((clock < MID_CV) && clocked)
   {
     clocked = false;
-    my_output = 0;
+    kick_output->value = 0;
+    snare_output->value = 0;
+    hihat_output->value = 0;
   }
 
   if((clock >= MID_CV) && !clocked) 
   {
     clocked = true;
     
-    uint32_t selected_pattern = this->readInput(pattern_input, CONVERT_TO_3_BIT);
+    uint32_t kick_pattern = this->readInput(kick_pattern_input, CONVERT_TO_3_BIT);
+    uint32_t snare_pattern = this->readInput(snare_pattern_input, CONVERT_TO_3_BIT);
+    uint32_t hihat_pattern = this->readInput(hihat_pattern_input, CONVERT_TO_3_BIT);
     
-    my_output = bitRead(patterns[bank][selected_pattern], step) * MAX_CV;
+    kick_output->value = bitRead(patterns[0][kick_pattern], step) * MAX_CV;
+    snare_output->value = bitRead(patterns[0][snare_pattern], step) * MAX_CV;
+    hihat_output->value = bitRead(patterns[0][hihat_pattern], step) * MAX_CV;
     
     step++;
     if(step == 16) step = 0;
   }
-  
-  return(my_output);
+
+  return(kick_output->value);
 }

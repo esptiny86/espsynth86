@@ -23,22 +23,6 @@
 #ifndef LOWPASS_H_
 #define LOWPASS_H_
 
-/*
-simple resonant filter posted to musicdsp.org by Paul Kellett http://www.musicdsp.org/archive.php?classid=3#29
-
-// set feedback amount given f and q between 0 and 1
-fb = q + q/(1.0 - f);
-
-// for each sample...
-buf0 = buf0 + f * (in - buf0 + fb * (buf0 - buf1));
-buf1 = buf1 + f * (buf0 - buf1);
-out = buf1;
-
-fixed point version of the filter
-"dave's blog of art and programming" http://www.pawfal.org/dave/blog/2011/09/
-*/
-
-
 // we are using .n fixed point (n bits for the fractional part)
 #define FX_SHIFT 8
 #define SHIFTED_1 ((unsigned char) 255)

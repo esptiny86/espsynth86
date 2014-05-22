@@ -26,6 +26,6 @@ uint32_t ModuleHighpassFilter::compute()
   hpf.setCutoffFreq(cutoff);
   hpf.setResonance(resonance);
 
-  return(hpf.next(audio));
+  return(hpf.next(audio) >> 1);
 }
 

@@ -7,14 +7,20 @@
  *  > slope_input          |
  *  |                      |
  *  |               output >
+ *  |      inverted_output >
+ *  |           end_output >
  *  +----------------------+
  */
+ //
+ // TODO: Write detailed documentation here
+ //
  
 #ifndef ModuleENV_h
 #define ModuleENV_h
 
 #include "Arduino.h"
 #include "Module.h"
+#include "ModuleOutput.h"
 
 #define ENV_INACTIVE 0
 #define ENV_PLAYING 1
@@ -30,6 +36,11 @@ class ModuleENV : public Module
     Module *frequency_input;
     Module *slope_input;
     Module *trigger_input;
+
+    // Outputs
+    ModuleOutput *output;
+    ModuleOutput *inverted_output;
+    ModuleOutput *end_output;    
     
   private:
   

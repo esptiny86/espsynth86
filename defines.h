@@ -8,7 +8,7 @@
 #define NUMBER_OF_WAVETABLES 32
 #define WAVE_SAMPLES 512
 
-#define NUMBER_OF_SLOPES 6
+#define NUMBER_OF_SLOPES 10
 
 #define MAX_CV 4095
 #define MID_CV 2047

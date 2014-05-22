@@ -3,13 +3,6 @@
 #include "Defines.h"
 #include "Slopes.h"
 
-/*
-#define SAMPLE_RATE 44100.0
-#define SAMPLES_PER_CYCLE 512
-#define SAMPLES_PER_CYCLE_FIXEDPOINT (SAMPLES_PER_CYCLE<<20)
-#define TICKS_PER_CYCLE (float)((float)SAMPLES_PER_CYCLE_FIXEDPOINT/(float)SAMPLE_RATE)
-*/
-
 ModuleENV::ModuleENV()
 {
 	fixed_point_10_22_index = 0;
@@ -22,11 +15,18 @@ ModuleENV::ModuleENV()
 	this->trigger_input = NULL;
 	this->frequency_input = NULL;  
 	this->slope_input = NULL;
+
+	// Instantiate all outputs
+	this->output = new ModuleOutput(this);
+	this->inverted_output = new ModuleOutput(this);
+	this->end_output = new ModuleOutput(this);
 }
 
 uint32_t ModuleENV::compute()
 {
 	uint32_t trigger = readInput(this->trigger_input);
+
+	this->end_output->value = 0;
 
 	if((trigger >= MID_CV) && !triggered)
 	{
@@ -51,8 +51,7 @@ uint32_t ModuleENV::compute()
 		{
 			state = ENV_INACTIVE;
 			fixed_point_10_22_index = 0;
-
-			return(env_output);
+			this->end_output->value = MAX_CV;
 		}
 		else
 		{
@@ -60,22 +59,24 @@ uint32_t ModuleENV::compute()
 			fixed_point_10_22_index += increment;
 		}
 	}
-	else
+
+	if(state == ENV_PLAYING)
 	{
-		return(0);
+		// Read the wavetable input and map it to the appropriate range
+		slope = this->readInput(slope_input, 0, NUMBER_OF_SLOPES);
+		slope = constrain(slope, 0, NUMBER_OF_SLOPES - 1);
+
+		slope_index = fixed_point_10_22_index >> 22; // This should yeald a value between 0 and WAVE_SAMPLES
+
+		// This output will range from 0 to 4095 (which is a 12-bit value)
+		// The wavetable values range from 0 to 256, and the additional math
+		// below scales them between 0 and 4095.  
+
+		env_output = SLOPES[slope][slope_index] << 4;
 	}
 
-	// Read the wavetable input and map it to the appropriate range
-	slope = this->readInput(slope_input, 0, NUMBER_OF_SLOPES);
-	slope = constrain(slope, 0, NUMBER_OF_SLOPES - 1);
-
-	slope_index = fixed_point_10_22_index >> 22; // This should yeald a value between 0 and WAVE_SAMPLES
-
-	// This output will range from 0 to 4095 (which is a 12-bit value)
-	// The wavetable values range from 0 to 256, and the additional math
-	// below scales them between 0 and 4095.  
-
-	env_output = SLOPES[slope][slope_index] << 4;
+	this->output->value = env_output;
+	this->inverted_output->value = 4095 - env_output;
 
 	return(env_output);
 }

@@ -8,6 +8,7 @@
 #include "Inputs.h"
 
 #include "Module.h"
+#include "ModuleOutput.h"
 #include "ModuleArpeggio.h"
 #include "ModuleClock.h"
 #include "ModuleClockDivider.h"

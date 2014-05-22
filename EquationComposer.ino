@@ -36,6 +36,7 @@ Equation testing tools:
 TODO:
   - create add/subtract module
   - create sample/hold module
+  - create a switch module
   - remove notes table from oscillators
   - consider splitting ModuleLFO into: ModuleLFO(int rate) and ModuleVCLFO() 
   - use better datatypes than the uint32_t that I use everywhere out of laziness
@@ -125,7 +126,7 @@ Synth *active_synths[] {
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),
   new SynthWavetable(inputs),
-  new SynthTutorial4(inputs)
+  new SynthTutorial1(inputs)
 };
 
 

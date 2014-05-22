@@ -2,7 +2,7 @@
 
 SynthTutorial4::SynthTutorial4(Inputs* inputs)
 {
-  ModuleWavetableOsc *osc = new ModuleWavetableOsc();
+  ModuleWavetableOsc *wavetable_osc = new ModuleWavetableOsc();
   ModuleVCA *vca = new ModuleVCA();
   ModuleLowpassFilter *lowpass_filter = new ModuleLowpassFilter();
   ModuleENV *envelope_generator = new ModuleENV();
@@ -12,11 +12,11 @@ SynthTutorial4::SynthTutorial4(Inputs* inputs)
   envelope_generator->frequency_input = inputs->param1;
 
   // Patch up ocillator
-  osc->frequency_input = inputs->sr;
-  osc->wavetable_input = inputs->mod; 
+  wavetable_osc->frequency_input = inputs->sr;
+  wavetable_osc->wavetable_input = inputs->mod; 
   
-  // Patch up lowpass filter
-  lowpass_filter->audio_input = osc;
+  // Patch up filter
+  lowpass_filter->audio_input = wavetable_osc;
   lowpass_filter->cutoff_input = envelope_generator;
   lowpass_filter->resonance_input = inputs->param3;
 

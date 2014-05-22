@@ -23,6 +23,7 @@
 
 #include "Arduino.h"
 #include "Module.h"
+#include "ModuleOutput.h"
 
 class ModuleWavetableOsc : public Module
 {
@@ -34,7 +35,7 @@ class ModuleWavetableOsc : public Module
     // Inputs
     Module *frequency_input;   // Input module for controlling frequency
     Module *wavetable_input;   // Input module for controlling wavetable selection
-    
+
   private:
     uint32_t wavetable_index;  // An index into the wavetables array
     uint32_t wavetable;        // Which wavetable is currently selected

@@ -5,31 +5,28 @@ SynthDrumPlayer::SynthDrumPlayer(Inputs* inputs)
 {
   // Uses 3 different drum modules
 
-  ModuleDrumSequencer *kick_drum_sequencer = new ModuleDrumSequencer(0);
-  ModuleDrumSequencer *snare_drum_sequencer = new ModuleDrumSequencer(1);
-  ModuleDrumSequencer *hihat_drum_sequencer = new ModuleDrumSequencer(2);
+  ModuleDrumSequencer *drum_sequencer = new ModuleDrumSequencer();
+
   ModuleEqDrum *kick = new ModuleEqDrum();
   ModuleEqDrum *snare = new ModuleEqDrum();
   ModuleEqDrum *hihat = new ModuleEqDrum();
   ModuleMixer3 *mixer = new ModuleMixer3();
 
-  kick_drum_sequencer->clock_input = inputs->gate;
-  snare_drum_sequencer->clock_input = inputs->gate;
-  hihat_drum_sequencer->clock_input = inputs->gate;
+  drum_sequencer->clock_input = inputs->gate;
 
-  kick_drum_sequencer->pattern_input = inputs->param1;
-  snare_drum_sequencer->pattern_input = inputs->param2;
-  hihat_drum_sequencer->pattern_input = inputs->param3;
+  drum_sequencer->kick_pattern_input = inputs->param1;
+  drum_sequencer->snare_pattern_input = inputs->param2;
+  drum_sequencer->hihat_pattern_input = inputs->param3;
 
-  kick->trigger_input = kick_drum_sequencer;
+  kick->trigger_input = drum_sequencer->kick_output;
   kick->sample_rate_input = inputs->sr;
   kick->drum_selection_input = new ModuleConstant(0);
 
-  snare->trigger_input = snare_drum_sequencer;
+  snare->trigger_input = drum_sequencer->snare_output;
   snare->sample_rate_input = inputs->sr;
   snare->drum_selection_input = new ModuleConstant(3);
 
-  hihat->trigger_input = hihat_drum_sequencer;
+  hihat->trigger_input = drum_sequencer->hihat_output;;
   hihat->sample_rate_input = inputs->sr;
   hihat->drum_selection_input = new ModuleConstant(7);
 
