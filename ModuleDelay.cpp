@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleDelay.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleDelay::ModuleDelay()
 {

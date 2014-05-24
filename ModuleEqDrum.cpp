@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleEqDrum.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleEqDrum::ModuleEqDrum()
 {

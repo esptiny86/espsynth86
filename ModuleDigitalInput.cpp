@@ -1,5 +1,5 @@
 #include "ModuleDigitalInput.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleDigitalInput::ModuleDigitalInput(int input_pin)
 {

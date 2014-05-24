@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleSpeechSound.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleSpeechSound::ModuleSpeechSound()
 {

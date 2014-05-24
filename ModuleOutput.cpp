@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleOutput.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleOutput::ModuleOutput(Module *parent_module)
 {

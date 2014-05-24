@@ -1,5 +1,5 @@
 #include "ModuleVCClockDivider.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleVCClockDivider::ModuleVCClockDivider()
 {

@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleEquationLooper.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleEquationLooper::ModuleEquationLooper(Equations *equations)
 {

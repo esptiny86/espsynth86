@@ -1,6 +1,6 @@
 // These equations gererate relatively simple waveforms
 
-#include "Defines.h"
+#include "defines.h"
 #include "EquationsWavetable.h"
 
 // If you add or subtract equatitions from this list, you'll need to update 

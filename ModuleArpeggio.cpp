@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleArpeggio.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleArpeggio::ModuleArpeggio()
 {

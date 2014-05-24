@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleDrum.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleDrum::ModuleDrum()
 {

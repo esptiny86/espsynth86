@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleWords.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleWords::ModuleWords()
 {

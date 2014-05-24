@@ -1,7 +1,7 @@
 /*
 #include "Arduino.h"
 #include "ModuleWalkSequencer.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleWalkSequencer::ModuleWalkSequencer()
 {

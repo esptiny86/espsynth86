@@ -1,5 +1,5 @@
 #include "ModuleClockDivider.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleClockDivider::ModuleClockDivider(int clock_division)
 {

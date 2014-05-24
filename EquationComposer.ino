@@ -37,7 +37,7 @@ TODO:
   - create add/subtract module
   - create sample/hold module
   - create a switch module
-  - remove notes table from oscillators
+  - create a quantizer module
   - consider splitting ModuleLFO into: ModuleLFO(int rate) and ModuleVCLFO() 
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   

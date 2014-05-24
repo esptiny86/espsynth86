@@ -1,4 +1,4 @@
-#include "Defines.h"
+#include "defines.h"
 #include "Equations.h"
 
 // If you add or subtract equatitions from this list, you'll need to update 

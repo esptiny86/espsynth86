@@ -1,4 +1,4 @@
-#include "Defines.h"
+#include "defines.h"
 #include "SynthAutoDrum.h"
 
 SynthAutoDrum::SynthAutoDrum(Inputs* inputs)

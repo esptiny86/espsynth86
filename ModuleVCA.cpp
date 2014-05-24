@@ -1,5 +1,5 @@
 #include "ModuleVCA.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleVCA::ModuleVCA()
 {

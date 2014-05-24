@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleSmooth.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleSmooth::ModuleSmooth()
 {

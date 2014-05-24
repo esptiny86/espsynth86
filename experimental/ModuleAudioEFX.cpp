@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleAudioEFX.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleAudioEFX::ModuleAudioEFX(Equations *equations)
 {

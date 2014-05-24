@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleADSR.h"
-#include "Defines.h"
+#include "defines.h"
 
 ModuleADSR::ModuleADSR()
 {

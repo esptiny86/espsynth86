@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleLFO.h"
-#include "Defines.h"
+#include "defines.h"
 #include "Wavetables.h"
 
 #define SAMPLE_RATE 44100.0
