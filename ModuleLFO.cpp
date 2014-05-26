@@ -3,20 +3,14 @@
 #include "defines.h"
 #include "Wavetables.h"
 
-#define SAMPLE_RATE 44100.0
-#define SAMPLES_PER_CYCLE 512
-#define SAMPLES_PER_CYCLE_FIXEDPOINT (SAMPLES_PER_CYCLE<<20)
-#define TICKS_PER_CYCLE (float)((float)SAMPLES_PER_CYCLE_FIXEDPOINT/(float)SAMPLE_RATE)
-
 ModuleLFO::ModuleLFO()
 {
   fixed_point_10_22_index = 0;
-    
-  for(uint32_t i=0; i < 128; i++)
+
+  for(uint32_t i=0; i < 4096; i++)
   {
-    float frequency = ((pow(2.0,(i-69.0)/12.0)) * 44.0);  // 440.0/10 for lower frequencies
-    increments[i] = frequency * TICKS_PER_CYCLE;
-  }
+    increments[i] = ((float)(512 << 20)/(float)44100) * 0.1 * pow(2.0,((10.0*i)/4096.0));
+  }  
 
   // Initialize all module inputs to NULL
   this->frequency_input = NULL;  
@@ -26,7 +20,7 @@ ModuleLFO::ModuleLFO()
 uint32_t ModuleLFO::compute()
 {
   // Read frequency input.  
-  frequency = this->readInput(frequency_input, CONVERT_TO_10_BIT);
+  frequency = this->readInput(frequency_input);
   
   // Read the wavetable input and map it to the appropriate range
   wavetable = this->readInput(wavetable_input, 0, NUMBER_OF_WAVETABLES);
@@ -41,5 +35,5 @@ uint32_t ModuleLFO::compute()
   // This output will range from 0 to 4095 (which is a 12-bit value)
   // The slope values range from -128 to 127, and the additional math
   // below scales them between 0 and 4095.  
-  return((WAVETABLES[wavetable][wavetable_index] + 128) << 4);
+  return(WAVETABLES[wavetable][wavetable_index] << 4);
 }

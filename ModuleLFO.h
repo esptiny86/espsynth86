@@ -34,7 +34,7 @@ class ModuleLFO : public Module
     uint32_t wavetable_index;
     uint32_t frequency;
     uint16_t wavetable;                    // The currenly selected wavetable
-    uint32_t increments[128];
+    uint32_t increments[4096];
     
     // 10.22 fixed point number (using the upper 10 bits for addressing the indexes 
     // up to 1024 (we only need 600), and an additional 22 bits (0-4194304) for simulating fractional values for

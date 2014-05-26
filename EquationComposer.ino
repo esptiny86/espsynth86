@@ -38,7 +38,6 @@ TODO:
   - update LFO module's computations to be more like ModuleWavetableOsc
   - create a quantizer module
   - complete example for Sample & Hold module
-  - complete example for switch module
   - consider splitting ModuleLFO into: ModuleLFO(int rate) and ModuleVCLFO() 
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   
@@ -94,6 +93,7 @@ Programming notes
 #include "SynthTutorial3.h"
 #include "SynthTutorial4.h"
 #include "SynthTutorial5.h"
+#include "SynthTutorial6.h"
 
 #include "DueTimer.h"
 
@@ -119,7 +119,7 @@ Synth *active_synths[] {
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),
   new SynthWavetable(inputs),
-  new SynthTutorial5(inputs)
+  new SynthTutorial6(inputs)
 };
 
 
