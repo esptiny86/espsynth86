@@ -241,7 +241,7 @@ char SLOPES[][512]  =
 Ascii art by: http://www.glassgiant.com/ascii/
 
 
-HTML application for painting slopes by hand:
+HTML application for painting slopes by hand.  Written by Bret Truchan.
 
 // index.html
 // ====================================================================================

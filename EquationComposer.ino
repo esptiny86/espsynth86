@@ -36,9 +36,9 @@ Equation testing tools:
 TODO:
   - create add/subtract module
   - update LFO module's computations to be more like ModuleWavetableOsc
-  - create a switch module
   - create a quantizer module
   - complete example for Sample & Hold module
+  - complete example for switch module
   - consider splitting ModuleLFO into: ModuleLFO(int rate) and ModuleVCLFO() 
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   
