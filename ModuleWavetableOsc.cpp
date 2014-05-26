@@ -3,22 +3,6 @@
 #include "defines.h"
 #include "Wavetables.h"
 
-#define SAMPLE_RATE 44100.0
-#define SAMPLES_PER_CYCLE 512
-#define SAMPLES_PER_CYCLE_FIXEDPOINT (SAMPLES_PER_CYCLE<<20)
-#define TICKS_PER_CYCLE (float)((float)SAMPLES_PER_CYCLE_FIXEDPOINT/(float)SAMPLE_RATE)
-
-/*
-
-512 wavesamples
-4 volts / 220 hz
-
-
-
-
-
-*/
-
 ModuleWavetableOsc::ModuleWavetableOsc()
 {
   fixed_point_10_22_index = 0;

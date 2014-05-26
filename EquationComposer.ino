@@ -38,7 +38,7 @@ TODO:
   - update LFO module's computations to be more like ModuleWavetableOsc
   - create a switch module
   - create a quantizer module
-  - complete example for sample and hold module
+  - complete example for Sample & Hold module
   - consider splitting ModuleLFO into: ModuleLFO(int rate) and ModuleVCLFO() 
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   
@@ -71,10 +71,6 @@ Programming notes
 // Equations.h is a class that holds a majority of the equations used in this 
 // module.  If you want to add an equation, Equations.cpp is the place to do it.
 #include "Equations.h"
-
-// EquationsWavetable.h holds a small batch of equations that produce waveforms
-// that are similar to wavetables.
-#include "EquationsWavetable.h"
 
 // More traditional array-based wavetables
 #include "Wavetables.h"
@@ -111,11 +107,7 @@ Inputs *inputs = new Inputs();
 // Since there are a lot of equations to share among modules, they've
 // been put into their own class, which is passed through to the 
 // modules that need access to them.
-// * Equations contains all of the core equations (the fun stuff)
-// * EquationsWavetable contains simpler equations good for generating wavetables
 Equations *equations = new Equations();
-EquationsWavetable *equations_wavetable = new EquationsWavetable();
-
 
 // Instantiate synths which are selectable via the PRG knob
 // Any new synth must be added to this list
