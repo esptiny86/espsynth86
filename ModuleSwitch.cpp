@@ -8,6 +8,8 @@ ModuleSwitch::ModuleSwitch()
 
 uint32_t ModuleSwitch::compute()
 {  
+  // Serial.println(this->readInput(select_input));
+
   if(this->readInput(select_input) >= MID_CV)
   {
     return(this->readInput(b_input));

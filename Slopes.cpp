@@ -5,7 +5,7 @@
 // 
 // See bottom of this file for more information.
 
-char SLOPES[][512]  = 
+uint8_t SLOPES[][512] = 
 {
 
 

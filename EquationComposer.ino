@@ -93,7 +93,7 @@ Programming notes
 #include "SynthTutorial2.h"
 #include "SynthTutorial3.h"
 #include "SynthTutorial4.h"
-
+#include "SynthTutorial5.h"
 
 #include "DueTimer.h"
 
@@ -119,7 +119,7 @@ Synth *active_synths[] {
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),
   new SynthWavetable(inputs),
-  new SynthTutorial1(inputs)
+  new SynthTutorial5(inputs)
 };
 
 

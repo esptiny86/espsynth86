@@ -33,7 +33,5 @@ uint32_t ModuleWavetableOsc::compute()
   wavetable_index = fixed_point_10_22_index >> 22; // This should yeald a value between 0 and WAVE_SAMPLES
 
   // This output will range from 0 to 4080 (which is a 12-bit value)
-  // The wavetable values range from -128 to 127, and the additional math
-  // below scales them between 0 and 4095.
-  return((WAVETABLES[wavetable][wavetable_index] + 128) << 4);
+  return(WAVETABLES[wavetable][wavetable_index] << 4);
 }
