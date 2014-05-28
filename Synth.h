@@ -20,6 +20,7 @@
 #include "ModuleEqDrum.h"
 #include "ModuleEquationPlayer.h"
 #include "ModuleEquationLooper.h"
+#include "ModuleExtClock.h"
 #include "ModuleHighpassFilter.h"
 #include "ModuleLFO.h"
 #include "ModuleLowpassFilter.h"

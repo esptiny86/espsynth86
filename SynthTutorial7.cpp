@@ -2,7 +2,9 @@
 
 SynthTutorial7::SynthTutorial7(Inputs* inputs)
 {
-	ModuleClock *clock = new ModuleClock(120);
+	ModuleExtClock *ext_clock = new ModuleExtClock(120);
+	ext_clock->clock_input = inputs->gate;
+
 	ModuleClockDivider *clock_divider = new ModuleClockDivider();
 	ModuleLFO *lfo = new ModuleLFO();
 	ModuleEqDrum *drum_sound= new ModuleEqDrum();
@@ -13,7 +15,7 @@ SynthTutorial7::SynthTutorial7(Inputs* inputs)
 
 	map_0_24->input = lfo;
 
-	clock_divider->clock_input = clock;
+	clock_divider->clock_input = ext_clock;
 	clock_divider->division_input = map_0_24;
 
 	drum_sound->drum_selection_input = inputs->mod;

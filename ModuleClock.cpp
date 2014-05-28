@@ -7,7 +7,6 @@ ModuleClock::ModuleClock(uint32_t bpm, int clock_division)
   this->counter = 0;  
   this->bpm = constrain(bpm, 0, 254);
   
-  // Initialize table for different frequencies based on BPM
   for(uint32_t bpm_i=0; bpm_i < 255; bpm_i++)
   {
     bpm_ppqn[bpm_i] = ((float)(60 * SAMPLE_RATE * clock_division)/((float)bpm_i * 96.0));
@@ -20,7 +19,6 @@ ModuleClock::ModuleClock(uint32_t bpm)
   this->counter = 0;  
   this->bpm = constrain(bpm, 0, 254);
   
-  // Initialize table for different frequencies based on BPM
   for(uint32_t bpm_i=0; bpm_i < 255; bpm_i++)
   {
     bpm_ppqn[bpm_i] = ((float)(60 * SAMPLE_RATE)/((float)bpm_i * 96.0));

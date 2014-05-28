@@ -37,7 +37,7 @@ TODO:
   - create add/subtract module
   - create a quantizer module
   - complete example for Sample & Hold module
-  - work on clock module (96ppqn?) 
+  - create clock detector module, hook up to switch for synth tutorial7
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   
 Programming notes
