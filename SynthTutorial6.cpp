@@ -17,6 +17,7 @@ SynthTutorial6::SynthTutorial6(Inputs* inputs)
   // Patch up filter
   lowpass_filter->audio_input = wavetable_osc;
   lowpass_filter->cutoff_input = lfo;
+  lowpass_filter->resonance_input = inputs->param3;
 
   this->last_module = lowpass_filter;
 }

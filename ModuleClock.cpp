@@ -10,10 +10,9 @@ ModuleClock::ModuleClock(uint32_t bpm, int clock_division)
   // Initialize table for different frequencies based on BPM
   for(uint32_t bpm_i=0; bpm_i < 255; bpm_i++)
   {
-    bpm_ticks[bpm_i] = ((float)(60 * SAMPLE_RATE)/((float)bpm_i * (float)clock_division));
-    bpm_half_ticks[bpm_i] = bpm_ticks[bpm_i] / 2;
-  }  
-
+    bpm_ppqn[bpm_i] = ((float)(60 * SAMPLE_RATE * clock_division)/((float)bpm_i * 96.0));
+    bpm_half_ppqn[bpm_i] = bpm_ppqn[bpm_i] / 2;
+  }   
 }
 
 ModuleClock::ModuleClock(uint32_t bpm)
@@ -24,10 +23,9 @@ ModuleClock::ModuleClock(uint32_t bpm)
   // Initialize table for different frequencies based on BPM
   for(uint32_t bpm_i=0; bpm_i < 255; bpm_i++)
   {
-    bpm_ticks[bpm_i] = ((float)(60 * SAMPLE_RATE)/((float)bpm_i * 96.0));
-    bpm_half_ticks[bpm_i] = bpm_ticks[bpm_i] / 2;
+    bpm_ppqn[bpm_i] = ((float)(60 * SAMPLE_RATE)/((float)bpm_i * 96.0));
+    bpm_half_ppqn[bpm_i] = bpm_ppqn[bpm_i] / 2;
   }  
-
 }
 
 
@@ -42,7 +40,7 @@ uint32_t ModuleClock::compute()
   //        |     |
   //   _____|     |
 
-  if(this->counter == this->bpm_ticks[bpm]) 
+  if(this->counter == this->bpm_ppqn[bpm]) 
   {
     this->counter = 0;
     return(0);
@@ -55,7 +53,7 @@ uint32_t ModuleClock::compute()
   //        |     |
   //   _____|     |
   
-  if (this->counter >= this->bpm_half_ticks[bpm])
+  if (this->counter >= this->bpm_half_ppqn[bpm])
   {
     return(MAX_CV);
   }

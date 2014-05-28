@@ -35,10 +35,9 @@ Equation testing tools:
 
 TODO:
   - create add/subtract module
-  - update LFO module's computations to be more like ModuleWavetableOsc
   - create a quantizer module
   - complete example for Sample & Hold module
-  - consider splitting ModuleLFO into: ModuleLFO(int rate) and ModuleVCLFO() 
+  - work on clock module (96ppqn?) 
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   
 Programming notes
@@ -94,6 +93,7 @@ Programming notes
 #include "SynthTutorial4.h"
 #include "SynthTutorial5.h"
 #include "SynthTutorial6.h"
+#include "SynthTutorial7.h"
 
 #include "DueTimer.h"
 
@@ -119,7 +119,7 @@ Synth *active_synths[] {
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),
   new SynthWavetable(inputs),
-  new SynthTutorial6(inputs)
+  new SynthTutorial7(inputs)
 };
 
 

@@ -2,7 +2,8 @@
  *  +----------------------+
  *  | ModuleClockDivider   |
  *  |----------------------|
- *  > Clock Input          |
+ *  > clock_input          |
+ *  > division_input       |
  *  |               output >
  *  +----------------------+
  *
@@ -29,8 +30,9 @@
  *  Example usage:
  *
  *    ModuleClock *clock = new ModuleClock(120);
- *    ModuleClockDivider *clock_divider = new ModuleClockDivider(24);
+ *    ModuleClockDivider *clock_divider = new ModuleClockDivider();
  *    clock_divider->clock_input = clock;
+ *    clock_divider->division_input = new ModuleConstant(96);
  *
  *  For Whole Notes, divide by 96
  *  For Half Notes, divide by 48
@@ -49,11 +51,12 @@
 class ModuleClockDivider : public Module
 {
   public:
-    ModuleClockDivider(int clock_division);
+    ModuleClockDivider();
     uint32_t compute();
     
     // inputs
     Module *clock_input;
+    Module *division_input;
     
   private:
     uint32_t counter;

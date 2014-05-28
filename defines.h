@@ -46,12 +46,12 @@
 // Define clock divisions for use in ModuleClock constructor
 // Note: These can't be used as input the clock divider, although
 // one would assume that would be the case!
-#define WHOLE_NOTE_CLOCK_DIVISION 1
-#define HALF_NOTE_CLOCK_DIVISION 3
-#define QUARTER_NOTE_CLOCK_DIVISION 6
-#define EIGHTH_NOTE_CLOCK_DIVISION 12
+#define WHOLE_NOTE_CLOCK_DIVISION 384
+#define HALF_NOTE_CLOCK_DIVISION 192
+#define QUARTER_NOTE_CLOCK_DIVISION 96
+#define EIGHTH_NOTE_CLOCK_DIVISION 48
 #define SIXTEENTH_NOTE_CLOCK_DIVISION 24
-#define THIRTY_SECOND_NOTE_CLOCK_DIVISION 48
+#define THIRTY_SECOND_NOTE_CLOCK_DIVISION 12
 
 // ADSR shortcuts
 #define ADSR_PRESET_BLIP 1,41,0,0

@@ -1,10 +1,10 @@
 #include "ModuleClockDivider.h"
 #include "defines.h"
 
-ModuleClockDivider::ModuleClockDivider(int clock_division)
+ModuleClockDivider::ModuleClockDivider()
 {
   this->counter = 0;  
-  this->clock_division = clock_division;
+  this->clock_division = 0;
   this->clocked = false;
   this->my_output = 0;
 
@@ -14,6 +14,7 @@ ModuleClockDivider::ModuleClockDivider(int clock_division)
 uint32_t ModuleClockDivider::compute()
 {
   uint32_t clock = this->readInput(clock_input);
+  uint32_t clock_division = this->readInput(division_input);
   
   if((clock < MID_CV) && clocked) clocked = false;
   

@@ -23,6 +23,7 @@
 #include "ModuleHighpassFilter.h"
 #include "ModuleLFO.h"
 #include "ModuleLowpassFilter.h"
+#include "ModuleMap.h"
 #include "ModuleMixer3.h"
 #include "ModuleSampleAndHold.h"
 #include "ModuleSequencer.h"
