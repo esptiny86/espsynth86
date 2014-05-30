@@ -37,7 +37,6 @@ TODO:
   - create add/subtract module
   - create a quantizer module
   - complete example for Sample & Hold module
-  - create clock detector module, hook up to switch for synth tutorial7
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   
 Programming notes
@@ -94,6 +93,7 @@ Programming notes
 #include "SynthTutorial5.h"
 #include "SynthTutorial6.h"
 #include "SynthTutorial7.h"
+#include "SynthTutorial8.h"
 
 #include "DueTimer.h"
 
@@ -119,7 +119,7 @@ Synth *active_synths[] {
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),
   new SynthWavetable(inputs),
-  new SynthTutorial7(inputs)
+  new SynthTutorial8(inputs)
 };
 
 

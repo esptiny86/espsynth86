@@ -6,12 +6,12 @@
  *  |               output >
  *  +----------------------+
  *
- *  -----------------------------------------------------------------------------
- *  This module differs from the ModuleClock as it will stop generating
- *  clock pulses when a clock signal is detected at ext_input.  When an external
- *  clock signal is present, it is passed through to the output and the internal
- *  clock generator is suspended.
- *  -----------------------------------------------------------------------------
+ *  ------------------------------------------------------------------------------
+ *  When an external clock signal is present at clock_input, that signal
+ *  is passed through to the output, and the internal clock generator is suspended.  
+ *  This module is great for creating synths that can run off of either an 
+ *  internally generated clock or externally supplied clock signal.
+ *  ------------------------------------------------------------------------------
  *
  *  The ext clock module produces a square wave with a 50% duty cycle starting low.
  *           _____       _____

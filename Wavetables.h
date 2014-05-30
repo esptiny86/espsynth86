@@ -1,6 +1,6 @@
 #ifndef Wavetables_h
 #define Wavetables_h
 
-extern char WAVETABLES[][512];
+extern uint8_t WAVETABLES[][512];
 
 #endif
