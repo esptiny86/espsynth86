@@ -11,6 +11,7 @@
 #include "ModuleOutput.h"
 #include "ModuleArpeggio.h"
 #include "ModuleClock.h"
+#include "ModuleClockedRandom.h"
 #include "ModuleClockDivider.h"
 #include "ModuleConstant.h"
 #include "ModuleCounter.h"
