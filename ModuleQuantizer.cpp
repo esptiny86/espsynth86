@@ -3,16 +3,12 @@
 #include "defines.h"
 #include "Scales.h"
 
-ModuleQuantizer::ModuleQuantizer()
-{
-}
-
 uint32_t ModuleQuantizer::compute()
 {
 	uint32_t cv;
 	uint32_t scale = this->readInput(this->scale_input, 0, 4);
 
-	// NOTES array and scale arrays are defined in Scales.h/Scales.cpp
+	// The NOTES array and scale arrays are defined in Scales.h/Scales.cpp
 
 	switch(scale) {
 		case 0:

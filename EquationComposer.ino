@@ -2,6 +2,8 @@
  ___  __        __  ___ _  __           ___  __        __   __   ___  ___  __  
 |___ |  | |  | |__|  |  | |  | |\ |    |    |  | |\/| |__] |  | [__  |___ |__/ 
 |___ |_\| |__| |  |  |  | |__| | \|    |___ |__| |  | |    |__| ___] |___ |  \ 
+
+                                                         // by microbe modular
 // =============================================================================
        
 Copyright 2014 Bret Truchan
@@ -34,9 +36,12 @@ Equation testing tools:
   Note: When using any bytebeat tool, make sure to set the output rate to 44,100  
 
 TODO:
+  - create pattern generator module
+  - create gitter module
+  - create drift module
   - create add/subtract module
-  - create a quantizer module
-  - complete example for Sample & Hold module
+  - create clocked random number generator
+  - create example for Sample & Hold module
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   
 Programming notes
@@ -94,6 +99,7 @@ Programming notes
 #include "SynthTutorial6.h"
 #include "SynthTutorial7.h"
 #include "SynthTutorial8.h"
+#include "SynthTutorial9.h"
 
 #include "DueTimer.h"
 
@@ -109,7 +115,7 @@ Inputs *inputs = new Inputs();
 // modules that need access to them.
 Equations *equations = new Equations();
 
-// Instantiate synths which are selectable via the PRG knob
+// Instantiate synths, which are selectable via the PRG knob.
 // Any new synth must be added to this list
 
 #define NUMBER_OF_SYNTHS 5
@@ -119,7 +125,7 @@ Synth *active_synths[] {
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),
   new SynthWavetable(inputs),
-  new SynthTutorial8(inputs)
+  new SynthTutorial9(inputs)
 };
 
 

@@ -40,8 +40,6 @@ class ModuleWavetableOsc : public Module
     uint32_t wavetable_index;  // An index into the wavetables array
     uint32_t wavetable;        // Which wavetable is currently selected
     uint32_t frequency;        // An index into the increments table
-    
-    // uint16_t wavetables[NUMBER_OF_WAVETABLES][WAVE_SAMPLES];
     uint32_t increments[4096];
     
     // 10.22 fixed point number (using the upper 10 bits for addressing the indexes 

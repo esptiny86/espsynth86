@@ -10,7 +10,33 @@
  */
 // =============================================================================
 // 
-// TODO: description and documentation here
+// ModuleQuantizer is a simple note quantizer based on scales.
+//
+// There are two inputs to the ModuleQuantizer:
+//
+//   cv_input: The signal to quantize
+//   scale_input: Selects the scale for quantization
+//
+// The scales themselves are defined in Scales.cpp:
+//
+//   0: CHROMATIC
+//   1: IONIAN
+//   2: DORIAN
+//   3: LYDIAN
+//   4: PHRYGIAN
+//
+// Example usage:
+//
+//   ModuleQuantizer *quantizer = new ModuleQuantizer();
+//   ModuleWavetableOsc *osc = new ModuleWavetableOsc();
+//
+//   osc->wavetable_input  = inputs->mod;
+//   osc->frequency_input  = inputs->sr;
+//
+//   quantizer->cv_input = osc;
+//   quantizer->scale_input = inputs->param1;
+//
+//   this->last_module = quantizer;
 //
 
 
@@ -24,7 +50,6 @@ class ModuleQuantizer : public Module
 {
   
   public:
-    ModuleQuantizer();
     uint32_t compute();
     
     // Inputs

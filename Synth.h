@@ -26,6 +26,7 @@
 #include "ModuleLowpassFilter.h"
 #include "ModuleMap.h"
 #include "ModuleMixer3.h"
+#include "ModulePatternGenerator.h"
 #include "ModuleQuantizer.h"
 #include "ModuleSampleAndHold.h"
 #include "ModuleSequencer.h"
