@@ -35,7 +35,6 @@
 #include "ModuleSoundToy.h"
 #include "ModuleSwitch.h"
 #include "ModuleVCA.h"
-#include "ModuleVCClockDivider.h"
 #include "ModuleVocalizer.h"
 #include "ModuleWavetableOsc.h"
 #include "ModuleWords.h"

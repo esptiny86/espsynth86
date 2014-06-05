@@ -2,12 +2,17 @@
 
 SynthTutorial3::SynthTutorial3(Inputs* inputs)
 {
-	/*
-	ModuleDrumSequencer *kick_drum_sequencer = new ModuleDrumSequencer();
+  ModuleWavetableOsc *wavetable_osc = new ModuleWavetableOsc();
+  ModuleLowpassFilter *lowpass_filter = new ModuleLowpassFilter();
 
-	kick_drum_sequencer->pattern_input = inputs->mod;
-	kick_drum_sequencer->clock_input = inputs->gate;
+  // Patch up ocillator
+  wavetable_osc->frequency_input = inputs->sr;
+  wavetable_osc->wavetable_input = inputs->mod; 
 
-	this->last_module = kick_drum_sequencer;
-	*/
+  // Patch up filter
+  lowpass_filter->audio_input = wavetable_osc;
+  lowpass_filter->cutoff_input = inputs->param1;
+  lowpass_filter->resonance_input = inputs->param2;
+
+  this->last_module = lowpass_filter;
 }

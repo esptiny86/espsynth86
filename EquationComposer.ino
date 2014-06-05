@@ -36,11 +36,11 @@ Equation testing tools:
   Note: When using any bytebeat tool, make sure to set the output rate to 44,100  
 
 TODO:
-  - create pattern generator module
-  - create gitter module
+
+  - make sure that constant modules can be negative numbers, or create a subtraction module
+  - create jitter module
   - create drift module
   - create add/subtract module
-  - create clocked random number generator
   - create example for Sample & Hold module
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   
@@ -78,7 +78,6 @@ Programming notes
 #include "Wavetables.h"
 
 // Include each synth
-#include "SynthArp1.h"
 #include "SynthAutoDrum.h"
 #include "SynthDrumPlayer.h"
 #include "SynthDrumSelektor.h"
@@ -126,7 +125,7 @@ Synth *active_synths[] {
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),
   new SynthWavetable(inputs),
-  new SynthTutorial10(inputs)
+  new SynthTutorial3(inputs)
 };
 
 
