@@ -41,6 +41,7 @@ TODO:
   - create jitter module
   - create drift module
   - create add/subtract module
+  - create table lookup module
   - create example for Sample & Hold module
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   

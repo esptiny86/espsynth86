@@ -10,7 +10,7 @@ uint32_t Equations::compute(int equation_number, uint32_t t, uint32_t p1, uint32
   switch(equation_number)
   {
     
-    case 0: // Arppegiation
+    case 0: // Arpeggiation
       p = t/(1236+p1)%128 & ((t>>(p3>>5))*232);
       q = t/(t/(500*p2) % 5 + 1)%p;
       w = (t>>q>>(p1>>5)) + (t/(t>>((p3>>5)&12))>>p);

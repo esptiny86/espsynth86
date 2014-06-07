@@ -7,7 +7,7 @@ SynthTutorial3::SynthTutorial3(Inputs* inputs)
 
   // Patch up ocillator
   wavetable_osc->frequency_input = inputs->sr;
-  wavetable_osc->wavetable_input = inputs->mod; 
+  wavetable_osc->wavetable_input = inputs->mod;
 
   // Patch up filter
   lowpass_filter->audio_input = wavetable_osc;

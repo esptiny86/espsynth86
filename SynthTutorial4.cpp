@@ -2,11 +2,12 @@
 
 SynthTutorial4::SynthTutorial4(Inputs* inputs)
 {
+  // Create the modules
   ModuleWavetableOsc *wavetable_osc = new ModuleWavetableOsc();
-  ModuleVCA *vca = new ModuleVCA();
   ModuleLowpassFilter *lowpass_filter = new ModuleLowpassFilter();
   ModuleENV *envelope_generator = new ModuleENV();
 
+  // Patch up envelope generator
   envelope_generator->slope_input = inputs->param2;
   envelope_generator->trigger_input = inputs->gate;
   envelope_generator->frequency_input = inputs->param1;
