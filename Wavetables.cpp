@@ -8,7 +8,7 @@
 // in the equation composer would range from 0 to 4095, but I decided to keep the 
 // wavetables in the "raw" format to make it easier for people to add their own.
 //
-// Note: If you add more wavetables, change the NUMBER_OF_WAVETABLES in defined.h
+// Note: If you add more wavetables, change the NUMBER_OF_WAVETABLES in defines.h
 
 uint8_t WAVETABLES[][512]  = 
 {

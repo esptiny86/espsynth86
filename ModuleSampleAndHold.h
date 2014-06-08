@@ -15,7 +15,8 @@
 // A rising clock signal at trigger_input samples the value at sample_input and
 // outputs it.
 //
-// Example pending.
+// Example usage:
+//
 //
 
  
