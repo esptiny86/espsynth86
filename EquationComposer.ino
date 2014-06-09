@@ -84,8 +84,6 @@ Programming notes
 #include "SynthDrumSelektor.h"
 #include "SynthEquationPlayer.h"
 #include "SynthEquationLooper.h"
-#include "SynthSoundToy.h"
-#include "SynthPassthroughTest.h"
 #include "SynthPhonetics.h"
 #include "SynthMini.h"
 #include "SynthVerbalizer.h"

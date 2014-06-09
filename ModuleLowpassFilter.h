@@ -31,10 +31,7 @@ class ModuleLowpassFilter : public Module
     Module *cutoff_input;
     Module *resonance_input;
 
-    // Public variables
-    
-    // A low pass filter object from LowPassFilter.h, not to be
-    // confused with the ModuleLowpassFilter type.
+    // A low pass filter object from LowPassFilter.h, not to beconfused with the ModuleLowpassFilter type.
     LowPassFilter lpf;    
                      
 };
