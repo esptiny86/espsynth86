@@ -1,3 +1,6 @@
+// Each module in the Equation Composer should be included here.
+// This file is included in Synths.h
+
 #include "Module.h"
 #include "ModuleOutput.h"
 #include "ModuleArpeggio.h"
@@ -17,7 +20,9 @@
 #include "ModuleLFO.h"
 #include "ModuleLowpassFilter.h"
 #include "ModuleMap.h"
+#include "ModuleMixer2.h"
 #include "ModuleMixer3.h"
+#include "ModuleMultiply.h"
 #include "ModulePatternGenerator.h"
 #include "ModuleQuantizer.h"
 #include "ModuleSampleAndHold.h"

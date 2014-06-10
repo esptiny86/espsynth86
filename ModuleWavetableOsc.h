@@ -37,6 +37,7 @@ class ModuleWavetableOsc : public Module
     // Inputs
     Module *frequency_input;   // Input module for controlling frequency
     Module *wavetable_input;   // Input module for controlling wavetable selection
+    Module *phase_input;   // Input module for controlling phase offset
 
   private:
     uint32_t wavetable_index;  // An index into the wavetables array
@@ -49,6 +50,7 @@ class ModuleWavetableOsc : public Module
     // use when incrementing the variable fractional values
     uint32_t fixed_point_10_22_index;
     uint32_t increment_by;
+    uint16_t phase;
 };
 
 #endif

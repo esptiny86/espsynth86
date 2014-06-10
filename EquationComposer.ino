@@ -43,6 +43,7 @@ TODO:
   - create add/subtract module
   - create table lookup module
   - create example for Sample & Hold module
+  - add phase input to ModuleOscWavetable?
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   
 Programming notes
@@ -99,6 +100,8 @@ Programming notes
 #include "SynthTutorial8.h"
 #include "SynthTutorial9.h"
 #include "SynthTutorial10.h"
+#include "SynthTutorial11.h"
+#include "SynthTutorial12.h"
 
 #include "DueTimer.h"
 
@@ -117,14 +120,14 @@ Equations *equations = new Equations();
 // Instantiate synths, which are selectable via the PRG knob.
 // Any new synth must be added to this list
 
-#define NUMBER_OF_SYNTHS 5
+#define NUMBER_OF_SYNTHS 4
 
 Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),
-  new SynthWavetable(inputs),
-  new SynthTutorial3(inputs)
+  // new SynthWavetable(inputs),
+  new SynthTutorial12(inputs)
 };
 
 
