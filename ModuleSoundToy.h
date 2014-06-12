@@ -2,6 +2,8 @@
 #define ModuleSoundToy_h
 
 #include "Module.h"
+#include "FixedPointMath.h"
+#include "Rand.h"
 
 class ModuleSoundToy : public Module
 {
@@ -9,11 +11,8 @@ class ModuleSoundToy : public Module
     ModuleSoundToy();
     uint32_t compute();
 	
-    uint32_t exp_fix0912(uint32_t in);
-    uint32_t sin_fix1212(uint32_t in);
-    uint32_t cos_fix1212(uint32_t in);
-    uint32_t square_fix1212(uint32_t in);
-    uint32_t saw_fix1212(uint32_t x, uint32_t a);
+    FixedPointMath fixed_point_math;
+    Rand rand;
 
     Module *trigger_input;
     Module *frequency_input;
@@ -28,8 +27,6 @@ class ModuleSoundToy : public Module
     uint32_t old_trigger;
     uint32_t sound;
     
-    uint16_t Sine[1024];
-    uint16_t Exp[4095];
     uint32_t frequency; // = 440;   
     uint32_t value;
     

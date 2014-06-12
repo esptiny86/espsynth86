@@ -40,10 +40,11 @@ TODO:
   - make sure that constant modules can be negative numbers, or create a subtraction module
   - create jitter module
   - create drift module
-  - create add/subtract module
   - create table lookup module
   - create example for Sample & Hold module
-  - add phase input to ModuleOscWavetable?
+  - create chord module (with octaves)
+  - create 12-bit equation player
+  - create tutorial on creating modules.  Mention random numbers.
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   
 Programming notes

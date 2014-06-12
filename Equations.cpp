@@ -172,7 +172,7 @@ uint32_t Equations::compute(int equation_number, uint32_t t, uint32_t p1, uint32
       w = ((t*((50*p1)/(t%20011))&t>>(p1>>12))-((t*3)&t>>((p3>>5)%255))|(t>>4&(255-p2)));
       break;
       
-    case 40: // VAKoder - heavily modded MorphWiz path
+    case 40: // VAKoder - heavily modded MorphWiz patch
       w = (p2^((t>>((p1>>2)%20)))+t%(43+6*(t>>(p1%12)&3^1)))/2+p3;
       break;
    
@@ -229,20 +229,21 @@ uint32_t Equations::compute(int equation_number, uint32_t t, uint32_t p1, uint32
     // Special sounds  
       
     case 53: // Autodrums (p1, p2, and p3 control drum patterns)
-      w = ((((SquareRoot(t%16384)<<5)&64)*(((p1<<1) >> ((t>>14)%8))&1))<<1) +  // kick
+      w = ((((fixed_point_math.SquareRoot(t%16384)<<5)&64)*(((p1<<1) >> ((t>>14)%8))&1))<<1) +  // kick
           (((random(25))*(( p2 >>((t>>10)%8))&1))&344) + // hat
           ((((random(18000)))>>7) * (( p3 >> ((t>>13)%8))&1)&422); // snare
       break;
 
-    // Note:
-    // If you add or remove equations, you need to modify the line above that looks like:
-    // #define NUMBER_OF_EQUATIONS 53
+    // If you add or subtract equatitions from this list, you'll need to update 
+    // the NUMBER_OF_EQUATIONS constant defined in defines.h
   }
 
 
   // It might seem strange that the output is being bitshifed 4 bits - leaving 8 bits for
   // the actual output and setting the 4 LSB to 0.  I experimented with 12-bit equation 
-  // output and it sounded worse, not better, than the 8-bit output.
+  // output and it sounded worse, not better, than the 8-bit output.  That's not because
+  // 12-bit is bad, but because all of the bytebeat tools out there are tuned for 8-bits.
+  // If there were some 12-bit bytebeat creation tools, things would be different.
 
   return(((uint32_t) w) << 4);
 }
@@ -252,88 +253,4 @@ Equations::Equations()
 {
   // Initialize some variables
   w = 0;
-
-  for(uint32_t i = 0; i < 1024; i++) 
-  { 
-    Sine[i] = (uint16_t)(2048*sin(PI*(float)i/2048.0));
-  } 
-  
-  for(uint32_t i = 0; i < 4096; i++) 
-  { 
-    Exp[i] = (uint16_t)(4095*exp((float)i/-512.0));
-  }   
-}
-
-
-
-
-//
-// Below are some useful fixed-point math functions.  Most of these aren't used
-// in the module, but I'm including them anyhow for other people to explore. 
-// Special thanks to Gaetan Ro for figuring these out.
-// 
-
-uint32_t Equations::SquareRoot(uint32_t a_nInput)
-{
-    uint32_t op  = a_nInput;
-    uint32_t res = 0;
-    uint32_t one = 1uL << 30; // The second-to-top bit is set: use 1u << 14 for uint16_t type; use 1uL<<30 for uint32_t type
-
-
-    // "one" starts at the highest power of four <= than the argument.
-    while (one > op)
-    {
-        one >>= 2;
-    }
-
-    while (one != 0)
-    {
-        if (op >= res + one)
-        {
-            op = op - (res + one);
-            res = res +  2 * one;
-        }
-        res >>= 1;
-        one >>= 2;
-    }
-    return res;
-}
-
-uint32_t Equations::exp_fix0912(uint32_t in)
-{
-  if(in<4096) return Exp[in];
-  else return 0;
-}
-
-uint32_t Equations::sin_fix1212(uint32_t in)
-{
-  uint32_t out = 0;
-  uint16_t x = in % 4096;
-  if(x>=0 && x<1024) out = Sine[x]+0x0800;
-  if(x>=1024 && x<2048) out = Sine[2047-x]+0x0800;
-  if(x>=2048 && x<3072) out = -Sine[x-2048]+0x0800;
-  if(x>=3072 && x<4096) out = -Sine[4095-x]+0x0800;
-  if (out>=4095) out = 4095;
-  return out;
-}
-
-uint32_t Equations::cos_fix1212(uint32_t in)
-{
-  return sin_fix1212(1024+in);
-}
-
-uint32_t Equations::square_fix1212(uint32_t in)
-{
-  if(in>=2048) return (in*in>>12);
-  else return (((4095-in)*(4095-in))>>12);
-}
-
-uint32_t Equations::saw_fix1212(uint32_t x,uint32_t a)
-{
-    uint32_t f = x % 4096;
-
-    if(f<a) f = (f<<12)/a;
-    else f = 4095 - ((f-a)<<12)/(4095-a);
-  if(f>4095) f =4095;
-    return f;
 }

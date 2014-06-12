@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "ModuleOutput.h"
+#include "ModuleAdd.h"
 #include "ModuleArpeggio.h"
 #include "ModuleClock.h"
 #include "ModuleClockedRandom.h"
