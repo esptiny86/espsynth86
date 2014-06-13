@@ -90,6 +90,7 @@ Programming notes
 #include "SynthMini.h"
 #include "SynthVerbalizer.h"
 #include "SynthWavetable.h"
+#include "SynthWavetableDelay.h"
 
 #include "SynthTutorial1.h"
 #include "SynthTutorial2.h"
@@ -127,8 +128,7 @@ Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),
-  // new SynthWavetable(inputs),
-  new SynthTutorial12(inputs)
+  new SynthWavetableDelay(inputs)
 };
 
 

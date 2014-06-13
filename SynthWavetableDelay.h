@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Name: SynthTutorial13
+// Name: SynthWavetableDelay
 // Type: Audio
 // Written by: Bret Truchan, 2014
 // 
@@ -15,15 +15,15 @@
 //
 // =============================================================================
 
-#ifndef SynthTutorial13_h
-#define SynthTutorial13_h
+#ifndef SynthWavetableDelay_h
+#define SynthWavetableDelay_h
 
 #include "Synth.h"
 
-class SynthTutorial13 : public Synth
+class SynthWavetableDelay : public Synth
 {
   public:
-    SynthTutorial13(Inputs *inputs); 
+    SynthWavetableDelay(Inputs *inputs); 
 };
 
 #endif

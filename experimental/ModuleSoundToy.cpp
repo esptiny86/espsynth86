@@ -39,7 +39,7 @@ uint32_t ModuleSoundToy::compute()
     
     case 0: // fm1
 
-      count= (t<<16)/44100;
+      count = (t<<16)/44100;
       countw = count * frequency;
   
       k0 = 2048;
