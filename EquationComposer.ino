@@ -37,13 +37,14 @@ Equation testing tools:
 
 TODO:
 
-  - make sure that constant modules can be negative numbers, or create a subtraction module
+  - create bit-reducer module
   - create jitter module
   - create drift module
   - create table lookup module
   - create example for Sample & Hold module
   - create chord module (with octaves)
   - create 12-bit equation player
+  - create 1-shot equation slice player
   - create tutorial on creating modules.  Mention random numbers.
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   
@@ -104,6 +105,7 @@ Programming notes
 #include "SynthTutorial10.h"
 #include "SynthTutorial11.h"
 #include "SynthTutorial12.h"
+#include "SynthTutorial13.h"
 
 #include "DueTimer.h"
 
@@ -122,13 +124,14 @@ Equations *equations = new Equations();
 // Instantiate synths, which are selectable via the PRG knob.
 // Any new synth must be added to this list
 
-#define NUMBER_OF_SYNTHS 4
+#define NUMBER_OF_SYNTHS 5
 
 Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),
-  new SynthWavetableDelay(inputs)
+  new SynthWavetableDelay(inputs),
+  new SynthTutorial13(inputs)
 };
 
 

@@ -4,13 +4,13 @@
 // Type: Audio
 // Written by: Bret Truchan, 2014
 // 
-// Description: Demonstration of ModuleAddNote
+// Description: A wavetable oscillator put through a short audio delay.
 //
-// SR  - 
-// MOD - 
-// [1] - 
-// [2] - 
-// [3] - not used
+// SR  - Sample rate of the wavetable oscillator
+// MOD - Selects wavetable
+// [1] - Mix (dry/wet) of the delay effect
+// [2] - Delay feedback
+// [3] - Delay buffer length
 // GATE - not used
 //
 // =============================================================================
