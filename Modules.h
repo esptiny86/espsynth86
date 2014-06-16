@@ -32,6 +32,5 @@
 #include "ModuleSmooth.h"
 #include "ModuleSwitch.h"
 #include "ModuleVCA.h"
-#include "ModuleVocalizer.h"
 #include "ModuleWavetableOsc.h"
 #include "ModuleWords.h"

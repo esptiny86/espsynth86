@@ -37,7 +37,7 @@ Equation testing tools:
 
 TODO:
 
-  - create bit-reducer module
+  - add gate output to pattern generator module
   - create jitter module
   - create drift module
   - create table lookup module
@@ -58,6 +58,8 @@ Programming notes
 12345678901234567890123456789012345678901234567890123456789012345678901234567890
 
 */
+
+
 
 
 #include "defines.h"
@@ -87,8 +89,8 @@ Programming notes
 #include "SynthDrumSelektor.h"
 #include "SynthEquationPlayer.h"
 #include "SynthEquationLooper.h"
-#include "SynthPhonetics.h"
 #include "SynthMini.h"
+#include "SynthPatterns.h"
 #include "SynthVerbalizer.h"
 #include "SynthWavetable.h"
 #include "SynthWavetableDelay.h"
@@ -131,7 +133,7 @@ Synth *active_synths[] {
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),
   new SynthWavetableDelay(inputs),
-  new SynthTutorial13(inputs)
+  new SynthPatterns(inputs)
 };
 
 
@@ -163,10 +165,15 @@ void setup()
   #ifdef DEBUG
     Serial.begin(9600);
   #endif
+
+  // Adjust analog inputs for faster access
+  // Code by Franci Kapen (http://frenki.net/2013/10/fast-analogread-with-arduino-due/)
+  // REG_ADC_MR = (REG_ADC_MR & 0xFFFFFF0F) | 0x00000080; //enable FREERUN mode
+
   
   // Set the Due's analog read resolution
   analogReadResolution(ANALOG_READ_RESOLUTION);
-  
+
   // Enable the DAC
   analogWrite(DAC1,0);
 
@@ -176,7 +183,8 @@ void setup()
   // Configure the interrupt(s) if NOT in debug mode.  
   // Notice that's ifndef (with an 'n'), not ifdef.
   #ifndef DEBUG
-    Timer0.attachInterrupt(audioRateInterrupt).setFrequency(44100).start();
+    // Timer0.attachInterrupt(audioRateInterrupt).setFrequency(44100).start();
+    Timer0.attachInterrupt(audioRateInterrupt).setFrequency(SAMPLE_RATE).start();
   #endif
   
 }
@@ -211,4 +219,3 @@ void audioRateInterrupt()
   // output caching code. (see Module.cpp)
   cycle++;
 }
-

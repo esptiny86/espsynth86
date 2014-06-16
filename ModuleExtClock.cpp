@@ -18,7 +18,7 @@ ModuleExtClock::ModuleExtClock(uint32_t bpm, int clock_division)
   
   for(uint32_t bpm_i=0; bpm_i < 255; bpm_i++)
   {
-    bpm_ppqn[bpm_i] = ((float)(60 * SAMPLE_RATE * clock_division)/((float)bpm_i * 96.0));
+    bpm_ppqn[bpm_i] = ((float)(60.0 * SAMPLE_RATE_FLOAT * clock_division)/((float)bpm_i * 96.0));
     bpm_half_ppqn[bpm_i] = bpm_ppqn[bpm_i] / 2;
   }   
 }
@@ -32,7 +32,7 @@ ModuleExtClock::ModuleExtClock(uint32_t bpm)
 
   for(uint32_t bpm_i=0; bpm_i < 255; bpm_i++)
   {
-    bpm_ppqn[bpm_i] = ((float)(60 * SAMPLE_RATE)/((float)bpm_i * 96.0));
+    bpm_ppqn[bpm_i] = ((float)(60.0 * SAMPLE_RATE_FLOAT)/((float)bpm_i * 96.0));
     bpm_half_ppqn[bpm_i] = bpm_ppqn[bpm_i] / 2;
   }  
 }

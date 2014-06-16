@@ -44,6 +44,7 @@
 
 #include "Arduino.h"
 #include "Module.h"
+#include "ModuleOutput.h"
 #include "Rand.h"
 
 class ModulePatternGenerator : public Module
@@ -56,8 +57,14 @@ class ModulePatternGenerator : public Module
     
     // Inputs
     Module *clock_input;
-    Module *pattern_input;
+    Module *cv_pattern_input;
+    Module *gate_pattern_input;
+    Module *gate_density_input;    
     Module *length_input;
+
+    // Outputs
+    ModuleOutput *output;
+    ModuleOutput *gate_output;    
 
   private:
   
@@ -65,9 +72,11 @@ class ModulePatternGenerator : public Module
     boolean clocked;
     boolean first_iteration;
     uint32_t old_clock;
-    uint32_t latched_output;
+    uint32_t latched_cv_output;
+    uint32_t latched_gate_output;
 
-    Rand rand;
+    Rand cv_rand;
+    Rand gate_rand;
 };
 
 #endif

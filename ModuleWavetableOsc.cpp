@@ -2,15 +2,11 @@
 #include "ModuleWavetableOsc.h"
 #include "defines.h"
 #include "Wavetables.h"
+#include "Increments.h"
 
 ModuleWavetableOsc::ModuleWavetableOsc()
 {
   fixed_point_10_22_index = 0;
-
-  for(uint32_t i=0; i < 4096; i++)
-  {
-    increments[i] = ((float)(512 << 20)/(float)44100) * 130.8 * pow(2.0,((5.0*i)/4096.0));
-  }
 
   // Initialize all inputs
   this->frequency_input = NULL;
@@ -31,14 +27,13 @@ uint32_t ModuleWavetableOsc::compute()
   wavetable = constrain(wavetable, 0, NUMBER_OF_WAVETABLES - 1);
 
   // Calculate the index into the wavetable
-  fixed_point_10_22_index += increments[frequency];
+  fixed_point_10_22_index += INCREMENTS[frequency];
   if(fixed_point_10_22_index > (WAVE_SAMPLES << 22)) fixed_point_10_22_index -= (WAVE_SAMPLES << 22);
 
   wavetable_index = fixed_point_10_22_index >> 22; // This should yeald a value between 0 and WAVE_SAMPLES (512)
 
   // Add phase offset
   wavetable_index = ((wavetable_index + phase) % WAVE_SAMPLES);
-
 
   // This output will range from 0 to 4080 (which is a 12-bit value)
   return(WAVETABLES[wavetable][wavetable_index] << 4);

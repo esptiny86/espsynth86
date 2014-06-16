@@ -19,6 +19,9 @@ class Rand
   
   private:
   	unsigned long x,y,z;
+  	// uint16_t random_number_table[4095];
+  	// uint16_t seed_value;
+  	// uint16_t step;
 };
 
 #endif

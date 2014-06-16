@@ -9,7 +9,7 @@ ModuleLFO::ModuleLFO()
 
   for(uint32_t i=0; i < 4096; i++)
   {
-    increments[i] = ((float)(512 << 20)/(float)44100) * 0.1 * pow(2.0,((10.0*i)/4096.0));
+    increments[i] = ((float)(512 << 20)/SAMPLE_RATE_FLOAT) * 0.1 * pow(2.0,((10.0*i)/4096.0));
   }  
 
   // Initialize all module inputs to NULL

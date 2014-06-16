@@ -9,7 +9,7 @@ SynthTutorial9::SynthTutorial9(Inputs* inputs)
 
 	ext_clock->clock_input = inputs->gate;
 
-	pattern_generator->pattern_input = inputs->param2;
+	pattern_generator->cv_pattern_input = inputs->param2;
 	pattern_generator->clock_input = ext_clock;
 	pattern_generator->length_input = new ModuleConstant(16);
 

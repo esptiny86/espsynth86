@@ -75,6 +75,7 @@ class ModuleEquationPlayer : public Module
     // ended up causing the sounds (especially melodic ones) to loop in odd places.
     uint64_t fixed_point_32_32_index;
     uint64_t increment_by;
+    uint32_t sample_rate;
 
 };
 

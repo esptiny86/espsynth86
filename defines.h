@@ -23,11 +23,15 @@
 #define PIN_GATE 22
 
 // ADAC and Analog Read values
-#define MAX_ADC_VALUE 1023         // This should be 2^ANALOG_READ_RESOLUTION - 1
-#define ANALOG_READ_RESOLUTION 10  // Typical values are 8, 10 or 12
+#define ANALOG_READ_RESOLUTION 12  // Typical values are 8, 10 or 12
 
 // Assorted definitions
-#define SAMPLE_RATE 44100.0
+// #define SAMPLE_RATE 44100
+// #define SAMPLE_RATE_FLOAT 44100.0
+
+#define SAMPLE_RATE 22050
+#define SAMPLE_RATE_FLOAT 22050.0
+
 
 // Define conversion used by uint32_t readInput(Module *, int conversion);
 #define CONVERT_TO_1_BIT 11
@@ -54,12 +58,14 @@
 #define THIRTY_SECOND_NOTE_CLOCK_DIVISION 12
 
 // ADSR shortcuts
+/*
 #define ADSR_PRESET_BLIP 1,41,0,0
 #define ADSR_PRESET_PLUCK 5,102,500,410
 #define ADSR_PRESET_BASS 10,100,0,0
 #define ADSR_PRESET_SUSTAIN_DECAY_SHORT 1,1,4095,410
 #define ADSR_PRESET_SUSTAIN_DECAY_LONG 1,1,4095,820
 #define ADSR_PRESET_LINEAR 0,1000,0,0
+*/
 
 // Enums for voice simulation synths
 enum {
