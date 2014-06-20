@@ -7,8 +7,8 @@ ModuleLowpassFilter::ModuleLowpassFilter()
   // Set cutoff and resonance to 0 to start with.
   // For some reason, if you don't do this, the lowpass filter 
   // can generate noise until the cutoff reaches 0, then it starts sounding OK.
-  lpf.setCutoffFreq(0);
   lpf.setResonance(0);
+  lpf.setCutoffFreq(0);
 
   // Initialize all inputs
   this->audio_input = NULL; 
@@ -19,15 +19,18 @@ ModuleLowpassFilter::ModuleLowpassFilter()
 uint32_t ModuleLowpassFilter::compute()
 {
   // Read inputs
-  // uint32_t audio = this->readInput(audio_input);                         // audio range: 0 to 4095
-  uint32_t audio = this->readInput(audio_input, CONVERT_TO_8_BIT);          // audio range: 0 to 255
-  uint32_t cutoff = this->readInput(cutoff_input, CONVERT_TO_8_BIT);        // cutoff range: 0 to 255
-  uint32_t resonance = this->readInput(resonance_input, CONVERT_TO_8_BIT);  // resonance range: 0 to 255
-  
-  lpf.setCutoffFreq(cutoff);
-  lpf.setResonance(resonance);
+  uint32_t audio = this->readInput(audio_input);                         // audio range: 0 to 4095
+  uint32_t cutoff = this->readInput(cutoff_input);        // cutoff range: 0 to 255
+  uint32_t resonance = this->readInput(resonance_input);  // resonance range: 0 to 255
 
-  // return(lpf.next(audio) >> 1);
-  return(lpf.next(audio) << 4);
+  //uint32_t audio = this->readInput(audio_input, CONVERT_TO_8_BIT);          // audio range: 0 to 255
+  // uint32_t cutoff = this->readInput(cutoff_input, CONVERT_TO_8_BIT);        // cutoff range: 0 to 255
+  // uint32_t resonance = this->readInput(resonance_input, CONVERT_TO_8_BIT);  // resonance range: 0 to 255
+
+  lpf.setResonance(resonance);  
+  lpf.setCutoffFreq(cutoff);
+
+  return(lpf.next(audio));
+  // return(lpf.next(audio) << 4);
 }
 

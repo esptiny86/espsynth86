@@ -3,40 +3,61 @@
  *   | ModulePatternGenerator  |
  *   |-------------------------|
  *   > clock_input             |
- *   > pattern_input           |
+ *   > cv_pattern_input        |
+ *   > gate_pattern_input      |
+ *   > gate_density_input      | 
  *   > length_input            |
  *   |                         |
- *   |                  output >
+ *   |               cv_output >
+ *   |             gate_output >
  *   +-------------------------+
  *
 */
 // =============================================================================
 // 
-// ModulePatternGenerator is a clocked pattern generator with selectable
-// pattern and pattern length.  There are 512 internal patterns which can be
-// anywhere from 0 to 64 steps in length.  These limitations were created to 
-// avoid sensitivity to line noise.
+// ModulePatternGenerator is a clocked pattern generator with both pattern and
+// gate outputs.  There are 512 internal patterns which can be anywhere from 0 
+// to 64 steps in length.  The gate pattern can be selected independently from
+// the cv pattern, although both the cv and gate patterns are the same length.
+//
 //
 // Example usage:
 //
 //    ModuleQuantizer *quantizer = new ModuleQuantizer(); 
-//    ModuleWavetableOsc *osc = new ModuleWavetableOsc();
+//    ModuleWavetableOsc *wavetable_osc = new ModuleWavetableOsc();
 //    ModulePatternGenerator *pattern_generator = new ModulePatternGenerator();
 //    ModuleExtClock *ext_clock = new ModuleExtClock(120, EIGHTH_NOTE_CLOCK_DIVISION);
+//    ModuleLowpassFilter *lowpass_filter = new ModuleLowpassFilter();
+//    ModuleENV *envelope_generator = new ModuleENV();
+//    ModuleSampleAndHold *sample_and_hold = new ModuleSampleAndHold();
+//    ModuleDelay *delay = new ModuleDelay();
 //
 //    ext_clock->clock_input = inputs->gate;
 //
-//    pattern_generator->clock_input = ext_clock; 
-//    pattern_generator->pattern_input = inputs->param2;
+//    pattern_generator->cv_pattern_input = inputs->param1;
+//    pattern_generator->gate_pattern_input = inputs->param2;
+//    pattern_generator->gate_density_input = inputs->param3;
+//    pattern_generator->clock_input = ext_clock;
 //    pattern_generator->length_input = new ModuleConstant(16);
 //
-//    quantizer->scale_input = inputs->param1;
-//    quantizer->cv_input = pattern_generator;
+//    sample_and_hold->sample_input = pattern_generator;
+//    sample_and_hold->trigger_input = pattern_generator->gate_output;
 //
-//    osc->wavetable_input  = inputs->mod;
-//    osc->frequency_input  = quantizer;
+//    quantizer->scale_input = new ModuleConstant(1);
+//    quantizer->cv_input = sample_and_hold;
 //
-//    this->last_module = osc;
+//    wavetable_osc->wavetable_input  = inputs->mod;
+//    wavetable_osc->frequency_input  = quantizer;
+//
+//    envelope_generator->slope_input = new ModuleConstant(0);
+//    envelope_generator->frequency_input = new ModuleConstant(1000);
+//    envelope_generator->trigger_input = pattern_generator->gate_output;
+//
+//    lowpass_filter->audio_input = wavetable_osc;
+//    lowpass_filter->cutoff_input = envelope_generator;
+//    lowpass_filter->resonance_input = new ModuleConstant(0);
+//
+//    this->last_module = lowpass_filter;
 //
  
 #ifndef ModulePatternGenerator_h

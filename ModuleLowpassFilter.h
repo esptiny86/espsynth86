@@ -15,7 +15,7 @@
 
 #include "Arduino.h"
 #include "Module.h"
-#include "LowPassFilter.h"
+#include "LowPassFilter_test.h"
 
 class ModuleLowpassFilter : public Module
 {

@@ -24,8 +24,8 @@
 #define LOWPASS_H_
 
 // we are using .n fixed point (n bits for the fractional part)
-#define FX_SHIFT 8
-#define SHIFTED_1 ((byte) 255)
+#define FX_SHIFT 12
+#define SHIFTED_1 ((byte) 4095)
 
 /* A resonant low pass filter for audio signals. */
 
@@ -33,10 +33,10 @@ class LowPassFilter
 {
 
 private:
-	byte q;
-	byte f;
-	uint16_t fb;
-	int16_t buf0,buf1;
+	uint32_t q;
+	uint32_t f;
+	uint32_t fb;
+	int32_t buf0,buf1;
 
 public:
 
@@ -47,25 +47,25 @@ public:
           buf1 = 0;
 	}
 
-	void setCutoffFreq(byte cutoff)
+	void setCutoffFreq(uint32_t cutoff)
 	{
 		f = cutoff;
 		fb =  q + fxmul(q, SHIFTED_1 - cutoff);
 	}
 
-	void setResonance(byte resonance)
+	void setResonance(uint32_t resonance)
 	{
 		q = resonance;
 	}
 
-	int16_t next(int16_t in)
+	uint32_t next(uint32_t in)
 	{
 		buf0 += fxmul(((in - buf0) + fxmul(fb, buf0-buf1)), f);
 		buf1 += fxmul(buf0-buf1, f); // could overflow if input changes fast
 		return buf1;
 	}
 
-	int16_t fxmul(int16_t a, int16_t b)
+	int32_t fxmul(int32_t a, int32_t b)
 	{
 		return ((a*b)>>FX_SHIFT);
 	}

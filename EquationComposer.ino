@@ -37,11 +37,9 @@ Equation testing tools:
 
 TODO:
 
-  - add gate output to pattern generator module
   - create jitter module
   - create drift module
   - create table lookup module
-  - create example for Sample & Hold module
   - create chord module (with octaves)
   - create 12-bit equation player
   - create 1-shot equation slice player
@@ -85,6 +83,7 @@ Programming notes
 
 // Include each synth
 #include "SynthAutoDrum.h"
+#include "SynthChords.h"
 #include "SynthDrumPlayer.h"
 #include "SynthDrumSelektor.h"
 #include "SynthEquationPlayer.h"
@@ -128,6 +127,7 @@ Equations *equations = new Equations();
 
 #define NUMBER_OF_SYNTHS 5
 
+/* factory presets
 Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
   new SynthEquationLooper(inputs, equations),
@@ -135,7 +135,15 @@ Synth *active_synths[] {
   new SynthWavetableDelay(inputs),
   new SynthPatterns(inputs)
 };
+*/
 
+Synth *active_synths[] {
+  new SynthEquationPlayer(inputs, equations),
+  new SynthEquationLooper(inputs, equations),
+  new SynthDrumSelektor(inputs),
+  new SynthWavetableDelay(inputs),  
+  new SynthChords(inputs)
+};
 
 
 // The 'cycle' variable increments every time the 44100Hz interrupt is called.

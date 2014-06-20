@@ -6,6 +6,7 @@
 #include "ModuleAdd.h"
 #include "ModuleArpeggio.h"
 #include "ModuleBitReducer.h"
+#include "ModuleChords.h"
 #include "ModuleClock.h"
 #include "ModuleClockedRandom.h"
 #include "ModuleClockDivider.h"
