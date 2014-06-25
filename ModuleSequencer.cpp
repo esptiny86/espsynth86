@@ -16,7 +16,7 @@ ModuleSequencer::ModuleSequencer(int values[])
   this->clock_input = NULL;
 }
 
-uint32_t ModuleSequencer::compute()
+uint16_t ModuleSequencer::compute()
 {
   uint32_t clock = this->readInput(clock_input);
   

@@ -11,7 +11,7 @@ Module::Module()
   no_output_conversion = false;
 }
 
-uint32_t Module::run(long cycle)
+uint16_t Module::run(uint8_t cycle)
 { 
   
   // If the module has already been run during this cycle, then return the 
@@ -26,7 +26,7 @@ uint32_t Module::run(long cycle)
   return(this->output);
 }
 
-uint32_t Module::readInput(Module *module, int conversion)
+uint16_t Module::readInput(Module *module, int conversion)
 {
   // If someone forgot to attach a module to an input, assume they mean for that 
   // input to be 0.
@@ -46,7 +46,7 @@ uint32_t Module::readInput(Module *module, int conversion)
   }
 }
 
-uint32_t Module::readInput(Module *module, uint32_t map_low, uint32_t map_high)
+uint16_t Module::readInput(Module *module, uint32_t map_low, uint32_t map_high)
 {
   // If someone forgot to attach a module to an input, assume they mean for that 
   // input to be 0.
@@ -65,7 +65,7 @@ uint32_t Module::readInput(Module *module, uint32_t map_low, uint32_t map_high)
   }
 }
 
-uint32_t Module::readInput(Module *module)
+uint16_t Module::readInput(Module *module)
 {
   if(! module) return(0);
 

@@ -46,7 +46,7 @@ class ModuleEquationPlayer : public Module
   
   public:
     ModuleEquationPlayer(Equations *equations);
-    uint32_t compute();
+    uint16_t compute();
     
     // Inputs
     Module *equation_input;

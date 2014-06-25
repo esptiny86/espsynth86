@@ -24,51 +24,97 @@
 #define LOWPASS_H_
 
 // we are using .n fixed point (n bits for the fractional part)
-#define FX_SHIFT 12
-#define SHIFTED_1 ((byte) 4095)
+#define FX_SHIFT 8
+#define SHIFTED_1 ((unsigned char) 255)
 
-/* A resonant low pass filter for audio signals. */
-
+/** A resonant low pass filter for audio signals.
+*/
 class LowPassFilter
 {
 
-private:
-	uint32_t q;
-	uint32_t f;
-	uint32_t fb;
-	int32_t buf0,buf1;
-
 public:
 
-	// constructor
-	LowPassFilter()
-	{
+
+	/** Constructor.
+	*/
+	LowPassFilter(){
           buf0 = 0;
           buf1 = 0;
 	}
 
-	void setCutoffFreq(uint32_t cutoff)
+
+	/** Set the cut off frequency,
+	@param cutoff use the range 0-255 to represent 0-8192 Hz (AUDIO_RATE/2).
+	Be careful of distortion at the lower end, especially with high resonance.
+	*/
+	void setCutoffFreq(unsigned char cutoff)
 	{
 		f = cutoff;
-		fb =  q + fxmul(q, SHIFTED_1 - cutoff);
+		fb = q+ucfxmul(q, SHIFTED_1 - cutoff);
 	}
 
-	void setResonance(uint32_t resonance)
+
+	/** Set the resonance.  If you hear unwanted distortion, back off the resonance.
+	@param resonance in the range 0-255.
+	*/
+	void setResonance(unsigned char resonance)
 	{
 		q = resonance;
 	}
 
-	uint32_t next(uint32_t in)
+	/** Calculate the next sample, given an input signal.
+	@param in the signal input.
+	@return the signal output.
+	@note Timing: about 11us.
+	*/
+	//	10.5 to 12.5 us, mostly 10.5 us (was 14us)
+	inline
+	int next(int in)
 	{
-		buf0 += fxmul(((in - buf0) + fxmul(fb, buf0-buf1)), f);
-		buf1 += fxmul(buf0-buf1, f); // could overflow if input changes fast
+		//setPin13High();
+		buf0+=fxmul(((in - buf0) + fxmul(fb, buf0-buf1)), f);
+		buf1+=ifxmul(buf0-buf1, f); // could overflow if input changes fast
+		//setPin13Low();
 		return buf1;
 	}
 
-	int32_t fxmul(int32_t a, int32_t b)
+
+private:
+	unsigned char q;
+	unsigned char f;
+	unsigned int fb;
+	int buf0,buf1;
+
+
+	// // multiply two fixed point numbers (returns fixed point)
+	// inline
+	// long fxmul(long a, long b)
+	// {
+	// 	return (a*b)>>FX_SHIFT;
+	// }
+
+	// multiply two fixed point numbers (returns fixed point)
+	inline
+	unsigned int ucfxmul(unsigned char a, unsigned char b)
+	{
+		return (((unsigned int)a*b)>>FX_SHIFT);
+	}
+	
+		// multiply two fixed point numbers (returns fixed point)
+	inline
+	int ifxmul(int a, unsigned char b)
 	{
 		return ((a*b)>>FX_SHIFT);
 	}
+	
+	// multiply two fixed point numbers (returns fixed point)
+	inline
+	long fxmul(long a, int b)
+	{
+		return ((a*b)>>FX_SHIFT);
+	}
+
+
 };
 
-#endif
+#endif /* LOWPASS_H_ */

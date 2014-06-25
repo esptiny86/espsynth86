@@ -11,7 +11,7 @@ ModuleClockDivider::ModuleClockDivider()
   this->clock_input = NULL;
 }
 
-uint32_t ModuleClockDivider::compute()
+uint16_t ModuleClockDivider::compute()
 {
   uint32_t clock = this->readInput(clock_input);
   uint32_t clock_division = this->readInput(division_input);

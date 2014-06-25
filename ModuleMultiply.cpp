@@ -7,7 +7,7 @@ ModuleMultiply::ModuleMultiply()
   this->input_2 = NULL; 
 }
 
-uint32_t ModuleMultiply::compute()
+uint16_t ModuleMultiply::compute()
 {
   // Read inputs
   uint32_t value_1 = this->readInput(input_1);

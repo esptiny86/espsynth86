@@ -36,15 +36,14 @@
 
 #include "Arduino.h"
 #include "Module.h"
-
-#define DELAY_BUFFER_SIZE 4096
+#define DELAY_BUFFER_SIZE 1024
 
 class ModuleDelay : public Module
 {
   
   public:
     ModuleDelay();
-    uint32_t compute();
+    uint16_t compute();
     
     // Inputs
     Module *audio_input;

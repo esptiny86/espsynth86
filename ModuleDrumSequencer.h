@@ -35,7 +35,7 @@ class ModuleDrumSequencer : public Module
   
   public:
     ModuleDrumSequencer();
-    uint32_t compute();
+    uint16_t compute();
     
     // Inputs
     Module *clock_input;

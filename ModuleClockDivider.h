@@ -52,7 +52,7 @@ class ModuleClockDivider : public Module
 {
   public:
     ModuleClockDivider();
-    uint32_t compute();
+    uint16_t compute();
     
     // inputs
     Module *clock_input;

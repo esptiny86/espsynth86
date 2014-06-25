@@ -41,7 +41,7 @@ class ModuleMultiply : public Module
 {
     public:    
   	ModuleMultiply();
-    uint32_t compute();  
+    uint16_t compute();  
 
     // Inputs
     Module *input_1;

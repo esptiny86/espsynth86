@@ -48,7 +48,7 @@ class ModuleSampleAndHold : public Module
 {
   public:
     ModuleSampleAndHold();
-    uint32_t compute();
+    uint16_t compute();
     
     // Inputs
     Module *trigger_input;      

@@ -16,7 +16,7 @@ ModuleEquationLooper::ModuleEquationLooper(Equations *equations)
   this->gate_input = NULL;  
 }
 
-uint32_t ModuleEquationLooper::compute()
+uint16_t ModuleEquationLooper::compute()
 {
   // Read inputs
   // For loop_start and loop_length, I'm dropping some of the least significant 

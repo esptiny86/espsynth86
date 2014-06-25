@@ -38,7 +38,7 @@ class ModuleBitReducer : public Module
   
   public:
     ModuleBitReducer();
-    uint32_t compute();
+    uint16_t compute();
     
     // Inputs
     Module *audio_input;

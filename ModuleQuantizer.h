@@ -50,7 +50,7 @@ class ModuleQuantizer : public Module
 {
   
   public:
-    uint32_t compute();
+    uint16_t compute();
     
     // Inputs
     Module *cv_input;

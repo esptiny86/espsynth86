@@ -35,13 +35,14 @@
 
 #include "Arduino.h"
 #include "Module.h"
+#include "FixedPointMath.h"
 
 class ModuleEqDrum : public Module
 {
   
   public:
     ModuleEqDrum();
-    uint32_t compute();
+    uint16_t compute();
     uint32_t stop_playback();
 
     // Inputs
@@ -65,7 +66,7 @@ class ModuleEqDrum : public Module
     uint32_t fixed_point_20_12_index;
     uint32_t increment_by;
     
-    uint32_t SquareRoot(uint32_t a_nInput);
+    FixedPointMath fixed_point_math;
 };
 
 #endif

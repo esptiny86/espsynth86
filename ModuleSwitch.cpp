@@ -6,7 +6,7 @@ ModuleSwitch::ModuleSwitch()
 {
 }
 
-uint32_t ModuleSwitch::compute()
+uint16_t ModuleSwitch::compute()
 {  
   // Serial.println(this->readInput(select_input));
 

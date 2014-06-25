@@ -8,7 +8,7 @@ ModuleMixer3::ModuleMixer3()
 	this->input_3 = NULL;	
 }
 
-uint32_t ModuleMixer3::compute()
+uint16_t ModuleMixer3::compute()
 {
 	// Read inputs
 	uint32_t value_1 = this->readInput(input_1);

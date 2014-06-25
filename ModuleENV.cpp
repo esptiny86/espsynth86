@@ -22,7 +22,7 @@ ModuleENV::ModuleENV()
 	this->end_output = new ModuleOutput(this);
 }
 
-uint32_t ModuleENV::compute()
+uint16_t ModuleENV::compute()
 {
 	uint32_t trigger = readInput(this->trigger_input);
 

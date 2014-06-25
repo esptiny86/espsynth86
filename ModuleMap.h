@@ -43,7 +43,7 @@ class ModuleMap : public Module
 {
   public:
     ModuleMap(uint32_t low, uint32_t high);
-    uint32_t compute();
+    uint16_t compute();
     
     // Inputs
     Module *input;

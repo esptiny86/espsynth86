@@ -22,7 +22,7 @@ ModulePatternGenerator::ModulePatternGenerator()
 	this->gate_output = new ModuleOutput(this);    
 }
 
-uint32_t ModulePatternGenerator::compute()
+uint16_t ModulePatternGenerator::compute()
 {
 
 	uint32_t pattern_length = this->readInput(this->length_input, CONVERT_TO_6_BIT);

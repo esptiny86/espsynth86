@@ -56,7 +56,7 @@ ModuleDrumSequencer::ModuleDrumSequencer()
   hihat_output  = new ModuleOutput(this);
 }
 
-uint32_t ModuleDrumSequencer::compute()
+uint16_t ModuleDrumSequencer::compute()
 {
   uint32_t clock = this->readInput(clock_input);
 

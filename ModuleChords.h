@@ -63,7 +63,7 @@ class ModuleChords : public Module
   public:
   
     ModuleChords();
-    uint32_t compute();
+    uint16_t compute();
     
     // Inputs
     Module *root_note_input;

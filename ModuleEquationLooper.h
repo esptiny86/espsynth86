@@ -53,7 +53,7 @@ class ModuleEquationLooper : public Module
   
   public:
     ModuleEquationLooper(Equations *equations);
-    uint32_t compute();
+    uint16_t compute();
     
     // Inputs
     Module *sample_rate_input;

@@ -8,7 +8,7 @@ ModuleConstant::ModuleConstant(int value)
   this->no_output_conversion = true;
 }
 
-uint32_t ModuleConstant::compute()
+uint16_t ModuleConstant::compute()
 {
   return(this->value);
 }

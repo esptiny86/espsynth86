@@ -33,7 +33,7 @@ class ModuleDigitalInput : public ModuleInput
   public:
     ModuleDigitalInput(int pin);
     uint32_t read();
-    uint32_t compute();
+    uint16_t compute();
 };
 
 #endif

@@ -13,7 +13,7 @@ uint32_t ModuleDigitalInput::read()
     return(this->value);
 }
 
-uint32_t ModuleDigitalInput::compute()
+uint16_t ModuleDigitalInput::compute()
 { 
   return(this->value);
 }

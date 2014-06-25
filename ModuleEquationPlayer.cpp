@@ -23,7 +23,7 @@ ModuleEquationPlayer::ModuleEquationPlayer(Equations *equations)
   this->reset_input = NULL;
 }
 
-uint32_t ModuleEquationPlayer::compute()
+uint16_t ModuleEquationPlayer::compute()
 {
 
   // Read inputs

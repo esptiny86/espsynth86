@@ -36,8 +36,8 @@ class ModuleOutput : public Module
 {
   public:
     ModuleOutput(Module *parent_module);
-    uint32_t compute();
-    int value;
+    uint16_t compute();
+    uint16_t value;
     
   private:
     Module *parent_module;

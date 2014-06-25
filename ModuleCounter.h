@@ -37,7 +37,7 @@ class ModuleCounter : public Module
 {
   public:
     ModuleCounter(int target);
-    uint32_t compute();
+    uint16_t compute();
     
     // Inputs
     Module *clock_input;      

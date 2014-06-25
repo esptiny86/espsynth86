@@ -25,7 +25,7 @@ ModuleArpeggio::ModuleArpeggio()
   this->clock_input = NULL;
 }
 
-uint32_t ModuleArpeggio::compute()
+uint16_t ModuleArpeggio::compute()
 {
   uint32_t clock = this->readInput(clock_input);
   

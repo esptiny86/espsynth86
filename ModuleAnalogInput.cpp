@@ -21,7 +21,7 @@ uint32_t ModuleAnalogInput::read()
 // method and not just call the version in the base
 // class?  My C++ is obviously a bit rusty.
 
-uint32_t ModuleAnalogInput::compute()
+uint16_t ModuleAnalogInput::compute()
 { 
 	return(this->value);
 }

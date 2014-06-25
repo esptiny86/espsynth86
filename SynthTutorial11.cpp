@@ -2,6 +2,7 @@
 
 SynthTutorial11::SynthTutorial11(Inputs* inputs)
 {
+  /*
   ModuleWavetableOsc *wavetable_osc1 = new ModuleWavetableOsc();
   ModuleWavetableOsc *wavetable_osc2 = new ModuleWavetableOsc();
   ModuleMixer2 *mixer = new ModuleMixer2();
@@ -18,4 +19,5 @@ SynthTutorial11::SynthTutorial11(Inputs* inputs)
   mixer->input_2 = wavetable_osc2;
 
   this->last_module = mixer;
+  */
 }

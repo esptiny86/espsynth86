@@ -8,7 +8,7 @@ ModuleSampleAndHold::ModuleSampleAndHold()
   this->sampled_value = 0;
 }
 
-uint32_t ModuleSampleAndHold::compute()
+uint16_t ModuleSampleAndHold::compute()
 {
   uint32_t clock = this->readInput(trigger_input);
   

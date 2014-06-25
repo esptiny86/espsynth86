@@ -35,7 +35,7 @@ class ModuleConstant : public Module
     
     // Methods
     ModuleConstant(int value);
-    uint32_t compute();
+    uint16_t compute();
     
     void setValue(uint32_t value);
     uint32_t getValue();

@@ -41,7 +41,7 @@ class ModuleClockedRandom : public Module
   public:
   
     ModuleClockedRandom();
-    uint32_t compute();
+    uint16_t compute();
     
     // Inputs
     Module *clock_input;

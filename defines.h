@@ -7,6 +7,7 @@
 #define NUMBER_OF_WAVETABLE_EQUATIONS 16    // # of equations in EquationsWavetable.cpp
 #define NUMBER_OF_WAVETABLES 32
 #define WAVE_SAMPLES 512
+#define WAVE_SAMPLES_SHIFTED_22 2147483648 
 
 #define NUMBER_OF_SLOPES 10
 

@@ -23,7 +23,7 @@ class ModuleAdd : public Module
 {
     public:    
   	ModuleAdd();
-    uint32_t compute();  
+    uint16_t compute();  
 
     // Inputs
     Module *input_1;

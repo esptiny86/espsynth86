@@ -42,7 +42,7 @@ class ModuleVCA : public Module
 {
   public:
   	ModuleVCA();
-    uint32_t compute();
+    uint16_t compute();
 
     // Inputs
     Module *audio_input;  

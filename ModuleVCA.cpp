@@ -7,7 +7,7 @@ ModuleVCA::ModuleVCA()
     this->cv_input = NULL;
 }
 
-uint32_t ModuleVCA::compute()
+uint16_t ModuleVCA::compute()
 {
   // Read inputs
   uint32_t audio = this->readInput(audio_input);

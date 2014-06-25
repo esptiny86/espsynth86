@@ -42,9 +42,9 @@
 class ModuleClock : public Module
 {
   public:
-    ModuleClock(uint32_t bpm);
-    ModuleClock(uint32_t bpm, int clock_division);
-    uint32_t compute();
+    ModuleClock(uint16_t bpm);
+    ModuleClock(uint16_t bpm, int clock_division);
+    uint16_t compute();
     
   private:
     uint32_t rate;

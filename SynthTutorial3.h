@@ -4,14 +4,16 @@
 // Type: CV Output
 // Written by: Bret Truchan, 2014
 // 
-// Description: Very simple kick drum sequencer
+// Description: Demonstration of the lowpass filter.  This synth is a simple
+// wavetable oscillator with controllable pitch, wavetable, filter cutoff,
+// and filter resonance.
 //
-// SR  - not used
-// MOD - Selects kick drum pattern
-// [1] - not used
-// [2] - not used
-// [3] - not used
-// GATE - Steps the kick drum sequencer
+// SR  - 
+// MOD - 
+// [1] - 
+// [2] - 
+// [3] - 
+// GATE - 
 //
 // =============================================================================
 

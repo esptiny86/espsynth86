@@ -3,7 +3,7 @@
 #include "defines.h"
 #include "Scales.h"
 
-uint32_t ModuleQuantizer::compute()
+uint16_t ModuleQuantizer::compute()
 {
 	uint32_t cv;
 	uint32_t scale = this->readInput(this->scale_input, 0, 4);

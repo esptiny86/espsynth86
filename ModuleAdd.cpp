@@ -7,7 +7,7 @@ ModuleAdd::ModuleAdd()
   this->input_2 = NULL; 
 }
 
-uint32_t ModuleAdd::compute()
+uint16_t ModuleAdd::compute()
 {
   // Read inputs
   uint32_t value_1 = this->readInput(input_1);

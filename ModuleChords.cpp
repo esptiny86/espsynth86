@@ -16,10 +16,10 @@ ModuleChords::ModuleChords()
 	this->note_3_output = new ModuleOutput(this);    
 }
 
-uint32_t ModuleChords::compute()
+uint16_t ModuleChords::compute()
 {
-	uint32_t root_note_input = this->readInput(this->root_note_input, 0, 60);
-	uint32_t chord_input = this->readInput(this->chord_input, CONVERT_TO_5_BIT);  // 0 - 31
+	uint16_t root_note_input = this->readInput(this->root_note_input, 0, 60);
+	uint16_t chord_input = this->readInput(this->chord_input, CONVERT_TO_5_BIT);  // 0 - 31
 
 	this->note_1_output->value = NOTES[CHROMATIC[(uint8_t) min((root_note_input + CHORDS[chord_input][0]),60)]];
 	this->note_2_output->value = NOTES[CHROMATIC[(uint8_t) min((root_note_input + CHORDS[chord_input][1]),60)]];

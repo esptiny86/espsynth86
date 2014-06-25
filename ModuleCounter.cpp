@@ -13,7 +13,7 @@ ModuleCounter::ModuleCounter(int target)
   this->clock_input = NULL;
 }
 
-uint32_t ModuleCounter::compute()
+uint16_t ModuleCounter::compute()
 {
   uint32_t clock = this->readInput(clock_input);
   

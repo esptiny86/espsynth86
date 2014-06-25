@@ -8,7 +8,7 @@ ModuleOutput::ModuleOutput(Module *parent_module)
   this->parent_module = parent_module;
 }
 
-uint32_t ModuleOutput::compute()
+uint16_t ModuleOutput::compute()
 {
     // Call the parent module's run method.  Notice that the return results from 
     // the run method are ignored.  That's becuase, in this case, it's assumed that

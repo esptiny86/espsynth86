@@ -18,7 +18,7 @@ ModuleEqDrum::ModuleEqDrum()
   this->sample_rate_input = NULL;    
 }
 
-uint32_t ModuleEqDrum::compute()
+uint16_t ModuleEqDrum::compute()
 {
 
   // Read inputs
@@ -48,7 +48,7 @@ uint32_t ModuleEqDrum::compute()
     {
       
       case 0:  // Sqrt Kick
-        w = (((SquareRoot(t%16384))<<5)&64)<<1;
+        w = (((fixed_point_math.SquareRoot(t%16384))<<5)&64)<<1;
         if(t > 16384) stop_playback();
         break;      
 
@@ -117,32 +117,6 @@ uint32_t ModuleEqDrum::compute()
   }
   
   return(w << 4);
-}
-
-uint32_t ModuleEqDrum::SquareRoot(uint32_t a_nInput)
-{
-    uint32_t op  = a_nInput;
-    uint32_t res = 0;
-    uint32_t one = 1uL << 30; // The second-to-top bit is set: use 1u << 14 for uint16_t type; use 1uL<<30 for uint32_t type
-
-
-    // "one" starts at the highest power of four <= than the argument.
-    while (one > op)
-    {
-        one >>= 2;
-    }
-
-    while (one != 0)
-    {
-        if (op >= res + one)
-        {
-            op = op - (res + one);
-            res = res +  2 * one;
-        }
-        res >>= 1;
-        one >>= 2;
-    }
-    return res;
 }
 
 uint32_t ModuleEqDrum::stop_playback()

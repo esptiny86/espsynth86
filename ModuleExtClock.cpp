@@ -38,7 +38,7 @@ ModuleExtClock::ModuleExtClock(uint32_t bpm)
 }
 
 
-uint32_t ModuleExtClock::compute()
+uint16_t ModuleExtClock::compute()
 {
   this->counter++;
   this->ext_clock_counter++;

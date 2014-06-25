@@ -21,7 +21,7 @@ ModuleSmooth::ModuleSmooth()
 // haystack smooth using coefficients 1 3 6 7 6 3 1
 // See: http://terpconnect.umd.edu/~toh/spectrum/Smoothing.html
 //
-uint32_t ModuleSmooth::compute()
+uint16_t ModuleSmooth::compute()
 {
   uint32_t audio = this->readInput(audio_input);
   uint32_t mix   = this->readInput(mix_input);

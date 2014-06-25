@@ -16,7 +16,7 @@ ModuleHighpassFilter::ModuleHighpassFilter()
   this->resonance_input = NULL;  
 }
 
-uint32_t ModuleHighpassFilter::compute()
+uint16_t ModuleHighpassFilter::compute()
 {
   // Read inputs
   uint32_t audio = this->readInput(audio_input);                            // audio range: 0 to 4095

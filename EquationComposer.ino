@@ -37,13 +37,15 @@ Equation testing tools:
 
 TODO:
 
+  - continue fine-tuning memory
+  - remove resonance and pump up filter volume
   - create jitter module
   - create drift module
   - create table lookup module
-  - create chord module (with octaves)
   - create 12-bit equation player
   - create 1-shot equation slice player
-  - create tutorial on creating modules.  Mention random numbers.
+  - pitch shifter using ring buffer
+  - ring mod
   - use better datatypes than the uint32_t that I use everywhere out of laziness
   
 Programming notes
@@ -84,16 +86,17 @@ Programming notes
 // Include each synth
 #include "SynthAutoDrum.h"
 #include "SynthChords.h"
+#include "SynthClickers.h"
 #include "SynthDrumPlayer.h"
 #include "SynthDrumSelektor.h"
 #include "SynthEquationPlayer.h"
 #include "SynthEquationLooper.h"
 #include "SynthMini.h"
 #include "SynthPatterns.h"
-#include "SynthVerbalizer.h"
 #include "SynthWavetable.h"
 #include "SynthWavetableDelay.h"
 
+/*
 #include "SynthTutorial1.h"
 #include "SynthTutorial2.h"
 #include "SynthTutorial3.h"
@@ -107,6 +110,7 @@ Programming notes
 #include "SynthTutorial11.h"
 #include "SynthTutorial12.h"
 #include "SynthTutorial13.h"
+*/
 
 #include "DueTimer.h"
 
@@ -125,38 +129,45 @@ Equations *equations = new Equations();
 // Instantiate synths, which are selectable via the PRG knob.
 // Any new synth must be added to this list
 
+// factory presets
+
 #define NUMBER_OF_SYNTHS 5
 
-/* factory presets
 Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),
   new SynthWavetableDelay(inputs),
-  new SynthPatterns(inputs)
+  // new SynthPatterns(inputs),
+  new SynthChords(inputs)
+  // new SynthClickers(inputs)
+};
+
+
+
+// ==== testing configuration =====
+/*
+#define NUMBER_OF_SYNTHS 2
+
+Synth *active_synths[] {
+  new SynthEquationPlayer(inputs, equations), 
+  new SynthTutorial6(inputs)
 };
 */
 
-Synth *active_synths[] {
-  new SynthEquationPlayer(inputs, equations),
-  new SynthEquationLooper(inputs, equations),
-  new SynthDrumSelektor(inputs),
-  new SynthWavetableDelay(inputs),  
-  new SynthChords(inputs)
-};
 
 
-// The 'cycle' variable increments every time the 44100Hz interrupt is called.
+// The 'cycle' variable increments every time the interrupt is called.
 // Modules use this counter to determine if their output has already been calculated
 // or not during the interrupt cycle.  If it has, then the module won't bother
 // calculating its output until the next cycle.  This is important for situations
 // where one module's output is fed into the inputs of two different modules.  Without
 // this type of "output caching", in this situation, the parent module's code
 // would be run twice unnecessarily.
-double cycle = 0;
+uint8_t cycle = 0;
 
 // Currently selected synth
-int synth = 0;
+uint8_t synth = 0;
 
 
 void setup()
@@ -216,7 +227,6 @@ void loop()
   #endif
 }
 
-// This method gets called at around 44100 Hz
 void audioRateInterrupt()
 {
   // I'm using dacc_write_conversion_data() because it writes 12-bit data to

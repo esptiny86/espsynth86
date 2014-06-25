@@ -43,7 +43,7 @@ class ModuleArpeggio : public Module
   public:
   
     ModuleArpeggio();
-    uint32_t compute();
+    uint16_t compute();
     
     // Inputs
     Module *root_note_input;

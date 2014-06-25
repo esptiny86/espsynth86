@@ -13,7 +13,7 @@ ModuleClockedRandom::ModuleClockedRandom()
   rand.seed(1);
 }
 
-uint32_t ModuleClockedRandom::compute()
+uint16_t ModuleClockedRandom::compute()
 {
 	uint32_t clock = this->readInput(clock_input);
 

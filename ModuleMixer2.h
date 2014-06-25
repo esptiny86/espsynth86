@@ -26,7 +26,7 @@ class ModuleMixer2 : public Module
 {
     public:    
   	ModuleMixer2();
-    uint32_t compute();  
+    uint16_t compute();  
 
     // Inputs
     Module *input_1;

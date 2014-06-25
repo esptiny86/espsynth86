@@ -2,6 +2,7 @@
 
 SynthTutorial12::SynthTutorial12(Inputs* inputs)
 {
+  /*
   ModuleWavetableOsc *wavetable_osc1 = new ModuleWavetableOsc();
   ModuleWavetableOsc *wavetable_osc2 = new ModuleWavetableOsc();
   ModuleMultiply *multiply = new ModuleMultiply();
@@ -18,4 +19,5 @@ SynthTutorial12::SynthTutorial12(Inputs* inputs)
   multiply->input_2 = wavetable_osc2;
 
   this->last_module = multiply;
+  */
 }

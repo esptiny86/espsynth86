@@ -51,7 +51,7 @@ class ModuleENV : public Module
   private:
   
     // Functions
-    uint32_t compute();  
+    uint16_t compute();  
 
     // Variables
     uint32_t slope_index;

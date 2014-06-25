@@ -52,7 +52,7 @@ class ModuleExtClock : public Module
   public:
     ModuleExtClock(uint32_t bpm);
     ModuleExtClock(uint32_t bpm, int clock_division);
-    uint32_t compute();
+    uint16_t compute();
 
     // Inputs
     Module *clock_input;  

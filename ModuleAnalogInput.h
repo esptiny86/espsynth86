@@ -25,7 +25,7 @@
 class ModuleAnalogInput : public ModuleInput
 {
   private:
-      uint32_t compute();
+      uint16_t compute();
       
   public:
     

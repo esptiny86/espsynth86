@@ -13,8 +13,7 @@ class Synth
   public:
   
     // Methods
-    Synth(); // Constructor
-    uint32_t run(double cycle);
+    uint32_t run(uint8_t cycle);
 
     
     // 'last_module' is the last module in the synth.  

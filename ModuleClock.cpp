@@ -2,24 +2,24 @@
 #include "ModuleClock.h"
 #include "defines.h"
 
-ModuleClock::ModuleClock(uint32_t bpm, int clock_division)
+ModuleClock::ModuleClock(uint16_t bpm, int clock_division)
 {
   this->counter = 0;  
   this->bpm = constrain(bpm, 0, 254);
   
-  for(uint32_t bpm_i=0; bpm_i < 255; bpm_i++)
+  for(uint8_t bpm_i=0; bpm_i < 255; bpm_i++)
   {
     bpm_ppqn[bpm_i] = ((float)(60.0 * SAMPLE_RATE_FLOAT * clock_division)/((float)bpm_i * 96.0));
     bpm_half_ppqn[bpm_i] = bpm_ppqn[bpm_i] / 2;
   }   
 }
 
-ModuleClock::ModuleClock(uint32_t bpm)
+ModuleClock::ModuleClock(uint16_t bpm)
 {
   this->counter = 0;  
   this->bpm = constrain(bpm, 0, 254);
   
-  for(uint32_t bpm_i=0; bpm_i < 255; bpm_i++)
+  for(uint8_t bpm_i=0; bpm_i < 255; bpm_i++)
   {
     bpm_ppqn[bpm_i] = ((float)(60.0 * SAMPLE_RATE_FLOAT)/((float)bpm_i * 96.0));
     bpm_half_ppqn[bpm_i] = bpm_ppqn[bpm_i] / 2;
@@ -27,7 +27,7 @@ ModuleClock::ModuleClock(uint32_t bpm)
 }
 
 
-uint32_t ModuleClock::compute()
+uint16_t ModuleClock::compute()
 {
   this->counter = this->counter + 1;
 
