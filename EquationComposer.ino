@@ -129,32 +129,17 @@ Equations *equations = new Equations();
 // Instantiate synths, which are selectable via the PRG knob.
 // Any new synth must be added to this list
 
-// factory presets
-
-#define NUMBER_OF_SYNTHS 5
+#define NUMBER_OF_SYNTHS 6
 
 Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),
   new SynthWavetableDelay(inputs),
-  // new SynthPatterns(inputs),
+  new SynthPatterns(inputs),
   new SynthChords(inputs)
-  // new SynthClickers(inputs)
+  // new SynthClickers(inputs) // not enough memory yet for this
 };
-
-
-
-// ==== testing configuration =====
-/*
-#define NUMBER_OF_SYNTHS 2
-
-Synth *active_synths[] {
-  new SynthEquationPlayer(inputs, equations), 
-  new SynthTutorial6(inputs)
-};
-*/
-
 
 
 // The 'cycle' variable increments every time the interrupt is called.
