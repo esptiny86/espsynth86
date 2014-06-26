@@ -3,12 +3,12 @@
 SynthClickers::SynthClickers(Inputs* inputs)
 {
 	ModuleExtClock *ext_clock = new ModuleExtClock(120);
-	ext_clock->clock_input = inputs->gate;
-
 	ModuleClockDivider *clock_divider = new ModuleClockDivider();
 	ModuleLFO *lfo = new ModuleLFO();
-	ModuleEqDrum *drum_sound= new ModuleEqDrum();
+	ModuleEqDrum *drum_sound = new ModuleEqDrum();
 	ModuleMap *map_0_24 = new ModuleMap(0,24);
+
+	ext_clock->clock_input = inputs->gate;
 
 	lfo->frequency_input = inputs->param1;
 	lfo->wavetable_input = inputs->param2;

@@ -1,6 +1,6 @@
 #ifndef Slopes_h
 #define Slopes_h
 
-extern char SLOPES[][512];
+extern const uint8_t SLOPES[][512];
 
 #endif

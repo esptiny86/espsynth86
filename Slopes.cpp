@@ -1,4 +1,5 @@
 #include "Arduino.h"
+#include "Slopes.h"
 
 //
 // Note: If you add more sloped, change the NUMBER_OF_SLOPES in defined.h
@@ -6,7 +7,7 @@
 // 
 // See bottom of this file for more information.
 
-uint8_t SLOPES[][512] = 
+const uint8_t SLOPES[][512] = 
 {
 
 

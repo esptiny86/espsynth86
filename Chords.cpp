@@ -1,6 +1,7 @@
 #include "Arduino.h"
+#include "Chords.h"
 
-uint8_t CHORDS[32][3] = 
+const uint8_t CHORDS[][3] = 
 { 
   
   {0, 4, 7},    // 0: "major"  

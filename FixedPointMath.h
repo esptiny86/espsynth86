@@ -17,8 +17,9 @@ class FixedPointMath
     uint32_t saw_fix1212(uint32_t x,uint32_t a);
 
   private:
-    uint16_t Sine[1024];
-    uint16_t Exp[4095];    
+
+    // uint16_t Sine[1024];
+    // uint16_t Exp[4095];    
 };
 
 #endif

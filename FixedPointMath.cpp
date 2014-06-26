@@ -1,5 +1,6 @@
 #include "defines.h"
 #include "FixedPointMath.h"
+#include "FixedPointMathTables.h"
 
 //
 // Below are some useful fixed-point math functions.  Most of these aren't used
@@ -9,6 +10,7 @@
 
 FixedPointMath::FixedPointMath()
 {
+  /*
   for(uint32_t i = 0; i < 1024; i++) 
   { 
     Sine[i] = (uint16_t)(2048*sin(PI*(float)i/2048.0));
@@ -17,7 +19,8 @@ FixedPointMath::FixedPointMath()
   for(uint32_t i = 0; i < 4096; i++) 
   { 
     Exp[i] = (uint16_t)(4095*exp((float)i/-512.0));
-  }   
+  }  
+  */ 
 }
 
 
@@ -49,7 +52,7 @@ uint32_t FixedPointMath::SquareRoot(uint32_t a_nInput)
 
 uint32_t FixedPointMath::exp_fix0912(uint32_t in)
 {
-  if(in<4096) return Exp[in];
+  if(in<4096) return fixed_point_exp[in];
   else return 0;
 }
 
@@ -57,10 +60,10 @@ uint32_t FixedPointMath::sin_fix1212(uint32_t in)
 {
   uint32_t out = 0;
   uint16_t x = in % 4096;
-  if(x>=0 && x<1024) out = Sine[x]+0x0800;
-  if(x>=1024 && x<2048) out = Sine[2047-x]+0x0800;
-  if(x>=2048 && x<3072) out = -Sine[x-2048]+0x0800;
-  if(x>=3072 && x<4096) out = -Sine[4095-x]+0x0800;
+  if(x>=0 && x<1024) out = fixed_point_sin[x]+0x0800;
+  if(x>=1024 && x<2048) out = fixed_point_sin[2047-x]+0x0800;
+  if(x>=2048 && x<3072) out = -fixed_point_sin[x-2048]+0x0800;
+  if(x>=3072 && x<4096) out = -fixed_point_sin[4095-x]+0x0800;
   if (out>=4095) out = 4095;
   return out;
 }
