@@ -20,7 +20,7 @@ Based on:
 Credits:
   Circuit design, parts selection, and manufacturing oversight by John Staskevich
   Front panel design by Hannes Pasqualini
-  Sound design by Sunshine Audio and Bret Truchan
+  Sound design by Sunsine Audio and Bret Truchan
   Some equations gathered from around the net for which there was no attribution
   Includes some libraries from Mozzi (http://sensorium.github.io/Mozzi/)
   Additional programming by Gaétan Ro
@@ -46,7 +46,6 @@ TODO:
   - create 1-shot equation slice player
   - pitch shifter using ring buffer
   - ring mod
-  - use better datatypes than the uint32_t that I use everywhere out of laziness
   
 Programming notes
   - Do _not_ put a delay() immediately before polling the analog inputs as it can
@@ -138,8 +137,9 @@ Synth *active_synths[] {
   new SynthWavetableDelay(inputs),
   new SynthPatterns(inputs),
   new SynthChords(inputs),
-  new SynthClickers(inputs) // not enough memory yet for this
+  new SynthClickers(inputs)
 };
+
 
 
 // The 'cycle' variable increments every time the interrupt is called.
