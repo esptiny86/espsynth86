@@ -32,6 +32,7 @@
 #include "ModuleSampleAndHold.h"
 #include "ModuleSequencer.h"
 #include "ModuleSmooth.h"
+#include "ModuleSpeechSound.h"
 #include "ModuleSwitch.h"
 #include "ModuleVCA.h"
 #include "ModuleWavetableOsc.h"

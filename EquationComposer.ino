@@ -37,10 +37,10 @@ Equation testing tools:
 
 TODO:
 
+  - test new speech module updates
   - continue fine-tuning memory
   - remove resonance and pump up filter volume
-  - create jitter module
-  - create drift module
+  - make videos of all synths
   - create table lookup module
   - create 12-bit equation player
   - pitch shifter using ring buffer
@@ -90,6 +90,7 @@ Programming notes
 #include "SynthEquationPlayer.h"
 #include "SynthEquationLooper.h"
 #include "SynthMini.h"
+#include "SynthMumbler.h"
 #include "SynthPatterns.h"
 #include "SynthWavetable.h"
 #include "SynthWavetableDelay.h"
@@ -127,7 +128,7 @@ Equations *equations = new Equations();
 // Instantiate synths, which are selectable via the PRG knob.
 // Any new synth must be added to this list
 
-#define NUMBER_OF_SYNTHS 7
+#define NUMBER_OF_SYNTHS 8
 
 Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
@@ -136,7 +137,8 @@ Synth *active_synths[] {
   new SynthWavetableDelay(inputs),
   new SynthPatterns(inputs),
   new SynthChords(inputs),
-  new SynthClickers(inputs)
+  new SynthClickers(inputs),
+  new SynthMumbler(inputs)  
 };
 
 
