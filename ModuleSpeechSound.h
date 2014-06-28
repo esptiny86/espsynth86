@@ -41,14 +41,6 @@ class ModuleSpeechSound : public Module
     uint16_t pitchPhaseInc,form1PhaseInc,form2PhaseInc,form3PhaseInc;
     uint8_t form1Amp,form2Amp,form3Amp;
     uint8_t noiseMod;    
-    
-    /*
-    int8_t sinCalc[256];
-    int8_t sqrCalc[256];
-    uint8_t formantTable[546];
-    uint16_t pitchTable[64];
-	int8_t word[72];
-    */
 
     int frameTime;
     uint16_t basePitch;
