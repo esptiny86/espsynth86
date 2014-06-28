@@ -44,12 +44,7 @@ uint16_t ModuleEquationLooper::compute()
     }
   }
   
-  uint32_t t;
-  
-  // Handle different playback modes: forward, reverse, pendulum  
-  t = playback_position;
-
   // Play the selected equation
-  return(this->equations->compute(equation, t, 1, 1, p3));
+  return(this->equations->compute(equation, playback_position, 1, 1, p3));
   
 }

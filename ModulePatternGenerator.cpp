@@ -25,16 +25,29 @@ ModulePatternGenerator::ModulePatternGenerator()
 uint16_t ModulePatternGenerator::compute()
 {
 
+	// The pattern_lenght, cv_pattern, and gate_pattern inputs are bit-reduced 
+	// to minimize jitter due to noise on the analog inputs.
+	
 	uint32_t pattern_length = this->readInput(this->length_input, CONVERT_TO_6_BIT);
 	uint32_t cv_pattern = this->readInput(this->cv_pattern_input, CONVERT_TO_9_BIT);
 	uint32_t gate_pattern = this->readInput(this->gate_pattern_input, CONVERT_TO_9_BIT);
 	uint32_t gate_density = this->readInput(this->gate_density_input);
 	uint32_t clock = this->readInput(clock_input);
 
+	// The trick to understanding this code is that the random number generators
+	// cv_rand and gate_rand aren't really random.  Given the same seed, they'll 
+	// produce the same pattern over and over again.
+
 	if(first_iteration) 
 	{
 		first_iteration = false;
 		
+		// Set the seed for both the cv and gate pattern.  The gate pattern's 
+		// seed is offset +10 because it's likely that someone will wire the
+		// same output into both cv_pattern_input and gate_pattern_input, and
+		// that would cause both pattern generators to produce the exact same
+		// pattern.  It would be best to avoid that.
+
 		cv_rand.seed(cv_pattern);
 		gate_rand.seed(gate_pattern + 10);
 
@@ -54,6 +67,7 @@ uint16_t ModulePatternGenerator::compute()
 	if((clock > MID_CV) && (old_clock <= MID_CV))
 	{
 		step++;
+
 		if(step >= pattern_length)
 		{
 			step = 0;
@@ -62,6 +76,10 @@ uint16_t ModulePatternGenerator::compute()
 		}
 
 		latched_cv_output = cv_rand.random();
+
+		// Since gate_rand's seed is reset every time the pattern
+		// starts at index 0, the output of gate_rand.random isn't really
+		// random.  It's a repeating pattern.
 
 		if(gate_rand.random() < gate_density)
 		{

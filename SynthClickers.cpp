@@ -2,6 +2,7 @@
 
 SynthClickers::SynthClickers(Inputs* inputs)
 {
+
 	ModuleExtClock *ext_clock = new ModuleExtClock(120);
 	ModuleClockDivider *clock_divider = new ModuleClockDivider();
 	ModuleLFO *lfo = new ModuleLFO();
@@ -23,4 +24,5 @@ SynthClickers::SynthClickers(Inputs* inputs)
 	drum_sound->trigger_input = clock_divider;
 
 	this->last_module = drum_sound;
+
 }

@@ -45,7 +45,6 @@
 class ModuleSwitch : public Module
 {
   public:
-    ModuleSwitch();
     uint16_t compute();
     
     // Inputs

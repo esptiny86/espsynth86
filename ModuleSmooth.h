@@ -54,9 +54,9 @@ class ModuleSmooth : public Module
     
   private:
     
-    uint32_t buffer[6];
-    int mix;  // ranged from 0 to 4095, where 0 == dry, 4095 == wet
-    uint32_t smooth_output;
+    uint16_t buffer[6];
+    uint16_t mix;  // ranged from 0 to 4095, where 0 == dry, 4095 == wet
+    uint16_t smooth_output;
 };
 
 #endif

@@ -10,7 +10,7 @@ ModuleSampleAndHold::ModuleSampleAndHold()
 
 uint16_t ModuleSampleAndHold::compute()
 {
-  uint32_t clock = this->readInput(trigger_input);
+  uint16_t clock = this->readInput(trigger_input);
   
   if((clock < MID_CV) && triggered) triggered = false;
   

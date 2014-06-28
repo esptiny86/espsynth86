@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "ModuleDelay.h"
 #include "defines.h"
-// #include "RingBuffer.h"
+#include "RingBuffer.h"
 
 ModuleDelay::ModuleDelay()
 {

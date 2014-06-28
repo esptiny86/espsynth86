@@ -23,9 +23,9 @@ ModuleSmooth::ModuleSmooth()
 //
 uint16_t ModuleSmooth::compute()
 {
-  uint32_t audio = this->readInput(audio_input);
-  uint32_t mix   = this->readInput(mix_input);
-  uint32_t wet_mix = 4095 - mix;
+  uint16_t audio = this->readInput(audio_input);
+  uint16_t mix   = this->readInput(mix_input);
+  uint16_t wet_mix = 4095 - mix;
 
   buffer[0] = buffer[1];
   buffer[1] = buffer[2];

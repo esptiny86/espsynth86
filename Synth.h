@@ -13,7 +13,7 @@ class Synth
   public:
   
     // Methods
-    uint32_t run(uint8_t cycle);
+    uint16_t run(uint8_t cycle);
 
     
     // 'last_module' is the last module in the synth.  

@@ -49,7 +49,7 @@ class ModuleSequencer : public Module
   private:
     int step;
     int sequence[8];
-    uint32_t old_clock;
+    uint16_t old_clock;
 };
 
 #endif

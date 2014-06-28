@@ -92,9 +92,9 @@ class ModulePatternGenerator : public Module
     int step;
     boolean clocked;
     boolean first_iteration;
-    uint32_t old_clock;
-    uint32_t latched_cv_output;
-    uint32_t latched_gate_output;
+    uint16_t old_clock;
+    uint16_t latched_cv_output;
+    uint16_t latched_gate_output;
 
     Rand cv_rand;
     Rand gate_rand;

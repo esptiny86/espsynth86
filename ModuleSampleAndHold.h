@@ -55,7 +55,7 @@ class ModuleSampleAndHold : public Module
     Module *sample_input;      
     
   private:
-    uint32_t sampled_value;
+    uint16_t sampled_value;
     boolean triggered;
 };
 

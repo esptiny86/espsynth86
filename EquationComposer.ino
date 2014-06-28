@@ -43,7 +43,6 @@ TODO:
   - create drift module
   - create table lookup module
   - create 12-bit equation player
-  - create 1-shot equation slice player
   - pitch shifter using ring buffer
   - ring mod
   

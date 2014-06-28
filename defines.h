@@ -27,14 +27,11 @@
 #define ANALOG_READ_RESOLUTION 12  // Typical values are 8, 10 or 12
 
 // Assorted definitions
-// #define SAMPLE_RATE 44100
-// #define SAMPLE_RATE_FLOAT 44100.0
-
 #define SAMPLE_RATE 22050
 #define SAMPLE_RATE_FLOAT 22050.0
 
 
-// Define conversion used by uint32_t readInput(Module *, int conversion);
+// Conversion constants used by uint16_t readInput(Module *, int conversion);
 #define CONVERT_TO_1_BIT 11
 #define CONVERT_TO_2_BIT 10
 #define CONVERT_TO_3_BIT 9
@@ -58,15 +55,6 @@
 #define SIXTEENTH_NOTE_CLOCK_DIVISION 24
 #define THIRTY_SECOND_NOTE_CLOCK_DIVISION 12
 
-// ADSR shortcuts
-/*
-#define ADSR_PRESET_BLIP 1,41,0,0
-#define ADSR_PRESET_PLUCK 5,102,500,410
-#define ADSR_PRESET_BASS 10,100,0,0
-#define ADSR_PRESET_SUSTAIN_DECAY_SHORT 1,1,4095,410
-#define ADSR_PRESET_SUSTAIN_DECAY_LONG 1,1,4095,820
-#define ADSR_PRESET_LINEAR 0,1000,0,0
-*/
 
 // Enums for voice simulation synths
 enum {
