@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "ModuleSpeechSound.h"
 #include "Defines.h"
-#include "SpeechTables.h"
+#include "GlobalSpeechTables.h"
 
 ModuleSpeechSound::ModuleSpeechSound()
 {

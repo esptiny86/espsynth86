@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "ModuleQuantizer.h"
 #include "defines.h"
-#include "Scales.h"
+#include "GlobalScales.h"
 
 uint16_t ModuleQuantizer::compute()
 {

@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "Slopes.h"
+#include "GlobalSlopes.h"
 
 //
 // Note: If you add more sloped, change the NUMBER_OF_SLOPES in defined.h

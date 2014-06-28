@@ -1,4 +1,4 @@
-#include "SpeechTables.h"
+#include "GlobalSpeechTables.h"
 
 const uint16_t speechPitchTable[] = {
 	58,61,65,69,73,77,82,86,92,97,

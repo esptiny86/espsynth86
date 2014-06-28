@@ -79,7 +79,7 @@ Programming notes
 #include "Equations.h"
 
 // More traditional array-based wavetables
-#include "Wavetables.h"
+#include "GlobalWavetables.h"
 
 // Include each synth
 #include "SynthAutoDrum.h"

@@ -1,8 +1,8 @@
 #include "Arduino.h"
 #include "ModuleChords.h"
 #include "defines.h"
-#include "Scales.h"
-#include "Chords.h"
+#include "GlobalScales.h"
+#include "GlobalChords.h"
 
 ModuleChords::ModuleChords()
 {

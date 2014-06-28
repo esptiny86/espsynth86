@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "increments.h"
+#include "GlobalIncrements.h"
 
 // Increments are the numbers which need to be added to wavetable indexes in order to produce 1v/octave frequencies
 // increments[i] = ((float)(512 << 20)/SAMPLE_RATE_FLOAT) * 130.8 * pow(2.0,((5.0*i)/4096.0));

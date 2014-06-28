@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "Wavetables.h"
+#include "GlobalWavetables.h"
 
 //
 // Wavetables are from the Mozzi Arduino library and from the Adventure Kid

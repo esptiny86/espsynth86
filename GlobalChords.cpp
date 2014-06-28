@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "Chords.h"
+#include "GlobalChords.h"
 
 const uint8_t CHORDS[][3] = 
 { 

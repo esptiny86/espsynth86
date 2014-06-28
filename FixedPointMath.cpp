@@ -1,6 +1,6 @@
 #include "defines.h"
 #include "FixedPointMath.h"
-#include "FixedPointMathTables.h"
+#include "GlobalFixedPointMathTables.h"
 
 //
 // Below are some useful fixed-point math functions.  Most of these aren't used

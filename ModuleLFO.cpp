@@ -1,8 +1,8 @@
 #include "Arduino.h"
 #include "ModuleLFO.h"
 #include "defines.h"
-#include "Wavetables.h"
-#include "Increments.h"
+#include "GlobalWavetables.h"
+#include "GlobalIncrements.h"
 
 ModuleLFO::ModuleLFO()
 {

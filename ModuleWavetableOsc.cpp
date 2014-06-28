@@ -1,8 +1,8 @@
 #include "Arduino.h"
 #include "ModuleWavetableOsc.h"
 #include "defines.h"
-#include "Wavetables.h"
-#include "Increments.h"
+#include "GlobalWavetables.h"
+#include "GlobalIncrements.h"
 
 ModuleWavetableOsc::ModuleWavetableOsc()
 {
