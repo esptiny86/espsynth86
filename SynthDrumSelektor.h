@@ -9,8 +9,8 @@
 //
 // SR  - Controls sample rate of drum sound
 // MOD - CV selection of drum sound
-// [1] - not used
-// [2] - not used
+// [1] - Freeze trigger input
+// [2] - Freeze length input
 // [3] - not used
 // GATE - Triggers drum sound
 //

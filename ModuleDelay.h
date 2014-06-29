@@ -52,11 +52,7 @@ class ModuleDelay : public Module
 
   private:
     
-    // uint16_t buffer[DELAY_BUFFER_SIZE];
-    int buffer_index;
-    
-    uint16_t feedback;
-    int mix;  // ranged from 0 to 4095, where 0 == dry, 4095 == wet
+    uint16_t buffer_index;
     uint32_t delay_output;
 };
 

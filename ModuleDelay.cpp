@@ -6,7 +6,6 @@
 ModuleDelay::ModuleDelay()
 {
   buffer_index = 0;
-  feedback = 0;
   delay_output = 0;
 
   audio_input = NULL;
