@@ -37,8 +37,8 @@ Equation testing tools:
 
 TODO:
 
-  - test new speech module updates
-  - continue fine-tuning memory
+  - document freeze fx
+  - improve arpeggiation module
   - remove resonance and pump up filter volume
   - make videos of all synths
   - create table lookup module

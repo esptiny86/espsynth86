@@ -36,7 +36,6 @@
 
 #include "Arduino.h"
 #include "Module.h"
-#define DELAY_BUFFER_SIZE 1024
 
 class ModuleDelay : public Module
 {
@@ -53,7 +52,7 @@ class ModuleDelay : public Module
 
   private:
     
-    uint16_t buffer[DELAY_BUFFER_SIZE];
+    // uint16_t buffer[DELAY_BUFFER_SIZE];
     int buffer_index;
     
     uint16_t feedback;
