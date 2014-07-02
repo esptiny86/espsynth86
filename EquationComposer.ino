@@ -18,7 +18,7 @@ Based on:
   Equation playback based on techniques documented by Viznut
 
 Credits:
-  Circuit design, parts selection, and manufacturing oversight by John Staskevich
+  Circuit/PCB design, parts selection, and manufacturing oversight by John Staskevich
   Front panel design by Hannes Pasqualini
   Sound design by Sunsine Audio and Bret Truchan
   Some equations gathered from around the net for which there was no attribution

@@ -9,7 +9,29 @@
  *  |               output >
  *  +----------------------+
  */
- 
+// =============================================================================
+// 
+// ModuleLowpassFilter is a low pass filter (Moog style) with control over 
+// cutoff and resonance.
+//
+// Example usage:
+//
+//   ModuleWavetableOsc *wavetable_osc = new ModuleWavetableOsc();
+//   ModuleLowpassFilter *lowpass_filter = new ModuleLowpassFilter();
+//
+//   // Patch up ocillator
+//   wavetable_osc->frequency_input = inputs->sr;
+//   wavetable_osc->wavetable_input = inputs->mod;
+//
+//   // Patch up filter
+//   lowpass_filter->audio_input = wavetable_osc;
+//   lowpass_filter->cutoff_input = inputs->param1;
+//   lowpass_filter->resonance_input = inputs->param2;
+//
+//   this->last_module = lowpass_filter;
+//
+
+
 #ifndef ModuleLowpassFilter_h
 #define ModuleLowpassFilter_h
 
@@ -30,16 +52,8 @@ class ModuleLowpassFilter : public Module
     Module *audio_input; 
     Module *cutoff_input;
     Module *resonance_input;
-
-    // A low pass filter object from LowPassFilter.h, not to beconfused with the ModuleLowpassFilter type.
-    LowPassFilter lpf;    
-                    
-    // MoogVCF1
-    /* long q,p,f;
-  long b0,b1,b2,b3,b4,t1,t2;*/
   
-  // MoogVCF2
-    // long y1,y2,y3,y4,oldx,oldy1,oldy2,oldy3;                     
+    long y1,y2,y3,y4,oldx,oldy1,oldy2,oldy3;                     
 };
 
 #endif
