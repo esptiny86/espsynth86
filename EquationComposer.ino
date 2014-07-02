@@ -37,10 +37,11 @@ Equation testing tools:
 
 TODO:
 
-  - document freeze fx
+  - document SynthChords
+  - try making volume maximizer module
   - improve arpeggiation module
   - remove resonance and pump up filter volume
-  - make videos of all synths
+  - make videos of all synths (clickers is next)
   - create table lookup module
   - create 12-bit equation player
   - pitch shifter using ring buffer
@@ -94,6 +95,7 @@ Programming notes
 #include "SynthPatterns.h"
 #include "SynthWavetable.h"
 #include "SynthWavetableDelay.h"
+#include "SynthTutorial3.h"
 
 /*
 #include "SynthTutorial1.h"
@@ -188,7 +190,6 @@ void setup()
   // Configure the interrupt(s) if NOT in debug mode.  
   // Notice that's ifndef (with an 'n'), not ifdef.
   #ifndef DEBUG
-    // Timer0.attachInterrupt(audioRateInterrupt).setFrequency(44100).start();
     Timer0.attachInterrupt(audioRateInterrupt).setFrequency(SAMPLE_RATE).start();
   #endif
   

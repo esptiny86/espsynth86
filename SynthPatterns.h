@@ -6,7 +6,7 @@
 // 
 // Description: 
 //
-// SR  - sample rate
+// SR  - delay effects mix
 // MOD - wavetable selecation
 // [1] - CV Pattern Select
 // [2] - Gate Pattern Select

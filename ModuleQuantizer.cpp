@@ -6,7 +6,7 @@
 uint16_t ModuleQuantizer::compute()
 {
 	uint32_t cv;
-	uint32_t scale = this->readInput(this->scale_input, 0, 4);
+	uint32_t scale = this->readInput(this->scale_input, 0, 7);
 
 	// The NOTES array and scale arrays are defined in Scales.h/Scales.cpp
 
@@ -25,6 +25,15 @@ uint16_t ModuleQuantizer::compute()
 			return(NOTES[LYDIAN[cv]]);
 		case 4: 
 			cv = this->readInput(this->cv_input, 0, 35);
-			return(NOTES[PHRYGIAN[cv]]);			
+			return(NOTES[PHRYGIAN[cv]]);
+		case 5:		
+			cv = this->readInput(this->cv_input, 0, 15);
+			return(NOTES[MAJOR[cv]]);
+		case 6: 
+			cv = this->readInput(this->cv_input, 0, 15);
+			return(NOTES[MINOR[cv]]);
+		case 7: 
+			cv = this->readInput(this->cv_input, 0, 42);
+			return(NOTES[PRISM[cv]]);									
 	}
 }

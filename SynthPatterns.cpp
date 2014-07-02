@@ -9,7 +9,6 @@ SynthPatterns::SynthPatterns(Inputs* inputs)
   	ModuleLowpassFilter *lowpass_filter = new ModuleLowpassFilter();
 	ModuleENV *envelope_generator = new ModuleENV();
 	ModuleSampleAndHold *sample_and_hold = new ModuleSampleAndHold();
-  	ModuleDelay *delay = new ModuleDelay();
 
 	ext_clock->clock_input = inputs->gate;
 
@@ -22,7 +21,7 @@ SynthPatterns::SynthPatterns(Inputs* inputs)
 	sample_and_hold->sample_input = pattern_generator;
 	sample_and_hold->trigger_input = pattern_generator->gate_output;
 
-	quantizer->scale_input = new ModuleConstant(1);
+	quantizer->scale_input = inputs->sr;
 	quantizer->cv_input = sample_and_hold;
 
 	wavetable_osc->wavetable_input  = inputs->mod;
@@ -36,11 +35,5 @@ SynthPatterns::SynthPatterns(Inputs* inputs)
 	lowpass_filter->cutoff_input = envelope_generator;
 	lowpass_filter->resonance_input = new ModuleConstant(0);
 
-	delay->audio_input = lowpass_filter;
-	delay->mix_input = new ModuleConstant(4000);
-	delay->feedback_input = new ModuleConstant(3000);
-	delay->length_input = inputs->sr;
-
-	this->last_module = delay;
-
+	this->last_module = lowpass_filter;
 }

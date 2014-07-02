@@ -31,15 +31,9 @@ class ModuleLowpassFilter : public Module
     Module *cutoff_input;
     Module *resonance_input;
 
-    // A low pass filter object from LowPassFilter.h, not to beconfused with the ModuleLowpassFilter type.
-    LowPassFilter lpf;    
-                    
-    // MoogVCF1
-    /* long q,p,f;
-  long b0,b1,b2,b3,b4,t1,t2;*/
-  
-  // MoogVCF2
-    // long y1,y2,y3,y4,oldx,oldy1,oldy2,oldy3;                     
+    long q,p,f;
+    long b0,b1,b2,b3,b4,t1,t2;
+                     
 };
 
 #endif
