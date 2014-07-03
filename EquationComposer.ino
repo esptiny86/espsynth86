@@ -38,11 +38,8 @@ Equation testing tools:
 TODO:
 
   - document SynthChords
-  - try making volume maximizer module
   - improve arpeggiation module
-  - remove resonance and pump up filter volume
   - make videos of all synths (clickers is next)
-  - create table lookup module
   - create 12-bit equation player
   - pitch shifter using ring buffer
   - ring mod
@@ -95,7 +92,6 @@ Programming notes
 #include "SynthPatterns.h"
 #include "SynthWavetable.h"
 #include "SynthWavetableDelay.h"
-#include "SynthTutorial3.h"
 
 /*
 #include "SynthTutorial1.h"

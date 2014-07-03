@@ -4,14 +4,15 @@
 // Type: Audio
 // Written by: Bret Truchan, 2014
 // 
-// Description: 
+// Description: A wavetable based chord generator.  See GlobalChords.php 
+// for a list of included chords.
 //
-// SR  - 
-// MOD - 
-// [1] - 
-// [2] - 
-// [3] - 
-// GATE - 
+// SR  - Base note of the chord
+// MOD - Chord selection
+// [1] - Scale Selection
+// [2] - Wavetable #2 selection
+// [3] - Wavetable #3 selection
+// GATE - not used
 //
 // =============================================================================
 

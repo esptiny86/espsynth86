@@ -29,6 +29,7 @@
 #include "ModuleMultiply.h"
 #include "ModulePatternGenerator.h"
 #include "ModuleQuantizer.h"
+#include "ModuleRotatingRouter3.h"
 #include "ModuleSampleAndHold.h"
 #include "ModuleSequencer.h"
 #include "ModuleSmooth.h"
