@@ -3,7 +3,9 @@
 #include "defines.h"
 
 // Special thanks to Gaetan Ro for adapting this
-// filter for the Equation Composer
+// filter for the Equation Composer from
+//
+// http://www.musicdsp.org/showone.php?id=24
 
 ModuleLowpassFilter::ModuleLowpassFilter()
 {

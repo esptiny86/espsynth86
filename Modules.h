@@ -23,7 +23,6 @@
 #include "ModuleHighpassFilter.h"
 #include "ModuleLFO.h"
 #include "ModuleLowpassFilter.h"
-#include "ModuleLowpassFilterB.h"
 #include "ModuleMap.h"
 #include "ModuleMixer2.h"
 #include "ModuleMixer3.h"
@@ -37,4 +36,3 @@
 #include "ModuleSwitch.h"
 #include "ModuleVCA.h"
 #include "ModuleWavetableOsc.h"
-// #include "ModuleWords.h"

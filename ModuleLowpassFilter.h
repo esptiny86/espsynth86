@@ -11,7 +11,7 @@
  */
 // =============================================================================
 // 
-// ModuleLowpassFilter is a low pass filter (Moog style) with control over 
+// ModuleLowpassFilter is a 24db resonant lowpass (Moog style) with control over 
 // cutoff and resonance.
 //
 // Example usage:
@@ -37,7 +37,6 @@
 
 #include "Arduino.h"
 #include "Module.h"
-#include "LowPassFilter_test.h"
 
 class ModuleLowpassFilter : public Module
 {
