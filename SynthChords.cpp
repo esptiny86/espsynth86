@@ -33,15 +33,10 @@ SynthChords::SynthChords(Inputs* inputs)
 	wavetable_osc3->wavetable_input = inputs->param3;
 	wavetable_osc3->frequency_input  = rotating_router_3->output_3;
 
-
 	mixer_3->input_1 = wavetable_osc1;
 	mixer_3->input_2 = wavetable_osc2;
 	mixer_3->input_3 = wavetable_osc3;
-/*
-	mixer_3->input_1 = rotating_router_3->output_1;
-	mixer_3->input_2 = rotating_router_3->output_2;
-	mixer_3->input_3 = rotating_router_3->output_3;
-*/
+
 	this->last_module = mixer_3;
 
 }

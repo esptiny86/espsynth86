@@ -37,7 +37,8 @@ Equation testing tools:
 
 TODO:
 
-  - document SynthChords
+  - document ModuleRotatingRouter3 on website
+  - add arpeggiation to mumbler instead of rotation
   - improve arpeggiation module
   - make videos of all synths (clickers is next)
   - create 12-bit equation player

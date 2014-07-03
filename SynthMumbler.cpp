@@ -6,11 +6,19 @@ SynthMumbler::SynthMumbler(Inputs* inputs)
 {
   ModuleSpeechSound *speech_sound = new ModuleSpeechSound();
   ModuleLowpassFilter *lowpass_filter = new ModuleLowpassFilter();
+  ModuleRotatingRouter3 *rotating_router_3 = new ModuleRotatingRouter3();
   
   speech_sound->formant_scale_input = inputs->mod;
-  speech_sound->param1_input = inputs->param1;
-  speech_sound->param2_input = new ModuleConstant(1000);
-  speech_sound->param3_input = new ModuleConstant(15);
+  
+  rotating_router_3->rotate_input = inputs->gate;
+  rotating_router_3->input_1 = inputs->param1;
+  rotating_router_3->input_2 = new ModuleConstant(1000);
+  rotating_router_3->input_3 = new ModuleConstant(15);
+
+  speech_sound->param1_input = rotating_router_3->output_1;
+  speech_sound->param2_input = rotating_router_3->output_2;
+  speech_sound->param3_input = rotating_router_3->output_3;
+  
   speech_sound->pitch_input = inputs->sr;
   
   // Patch up lowpass filter
