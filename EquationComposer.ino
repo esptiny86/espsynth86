@@ -93,6 +93,7 @@ Programming notes
 #include "SynthPatterns.h"
 #include "SynthWavetable.h"
 #include "SynthWavetableDelay.h"
+#include "SynthTutorial13.h"
 
 /*
 #include "SynthTutorial1.h"
@@ -109,6 +110,7 @@ Programming notes
 #include "SynthTutorial12.h"
 #include "SynthTutorial13.h"
 */
+
 
 #include "DueTimer.h"
 

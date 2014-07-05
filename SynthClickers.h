@@ -11,7 +11,7 @@
 // MOD - drum selection input
 // [1] - LFO frequency
 // [2] - LFO wavetable
-// [3] - not used
+// [3] - Minimum gate density
 // GATE - (optional) supplies clock signal to the clock divider
 //
 // =============================================================================
