@@ -37,11 +37,10 @@ Equation testing tools:
 
 TODO:
 
-  - document ModuleRotatingRouter3 on website
   - try to make highpass filter
   - add arpeggiation to mumbler instead of rotation
   - improve arpeggiation module
-  - make videos of all synths (clickers is next)
+  - make videos of all synths
   - create 12-bit equation player
   - pitch shifter using ring buffer
   - ring mod
