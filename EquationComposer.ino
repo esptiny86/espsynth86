@@ -38,6 +38,7 @@ Equation testing tools:
 TODO:
 
   - document ModuleRotatingRouter3 on website
+  - try to make highpass filter
   - add arpeggiation to mumbler instead of rotation
   - improve arpeggiation module
   - make videos of all synths (clickers is next)
@@ -93,7 +94,6 @@ Programming notes
 #include "SynthPatterns.h"
 #include "SynthWavetable.h"
 #include "SynthWavetableDelay.h"
-#include "SynthTutorial13.h"
 
 /*
 #include "SynthTutorial1.h"
@@ -109,6 +109,7 @@ Programming notes
 #include "SynthTutorial11.h"
 #include "SynthTutorial12.h"
 #include "SynthTutorial13.h"
+#include "SynthTutorial14.h"
 */
 
 
