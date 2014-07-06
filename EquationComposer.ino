@@ -112,7 +112,6 @@ Programming notes
 #include "SynthTutorial14.h"
 */
 
-
 #include "DueTimer.h"
 
   
@@ -140,7 +139,7 @@ Synth *active_synths[] {
   new SynthPatterns(inputs),
   new SynthChords(inputs),
   new SynthClickers(inputs),
-  new SynthMumbler(inputs)  
+  new SynthMumbler(inputs)
 };
 
 

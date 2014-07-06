@@ -5,6 +5,7 @@
 ModuleInput::ModuleInput()
 {
   this->value = 0;
+  smooth = new ModuleInputSmooth(this);
 }
 
 uint32_t ModuleInput::run()
