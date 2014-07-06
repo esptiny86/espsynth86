@@ -1,3 +1,16 @@
+
+// =============================================================================
+//
+// This is not a module that you use to build a synth.  It gives you the
+// ability to smooth inputs:
+//
+// Before:
+// equation_player->equation_input = inputs->mod;
+//
+// After
+// equation_player->equation_input = inputs->mod->smooth;
+//
+
 #ifndef ModuleInputSmooth_h
 #define ModuleInputSmooth_h
 

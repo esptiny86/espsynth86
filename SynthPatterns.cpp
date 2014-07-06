@@ -12,19 +12,19 @@ SynthPatterns::SynthPatterns(Inputs* inputs)
 
 	ext_clock->clock_input = inputs->gate;
 
-	pattern_generator->cv_pattern_input = inputs->param1;
-	pattern_generator->gate_pattern_input = inputs->param2;
-	pattern_generator->gate_density_input = inputs->param3;
+	pattern_generator->cv_pattern_input = inputs->param1->smooth;
+	pattern_generator->gate_pattern_input = inputs->param2->smooth;
+	pattern_generator->gate_density_input = inputs->param3->smooth;
 	pattern_generator->clock_input = ext_clock;
 	pattern_generator->length_input = new ModuleConstant(16);
 
 	sample_and_hold->sample_input = pattern_generator;
 	sample_and_hold->trigger_input = pattern_generator->gate_output;
 
-	quantizer->scale_input = inputs->sr;
+	quantizer->scale_input = inputs->sr->smooth;
 	quantizer->cv_input = sample_and_hold;
 
-	wavetable_osc->wavetable_input  = inputs->mod;
+	wavetable_osc->wavetable_input  = inputs->mod->smooth;
 	wavetable_osc->frequency_input  = quantizer;
 
 	envelope_generator->slope_input = new ModuleConstant(0);
