@@ -4,13 +4,12 @@
 SynthAutoDrum::SynthAutoDrum(Inputs* inputs)
 {
   ModuleClock *clock = new ModuleClock(90, QUARTER_NOTE_CLOCK_DIVISION);
-  
   ModuleDrumSequencer *drum_sequencer = new ModuleDrumSequencer();
 
   drum_sequencer->clock_input = clock;
-  drum_sequencer->kick_pattern_input = inputs->param1;
-  drum_sequencer->snare_pattern_input = inputs->param2;
-  drum_sequencer->hihat_pattern_input = inputs->param2;
+  drum_sequencer->kick_pattern_input = inputs->param1->smooth;
+  drum_sequencer->snare_pattern_input = inputs->param2->smooth;
+  drum_sequencer->hihat_pattern_input = inputs->param3->smooth;
 
   ModuleEqDrum *kick = new ModuleEqDrum();
   kick->trigger_input = drum_sequencer->kick_output;
@@ -31,6 +30,6 @@ SynthAutoDrum::SynthAutoDrum(Inputs* inputs)
   mixer->input_1 = kick;
   mixer->input_2 = snare;
   mixer->input_3 = hihat;
-  
+
   this->last_module = mixer;
 }

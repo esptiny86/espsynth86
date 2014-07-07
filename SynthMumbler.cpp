@@ -15,9 +15,9 @@ SynthMumbler::SynthMumbler(Inputs* inputs)
   rotating_router_3->input_2 = new ModuleConstant(1000);
   rotating_router_3->input_3 = new ModuleConstant(15);
 
-  speech_sound->param1_input = rotating_router_3->output_1;
-  speech_sound->param2_input = rotating_router_3->output_2;
-  speech_sound->param3_input = rotating_router_3->output_3;
+  speech_sound->phase1_input = rotating_router_3->output_1;
+  speech_sound->phase2_input = rotating_router_3->output_2;
+  speech_sound->phase3_input = rotating_router_3->output_3;
   
   speech_sound->pitch_input = inputs->sr;
   

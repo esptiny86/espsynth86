@@ -11,9 +11,9 @@ class ModuleSpeechSound : public Module
     uint16_t compute();
     
     // Inputs
-    Module *param1_input;
-    Module *param2_input;
-    Module *param3_input;
+    Module *phase1_input;
+    Module *phase2_input;
+    Module *phase3_input;
     Module *pitch_input;
     Module *formant_scale_input;     
     

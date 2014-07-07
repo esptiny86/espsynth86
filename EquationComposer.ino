@@ -33,13 +33,12 @@ Equation testing tools:
   http://entropedia.co.uk/generative_music/
   http://dev.fritzu.com/bbx/
   
-  Note: When using any bytebeat tool, make sure to set the output rate to 44,100  
+  Note: When using any bytebeat tool, make sure to set the output rate to 22,050  
 
 TODO:
 
-  - try to make highpass filter
-  - add arpeggiation to mumbler instead of rotation
-  - improve arpeggiation module
+  - Maybe use the gate input to transpose the wavetable player 1-octave
+  - review arpeggiation module
   - make videos of all synths
   - create 12-bit equation player
   - pitch shifter using ring buffer
@@ -93,6 +92,7 @@ Programming notes
 #include "SynthPatterns.h"
 #include "SynthWavetable.h"
 #include "SynthWavetableDelay.h"
+#include "SynthTutorial15.h"
 
 /*
 #include "SynthTutorial1.h"
@@ -109,7 +109,9 @@ Programming notes
 #include "SynthTutorial12.h"
 #include "SynthTutorial13.h"
 #include "SynthTutorial14.h"
+#include "SynthTutorial15.h"
 */
+
 
 #include "DueTimer.h"
 

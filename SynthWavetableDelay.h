@@ -7,7 +7,7 @@
 // Description: A wavetable oscillator put through a short audio delay.
 //
 // SR  - Sample rate of the wavetable oscillator
-// MOD - Selects wavetable
+// MOD - Wavetable selection
 // [1] - Mix (dry/wet) of the delay effect
 // [2] - Delay feedback
 // [3] - Delay buffer length

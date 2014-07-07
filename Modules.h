@@ -20,7 +20,6 @@
 #include "ModuleEquationPlayer.h"
 #include "ModuleExtClock.h"
 #include "ModuleFreeze.h"
-#include "ModuleHighpassFilter.h"
 #include "ModuleLFO.h"
 #include "ModuleLowpassFilter.h"
 #include "ModuleMap.h"
