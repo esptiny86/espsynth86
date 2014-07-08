@@ -42,7 +42,7 @@ uint16_t ModuleArpeggio::compute()
     // Read root note
     uint32_t root_note = this->readInput(root_note_input); 
 
-    my_output = (arpeggiations[pattern][step] << 5) + root_note;
+    my_output = (arpeggiations[pattern][step] * 4096/60) + root_note;
     
     step++;
     if(step == 8) step = 0;

@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "ModuleOutput.h"
+
 #include "ModuleAdd.h"
 #include "ModuleArpeggio.h"
 #include "ModuleBitReducer.h"
@@ -26,6 +27,7 @@
 #include "ModuleMixer2.h"
 #include "ModuleMixer3.h"
 #include "ModuleMultiply.h"
+#include "ModuleOscParam.h"
 #include "ModulePatternGenerator.h"
 #include "ModuleQuantizer.h"
 #include "ModuleRotatingRouter3.h"

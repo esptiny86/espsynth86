@@ -53,7 +53,7 @@ class ModuleArpeggio : public Module
   private:
   
     int step;
-    int arpeggiations[8][8]; // 8 scales, 8 notes per scale
+    int8_t arpeggiations[8][8]; // 8 scales, 8 notes per scale
     boolean clocked;
     uint32_t my_output;
 };

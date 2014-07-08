@@ -38,7 +38,7 @@ Equation testing tools:
 TODO:
 
   - Maybe use the gate input to transpose the wavetable player 1-octave
-  - review arpeggiation module
+  - add a lot more arpeggiations
   - make videos of all synths
   - create 12-bit equation player
   - pitch shifter using ring buffer
@@ -80,6 +80,8 @@ Programming notes
 #include "GlobalWavetables.h"
 
 // Include each synth
+#include "Synth3Osc.h"
+#include "SynthArpeggio1.h"
 #include "SynthAutoDrum.h"
 #include "SynthChords.h"
 #include "SynthClickers.h"
@@ -92,7 +94,6 @@ Programming notes
 #include "SynthPatterns.h"
 #include "SynthWavetable.h"
 #include "SynthWavetableDelay.h"
-#include "SynthTutorial15.h"
 
 /*
 #include "SynthTutorial1.h"
@@ -130,7 +131,7 @@ Equations *equations = new Equations();
 // Instantiate synths, which are selectable via the PRG knob.
 // Any new synth must be added to this list
 
-#define NUMBER_OF_SYNTHS 8
+#define NUMBER_OF_SYNTHS 9
 
 Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
@@ -140,7 +141,9 @@ Synth *active_synths[] {
   new SynthPatterns(inputs),
   new SynthChords(inputs),
   new SynthClickers(inputs),
-  new SynthMumbler(inputs)
+  new SynthMumbler(inputs),
+  new Synth3Osc(inputs)
+  // new SynthArpeggio1(inputs)
 };
 
 
