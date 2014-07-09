@@ -37,11 +37,11 @@ Equation testing tools:
 
 TODO:
 
+  - ModuleSpeechSound - document on website
   - Maybe use the gate input to transpose the wavetable player 1-octave
   - add a lot more arpeggiations
   - create 12-bit equation player
   - pitch shifter using ring buffer
-  - ring mod
   
 Programming notes
   - Do _not_ put a delay() immediately before polling the analog inputs as it can
