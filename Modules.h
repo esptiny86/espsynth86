@@ -37,4 +37,5 @@
 #include "ModuleSpeechSound.h"
 #include "ModuleSwitch.h"
 #include "ModuleVCA.h"
+#include "ModuleWaveFolder.h"
 #include "ModuleWavetableOsc.h"

@@ -39,7 +39,6 @@ TODO:
 
   - Maybe use the gate input to transpose the wavetable player 1-octave
   - add a lot more arpeggiations
-  - make videos of all synths
   - create 12-bit equation player
   - pitch shifter using ring buffer
   - ring mod
@@ -113,7 +112,6 @@ Programming notes
 #include "SynthTutorial15.h"
 */
 
-
 #include "DueTimer.h"
 
   
@@ -143,7 +141,6 @@ Synth *active_synths[] {
   new SynthClickers(inputs),
   new SynthMumbler(inputs),
   new Synth3Osc(inputs)
-  // new SynthArpeggio1(inputs)
 };
 
 

@@ -24,6 +24,8 @@ uint16_t ModuleLowpassFilter::compute()
   long cutoff = this->readInput(cutoff_input);
   long resonance = this->readInput(resonance_input, CONVERT_TO_11_BIT);
   
+  // cutoff = cutoff * .9;
+
   long k,p,r,x;
   p=(cutoff*(7373-((3277*cutoff)>>12)))>>12;
   k=p+p-4095;
