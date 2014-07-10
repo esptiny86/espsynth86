@@ -59,7 +59,7 @@ const uint8_t WAVETABLES[][512]  =
 
 /* 
 
-// Processing script for converting Adventure Kid waveforms into 512 lenght comma separated array values
+// Processing script for converting Adventure Kid waveforms into 512 length comma separated array values
 // Put source wavetables in the processing sketch's data/*.wav folder.
 
 int[] values = new int[600];
