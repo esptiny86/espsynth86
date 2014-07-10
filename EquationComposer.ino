@@ -121,6 +121,10 @@ Programming notes
 // as a convienient wrapper class.
 Inputs *inputs = new Inputs();
 
+// Array to speed up main loop by removing call to map( ... ) when
+// mapping the prg input to the synths array.
+uint16_t prg_input_mapping[4095];
+
 // Since there are a lot of equations to share among modules, they've
 // been put into their own class, which is passed through to the 
 // modules that need access to them.
@@ -187,6 +191,12 @@ void setup()
   // Set the pinmode for digital pins.  This is not required for the analog inputs.
   pinMode(PIN_GATE, INPUT);
 
+  // Compute the synth_input_mapping array.
+  for(uint16_t i=0; i < 4096; i++)
+  {
+    prg_input_mapping[i] = map(i, 0, MAX_CV, 0, NUMBER_OF_SYNTHS);
+  }
+
   // Configure the interrupt(s) if NOT in debug mode.  
   // Notice that's ifndef (with an 'n'), not ifdef.
   #ifndef DEBUG
@@ -206,7 +216,8 @@ void loop()
 
   inputs->read();
 
-  synth = map(inputs->prg->getValue(), 0, MAX_CV, 0, NUMBER_OF_SYNTHS);
+  // synth = map(inputs->prg->getValue(), 0, MAX_CV, 0, NUMBER_OF_SYNTHS);
+  synth = prg_input_mapping[inputs->prg->getValue()];
 
   // If in debug mode, then call the audio_rate_interrupt manually
   #ifdef DEBUG
