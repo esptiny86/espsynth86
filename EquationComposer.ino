@@ -40,7 +40,6 @@ TODO:
   - ModuleSpeechSound - document on website
   - Maybe use the gate input to transpose the wavetable player 1-octave
   - add a lot more arpeggiations
-  - create 12-bit equation player
   - pitch shifter using ring buffer
   
 Programming notes
@@ -191,7 +190,7 @@ void setup()
   // Set the pinmode for digital pins.  This is not required for the analog inputs.
   pinMode(PIN_GATE, INPUT);
 
-  // Compute the synth_input_mapping array.
+  // Compute the prg_input_mapping array.
   for(uint16_t i=0; i < 4096; i++)
   {
     prg_input_mapping[i] = map(i, 0, MAX_CV, 0, NUMBER_OF_SYNTHS);
@@ -216,7 +215,6 @@ void loop()
 
   inputs->read();
 
-  // synth = map(inputs->prg->getValue(), 0, MAX_CV, 0, NUMBER_OF_SYNTHS);
   synth = prg_input_mapping[inputs->prg->getValue()];
 
   // If in debug mode, then call the audio_rate_interrupt manually

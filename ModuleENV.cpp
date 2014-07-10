@@ -62,7 +62,7 @@ uint16_t ModuleENV::compute()
 
 	if(state == ENV_PLAYING)
 	{
-		// Read the wavetable input and map it to the appropriate range
+		// Read the slope input and map it to the appropriate range
 		slope = this->readInput(slope_input, 0, NUMBER_OF_SLOPES);
 		slope = constrain(slope, 0, NUMBER_OF_SLOPES - 1);
 
