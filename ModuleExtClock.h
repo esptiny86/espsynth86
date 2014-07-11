@@ -62,8 +62,8 @@ class ModuleExtClock : public Module
     uint32_t rate;
     uint32_t counter;
     uint32_t bpm;
-    uint32_t bpm_ppqn[255];
-    uint32_t bpm_half_ppqn[255];
+    uint16_t bpm_ppqn[255];
+    uint16_t bpm_half_ppqn[255];
     uint32_t ext_clocked;    
     uint32_t ext_clock_counter;
 };
