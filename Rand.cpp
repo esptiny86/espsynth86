@@ -46,6 +46,10 @@ uint32_t Rand::random(uint32_t max)
 // Return a random number between 0 and 4095, inclusive
 uint32_t Rand::random()
 {
-	return (uint32_t) (((xorshift96() & 0xFFFF) * 4096)>>16);
+	// Version #1: return (uint32_t) (((xorshift96() & 0xFFFF) * 4096)>>16);
+	// Version #2: return (uint32_t) (((xorshift96() & 0xFFFF)<<12)>>16);
+	
+	// Version #3:
+	return (uint32_t) ((xorshift96() & 0xFFFF)>>4);
 }
 

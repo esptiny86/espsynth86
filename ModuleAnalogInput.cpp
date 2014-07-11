@@ -11,9 +11,9 @@ uint32_t ModuleAnalogInput::read()
 {
  
     // Drop the lowest bit to reduce noise, which is present on all inputs to a 
-    // certain extent.
+    // certain extent.  This causes our maximum value to be 4094
     this->value = (analogRead(this->pin) >> 1) << 1;
-    
+
     return(this->value);
 }
 

@@ -4,7 +4,8 @@
 // Type: Audio
 // Written by: Gaetan Ro, 2014
 // 
-// Description: 
+// Description: Mumbler is a Formant Synthesizer with a built-in lowpass filter 
+// that makes sounds similar to vowel sounds.
 //
 // SR  - Sample Rate (pitch)
 // MOD - Formant scale input

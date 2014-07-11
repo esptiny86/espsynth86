@@ -1,3 +1,23 @@
+/*
+ *  +----------------------+
+ *  | ModuleSpeechSound    |
+ *  |----------------------|
+ *  > phase1_input         |
+ *  > phase2_input         |
+ *  > phase3_input         |
+ *  > pitch_input          |
+ *  > formant_scale_input  |
+ *  |                      |
+ *  |               output >
+ *  +----------------------+
+ *
+ */
+// =============================================================================
+// 
+// ModuleSpeechSound is a Formant synthesizer that makes sounds similar to vowel 
+// sounds.
+// 
+
 #ifndef ModuleSpeechSound_h
 #define ModuleSpeechSound_h
 

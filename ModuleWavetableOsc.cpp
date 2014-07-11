@@ -20,9 +20,6 @@ uint16_t ModuleWavetableOsc::compute()
 
   // Read the wavetable input and map it to the appropriate range
   wavetable = this->readInput(wavetable_input, 0, NUMBER_OF_WAVETABLES);
-  
-  // This line should not be necessary:
-  // wavetable = constrain(wavetable, 0, NUMBER_OF_WAVETABLES - 1);
 
   // Calculate the index into the wavetable
   fixed_point_10_22_index += INCREMENTS[frequency];
