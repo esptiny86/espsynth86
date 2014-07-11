@@ -45,9 +45,11 @@ uint16_t ModuleENV::compute()
 		// Read frequency input
 		frequency = this->readInput(frequency_input);
 
-		increment = map(frequency,0,4095,129236,6057);
+		// (frequency * -30) + 129236; used to be: increment = map(frequency,0,4095,129236,6057);
+		// It's not exactly the same, but it's close enough and a lot faster
+		increment = (frequency * -30) + 129236;
 
-		if((fixed_point_10_22_index + increment) > (512 << 22))
+		if((fixed_point_10_22_index + increment) > 2147483648) // 2147483648 = 512 << 22
 		{
 			state = ENV_INACTIVE;
 			fixed_point_10_22_index = 0;
