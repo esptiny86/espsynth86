@@ -33,24 +33,12 @@ uint16_t ModuleLowpassFilter::compute()
 
   p = LPF_P_TABLE[cutoff];
 
-  // LPF_T_TABLE is computed using:
-  // ------------------------------
   // t = ((4096-p)*5678)>>12;
-  // t = (long) LPF_T_TABLE[cutoff];
-
-  // LPF_T2_TABLE is computed using:
-  // -------------------------------
   // t2 = 49152+((t*t)>>12);
-
-  t2 = LPF_T2_TABLE[cutoff];
-
-  // LPF_T3_TABLE is computed using:
   // t3 = (24576*t)>>12;
+  // r = resonance * (t2+t3)/(t2-t3);
 
-  t3 = LPF_T3_TABLE[cutoff];
-
-
-  r = resonance * (t2+t3)/(t2-t3);
+  r = resonance * LPF_T4_TABLE[cutoff];
 
   // Inverted feed back for corner peaking
   x = audio - ((r*y4)>>12);
