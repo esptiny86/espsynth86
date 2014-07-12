@@ -31,7 +31,7 @@ uint16_t ModuleLowpassFilter::compute()
   // cutoff = cutoff * .9;  
   // p = (cutoff*(7373-((3277*cutoff)>>12)))>>12;
 
-  p = (long) LPF_P_TABLE[cutoff];
+  p = LPF_P_TABLE[cutoff];
 
   // LPF_T_TABLE is computed using:
   // ------------------------------
@@ -42,12 +42,12 @@ uint16_t ModuleLowpassFilter::compute()
   // -------------------------------
   // t2 = 49152+((t*t)>>12);
 
-  t2 = (long) LPF_T2_TABLE[cutoff];
+  t2 = LPF_T2_TABLE[cutoff];
 
   // LPF_T3_TABLE is computed using:
   // t3 = (24576*t)>>12;
 
-  t3 = (long) LPF_T3_TABLE[cutoff];
+  t3 = LPF_T3_TABLE[cutoff];
 
 
   r = resonance * (t2+t3)/(t2-t3);
