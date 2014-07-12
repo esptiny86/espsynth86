@@ -176,16 +176,12 @@ void setup()
     Serial.begin(9600);
   #endif
 
-  // Adjust analog inputs for faster access
-  // Code by Franci Kapen (http://frenki.net/2013/10/fast-analogread-with-arduino-due/)
-  // REG_ADC_MR = (REG_ADC_MR & 0xFFFFFF0F) | 0x00000080; //enable FREERUN mode
-
-  
   // Set the Due's analog read resolution
+  // The LSB is shaved off in ModuleAnalogInput.cpp to reduce noise
   analogReadResolution(ANALOG_READ_RESOLUTION);
 
   // Enable the DAC
-  analogWrite(DAC1,0);
+  analogWrite(DAC1, 0);
 
   // Set the pinmode for digital pins.  This is not required for the analog inputs.
   pinMode(PIN_GATE, INPUT);
