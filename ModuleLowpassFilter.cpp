@@ -24,7 +24,7 @@ uint16_t ModuleLowpassFilter::compute()
   long audio = ((this->readInput(audio_input))<<1) - 4096;
   long cutoff = this->readInput(cutoff_input);
   long resonance = this->readInput(resonance_input, CONVERT_TO_11_BIT);
-  long k,p,r,x,t,t2,t3;
+  long k,p,r,x;
 
   // LPF_P_TABLE is computed using:
   //-------------------------------
@@ -43,7 +43,7 @@ uint16_t ModuleLowpassFilter::compute()
   // Inverted feed back for corner peaking
   x = audio - ((r*y4)>>12);
 
-  k = p+p-4095;
+  k = p + p - 4095;
 
   // Four cascaded onepole filters (bilinear transform)
   y1=((x*p)>>12) + ((oldx*p)>>12) - ((k*y1)>>12);
@@ -51,8 +51,9 @@ uint16_t ModuleLowpassFilter::compute()
   y3=((y2*p)>>12) + ((oldy2*p)>>12) - ((k*y3)>>12);
   y4=((y3*p)>>12) + ((oldy3*p)>>12) - ((k*y4)>>12);
 
+
   // Clipper band limited sigmoid
-  y4 = y4 - ((y4 * ((y4 * ((y4 * 683)>>12))>>12))>>12);    //clipping
+  y4 = y4 - ((y4 * ((y4 * ((y4 * 683)>>12))>>12))>>12);    // clipping
 
   oldx = x;
   oldy1 = y1;
