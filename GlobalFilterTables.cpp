@@ -7,6 +7,7 @@ const float LPF_T4_TABLE[] = { 3.96824,3.96824,3.96642,3.96356,3.96174,3.95889,3
 /*
 
 // C-Program for generating tables
+// Paste this into: http://www.compileonline.com/compile_cpp11_online.php
 
 #include <iostream>
 
@@ -49,6 +50,5 @@ int main()
    
    return 0;
 }
-
 
 */
