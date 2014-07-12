@@ -65,10 +65,11 @@ uint16_t ModuleENV::compute()
 	if(state == ENV_PLAYING)
 	{
 		// Read the slope input and map it to the appropriate range
+		// slope is always less than NUMBER_OF_SLOPES
 		slope = this->readInput(slope_input, 0, NUMBER_OF_SLOPES);
-		slope = constrain(slope, 0, NUMBER_OF_SLOPES - 1);
 
-		slope_index = fixed_point_10_22_index >> 22; // This should yeald a value between 0 and WAVE_SAMPLES
+		// Compute the index into the slope array.  Slopes are 512 in length.
+		slope_index = fixed_point_10_22_index >> 22; 
 
 		// This output will range from 0 to 4095 (which is a 12-bit value)
 		// The wavetable values range from 0 to 256, and the additional math
