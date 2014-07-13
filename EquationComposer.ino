@@ -32,17 +32,14 @@ Equation testing tools:
   http://wurstcaptures.untergrund.net/music/
   http://entropedia.co.uk/generative_music/
   http://dev.fritzu.com/bbx/
-  
   Note: When using any bytebeat tool, make sure to set the output rate to 22,050  
 
 TODO:
-
-  - ModuleSpeechSound - document on website
   - Maybe use the gate input to transpose the wavetable player 1-octave
   - add a lot more arpeggiations
-  - pitch shifter using ring buffer
+  - pitch shifter using ring buffer (?)
   
-Programming notes
+Programming notes:
   - Do _not_ put a delay() immediately before polling the analog inputs as it can
     cause inaccuracies in the voltage readings.  (Perhaps a bug in the Arduino
     implementation of delay()?)

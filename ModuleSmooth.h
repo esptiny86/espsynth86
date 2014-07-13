@@ -10,16 +10,18 @@
  */
 // =============================================================================
 // 
-// ModuleSmooth is used for smoothing out input.  Does it work?  Mayyybbeee.. 
+// ModuleSmooth is used for smoothing audio.  Does it work?  Mayyybbeee.. 
 // It actually seems to add some overtones to audio input.  So, perhaps there's
 // a bug in my implementation, but I'm keeping it around because it's interesting.
 //
-// It's based on this: http://terpconnect.umd.edu/~toh/spectrum/Smoothing.html
+// I think that the original implementation of this algorithm was for reducing
+// noise in a signal.  If you're trying to reduce noise on CV inputs, don't 
+// use this module.  Instead, add '->smooth' when reading an analog input. 
+// For example:
 //
-// Here's an example which uses a counter to cycle through the first 6 
-// equations of the wavetable module:
+// lfo->frequency_input = inputs->param1->smooth;
 //
-// mix_input: 0 == dry, 4095 == wet
+// Smoothing algorithm based on: http://terpconnect.umd.edu/~toh/spectrum/Smoothing.html
 //
 // Example usage:
 //
