@@ -39,19 +39,22 @@ uint16_t ModuleLowpassFilter::compute()
   // t3 = (24576*t)>>12;
   // r = resonance * (t2+t3)/(t2-t3);
 
-  r = resonance * LPF_T4_TABLE[cutoff];
+  r = (resonance * LPF_T4_TABLE[cutoff]) >> 12;
+
 
   // Inverted feed back for corner peaking
   x = audio - ((r*y4)>>12);
 
+  // Worth trying:
+  // A much better tuning seems to be k=2*sin(cutoff * pi/2)-1;
+  // k = 2 * sin_fix1212(cutoff * pi/2) - 4096;
   k = p + p - 4095;
-
+  
   // Four cascaded onepole filters (bilinear transform)
-  y1=((x*p)>>12) + ((oldx*p)>>12) - ((k*y1)>>12);
-  y2=((y1*p)>>12) + ((oldy1*p)>>12) - ((k*y2)>>12);
-  y3=((y2*p)>>12) + ((oldy2*p)>>12) - ((k*y3)>>12);
-  y4=((y3*p)>>12) + ((oldy3*p)>>12) - ((k*y4)>>12);
-
+  y1 = ((x*p)  + (oldx*p)  - (k*y1)) >> 12;
+  y2 = ((y1*p) + (oldy1*p) - (k*y2)) >> 12;
+  y3 = ((y2*p) + (oldy2*p) - (k*y3)) >> 12;
+  y4 = ((y3*p) + (oldy3*p) - (k*y4)) >> 12;
 
   // Clipper band limited sigmoid
   y4 = y4 - ((y4 * ((y4 * ((y4 * 683)>>12))>>12))>>12);    // clipping
