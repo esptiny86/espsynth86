@@ -7,17 +7,6 @@ ModuleArpeggio::ModuleArpeggio()
   this->clocked = false;
   this->step = 0;
   this->my_output = 0;
-  
-  this->arpeggiations = {
-    {0,12,0,12,0,12,0,12},
-    {0,12,0,12,0,12,-2,10},
-    {0,10,12,0,10,12,0,0},
-    {0,3,7,10,0,3,7,10},
-    {0,3,7,10,12,10,7,3},
-    {0,-2,0,3,0,-2,-5,-2},
-    {0,0,12,0,0,0,12,0},
-    {0,1,4,5,7,5,4,1}
-  };
 
   // Initialize all inputs
   this->root_note_input = NULL;

@@ -35,7 +35,8 @@ Equation testing tools:
   Note: When using any bytebeat tool, make sure to set the output rate to 22,050  
 
 TODO:
-  - Maybe use the gate input to transpose the wavetable player 1-octave
+  - document ModuleSamplePlayer
+  - document SynthDrumPlayer
   - add a lot more arpeggiations
   - pitch shifter using ring buffer (?)
   

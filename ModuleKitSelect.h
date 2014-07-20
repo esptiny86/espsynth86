@@ -12,7 +12,21 @@ class ModuleKitSelect : public Module
     ModuleKitSelect();
     uint16_t compute();
 
-    uint8_t kits[3][3]; // 3 kits, 3 values each (kick, snare, hat)
+    // The number in the kits array are the indexes of
+    // the sounds in ModuleSamplePlayer.php
+
+    uint8_t kits[3][3] = {
+        { 
+          0,1,2
+        },
+        {
+          3,4,5
+        },
+        {
+          6,7,8
+        }    
+    };
+
 
     // Inputs
     Module *kit_selection_input;

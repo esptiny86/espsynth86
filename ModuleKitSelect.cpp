@@ -5,19 +5,6 @@
 
 ModuleKitSelect::ModuleKitSelect()
 {
-  // The number in the kits array are the indexes of
-  // the sounds in ModuleSamplePlayer.php
-  this->kits = {
-    { 
-      0,1,2
-    },
-    {
-      3,4,5
-    },
-    {
-      6,7,8
-    }    
-  };
 
   // Initialize all inputs
   this->kit_selection_input = NULL;

@@ -1,12 +1,12 @@
 #include "Arduino.h"
-#include "ModuleDrumSequencer.h"
+#include "ModuleDrumSequencer32.h"
 #include "defines.h"
 
-ModuleDrumSequencer::ModuleDrumSequencer()
+ModuleDrumSequencer32::ModuleDrumSequencer32()
 {
   this->clocked = false;
   this->step = 0;
-  
+
   // Initialize all inputs
   this->clock_input = NULL;
   this->kick_pattern_input = NULL;  
@@ -19,7 +19,7 @@ ModuleDrumSequencer::ModuleDrumSequencer()
   hihat_output  = new ModuleOutput(this);
 }
 
-uint16_t ModuleDrumSequencer::compute()
+uint16_t ModuleDrumSequencer32::compute()
 {
   uint32_t clock = this->readInput(clock_input);
 
@@ -44,7 +44,7 @@ uint16_t ModuleDrumSequencer::compute()
     hihat_output->value = bitRead(patterns[2][hihat_pattern], step) * MAX_CV;
     
     step++;
-    if(step == 16) step = 0;
+    if(step == 32) step = 0;
   }
 
   return(kick_output->value);
