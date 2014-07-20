@@ -21,18 +21,21 @@
  *  The clock speed is controlled via a BPM (beats per minute) value supplied during
  *  instantiation, like: 
  * 
- *    int beats_per_minute = 120;
- *    ModuleClock *module_clock = new ModuleClock(beats_per_minute);
+ *    ModuleExtClock *ext_clock = new ModuleExtClock(120);
+ *    ext_clock->clock_input = inputs->gate;
+ *    drum_sequencer->clock_input = ext_clock; 
+ *
  *
  *  The output is 96 pulses per quarter note.  A second parameter can be supplied
  *  in the constructor to act as a clock divider.  To have the clock output
  *  quarter note pulses, we divide the 96 pulses-per-quarter-note by 96:
  *
- *  ModuleClock *module_clock = new ModuleClock(120, 96);
+ *    ModuleExtClock *ext_clock = new ModuleExtClock(120,96);
+ *    ext_clock->clock_input = inputs->gate;
+ *    drum_sequencer->clock_input = ext_clock; 
  *
  *  Helpful clock divisions have been defined in defines.h.  
  *
-
  * 
  *  ModuleClock *module_clock = new ModuleClock(120, 48);                          // produce 1/8th note gates at 120 BPM
  *  ModuleClock *module_clock = new ModuleClock(120, EIGHTH_NOTE_CLOCK_DIVISION);  // produce 1/8th note gates at 120 BPM
