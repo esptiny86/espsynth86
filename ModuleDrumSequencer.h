@@ -49,10 +49,8 @@ class ModuleDrumSequencer : public Module
     ModuleOutput *hihat_output;    
 
   private:
-    int bank; 
-    int step;
-    int patterns[3][8];  // 3 banks, 8 patterns per bank
-    uint32_t old_clock;
+    uint8_t step;
+    uint16_t patterns[3][8];  // 3 banks, 8 patterns per bank
     boolean clocked;
 };
 

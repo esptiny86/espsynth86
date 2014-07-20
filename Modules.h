@@ -32,6 +32,7 @@
 #include "ModuleQuantizer.h"
 #include "ModuleRotatingRouter3.h"
 #include "ModuleSampleAndHold.h"
+#include "ModuleSamplePlayer.h"
 #include "ModuleSequencer.h"
 #include "ModuleSmooth.h"
 #include "ModuleSpeechSound.h"

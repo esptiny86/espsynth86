@@ -6,11 +6,11 @@ SynthDrumPlayer::SynthDrumPlayer(Inputs* inputs)
   // Uses 3 different drum modules
 
   ModuleDrumSequencer *drum_sequencer = new ModuleDrumSequencer();
-
-  ModuleEqDrum *kick = new ModuleEqDrum();
-  ModuleEqDrum *snare = new ModuleEqDrum();
-  ModuleEqDrum *hihat = new ModuleEqDrum();
+  ModuleSamplePlayer *kick = new ModuleSamplePlayer();
+  ModuleSamplePlayer *snare = new ModuleSamplePlayer();
+  ModuleSamplePlayer *hihat = new ModuleSamplePlayer();
   ModuleMixer3 *mixer = new ModuleMixer3();
+  ModuleWaveFolder *wave_folder = new ModuleWaveFolder();
 
   drum_sequencer->clock_input = inputs->gate;
 
@@ -20,20 +20,23 @@ SynthDrumPlayer::SynthDrumPlayer(Inputs* inputs)
 
   kick->trigger_input = drum_sequencer->kick_output;
   kick->sample_rate_input = inputs->sr;
-  kick->drum_selection_input = new ModuleConstant(0);
+  kick->sample_selection_input = new ModuleConstant(0);
 
   snare->trigger_input = drum_sequencer->snare_output;
   snare->sample_rate_input = inputs->sr;
-  snare->drum_selection_input = new ModuleConstant(3);
+  snare->sample_selection_input = new ModuleConstant(1);
 
   hihat->trigger_input = drum_sequencer->hihat_output;;
   hihat->sample_rate_input = inputs->sr;
-  hihat->drum_selection_input = new ModuleConstant(7);
+  hihat->sample_selection_input = new ModuleConstant(2);
 
   mixer->input_1 = kick;
   mixer->input_2 = snare;
   mixer->input_3 = hihat;
 
+  wave_folder->audio_input = mixer;
+  wave_folder->lower_clipping_level_input = inputs->mod;
+  wave_folder->upper_clipping_level_input = inputs->mod;
 
-  this->last_module = mixer;
+  this->last_module = wave_folder;
 }

@@ -141,6 +141,7 @@ Synth *active_synths[] {
   new SynthClickers(inputs),
   new SynthMumbler(inputs),
   new Synth3Osc(inputs)
+  // new SynthDrumPlayer(inputs)
 };
 
 

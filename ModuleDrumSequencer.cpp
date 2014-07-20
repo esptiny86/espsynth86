@@ -5,7 +5,6 @@
 ModuleDrumSequencer::ModuleDrumSequencer()
 {
   this->clocked = false;
-  this->bank = bank;
   this->step = 0;
   
   this->patterns = {
@@ -72,13 +71,13 @@ uint16_t ModuleDrumSequencer::compute()
   {
     clocked = true;
     
-    uint32_t kick_pattern = this->readInput(kick_pattern_input, CONVERT_TO_3_BIT);
-    uint32_t snare_pattern = this->readInput(snare_pattern_input, CONVERT_TO_3_BIT);
-    uint32_t hihat_pattern = this->readInput(hihat_pattern_input, CONVERT_TO_3_BIT);
+    uint8_t kick_pattern  = this->readInput(kick_pattern_input, CONVERT_TO_3_BIT);
+    uint8_t snare_pattern = this->readInput(snare_pattern_input, CONVERT_TO_3_BIT);
+    uint8_t hihat_pattern = this->readInput(hihat_pattern_input, CONVERT_TO_3_BIT);
     
-    kick_output->value = bitRead(patterns[0][kick_pattern], step) * MAX_CV;
-    snare_output->value = bitRead(patterns[0][snare_pattern], step) * MAX_CV;
-    hihat_output->value = bitRead(patterns[0][hihat_pattern], step) * MAX_CV;
+    kick_output->value  = bitRead(patterns[0][kick_pattern], step) * MAX_CV;
+    snare_output->value = bitRead(patterns[1][snare_pattern], step) * MAX_CV;
+    hihat_output->value = bitRead(patterns[2][hihat_pattern], step) * MAX_CV;
     
     step++;
     if(step == 16) step = 0;
