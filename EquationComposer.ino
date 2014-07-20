@@ -129,7 +129,7 @@ Equations *equations = new Equations();
 // Instantiate synths, which are selectable via the PRG knob.
 // Any new synth must be added to this list
 
-#define NUMBER_OF_SYNTHS 9
+#define NUMBER_OF_SYNTHS 10
 
 Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
@@ -140,8 +140,8 @@ Synth *active_synths[] {
   new SynthChords(inputs),
   new SynthClickers(inputs),
   new SynthMumbler(inputs),
-  new Synth3Osc(inputs)
-  // new SynthDrumPlayer(inputs)
+  new Synth3Osc(inputs),
+  new SynthDrumPlayer(inputs)
 };
 
 
