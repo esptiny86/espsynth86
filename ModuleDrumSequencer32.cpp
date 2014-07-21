@@ -35,9 +35,9 @@ uint16_t ModuleDrumSequencer32::compute()
   {
     clocked = true;
     
-    uint8_t kick_pattern  = this->readInput(kick_pattern_input, CONVERT_TO_3_BIT);
-    uint8_t snare_pattern = this->readInput(snare_pattern_input, CONVERT_TO_3_BIT);
-    uint8_t hihat_pattern = this->readInput(hihat_pattern_input, CONVERT_TO_3_BIT);
+    uint8_t kick_pattern  = this->readInput(kick_pattern_input, CONVERT_TO_4_BIT);
+    uint8_t snare_pattern = this->readInput(snare_pattern_input, CONVERT_TO_4_BIT);
+    uint8_t hihat_pattern = this->readInput(hihat_pattern_input, CONVERT_TO_4_BIT);
     
     kick_output->value  = bitRead(patterns[0][kick_pattern], step) * MAX_CV;
     snare_output->value = bitRead(patterns[1][snare_pattern], step) * MAX_CV;

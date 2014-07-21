@@ -15,6 +15,7 @@
 #include "ModuleCounter.h"
 #include "ModuleDelay.h"
 #include "ModuleDrumSequencer.h"
+#include "ModuleDrumSequencer32.h"
 #include "ModuleENV.h"
 #include "ModuleEqDrum.h"
 #include "ModuleEquationLooper.h"

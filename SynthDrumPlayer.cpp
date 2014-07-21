@@ -3,14 +3,14 @@
 
 SynthDrumPlayer::SynthDrumPlayer(Inputs* inputs)
 {
-  ModuleDrumSequencer *drum_sequencer = new ModuleDrumSequencer();
+  ModuleDrumSequencer32 *drum_sequencer = new ModuleDrumSequencer32();
   ModuleSamplePlayer *kick = new ModuleSamplePlayer();
   ModuleSamplePlayer *snare = new ModuleSamplePlayer();
   ModuleSamplePlayer *hihat = new ModuleSamplePlayer();
   ModuleKitSelect *kit_select = new ModuleKitSelect();
   ModuleMixer3 *mixer = new ModuleMixer3();
   ModuleWaveFolder *wave_folder = new ModuleWaveFolder();
-  ModuleExtClock *ext_clock = new ModuleExtClock(120, EIGHTH_NOTE_CLOCK_DIVISION);
+  ModuleExtClock *ext_clock = new ModuleExtClock(120, SIXTEENTH_NOTE_CLOCK_DIVISION);
 
   // Use the external clock when available, otherwise
   // default to the internal 120BPM clock

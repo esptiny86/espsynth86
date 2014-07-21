@@ -162,7 +162,7 @@ uint8_t synth = 0;
 
 void setup()
 {
-    
+
   // A note about using Serial.println() for testing:
   // Testing using Serial.println() is difficult because you can't put a 
   // Serial.println() in the code that's called by the timer interrupt.  The only 
