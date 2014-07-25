@@ -35,6 +35,8 @@ Equation testing tools:
   Note: When using any bytebeat tool, make sure to set the output rate to 22,050  
 
 TODO:
+  - create wavetable => bit reducer => wavefolder synth
+  - create ring buffer effect - % last value
   - document ModuleSamplePlayer
   - document SynthDrumPlayer
   - add a lot more arpeggiations
@@ -89,6 +91,7 @@ Programming notes:
 #include "SynthMumbler.h"
 #include "SynthPatterns.h"
 #include "SynthWavetable.h"
+#include "SynthWavetableBitFolder.h"
 #include "SynthWavetableDelay.h"
 
 /*
@@ -136,7 +139,7 @@ Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equations),
   new SynthEquationLooper(inputs, equations),
   new SynthDrumSelektor(inputs),  
-  new SynthWavetableDelay(inputs),
+  new SynthWavetableBitFolder(inputs),
   new SynthPatterns(inputs),
   new SynthChords(inputs),
   new SynthClickers(inputs),
