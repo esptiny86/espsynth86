@@ -46,13 +46,13 @@
 
 #include "Arduino.h"
 #include "Module.h"
-#include "Equations.h"
+#include "EquationBank.h"
 
 class ModuleEquationLooper : public Module
 {
   
   public:
-    ModuleEquationLooper(Equations *equations);
+    ModuleEquationLooper(EquationBank *equation_bank);
     uint16_t compute();
     
     // Inputs
@@ -75,7 +75,7 @@ class ModuleEquationLooper : public Module
     uint32_t playback_position;
     uint32_t p3;
    
-    Equations *equations;
+    EquationBank *equation_bank;
 
     // 20.12 fixed point number (using the upper 20 bits for holding the usable
     // numbers and an additional 12 bits for simulating fractional values for

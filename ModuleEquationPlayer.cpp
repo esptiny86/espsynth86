@@ -2,7 +2,7 @@
 #include "ModuleEquationPlayer.h"
 #include "defines.h"
 
-ModuleEquationPlayer::ModuleEquationPlayer(Equations *equations)
+ModuleEquationPlayer::ModuleEquationPlayer(EquationBank *equation_bank)
 {
   t = 0;  // Set the counter to 0
   p1 = 0;
@@ -12,7 +12,7 @@ ModuleEquationPlayer::ModuleEquationPlayer(Equations *equations)
   reset = 0;
   fixed_point_32_32_index = 0;
 
-  this->equations = equations;
+  this->equation_bank = equation_bank;
 
   // Initialize all inputs
   this->equation_input = NULL;
@@ -27,7 +27,7 @@ uint16_t ModuleEquationPlayer::compute()
 {
 
   // Read inputs
-  equation = this->readInput(equation_input, 0, NUMBER_OF_EQUATIONS);
+  equation = this->readInput(equation_input, 0, equation_bank->number_of_equations);
   increment_by = this->readInput(sample_rate_input);       // range: 0 - 4095
   p1 = this->readInput(param1_input, CONVERT_TO_8_BIT);    // range: 0 - 255 (2^8)
   p2 = this->readInput(param2_input, CONVERT_TO_8_BIT);    // range: 0 - 255 (2^8)
@@ -54,5 +54,5 @@ uint16_t ModuleEquationPlayer::compute()
   t = fixed_point_32_32_index >> 32; 
   
   // Play the selected equation
-  return(this->equations->compute(equation, t, p1, p2, p3));
+  return(this->equation_bank->compute(equation, t, p1, p2, p3));
 }

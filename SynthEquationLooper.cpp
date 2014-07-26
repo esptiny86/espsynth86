@@ -1,8 +1,8 @@
 #include "SynthEquationLooper.h"
 
-SynthEquationLooper::SynthEquationLooper(Inputs *inputs, Equations *equations)
+SynthEquationLooper::SynthEquationLooper(Inputs *inputs, EquationBank *equation_bank)
 {
-	ModuleEquationLooper *equation_looper = new ModuleEquationLooper(equations);
+	ModuleEquationLooper *equation_looper = new ModuleEquationLooper(equation_bank);
 
 	equation_looper->equation_input    = inputs->mod->smooth;
 	equation_looper->sample_rate_input = inputs->sr;

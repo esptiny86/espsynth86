@@ -35,8 +35,10 @@ Equation testing tools:
   Note: When using any bytebeat tool, make sure to set the output rate to 22,050  
 
 TODO:
-  - create wavetable => bit reducer => wavefolder synth
-  - create ring buffer effect - % last value
+  - research/confirm synthdrumplayer BPM accuracy
+  - update website - revise tutorials on updating equations
+  - update website - convert synth input/output labeling to text
+  - document SynthWavetableBitFolder
   - document ModuleSamplePlayer
   - document SynthDrumPlayer
   - add a lot more arpeggiations
@@ -69,10 +71,10 @@ Programming notes:
 //
 // #define DEBUG 1
 
-
-// Equations.h is a class that holds a majority of the equations used in this 
-// module.  If you want to add an equation, Equations.cpp is the place to do it.
-#include "Equations.h"
+// Include all of the equation banks
+#include "EquationBankKhepri.h"
+#include "EquationBankPtah.h"
+#include "EquationBankSobek.h"
 
 // More traditional array-based wavetables
 #include "GlobalWavetables.h"
@@ -94,23 +96,6 @@ Programming notes:
 #include "SynthWavetableBitFolder.h"
 #include "SynthWavetableDelay.h"
 
-/*
-#include "SynthTutorial1.h"
-#include "SynthTutorial2.h"
-#include "SynthTutorial3.h"
-#include "SynthTutorial4.h"
-#include "SynthTutorial5.h"
-#include "SynthTutorial6.h"
-#include "SynthTutorial7.h"
-#include "SynthTutorial8.h"
-#include "SynthTutorial9.h"
-#include "SynthTutorial10.h"
-#include "SynthTutorial11.h"
-#include "SynthTutorial12.h"
-#include "SynthTutorial13.h"
-#include "SynthTutorial14.h"
-#include "SynthTutorial15.h"
-*/
 
 #include "DueTimer.h"
 
@@ -125,25 +110,25 @@ Inputs *inputs = new Inputs();
 // mapping the prg input to the synths array.
 uint16_t prg_input_mapping[4095];
 
-// Since there are a lot of equations to share among modules, they've
-// been put into their own class, which is passed through to the 
-// modules that need access to them.
-Equations *equations = new Equations();
+// Load up equation banks.  These are where the equations are defined.
+EquationBankKhepri *equation_bank_khepri = new EquationBankKhepri();
+EquationBankPtah *equation_bank_ptah = new EquationBankPtah();
+EquationBankSobek *equation_bank_sobek = new EquationBankSobek();
 
 // Instantiate synths, which are selectable via the PRG knob.
 // Any new synth must be added to this list
 
-#define NUMBER_OF_SYNTHS 10
+#define NUMBER_OF_SYNTHS 9
 
 Synth *active_synths[] {
-  new SynthEquationPlayer(inputs, equations),
-  new SynthEquationLooper(inputs, equations),
+  new SynthEquationPlayer(inputs, equation_bank_khepri),
+  new SynthEquationPlayer(inputs, equation_bank_ptah),
+  new SynthEquationPlayer(inputs, equation_bank_sobek),
+
   new SynthDrumSelektor(inputs),  
   new SynthWavetableBitFolder(inputs),
   new SynthPatterns(inputs),
   new SynthChords(inputs),
-  new SynthClickers(inputs),
-  new SynthMumbler(inputs),
   new Synth3Osc(inputs),
   new SynthDrumPlayer(inputs)
 };

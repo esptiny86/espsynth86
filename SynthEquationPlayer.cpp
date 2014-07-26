@@ -1,8 +1,8 @@
 #include "SynthEquationPlayer.h"
 
-SynthEquationPlayer::SynthEquationPlayer(Inputs *inputs, Equations *equations)
+SynthEquationPlayer::SynthEquationPlayer(Inputs *inputs, EquationBank *equation_bank)
 {
-	ModuleEquationPlayer *equation_player = new ModuleEquationPlayer(equations);
+	ModuleEquationPlayer *equation_player = new ModuleEquationPlayer(equation_bank);
 
 	equation_player->equation_input    = inputs->mod->smooth;
 	equation_player->sample_rate_input = inputs->sr->smooth;

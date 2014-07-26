@@ -39,13 +39,13 @@
 
 #include "Arduino.h"
 #include "Module.h"
-#include "Equations.h"
+#include "EquationBank.h"
 
 class ModuleEquationPlayer : public Module
 {
   
   public:
-    ModuleEquationPlayer(Equations *equations);
+    ModuleEquationPlayer(EquationBank *equation_bank);
     uint16_t compute();
     
     // Inputs
@@ -64,7 +64,7 @@ class ModuleEquationPlayer : public Module
     uint32_t p2;
     uint32_t p3;
     
-    Equations *equations;
+    EquationBank *equation_bank;
 
     uint32_t reset;
     uint32_t old_reset;

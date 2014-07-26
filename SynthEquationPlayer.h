@@ -24,7 +24,7 @@
 class SynthEquationPlayer : public Synth
 {
   public:
-    SynthEquationPlayer(Inputs *inputs, Equations *equations); 
+    SynthEquationPlayer(Inputs *inputs, EquationBank *equation_bank); 
 };
 
 #endif

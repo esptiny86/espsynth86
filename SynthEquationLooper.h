@@ -25,7 +25,7 @@
 class SynthEquationLooper : public Synth
 {
   public:
-    SynthEquationLooper(Inputs *inputs, Equations *equations); 
+    SynthEquationLooper(Inputs *inputs, EquationBank *equation_bank); 
 };
 
 #endif
