@@ -4,13 +4,14 @@
 // Type: Audio
 // Written by: Bret Truchan, 2014
 // 
-// Description: A wavetable oscillator put through a short audio delay.
+// Description: A wavetable oscillator routed through a lowpass filter, 
+// followed by a wave folder.
 //
 // SR  - Sample rate of the wavetable oscillator
 // MOD - Wavetable selection
-// [1] - Bit reduction
-// [2] - Wave folding level
-// [3] - Lowpass filter cutoff
+// [1] - Wave folding level
+// [2] - Lowpass filter cutoff
+// [3] - Lowpass filter resonance
 // GATE - not used
 //
 // =============================================================================

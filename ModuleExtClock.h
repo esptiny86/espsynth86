@@ -53,8 +53,8 @@
 class ModuleExtClock : public Module
 {
   public:
-    ModuleExtClock(uint32_t bpm);
-    ModuleExtClock(uint32_t bpm, int clock_division);
+    ModuleExtClock(uint8_t bpm);
+    ModuleExtClock(uint8_t bpm, uint16_t clock_division);
     uint16_t compute();
 
     // Inputs
@@ -64,11 +64,11 @@ class ModuleExtClock : public Module
   private:
     uint32_t rate;
     uint32_t counter;
-    uint32_t bpm;
+    uint8_t bpm;
     uint16_t bpm_ppqn[255];
     uint16_t bpm_half_ppqn[255];
-    uint32_t ext_clocked;    
-    uint32_t ext_clock_counter;
+    boolean ext_clocked;    
+    uint32_t ext_clock_counter = 88400;
 };
 
 #endif

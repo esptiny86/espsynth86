@@ -44,9 +44,8 @@
 #define CONVERT_TO_11_BIT 1
 #define NO_COVERSION 0
 
-// Define clock divisions for use in ModuleClock constructor
-// Note: These can't be used as input the clock divider, although
-// one would assume that would be the case!
+// Define clock divisions for use in ModuleClock and ModuleExtClock constructors
+// Note: These constants can't be used for the ModuleClockDivider
 #define WHOLE_NOTE_CLOCK_DIVISION 384
 #define HALF_NOTE_CLOCK_DIVISION 192
 #define QUARTER_NOTE_CLOCK_DIVISION 96

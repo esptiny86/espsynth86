@@ -35,14 +35,15 @@ Equation testing tools:
   Note: When using any bytebeat tool, make sure to set the output rate to 22,050  
 
 TODO:
-  - research/confirm synthdrumplayer BPM accuracy
-  - update website - revise tutorials on updating equations
   - update website - convert synth input/output labeling to text
   - document SynthWavetableBitFolder
   - document ModuleSamplePlayer
   - document SynthDrumPlayer
+  - update code documentation for ModuleExtClock
+  - create ModuleClockMultiplier
   - add a lot more arpeggiations
   - pitch shifter using ring buffer (?)
+  - research chiptune / game sound generation code
   
 Programming notes:
   - Do _not_ put a delay() immediately before polling the analog inputs as it can
@@ -96,12 +97,12 @@ Programming notes:
 #include "SynthWavetableBitFolder.h"
 #include "SynthWavetableDelay.h"
 
+#include "SynthTutorial16.h"
 
+// DueTimer is a Due library for handling interrupts
 #include "DueTimer.h"
 
   
-// Global variables
-
 // Create an inputs object, which contains a bunch of input modules and serves
 // as a convienient wrapper class.
 Inputs *inputs = new Inputs();
@@ -124,13 +125,13 @@ Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equation_bank_khepri),
   new SynthEquationPlayer(inputs, equation_bank_ptah),
   new SynthEquationPlayer(inputs, equation_bank_sobek),
-
   new SynthDrumSelektor(inputs),  
   new SynthWavetableBitFolder(inputs),
   new SynthPatterns(inputs),
   new SynthChords(inputs),
   new Synth3Osc(inputs),
   new SynthDrumPlayer(inputs)
+  // new SynthTutorial16(inputs)
 };
 
 

@@ -42,3 +42,4 @@
 #include "ModuleVCA.h"
 #include "ModuleWaveFolder.h"
 #include "ModuleWavetableOsc.h"
+#include "ModuleWaveshaper.h"
