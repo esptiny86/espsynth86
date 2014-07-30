@@ -1,6 +1,6 @@
-#include "SynthWavetableBitFolder.h"
+#include "SynthWavetableFolder.h"
 
-SynthWavetableBitFolder::SynthWavetableBitFolder(Inputs* inputs)
+SynthWavetableFolder::SynthWavetableFolder(Inputs* inputs)
 {
   
 	ModuleWavetableOsc *wavetable_osc = new ModuleWavetableOsc();

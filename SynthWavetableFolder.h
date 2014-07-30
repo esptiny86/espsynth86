@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Name: SynthWavetableBitFolder
+// Name: SynthWavetableFolder
 // Type: Audio
 // Written by: Bret Truchan, 2014
 // 
@@ -16,15 +16,15 @@
 //
 // =============================================================================
 
-#ifndef SynthWavetableBitFolder_h
-#define SynthWavetableBitFolder_h
+#ifndef SynthWavetableFolder_h
+#define SynthWavetableFolder_h
 
 #include "Synth.h"
 
-class SynthWavetableBitFolder : public Synth
+class SynthWavetableFolder : public Synth
 {
   public:
-    SynthWavetableBitFolder(Inputs *inputs); 
+    SynthWavetableFolder(Inputs *inputs); 
 };
 
 #endif

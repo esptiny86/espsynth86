@@ -94,7 +94,7 @@ Programming notes:
 #include "SynthMumbler.h"
 #include "SynthPatterns.h"
 #include "SynthWavetable.h"
-#include "SynthWavetableBitFolder.h"
+#include "SynthWavetableFolder.h"
 #include "SynthWavetableDelay.h"
 
 #include "SynthTutorial16.h"
@@ -126,7 +126,7 @@ Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equation_bank_ptah),
   new SynthEquationPlayer(inputs, equation_bank_sobek),
   new SynthDrumSelektor(inputs),  
-  new SynthWavetableBitFolder(inputs),
+  new SynthWavetableFolder(inputs),
   new SynthPatterns(inputs),
   new SynthChords(inputs),
   new Synth3Osc(inputs),
