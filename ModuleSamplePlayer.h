@@ -15,7 +15,7 @@
 // available are currently drum sounds.  There is no external memory for the
 // equation composer, so it can hold very few samples.
 //
-// Samples are defined in Samples.cpp.
+// Samples are defined in GlobalSamples.cpp.
 //
 // Example usage:
 //

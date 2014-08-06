@@ -3,7 +3,7 @@
 
 EquationBankSobek::EquationBankSobek()
 {
-  number_of_equations = 14;
+  number_of_equations = 17;
 }
 
 uint32_t EquationBankSobek::compute(int equation_number, uint32_t t, uint32_t p1, uint32_t p2, uint32_t p3)
@@ -65,12 +65,22 @@ uint32_t EquationBankSobek::compute(int equation_number, uint32_t t, uint32_t p1
       w = ((t-p3)|t+(t+t%p1))-p2;
       break;
       
-    // Special sounds  
-      
     case 13: // Autodrums (p1, p2, and p3 control drum patterns)
       w = ((((fixed_point_math.SquareRoot(t%16384)<<5)&64)*(((p1<<1) >> ((t>>14)%8))&1))<<1) +  // kick
           (((random(25))*(( p2 >>((t>>10)%8))&1))&344) + // hat
           ((((random(18000)))>>7) * (( p3 >> ((t>>13)%8))&1)&422); // snare
+      break;
+
+    case 14: // Burst Thinking
+      w = (1099991*t&t<<(p2-t%p1)+t)>>(p3>>6);
+      break;
+
+    case 15: // Bit Futurist
+      w = (((1317-p1)*t)|w/p2%t)>>(p3>>6);
+      break;
+
+    case 16: // Tinbot
+      w = (t/(40+p1)*(t+t|4-(p2+20)))+(t*(p3>>5));
       break;
 
   }

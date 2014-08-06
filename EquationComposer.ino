@@ -36,8 +36,7 @@ Equation testing tools:
 
 TODO:
   - update website - convert synth input/output labeling to text
-  - document SynthWavetableBitFolder
-  - document ModuleSamplePlayer
+  - document SynthWavetableFolder
   - document SynthDrumPlayer
   - update code documentation for ModuleExtClock
   - create ModuleClockMultiplier
@@ -97,8 +96,6 @@ Programming notes:
 #include "SynthWavetableFolder.h"
 #include "SynthWavetableDelay.h"
 
-#include "SynthTutorial16.h"
-
 // DueTimer is a Due library for handling interrupts
 #include "DueTimer.h"
 
@@ -112,6 +109,7 @@ Inputs *inputs = new Inputs();
 uint16_t prg_input_mapping[4095];
 
 // Load up equation banks.  These are where the equations are defined.
+// Equation Banks are only used in some of the synths.
 EquationBankKhepri *equation_bank_khepri = new EquationBankKhepri();
 EquationBankPtah *equation_bank_ptah = new EquationBankPtah();
 EquationBankSobek *equation_bank_sobek = new EquationBankSobek();
@@ -131,18 +129,15 @@ Synth *active_synths[] {
   new SynthChords(inputs),
   new Synth3Osc(inputs),
   new SynthDrumPlayer(inputs)
-  // new SynthTutorial16(inputs)
 };
-
 
 
 // The 'cycle' variable increments every time the interrupt is called.
 // Modules use this counter to determine if their output has already been calculated
-// or not during the interrupt cycle.  If it has, then the module won't bother
-// calculating its output until the next cycle.  This is important for situations
-// where one module's output is fed into the inputs of two different modules.  Without
-// this type of "output caching", in this situation, the parent module's code
-// would be run twice unnecessarily.
+// during the interrupt cycle.  If it has, then the module won't bother calculating its 
+// output until the next cycle.  This is important for situations where one module's 
+// output is fed into the inputs of two different modules.  Without this type of 
+// "output caching", the parent module's code could be run twice unnecessarily.
 uint8_t cycle = 0;
 
 // Currently selected synth

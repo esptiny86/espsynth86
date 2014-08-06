@@ -1,13 +1,7 @@
 #include "GlobalSamples.h"
 
 // Prepping samples
-// 
-// 1. Open sample in Wavosaur
-// 2. Convert sample to mono (drop one of the channels, don't mix the two)
-// 3. Convert the sample to 22050.  Make sure the sample is 16 bit.
-// 4. Export sample as .txt
-// 5. Copy sample into /scripts/convert_samples/index.html
-// 6. Convert, and paste results here
+// See: http://www.microbemodular.com/products/equation-composer/tools/convert-samples
 
 // Each Kick/Snare/Hihat kit takes up about 10% of program memory
 
