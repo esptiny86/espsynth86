@@ -19,7 +19,7 @@ uint32_t ModuleAnalogInput::read()
     // wiggle room to get the full range.  However, as a side effect, it reduces
     // the overall knob range.
 
-    map(this->value,5,4095,0,4095);
+    map(this->value,10,4095,0,4095);
     this->value = constrain(this->value,0,4094);
 
     return(this->value);

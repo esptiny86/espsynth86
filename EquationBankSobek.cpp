@@ -55,8 +55,6 @@ uint32_t EquationBankSobek::compute(int equation_number, uint32_t t, uint32_t p1
       w=(((570%((t>>2)%(1613+p1)))-((p2|(t>>2))>>(710-p2)))-1-p3);
       break;
 
-    // More "solid tone" sounds  
-      
     case 11: // Tone Sweeper
       w = ((t&p2&t)*p1+(t>>(p3>>6)))>>1;
       break;
