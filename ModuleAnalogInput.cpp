@@ -18,9 +18,32 @@ uint32_t ModuleAnalogInput::read()
     // due to tolerance issues.  This code adjust the input to give us a little
     // wiggle room to get the full range.  However, as a side effect, it reduces
     // the overall knob range.
+    //
+    // The map(..) function below can return negative values.  It's important 
+    // to constrain those right away.  Don't try to assign those negative numbers
+    // the this->value, which is unsigned and will overflow.
 
-    map(this->value,10,4095,0,4095);
-    this->value = constrain(this->value,0,4094);
+    this->value = constrain(map(this->value,10,4095,0,4095),0,4094);
+
+    /*
+    if(this->pin == PIN_PRG) 
+    {
+        Serial.print("PRG: ");
+        Serial.print(this->value);
+    }
+
+    if(this->pin == PIN_SR) 
+    {
+        Serial.print(" SR: ");
+        Serial.print(this->value);
+    }
+
+    if(this->pin == PIN_MOD) 
+    {
+        Serial.print(" MOD: ");
+        Serial.println(this->value);
+    }
+    */
 
     return(this->value);
 }
