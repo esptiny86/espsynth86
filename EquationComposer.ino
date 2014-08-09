@@ -69,7 +69,10 @@ Programming notes:
 // So, in other words, if you want to use Serial.println(), uncomment this line
 // but don't expect to hear any audio output from the module.
 //
+// Don't ever set these to '0'.  Instead, comment them out.
+//
 // #define DEBUG 1
+// #define SERIAL_MONITOR_INPUTS 1
 
 // Include all of the equation banks
 #include "EquationBankKhepri.h"

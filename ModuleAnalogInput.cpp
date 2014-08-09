@@ -30,6 +30,29 @@ uint32_t ModuleAnalogInput::read()
 
     this->value = constrain(map(this->value,10,4095,0,4095),0,4094);
 
+    // SERIAL_MONITOR_INPUTS is set in EquationComposer.ino
+    #ifdef SERIAL_MONITOR_INPUTS
+
+        if(this->pin == PIN_PRG)
+        {
+            Serial.print("PRG: ");
+            Serial.print(this->value);
+        }
+
+        if(this->pin == PIN_SR)
+        {
+            Serial.print(" SR: ");
+            Serial.print(this->value);
+        }
+
+        if(this->pin == PIN_MOD)
+        {
+            Serial.print(" MOD: ");
+            Serial.println(this->value);
+        }
+
+    #endif
+
     return(this->value);
 }
 
