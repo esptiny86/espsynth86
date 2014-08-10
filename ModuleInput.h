@@ -14,20 +14,37 @@
 // EquationComposer.ino and passed into each synth.  But you can ignore the gory 
 // details and simply access the inputs using:
 //
-//  inputs->sr
-//  inputs->mod
-//  inputs->param1
-//  inputs->param2
-//  inputs->param3
-//  inputs->gate
+//   inputs->sr
+//   inputs->mod
+//   inputs->param1
+//   inputs->param2
+//   inputs->param3
+//   inputs->gate
 //
 // Example usage:
 //
-//  ModuleWavetableOsc *osc = new ModuleWavetableOsc();
-//  osc->wavetable_input  = inputs->mod;
-//  osc->frequency_input  = inputs->sr;
+//   ModuleWavetableOsc *osc = new ModuleWavetableOsc();
+//   osc->wavetable_input  = inputs->mod;
+//   osc->frequency_input  = inputs->sr;
 //  
-//  this->last_module = osc;
+//   this->last_module = osc;
+//
+// You can also activate a "smoothing" algorithm on the inputs, which is a good
+// way to help reduce noise on the inputs.  The smoothing algorithm requires
+// extra CPU cycles, but that usually isn't a problem.
+//
+// The syntax for using smoothing on an input is:
+//
+//   inputs->param2->smooth;
+//
+// Example usage with smoothing:
+//
+//   ModuleWavetableOsc *osc = new ModuleWavetableOsc();
+//   osc->wavetable_input  = inputs->mod->smooth;  // <== smoothing added
+//   osc->frequency_input  = inputs->sr;
+//  
+//   this->last_module = osc;
+//
 
 #ifndef ModuleInput_h
 #define ModuleInput_h

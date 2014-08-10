@@ -11,7 +11,7 @@
 // =============================================================================
 // 
 // ModuleWavetableOsc is a wavetable oscillator with control over frequency and
-// wavetable.  The wavetables are defined in Wavetables.cpp.
+// wavetable.  The wavetables are defined in GlobalWavetables.cpp.
 //
 // Example usage:
 //
@@ -19,6 +19,8 @@
 //   wavetable_osc->frequency_input = inputs->sr_input;
 //   wavetable_osc->wavetable_input = inputs->mod_input;
 //   this->last_module = wavetable_osc; 
+//
+// Also see: SynthWavetable.cpp and SynthChords.cpp
 
 #ifndef ModuleWavetableOsc_h
 #define ModuleWavetableOsc_h

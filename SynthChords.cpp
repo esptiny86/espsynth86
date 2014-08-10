@@ -17,7 +17,7 @@ SynthChords::SynthChords(Inputs* inputs)
 	quantizer->scale_input = inputs->param1;
 
 	chords->root_note_input = quantizer;
-	chords->chord_input = inputs->mod;
+	chords->chord_input = inputs->mod->smooth;
 
 	rotating_router_3->rotate_input = inputs->gate;
 	rotating_router_3->input_1 = chords->note_1_output;
@@ -27,10 +27,10 @@ SynthChords::SynthChords(Inputs* inputs)
 	wavetable_osc1->wavetable_input  = new ModuleConstant(0);
 	wavetable_osc1->frequency_input  = rotating_router_3->output_1;
 
-	wavetable_osc2->wavetable_input = inputs->param2;
+	wavetable_osc2->wavetable_input = inputs->param2->smooth;
 	wavetable_osc2->frequency_input  = rotating_router_3->output_2;
 
-	wavetable_osc3->wavetable_input = inputs->param3;
+	wavetable_osc3->wavetable_input = inputs->param3->smooth;
 	wavetable_osc3->frequency_input  = rotating_router_3->output_3;
 
 	mixer_3->input_1 = wavetable_osc1;
