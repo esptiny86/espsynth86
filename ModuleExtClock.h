@@ -37,10 +37,10 @@
  *  Helpful clock divisions have been defined in defines.h.  
  *
  * 
- *  ModuleClock *module_clock = new ModuleClock(120, 48);                          // produce 1/8th note gates at 120 BPM
- *  ModuleClock *module_clock = new ModuleClock(120, EIGHTH_NOTE_CLOCK_DIVISION);  // produce 1/8th note gates at 120 BPM
- *  ModuleClock *module_clock = new ModuleClock(100, QUARTER_NOTE_CLOCK_DIVISION); // produce 1/4th note gates at 100 BPM
- *  ModuleClock *module_clock = new ModuleClock(100, WHOLE_NOTE_CLOCK_DIVISION);   // produce whole note gates at 100 BPM
+ *  ModuleExtClock *module_ext_clock = new ModuleExtClock(120, 48);                          // produce 1/8th note gates at 120 BPM
+ *  ModuleExtClock *module_ext_clock = new ModuleExtClock(120, EIGHTH_NOTE_CLOCK_DIVISION);  // produce 1/8th note gates at 120 BPM
+ *  ModuleExtClock *module_ext_clock = new ModuleExtClock(100, QUARTER_NOTE_CLOCK_DIVISION); // produce 1/4th note gates at 100 BPM
+ *  ModuleExtClock *module_ext_clock = new ModuleExtClock(100, WHOLE_NOTE_CLOCK_DIVISION);   // produce whole note gates at 100 BPM
  *
  */
  

@@ -20,9 +20,9 @@ SynthDrumPlayer::SynthDrumPlayer(Inputs* inputs)
 
   // Use the 3 parameters to select the patterns 
   // used for the drums.
-  drum_sequencer->kick_pattern_input = inputs->param1;
-  drum_sequencer->snare_pattern_input = inputs->param2;
-  drum_sequencer->hihat_pattern_input = inputs->param3;
+  drum_sequencer->kick_pattern_input = inputs->param1->smooth;
+  drum_sequencer->snare_pattern_input = inputs->param2->smooth;
+  drum_sequencer->hihat_pattern_input = inputs->param3->smooth;
 
   // Use the mode input to select the drum kit
   kit_select->kit_selection_input = inputs->mod;

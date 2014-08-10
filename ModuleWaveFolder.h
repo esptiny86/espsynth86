@@ -14,6 +14,15 @@
 // ModuleWaveFolder is simple audio wave folder with automatic gain compensation.
 // See http://www.analoguehaven.com/doepfer/a137/A137_2principle.gif
 //
+// lower_clipping_level_input and upper_clipping_level_input both clip MORE when
+// increased in value.  This allows adjustment of both lower and upper clipping
+// levels with a single input.  For example, here both clipping levels are 
+// controlled by param1:
+//
+//   ModuleWaveFolder *wave_folder = new ModuleWaveFolder();
+//   wave_folder->lower_clipping_level_input = inputs->param1; 
+//   wave_folder->upper_clipping_level_input = inputs->param1; 
+//
 // Example usage:
 //
 //   // SynthTutorial15
@@ -30,7 +39,7 @@
 //
 //   this->last_module = wave_folder;
 //
-// 
+// Also see: SynthWavetableFolder.cpp
 
 #ifndef ModuleWaveFolder_h
 #define ModuleWaveFolder_h
