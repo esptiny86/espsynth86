@@ -19,8 +19,30 @@
 // The slope playback speed is controlled by the frequency_input.  The slope_input
 // selects among the various possible sloped defined in GlobalSlopes.cpp
 //
+// Example Usage:
 //
- 
+//  // Create the modules
+//  ModuleWavetableOsc *wavetable_osc = new ModuleWavetableOsc();
+//  ModuleLowpassFilter *lowpass_filter = new ModuleLowpassFilter();
+//  ModuleENV *envelope_generator = new ModuleENV();
+//
+//  // Patch up envelope generator
+//  envelope_generator->slope_input = inputs->param2;
+//  envelope_generator->trigger_input = inputs->gate;
+//  envelope_generator->frequency_input = inputs->param1;
+//
+//  // Patch up oscillator
+//  wavetable_osc->frequency_input = inputs->sr;
+//  wavetable_osc->wavetable_input = inputs->mod; 
+//  
+//  // Patch up filter
+//  lowpass_filter->audio_input = wavetable_osc;
+//  lowpass_filter->cutoff_input = envelope_generator;
+//  lowpass_filter->resonance_input = inputs->param3;
+//
+//  this->last_module = lowpass_filter;
+//
+
 #ifndef ModuleENV_h
 #define ModuleENV_h
 
@@ -63,8 +85,8 @@ class ModuleENV : public Module
     uint32_t env_output;
     
     // 10.22 fixed point number (using the upper 10 bits for addressing the indexes 
-    // up to 1024 (we only need 600), and an additional 22 bits (0-4194304) for simulating fractional values for
-    // use when incrementing the variable fractional values
+    // up to 1024 (we only need 600), and an additional 22 bits (0-4194304) for 
+    // simulating fractional values
     uint32_t fixed_point_10_22_index;
     uint32_t increment_by;
 };
