@@ -17,13 +17,24 @@
 //   cv_input: The signal to quantize
 //   scale_input: Selects the scale for quantization
 //
-// The scales themselves are defined in Scales.cpp:
+// The scales themselves are defined in GlobalScales.cpp:
 //
 //   0: CHROMATIC
 //   1: IONIAN
 //   2: DORIAN
 //   3: LYDIAN
 //   4: PHRYGIAN
+//   5: MIXOLYDIAN
+//   6: AEOLIAN
+//   7: LOCRIAN
+//   8: MAJOR_PENTATONIC
+//   9: MINOR_PENTATONIC
+//   10: BLUES
+//   11: DIMINISHED
+//   12: ARABIAN
+//   13: MAJOR
+//   14: MINOR
+//   15: PRISM
 //
 // Example usage:
 //
@@ -38,7 +49,7 @@
 //
 //   this->last_module = quantizer;
 //
-
+// Also see: SynthPatterns.cpp
 
 #ifndef ModuleQuantizer_h
 #define ModuleQuantizer_h

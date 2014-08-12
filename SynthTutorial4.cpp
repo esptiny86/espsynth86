@@ -12,7 +12,7 @@ SynthTutorial4::SynthTutorial4(Inputs* inputs)
   envelope_generator->trigger_input = inputs->gate;
   envelope_generator->frequency_input = inputs->param1;
 
-  // Patch up ocillator
+  // Patch up oscillator
   wavetable_osc->frequency_input = inputs->sr;
   wavetable_osc->wavetable_input = inputs->mod; 
   
