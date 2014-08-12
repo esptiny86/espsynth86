@@ -1,3 +1,21 @@
+/*
+ *   +----------------------+
+ *   | ModuleKitSelect      |
+ *   |----------------------|
+ *   > kit_selection_input  |
+ *   |                      |
+ *   |           kick_output>
+ *   |          snare_output>
+ *   |          hihat_output>
+ *   +----------------------+
+ *
+ */
+// =============================================================================
+// 
+// ModuleKitSelect is a helper module for SynthDrumPlayer that outputs three
+// values depending on the kit selection input.
+//
+
 #ifndef ModuleKitSelect_h
 #define ModuleKitSelect_h
 

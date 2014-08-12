@@ -1,22 +1,22 @@
 /*
- *  +----------------------+
- *  | ModuleDrumSequencer  |
- *  |----------------------|
- *  > clock_input          |
- *  |                      |
- *  > kick_pattern_input   |
- *  > snare_pattern_input  |
- *  > hat_pattern_input    |
- *  |                      |
- *  |          kick_output >
- *  |         snare_output >
- *  |           hat_output >
- *  +----------------------+
+ *  +------------------------+
+ *  | ModuleDrumSequencer32  |
+ *  |------------------------|
+ *  > clock_input            |
+ *  |                        |
+ *  > kick_pattern_input     |
+ *  > snare_pattern_input    |
+ *  > hat_pattern_input      |
+ *  |                        |
+ *  |            kick_output >
+ *  |           snare_output >
+ *  |             hat_output >
+ *  +------------------------+
  *
  */
 // =============================================================================
 // 
-// ModuleDrumSequencer is a simple gate sequencer for drums.  It contains three 
+// ModuleDrumSequencer32 is a simple gate sequencer for drums.  It contains three 
 // different pattern generators, one for kick, snare, and hihat.
 //
 // TODO: create example
