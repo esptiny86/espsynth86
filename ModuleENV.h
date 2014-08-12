@@ -17,7 +17,7 @@
 // ModuleENV is a simple envelope generator, similar to an ADSR, but uses preset
 // slopes and has no sustain.  Playback starts when the gate_input goes high.
 // The slope playback speed is controlled by the frequency_input.  The slope_input
-// selects among the various possible sloped defined in Slopes.cpp
+// selects among the various possible sloped defined in GlobalSlopes.cpp
 //
 //
  

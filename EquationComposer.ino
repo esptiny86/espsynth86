@@ -35,19 +35,7 @@ Equation testing tools:
   Note: When using any bytebeat tool, make sure to set the output rate to 22,050  
 
 TODO:
-  - update website - convert synth input/output labeling to text
-  - document SynthWavetableFolder
-  - document SynthDrumPlayer
-  - update code documentation for ModuleExtClock
-  - create ModuleClockMultiplier
-  - add a lot more arpeggiations
-  - pitch shifter using ring buffer (?)
-  - research chiptune / game sound generation code
-  
-Programming notes:
-  - Do _not_ put a delay() immediately before polling the analog inputs as it can
-    cause inaccuracies in the voltage readings.  (Perhaps a bug in the Arduino
-    implementation of delay()?)
+  - create usage example in ModuleDrumPlayer.h
   
   
 // =========================== - 80 column - ===================================
