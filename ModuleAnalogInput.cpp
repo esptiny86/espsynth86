@@ -20,7 +20,7 @@ uint32_t ModuleAnalogInput::read()
     this->value = (analogRead(this->pin) >> 1) << 1;
 
     // The poteniometers sometimes won't be able to supply a pefect "0" value,
-    // due to tolerance issues.  This code adjust the input to give us a little
+    // due to tolerance issues.  This code adjusts the input to give us a little
     // wiggle room to get the full range.  However, as a side effect, it reduces
     // the overall knob range.
     //
@@ -28,10 +28,9 @@ uint32_t ModuleAnalogInput::read()
     // to constrain those right away.  Don't try to assign those negative numbers
     // the this->value, which is unsigned and will overflow.
 
-    this->value = constrain(map(this->value,10,4095,0,4095),0,4094);
+    this->value = constrain(map(this->value,24,4095,0,4095),0,4094);
 
-    // SERIAL_MONITOR_INPUTS is set in EquationComposer.ino
-    #ifdef SERIAL_MONITOR_INPUTS
+    /*  Code for testing inputs via Serial Monitor
 
         if(this->pin == PIN_PRG)
         {
@@ -51,7 +50,7 @@ uint32_t ModuleAnalogInput::read()
             Serial.println(this->value);
         }
 
-    #endif
+    */
 
     return(this->value);
 }
