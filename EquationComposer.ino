@@ -60,7 +60,6 @@ TODO:
 // Don't ever set these to '0'.  Instead, comment them out.
 //
 // #define DEBUG 1
-// #define SERIAL_MONITOR_INPUTS 1
 
 // Include all of the equation banks
 #include "EquationBankKhepri.h"
