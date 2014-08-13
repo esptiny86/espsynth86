@@ -8,22 +8,6 @@
 // Special thanks to Gaetan Ro for figuring these out.
 // 
 
-FixedPointMath::FixedPointMath()
-{
-  /*
-  for(uint32_t i = 0; i < 1024; i++) 
-  { 
-    Sine[i] = (uint16_t)(2048*sin(PI*(float)i/2048.0));
-  } 
-  
-  for(uint32_t i = 0; i < 4096; i++) 
-  { 
-    Exp[i] = (uint16_t)(4095*exp((float)i/-512.0));
-  }  
-  */ 
-}
-
-
 uint32_t FixedPointMath::SquareRoot(uint32_t a_nInput)
 {
     uint32_t op  = a_nInput;
