@@ -35,7 +35,7 @@ Equation testing tools:
   Note: When using any bytebeat tool, make sure to set the output rate to 22,050  
 
 TODO:
-  - create usage example in ModuleDrumPlayer.h
+  - none
   
   
 // =========================== - 80 column - ===================================

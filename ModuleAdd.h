@@ -10,7 +10,8 @@
  */
 // =============================================================================
 // 
-// Adds the values at input_1 and input_2 and outputs the sum.
+// Adds the values at input_1 and input_2 and outputs the sum.  For audio
+// signals, consider using ModuleMixer2 instead.
 //
 
 

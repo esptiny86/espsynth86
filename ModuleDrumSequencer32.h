@@ -19,7 +19,7 @@
 // ModuleDrumSequencer32 is a simple gate sequencer for drums.  It contains three 
 // different pattern generators, one for kick, snare, and hihat.
 //
-// TODO: create example
+// See ModuleDrumSequencer for example usage
 //
 
 #ifndef ModuleDrumSequencer32_h

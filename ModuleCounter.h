@@ -6,7 +6,6 @@
  *  |               output >
  *  +----------------------+
  *
- *
  */
 // =============================================================================
 // 
@@ -19,12 +18,14 @@
 // equations of the wavetable module:
 //
 //   ModuleCounter *counter = new ModuleCounter(5);  // count from 0 to 5
-//   ModuleClock *bpm_clock = new ModuleClock(120);  // clock at 120BPM
-//   ModuleWavetable *wavetable = new ModuleWavetable(equations);
+//   ModuleClock *bpm_clock = new ModuleClock(120, EIGHTH_NOTE_CLOCK_DIVISION);  // clock at 120BPM
+//   ModuleWavetableOsc *wavetable_osc = new ModuleWavetableOsc();
 //
 //   counter->clock_input = bpm_clock;
-//   wavetable->equation_input = counter;
+//   wavetable_osc->wavetable_input = counter;
+//   wavetable_osc->frequency_input  = inputs->sr;
 //
+//   this->last_module = wavetable_osc;
 
  
 #ifndef ModuleCounter_h

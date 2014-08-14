@@ -8,12 +8,12 @@
 // wavetable oscillator with controllable pitch, wavetable, filter cutoff,
 // and filter resonance.
 //
-// SR  - 
-// MOD - 
-// [1] - 
-// [2] - 
-// [3] - 
-// GATE - 
+// SR  - Wavetable Oscillator sample rate (aka pitch)
+// MOD - Wavetable selection
+// [1] - Filter cutoff
+// [2] - Filter resonance
+// [3] - not used
+// GATE - not used
 //
 // =============================================================================
 
