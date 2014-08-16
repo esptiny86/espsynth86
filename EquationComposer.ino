@@ -35,7 +35,7 @@ Equation testing tools:
   Note: When using any bytebeat tool, make sure to set the output rate to 22,050  
 
 TODO:
-  - none
+  - Make inverter module
   
   
 // =========================== - 80 column - ===================================

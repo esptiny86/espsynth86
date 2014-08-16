@@ -15,20 +15,20 @@
 // =============================================================================
 // 
 // ModuleEquationPlayer is a simple bytebeat equation player with control over
-// equation selection, sample rate, and loop parameters.  It uses the same set
-// of equations as the ModuleEquationPlayer, but only allows control over one
-// variable of the equation.  (In hindsight, I could have allowed control 
+// equation selection, sample rate, and loop parameters.  It only allows control 
+// over one variable of the equation.  (In hindsight, I could have allowed control 
 // over all three parameters, as the param1, 2, and 3 inputs of this module
 // could be controlled by other modules.)
 //
 // When the gate input is HIGH, equations will stop looping and will playback
 // continuously.
 //
-// Equations are passed in to the ModuleEquationPlayer via the constructor.
+// An equation bank must be passed in to the ModuleEquationPlayer via the 
+// constructor.
 //
 // Example usage:
 //
-//    ModuleEquationLooper *equation_looper = new ModuleEquationLooper(equations);
+//    ModuleEquationLooper *equation_looper = new ModuleEquationLooper(equation_bank);
 //
 //    equation_looper->equation_input    = inputs->mod;
 //    equation_looper->sample_rate_input = inputs->sr;
