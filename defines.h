@@ -1,16 +1,20 @@
 #ifndef defines_h
 #define defines_h
 
-// Change these number when adding or removing equations
+// Number of wavetable in GlobalWavetables.cpp
+#define NUMBER_OF_WAVETABLES 32 
 
-#define NUMBER_OF_WAVETABLE_EQUATIONS 16    // # of equations in EquationsWavetable.cpp
-#define NUMBER_OF_WAVETABLES 32
+// Slopes are defined in GlobalSlopes.cpp
+#define NUMBER_OF_SLOPES 10
+
+// Some wavetable constants.  Don't change these.
 #define WAVE_SAMPLES 512
 #define WAVE_SAMPLES_SHIFTED_22 2147483648 
 
-#define NUMBER_OF_SLOPES 10
-
+// Maximum CV value used throughout the module
 #define MAX_CV 4095
+
+// 1/2 of MAX_CV
 #define MID_CV 2047
 
 // Pin definitions
@@ -23,12 +27,12 @@
 #define PIN_GATE 22
 
 // ADAC and Analog Read values
-#define ANALOG_READ_RESOLUTION 12  // Typical values are 8, 10 or 12
+// Typical values are 8, 10 or 12
+#define ANALOG_READ_RESOLUTION 12
 
 // Assorted definitions
 #define SAMPLE_RATE 22050
 #define SAMPLE_RATE_FLOAT 22050.0
-
 
 // Conversion constants used by uint16_t readInput(Module *, int conversion);
 #define CONVERT_TO_1_BIT 11
@@ -55,6 +59,7 @@
 
 
 // Enums for voice simulation synths
+// These may not be needed anymore.
 enum {
   _SP,_DOT,_QM,_COM,_HYP,_IY,_IH,_EH,_AE,_AA,
   _AH,_AO,_UH,_AX,_IX,_ER,_UX,_OH,_RX,_LX,
