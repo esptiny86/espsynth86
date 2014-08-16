@@ -10,8 +10,8 @@ ModuleExtClock::ModuleExtClock(uint8_t bpm, uint16_t clock_division)
   // 'ext_clocked' records the status (on or off) of the external clock input
   this->ext_clocked = false;
 
-  // 'ext_clock_count' help determine which clock mode to use: internal or external
-  // Default to internal.  This counter is incremented whenever there is NO external
+  // 'ext_clock_count' helps determine which clock mode to use: internal or external.
+  // Defaults to internal.  This counter is incremented whenever there is NO external
   // clock detected.  Once this counter reaches a certain level, it's assumed that
   // there is no external clock, and the internal clock is used.  
   this->ext_clock_counter = 88400;

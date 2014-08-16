@@ -1,5 +1,9 @@
 #include "SynthTutorial1.h"
 
+// Note:
+// A description, including input assignments, can be found in 
+// the tutorial's .h file.  In this case, SynthTutorial1.h.
+
 SynthTutorial1::SynthTutorial1(Inputs* inputs)
 {
 	// Create a wavetable oscillator

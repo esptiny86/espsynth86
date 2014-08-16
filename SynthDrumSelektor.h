@@ -11,7 +11,7 @@
 // MOD - CV selection of drum sound
 // [1] - Freeze trigger input
 // [2] - Freeze length input
-// [3] - not used
+// [3] - Controls wave folding level
 // GATE - Triggers drum sound
 //
 // =============================================================================

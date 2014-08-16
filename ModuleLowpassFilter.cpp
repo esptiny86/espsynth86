@@ -11,7 +11,14 @@
 
 ModuleLowpassFilter::ModuleLowpassFilter()
 {
-  y1=y2=y3=y4=oldx=oldy1=oldy2=oldy3=0; 
+  y1=0;
+  y2=0;
+  y3=0;
+  y4=0;
+  oldx=0;
+  oldy1=0;
+  oldy2=0;
+  oldy3=0; 
 
   // Initialize all inputs
   this->audio_input = NULL; 
@@ -46,8 +53,8 @@ uint16_t ModuleLowpassFilter::compute()
   x = audio - ((r*y4)>>12);
 
   // Worth trying:
-  // A much better tuning seems to be k=2*sin(cutoff * pi/2)-1;
-  // k = 2 * sin_fix1212(cutoff * pi/2) - 4096;
+  // "A much better tuning seems to be k=2*sin(cutoff * pi/2)-1;
+  // k = 2 * sin_fix1212(cutoff * pi/2) - 4096;"
   k = p + p - 4095;
   
   // Four cascaded onepole filters (bilinear transform)

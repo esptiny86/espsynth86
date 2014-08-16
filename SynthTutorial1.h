@@ -4,7 +4,8 @@
 // Type: Audio
 // Written by: Bret Truchan, 2014
 // 
-// Description: Simple triangle wave oscillator
+// Description: Simple triangle wave oscillator.  The implementation of this
+// synth can be seen in SynthTutorial1.cpp.
 //
 // SR  - controls the sample rate of the oscillator
 // MOD - not used

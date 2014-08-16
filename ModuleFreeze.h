@@ -11,13 +11,13 @@
  */
 // =============================================================================
 // 
-// ModuleFreeze is an audio effect for "freezing audio", which, in this case,
-// means capturing a slice of the audio and looping it.  The code for ModuleFreeze
-// is based on the ModuleDelay code and shares the same buffer, which means 
-// that using both in a synth will cause strange behavior.
+// ModuleFreeze is an audio effect for "freezing audio" by capturing a slice of 
+// audio and looping it.  The code for ModuleFreeze is based on the ModuleDelay 
+// code and shares the same audio buffer.  As a side effect, using both a 
+// ModuleDelay and ModuleFreeze in the same synth may cause strange behavior.
 // 
 // The freeze_input is a gate input.  When high, the freeze effect is on.
-// length_input controls the slice length of the frozen audio.
+// The length_input controls the slice length of the frozen audio.
 //
 // Example usage:
 //

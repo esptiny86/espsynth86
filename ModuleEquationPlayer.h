@@ -18,11 +18,12 @@
 // equation selection, sample rate, and equation parameters.  The reset input
 // is used reset playback from the beginning.
 //
-// Equations are passed in to the ModuleEquationPlayer via the constructor.
+// An equation bank must be passed in to the ModuleEquationPlayer via the 
+// constructor.
 //
 // Example usage:
 //
-//   ModuleEquationPlayer *equation_player = new ModuleEquationPlayer(equations);
+//   ModuleEquationPlayer *equation_player = new ModuleEquationPlayer(equation bank);
 //  
 //   equation_player->equation_input    = inputs->mod;
 //   equation_player->sample_rate_input = inputs->sr;
