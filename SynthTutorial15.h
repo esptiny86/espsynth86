@@ -4,7 +4,8 @@
 // Type: CV Output
 // Written by: Bret Truchan, 2014
 // 
-// Description: Demonstration of ModuleWaveFolder
+// Description: Demonstration of ModuleWaveFolder.  A wavetable oscillator is
+// wired into a wave folder. (see also SynthWavetableFolder.cpp)
 //
 // SR  - Sample rate input
 // MOD - Wavetable selection

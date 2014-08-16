@@ -4,12 +4,16 @@
 // Type: Audio
 // Written by: Bret Truchan, 2014
 // 
-// Description: Demonstration of ModuleBitReducer
+// Description: Demonstration of ModuleBitReducer.  A wavetable oscillator's
+// output is bit-reduced.
 //
-// SR  - 
-// MOD - 
-// [1] - 
-// [2] - 
+// The bit reducer module hasn't turned out to be very useful.  I may eventually 
+// rewrite it to get better "low-fi" effects.
+//
+// SR  - Sample rate of the wavetable oscillator
+// MOD - Wavetable selection
+// [1] - Bit rate of the bit reducer
+// [2] - not used
 // [3] - not used
 // GATE - not used
 //

@@ -3,7 +3,8 @@
 // Name: SynthTutorial16
 // Written by: Bret Truchan, 2014
 // 
-// Description: Demonstration of ModuleWaveShaper
+// Description: Demonstration of ModuleWaveShaper.  The waveshaper is still
+// experimental.
 //
 // SR  - Sample rate input
 // MOD - Wavetable selection

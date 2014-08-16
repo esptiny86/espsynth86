@@ -2,18 +2,20 @@
 
 SynthWavetableDelay::SynthWavetableDelay(Inputs* inputs)
 {
-  
-  ModuleWavetableOsc *wavetable_osc = new ModuleWavetableOsc();
-  ModuleDelay *delay = new ModuleDelay();
+	// Create modules
+	ModuleWavetableOsc *wavetable_osc = new ModuleWavetableOsc();
+	ModuleDelay *delay = new ModuleDelay();
 
-  wavetable_osc->wavetable_input  = inputs->mod;
-  wavetable_osc->frequency_input  = inputs->sr;
-  
-  delay->audio_input = wavetable_osc;
-  delay->mix_input = inputs->param1;
-  delay->feedback_input = inputs->param2;
-  delay->length_input = inputs->param3;
+	// Wire up the wavetable oscillator
+	wavetable_osc->wavetable_input  = inputs->mod;
+	wavetable_osc->frequency_input  = inputs->sr;
 
-  this->last_module = delay;
+	// Put the wavetable oscillator through a delay
+	delay->audio_input = wavetable_osc;
+	delay->mix_input = inputs->param1;
+	delay->feedback_input = inputs->param2;
+	delay->length_input = inputs->param3;
 
+	// Output the audio of the delay
+	this->last_module = delay;
 }

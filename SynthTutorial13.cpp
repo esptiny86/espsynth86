@@ -2,14 +2,20 @@
 
 SynthTutorial13::SynthTutorial13(Inputs* inputs)
 {
-  ModuleWavetableOsc *wavetable_osc = new ModuleWavetableOsc();
-  ModuleBitReducer *bit_reducer = new ModuleBitReducer();
+	// Create wavetable and bit reducer modules
+	ModuleWavetableOsc *wavetable_osc = new ModuleWavetableOsc();
+	ModuleBitReducer *bit_reducer = new ModuleBitReducer();
 
-  wavetable_osc->wavetable_input  = inputs->mod;
-  wavetable_osc->frequency_input  = inputs->sr;
+	// Control the wavetable selection using MOD
+	// Control the frequency using SR
+	wavetable_osc->wavetable_input  = inputs->mod;
+	wavetable_osc->frequency_input  = inputs->sr;
   
-  bit_reducer->audio_input = wavetable_osc;
-  bit_reducer->bit_input = inputs->param1;
+  	// Bit reduce the output of the wavetable oscillator
+  	// Use param1 to control the bit rate
+	bit_reducer->audio_input = wavetable_osc;
+	bit_reducer->bit_input = inputs->param1;
 
-  this->last_module = bit_reducer;
+	// Output the audio from the bit reducer
+	this->last_module = bit_reducer;
 }

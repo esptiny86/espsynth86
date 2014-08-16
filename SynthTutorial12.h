@@ -4,7 +4,8 @@
 // Type: Audio
 // Written by: Bret Truchan, 2014
 // 
-// Description: Demonstration of the counter module
+// Description: Demonstration of the counter module.  The output of a counter
+// module is used to step through wavetables in a wavetable oscillator.
 //
 // SR  - controls the sample rate of the wavetable oscillator
 // MOD - not used
