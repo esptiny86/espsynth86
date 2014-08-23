@@ -159,7 +159,7 @@ void setup()
   // Set the pinmode for digital pins.  This is not required for the analog inputs.
   pinMode(PIN_GATE, INPUT);
 
-  // Compute the prg_input_mapping array.
+  // Pre-compute the prg_input_mapping array.
   for(uint16_t i=0; i < 4096; i++)
   {
     prg_input_mapping[i] = map(i, 0, MAX_CV, 0, NUMBER_OF_SYNTHS);
