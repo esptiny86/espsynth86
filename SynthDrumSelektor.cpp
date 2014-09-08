@@ -19,13 +19,12 @@ SynthDrumSelektor::SynthDrumSelektor(Inputs* inputs)
 
 	// Send the drum sounds through a freeze effect
 	freeze->audio_input = drum_sound;
-	freeze->freeze_input = inputs->param1;
-	freeze->length_input = inputs->param2;
+	freeze->length_input = inputs->param1;
 
 	// Apply wave folding
 	wave_folder->audio_input = freeze;
-	wave_folder->lower_clipping_level_input = inputs->param3;
-	wave_folder->upper_clipping_level_input = inputs->param3;
+	wave_folder->lower_clipping_level_input = inputs->param2;
+	wave_folder->upper_clipping_level_input = inputs->param2;
 
 	// Output the audio of the wave folder
 	this->last_module = wave_folder;

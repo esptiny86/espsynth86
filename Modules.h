@@ -24,6 +24,7 @@
 #include "ModuleFreeze.h"
 #include "ModuleKitSelect.h"
 #include "ModuleLFO.h"
+#include "ModuleLooper.h"
 #include "ModuleLowpassFilter.h"
 #include "ModuleMap.h"
 #include "ModuleMixer2.h"

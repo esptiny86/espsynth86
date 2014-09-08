@@ -79,6 +79,7 @@ TODO:
 #include "SynthDrumSelektor.h"
 #include "SynthEquationPlayer.h"
 #include "SynthEquationLooper.h"
+#include "SynthLooper.h"
 #include "SynthMini.h"
 #include "SynthMumbler.h"
 #include "SynthPatterns.h"
@@ -107,7 +108,7 @@ EquationBankSobek *equation_bank_sobek = new EquationBankSobek();
 // Instantiate synths, which are selectable via the PRG knob.
 // Any new synth must be added to this list
 
-#define NUMBER_OF_SYNTHS 9
+#define NUMBER_OF_SYNTHS 10
 
 Synth *active_synths[] {
   new SynthEquationPlayer(inputs, equation_bank_khepri),
@@ -118,7 +119,8 @@ Synth *active_synths[] {
   new SynthPatterns(inputs),
   new SynthChords(inputs),
   new Synth3Osc(inputs),
-  new SynthDrumPlayer(inputs)
+  new SynthDrumPlayer(inputs),
+  new SynthLooper(inputs)
 };
 
 

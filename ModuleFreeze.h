@@ -3,7 +3,6 @@
  *  | ModuleFreeze         |
  *  |----------------------|
  *  > audio_input          |
- *  > freeze_input         |
  *  > length_input         |
  *  |               output >
  *  +----------------------+
@@ -16,8 +15,9 @@
 // code and shares the same audio buffer.  As a side effect, using both a 
 // ModuleDelay and ModuleFreeze in the same synth may cause strange behavior.
 // 
-// The freeze_input is a gate input.  When high, the freeze effect is on.
-// The length_input controls the slice length of the frozen audio.
+// The length_input controls the slice length of the frozen audio.  When the 
+// length input is less than 100, the freeze effect is turned off.  This allows
+// full control over the freeze effect with one input.
 //
 // Example usage:
 //
@@ -32,8 +32,7 @@
 //    drum_sound->trigger_input = ext_clock;
 //
 //    freeze->audio_input = drum_sound;
-//    freeze->freeze_input = inputs->param1;
-//    freeze->length_input = inputs->param2;
+//    freeze->length_input = inputs->param1;
 //
 //    this->last_module = freeze;
 //
@@ -52,8 +51,7 @@ class ModuleFreeze : public Module
     uint16_t compute();
     
     // Inputs
-    Module *audio_input;
-    Module *freeze_input;   
+    Module *audio_input;   
     Module *length_input; 
 
   private:
