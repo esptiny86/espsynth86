@@ -1,0 +1,13 @@
+analogmultiplexer.h
+lib/AudioOutput.h
+lib/AudioOutput.h
+lib/AudioOutputI2S.cpp
+lib/AudioOutputI2S.cpp
+lib/AudioOutputI2S.h
+lib/AudioOutputI2S.h
+lib/AudioStatus.h
+lib/AudioStatus.h
+makeEspArduino.mk
+project.ino
+Makefile
+synthmodule86.ino
