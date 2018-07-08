@@ -31,3 +31,5 @@
 /Users/xcorex/Documents/Arduino/libraries/AppleMIDI/src/utility
 lib
 module
+global
+synth

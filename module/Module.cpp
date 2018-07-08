@@ -76,6 +76,19 @@ uint16_t Module::readInput(Module *module, uint32_t map_low, uint32_t map_high)
   }
 }
 
+uint16_t Module::readInput10Bit(Module *module, uint32_t map_low, uint32_t map_high)
+{
+  // If someone forgot to attach a module to an input, assume they mean for that
+  // input to be 0.
+  if(! module) return(0);
+
+  // When no_output_conversion is true, the actual output value of a module is
+  // used, instead of being mapped. no_output_conversion is set in ModuleConstant.php
+
+    return(((( (module->run(this->cycle)+1) * (map_high - map_low)) >> 10) + map_low));
+}
+
+
 uint16_t Module::readInput(Module *module)
 {
   if(! module) return(0);

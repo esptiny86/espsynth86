@@ -50,6 +50,8 @@ class ModuleWavetableOsc : public Module
     // use when incrementing the variable fractional values
     uint32_t fixed_point_10_22_index;
     uint32_t increment_by;
+    uint8_t phase;
+    uint8_t phase_mod;
 };
 
 #endif

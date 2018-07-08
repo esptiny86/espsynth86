@@ -34,6 +34,7 @@ class ModuleConstant : public Module
   public:
     
     // Methods
+    ModuleConstant();
     ModuleConstant(int value);
     uint16_t compute();
     

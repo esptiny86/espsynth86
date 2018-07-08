@@ -2,6 +2,12 @@
 #include "ModuleConstant.h"
 #include "defines.h"
 
+ModuleConstant::ModuleConstant()
+{
+  this->value = 0;
+  this->no_output_conversion = true;
+}
+
 ModuleConstant::ModuleConstant(int value)
 {
   this->value = value;

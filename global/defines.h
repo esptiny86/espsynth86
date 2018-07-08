@@ -1,6 +1,9 @@
 #ifndef defines_h
 #define defines_h
 
+// Ring Buffer Size
+#define RING_BUFFER_SIZE 1000
+
 // Number of wavetable in GlobalWavetables.cpp
 #define NUMBER_OF_WAVETABLES 32 
 
@@ -8,14 +11,14 @@
 #define NUMBER_OF_SLOPES 10
 
 // Some wavetable constants.  Don't change these.
-#define WAVE_SAMPLES 512
-#define WAVE_SAMPLES_SHIFTED_22 2147483648 
+#define WAVE_SAMPLES 256
+#define WAVE_SAMPLES_SHIFTED_22 1073741824
 
 // Maximum CV value used throughout the module
-#define MAX_CV 4095
+#define MAX_CV 1023
 
 // 1/2 of MAX_CV
-#define MID_CV 2047
+#define MID_CV 511
 
 // Pin definitions
 #define PIN_PRG 0
@@ -31,8 +34,8 @@
 #define ANALOG_READ_RESOLUTION 12
 
 // Assorted definitions
-#define SAMPLE_RATE 22050
-#define SAMPLE_RATE_FLOAT 22050.0
+#define SAMPLE_RATE 44100
+#define SAMPLE_RATE_FLOAT 44100.0
 
 // Conversion constants used by uint16_t readInput(Module *, int conversion);
 #define CONVERT_TO_1_BIT 11
@@ -56,20 +59,6 @@
 #define EIGHTH_NOTE_CLOCK_DIVISION 48
 #define SIXTEENTH_NOTE_CLOCK_DIVISION 24
 #define THIRTY_SECOND_NOTE_CLOCK_DIVISION 12
-
-
-// Enums for voice simulation synths
-// These may not be needed anymore.
-enum {
-  _SP,_DOT,_QM,_COM,_HYP,_IY,_IH,_EH,_AE,_AA,
-  _AH,_AO,_UH,_AX,_IX,_ER,_UX,_OH,_RX,_LX,
-  _WX,_YX,_WH,_RR,_LL,_WW,_YY,_MM,_NN,_NX,
-  _DX,_QQ,_SS,_SH,_F,_TH,__H,__X,_ZZ,_ZH,
-  _V,_DH,_CHa,_CHb,_Ja,_Jb,_Jc,_Jd,_EY,_AY,
-  _OY,_AW,_OW,_UW,_Ba,_Bb,_Bc,_Da,_Db,_Dc,
-  _Ga,_Gb,_Gc,_GXa,_GXb,_GXc,_Pa,_Pb,_Pc,_Ta,
-  _Tb,_Tc,_Ka,_Kb,_Kc,_KXa,_KXb,_KXc
-};
 
 
 #endif

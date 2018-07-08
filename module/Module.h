@@ -28,6 +28,7 @@ class Module
     uint16_t readInput(Module *); // Read one of this module's inputs. This is implemented in Module.cpp
     uint16_t readInput(Module *, int conversion); // See defines.h for a list of conversions
     uint16_t readInput(Module *, uint32_t map_low, uint32_t map_high); // Read input and map the results
+    uint16_t readInput10Bit(Module *module, uint32_t map_low, uint32_t map_high);
 
     // compute()
     //
