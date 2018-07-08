@@ -3,7 +3,6 @@
 #include "Synth.h"
 #include "ModuleConstant.h"
 #include "ModuleWavetableOsc.h"
-#include "ModuleWaveshaper.h"
 #include "ModuleLowpassFilter.h"
 
 class SynthTest : public Synth
@@ -28,30 +27,30 @@ public:
 //                param[7].setValue(10);
 
         osc1->frequency_input = &param[0];
-        osc1->wavetable_input = &param[5];
+        osc1->wavetable_input = &param[1];
 //        freeze->audio_input = osc1;
 //        freeze->length_input = &param[1];
 
+
+        lowpass_filter->audio_input = osc1;
+        lowpass_filter->cutoff_input = &param[5];
+        lowpass_filter->resonance_input = &param[6];
 
 
 //        wave->audio_input = osc1;
 //        wave->mix_input =  &param[6];
 //        wave->waveshaper_input =  &param[7];
 
-//        delay->audio_input = osc1;
-//        delay->feedback_input = &param[1];
-//        delay->length_input = &param[2];
-//        delay->mix_input = &param[3];
+        delay->audio_input = lowpass_filter;
+        delay->feedback_input = &param[2];
+        delay->length_input = &param[3];
+        delay->mix_input = &param[4];
 
 //        wave->audio_input = osc1;
 //        wave->mix_input = &param[1];
 //        wave->waveshaper_input = &param[2];
 
-        lowpass_filter->audio_input = osc1;
-        lowpass_filter->cutoff_input = &param[1];
-        lowpass_filter->resonance_input = &param[2];
-
-        this->last_module = lowpass_filter;
+        this->last_module = delay;
 
 
 //        beatbyte->param1_input = &param[0];
