@@ -110,6 +110,8 @@ module/ModuleInputSmooth.cpp
 module/ModuleInputSmooth.h
 module/ModuleInputSmooth.h
 module/ModuleInputSmooth.h
+module/ModuleLFO.cpp
+module/ModuleLFO.h
 module/ModuleLowpassFilter.cpp
 module/ModuleLowpassFilter.h
 module/ModuleOutput.cpp
