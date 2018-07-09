@@ -41,14 +41,14 @@ uint16_t ModuleLowpassFilter::compute()
   // cutoff = cutoff * .9;  
   // p = (cutoff*(7373-((3277*cutoff)>>12)))>>12;
 
-  p = LPF_P_TABLE[cutoff];
+  p = pgm_read_word_near(LPF_P_TABLE + cutoff);
 
   // t = ((4096-p)*5678)>>12;
   // t2 = 49152+((t*t)>>12);
   // t3 = (24576*t)>>12;
   // r = resonance * (t2+t3)/(t2-t3);
 
-  r = (resonance * LPF_T4_TABLE[cutoff]) >> 12;
+  r = (resonance * pgm_read_word_near(LPF_T4_TABLE + cutoff)) >> 12;
 
 
   // Inverted feed back for corner peaking

@@ -19,7 +19,7 @@ ModuleWavetableOsc::ModuleWavetableOsc()
 uint16_t ModuleWavetableOsc::compute()
 {
   // Read the frequency
-  frequency = this->readInput(frequency_input,0,4095);
+  frequency = this->readInput(frequency_input,0,1023);
   wavetable = this->readInput(wavetable_input,0,3);
 
 //  /*phase*/ = phase + frequency;
@@ -27,7 +27,7 @@ uint16_t ModuleWavetableOsc::compute()
 //  wavetable = this->readInput(wavetable_input, 0, NUMBER_OF_WAVETABLES);
 
 //  // Calculate the index into the wavetable
-  fixed_point_10_22_index += INCREMENTS[frequency] >> 2;
+  fixed_point_10_22_index +=  pgm_read_dword_near(INCREMENTS + frequency) >> 2;
   if(fixed_point_10_22_index > WAVE_SAMPLES_SHIFTED_22) fixed_point_10_22_index -= WAVE_SAMPLES_SHIFTED_22;
 
   wavetable_index = fixed_point_10_22_index >> 22; // This should yeald a value between 0 and WAVE_SAMPLES (512)
@@ -39,7 +39,7 @@ uint16_t ModuleWavetableOsc::compute()
    if(wavetable == 0)
    {
        //sine
-       return(((sine[wavetable_index]))^0x8000);
+       return pgm_read_word_near(sine + wavetable_index)^0x8000;
    }
    else if(wavetable == 1)
    {
@@ -55,7 +55,7 @@ uint16_t ModuleWavetableOsc::compute()
    {
        //sine low
        //always start from zero or trouble!!
-       return ((((sine[wavetable_index]^0x8000)) - 0x8000)>> 1 )+ 0x8000;
+       return (( (pgm_read_word_near(sine + wavetable_index)^0x8000) - 0x8000)>> 1 ) + 0x8000;
    }
 
 }
