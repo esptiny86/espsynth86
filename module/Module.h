@@ -2,6 +2,7 @@
 #define Module_h
 
 #include "Arduino.h"
+#include <pgmspace.h>
 
 enum ModuleOutputBit {
     OUTPUT_8BIT,
