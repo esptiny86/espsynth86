@@ -3,6 +3,12 @@
 
 #include "Arduino.h"
 
+enum ModuleOutputBit {
+    OUTPUT_8BIT,
+    OUTPUT_10BIT,
+    OUTPUT_16BIT
+};
+
 class Module
 {
   public:
@@ -29,6 +35,7 @@ class Module
     uint16_t readInput(Module *, int conversion); // See defines.h for a list of conversions
     uint16_t readInput(Module *, uint32_t map_low, uint32_t map_high); // Read input and map the results
     uint16_t readInput10Bit(Module *module, uint32_t map_low, uint32_t map_high);
+    uint16_t readInput16Bit(Module *module, uint32_t map_low, uint32_t map_high);
 
     // compute()
     //
@@ -42,6 +49,9 @@ class Module
     uint8_t cycle;                 // Current interrupt cycle
     uint16_t output;               // Instance variable to store the module's output
     boolean no_output_conversion;  // Set this to true in the derived class in order to skip any output scaling
+
+    //ModuleOutput
+    ModuleOutputBit module_output_bit;
 };
 
 #endif

@@ -9,6 +9,7 @@ Module::Module()
   cycle = 10;
   output = 0; 
   no_output_conversion = false;
+  module_output_bit = OUTPUT_10BIT; //module output default to 10 bit
 }
 
 uint16_t Module::run(uint8_t cycle)
@@ -71,8 +72,17 @@ uint16_t Module::readInput(Module *module, uint32_t map_low, uint32_t map_high)
     // this is a more efficient algorithm.  When tested against a call to 
     // map(..), it's about 2x as fast.
     //
+    if (module->module_output_bit = OUTPUT_10BIT)
+    {
+        //10 bit
+        return this->readInput10Bit(module,map_low, map_high);
+//        return((((module->run(this->cycle) * (map_high - map_low)) >> 12) + map_low));
+    }else{
+        //16 bit
+        return this->readInput16Bit(module,map_low, map_high);
+//        return((((module->run(this->cycle) * (map_high - map_low)) >> 12) + map_low));
+    }
 
-    return((((module->run(this->cycle) * (map_high - map_low)) >> 12) + map_low));
   }
 }
 
@@ -80,12 +90,24 @@ uint16_t Module::readInput10Bit(Module *module, uint32_t map_low, uint32_t map_h
 {
   // If someone forgot to attach a module to an input, assume they mean for that
   // input to be 0.
-  if(! module) return(0);
+//  if(! module) return(0);
 
   // When no_output_conversion is true, the actual output value of a module is
   // used, instead of being mapped. no_output_conversion is set in ModuleConstant.php
 
     return(((( (module->run(this->cycle)+1) * (map_high - map_low)) >> 10) + map_low));
+}
+
+uint16_t Module::readInput16Bit(Module *module, uint32_t map_low, uint32_t map_high)
+{
+  // If someone forgot to attach a module to an input, assume they mean for that
+  // input to be 0.
+//  if(! module) return(0);
+
+  // When no_output_conversion is true, the actual output value of a module is
+  // used, instead of being mapped. no_output_conversion is set in ModuleConstant.php
+
+  return((((module->run(this->cycle) * (map_high - map_low)) >> 12) + map_low));
 }
 
 
