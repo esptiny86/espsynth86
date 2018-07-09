@@ -13,6 +13,7 @@ ModuleWavetableOsc::ModuleWavetableOsc()
   // Initialize all inputs
   this->frequency_input = NULL;
   this->wavetable_input = NULL;
+  this->module_output_bit = OUTPUT_16BIT;
 }
 
 uint16_t ModuleWavetableOsc::compute()
