@@ -31,7 +31,7 @@ ModuleLowpassFilter::ModuleLowpassFilter()
 
 uint16_t ModuleLowpassFilter::compute()
 {
-  long audio = ((this->readInput(audio_input)>>4)<<1) - 4096;
+  long audio = ((this->readInput(audio_input)>>4)<<1) - 4096; // cant use 16 bit because it will need a lot of memory for LPF_T4_TABLE & LPF_P_TABLE
   long cutoff = this->readInput(cutoff_input,0,4095);
   long resonance = this->readInput(resonance_input,0,4095);
   long k,p,r,x;
