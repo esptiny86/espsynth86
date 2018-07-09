@@ -113,7 +113,7 @@ uint16_t potc[] = {1,1,1,1,1,1,1,1};
 
 //Forward declatation
 void ICACHE_RAM_ATTR onTimerISR();
-void onTimerPot();
+void onUpdateControl();
 
 //Applemidi
 #ifdef ENABLE_APPLEMIDI
@@ -134,27 +134,31 @@ void setup() {
   ArduinoOTA.begin();
 #endif
 
-  soundOut.SetRate(44100);
-  soundOut.SetBitsPerSample(16);
-  soundOut.SetChannels(2);
-  soundOut.begin();
-
-  multiplexer.setup(MUX_A, MUX_B, MUX_C, MULTIPLEXED_ANALOG_INPUT);
-
-  timer1_attachInterrupt(onTimerISR); //Attach our sampling ISR
-  timer1_enable(TIM_DIV16, TIM_EDGE, TIM_SINGLE);
-  timer1_write(AUDIOBLOCK_RATE); //Read potentio control at AUDIOBLOCK_RATE interval
-
-  potTimer.attach_ms(20, onTimerPot); //Read potentio control at 20ms interval
-
 #ifdef ENABLE_APPLEMIDI
   AppleMIDI.begin("ESP909"); // 'ESP909' will show up as the session name
   AppleMIDI.OnReceiveControlChange(OnAppleMidiControlChange);
 #endif
 
+  multiplexer.setup(MUX_A, MUX_B, MUX_C, MULTIPLEXED_ANALOG_INPUT);
+
+  //Soundcard settings
+  soundOut.SetRate(44100);
+  soundOut.SetBitsPerSample(16);
+  soundOut.SetChannels(2);
+  soundOut.begin();
+
+  //Soundcard timer
+  timer1_attachInterrupt(onTimerISR); //Attach our sampling ISR
+  timer1_enable(TIM_DIV16, TIM_EDGE, TIM_SINGLE);
+  timer1_write(AUDIOBLOCK_RATE); //Read potentio control at AUDIOBLOCK_RATE interval
+
+  //Control timer (update pots)
+  potTimer.attach_ms(20, onUpdateControl); //Read potentio control at 20ms interval
+
+
 }
 
-void onTimerPot() {
+void onUpdateControl() {
     potc[0] =  multiplexer.read(0,10) >> 0;
     potc[1] =  multiplexer.read(1,10) >> 0;
     potc[2] =  multiplexer.read(2,10) >> 0;
