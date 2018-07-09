@@ -6,6 +6,7 @@
 enum ModuleOutputBit {
     OUTPUT_8BIT,
     OUTPUT_10BIT,
+    OUTPUT_12BIT,
     OUTPUT_16BIT
 };
 
@@ -35,6 +36,7 @@ class Module
     uint16_t readInput(Module *, int conversion); // See defines.h for a list of conversions
     uint16_t readInput(Module *, uint32_t map_low, uint32_t map_high); // Read input and map the results
     uint16_t readInput10Bit(Module *module, uint32_t map_low, uint32_t map_high);
+    uint16_t readInput12Bit(Module *module, uint32_t map_low, uint32_t map_high);
     uint16_t readInput16Bit(Module *module, uint32_t map_low, uint32_t map_high);
 
     // compute()
