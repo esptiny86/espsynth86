@@ -14,6 +14,9 @@
 #define WAVE_SAMPLES 256
 #define WAVE_SAMPLES_SHIFTED_22 1073741824
 
+#define WAVE_SAMPLES_512 512
+#define WAVE_SAMPLES_512_SHIFTED_22 2147483648
+
 // Maximum CV value used throughout the module
 #define MAX_CV 1023
 
