@@ -3,7 +3,7 @@
 
 // Increments are the numbers which need to be added to wavetable indexes in order to produce 1v/octave frequencies
 // increments[i] = ((float)(512 << 20)/SAMPLE_RATE_FLOAT) * 130.8 * pow(2.0,((5.0*i)/4096.0));
-const uint32_t INCREMENTS[]  = {
+const uint32_t INCREMENTS[] PROGMEM = {
     3184703, 3195500, 3206334, 3217204, 3228111, 3239055, 3250036, 3261055, 3272110, 3283204,
     3294334, 3305503, 3316710, 3327954, 3339237, 3350557, 3361917, 3373314, 3384751, 3396226,
     3407740, 3419293, 3430885, 3442517, 3454188, 3465898, 3477648, 3489438, 3501268, 3513139,
