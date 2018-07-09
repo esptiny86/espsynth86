@@ -19,7 +19,7 @@ uint16_t ModuleDelay::compute()
   uint32_t audio = this->readInput(audio_input);
   uint32_t wet_mix = this->readInput(mix_input,0, 4095);
   uint32_t feedback = this->readInput(feedback_input,0, 4095);
-  uint16_t buffer_length = this->readInput10Bit(length_input,0, RING_BUFFER_SIZE);
+  uint16_t buffer_length = this->readInput(length_input,0, RING_BUFFER_SIZE);
 
   uint32_t dry_mix = 4095 - wet_mix;
 
