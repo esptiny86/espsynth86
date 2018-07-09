@@ -8,6 +8,8 @@
 //
 // http://www.musicdsp.org/showone.php?id=24
 // (see below for a cleaned up version of this thread)
+//
+// - Ported to esp8266 synth - 12 bit only
 
 ModuleLowpassFilter::ModuleLowpassFilter()
 {
@@ -30,8 +32,8 @@ ModuleLowpassFilter::ModuleLowpassFilter()
 uint16_t ModuleLowpassFilter::compute()
 {
   long audio = ((this->readInput(audio_input)>>4)<<1) - 4096;
-  long cutoff = this->readInput10Bit(cutoff_input,0,4095);
-  long resonance = this->readInput10Bit(resonance_input,0,4095);
+  long cutoff = this->readInput(cutoff_input,0,4095);
+  long resonance = this->readInput(resonance_input,0,4095);
   long k,p,r,x;
 
   // LPF_P_TABLE is computed using:
