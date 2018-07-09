@@ -6,14 +6,14 @@ ModuleConstant::ModuleConstant()
 {
   this->value = 0;
   this->no_output_conversion = false;
-  this->module_output_bit = OUTPUT_12BIT;
+  this->module_output_bit = OUTPUT_10BIT;
 }
 
 ModuleConstant::ModuleConstant(int value)
 {
   this->value = value;
   this->no_output_conversion = false;
-  this->module_output_bit = OUTPUT_12BIT;
+  this->module_output_bit = OUTPUT_10BIT;
 }
 
 uint16_t ModuleConstant::compute()
