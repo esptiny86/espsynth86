@@ -34,7 +34,7 @@ class Module
     // module is really just a pointer to another module.
 
     uint16_t readInput(Module *); // Read one of this module's inputs. This is implemented in Module.cpp
-    uint16_t readInput(Module *, int conversion); // See defines.h for a list of conversions
+    uint16_t readInput(Module *, uint8_t conversion); // See defines.h for a list of conversions
     uint16_t readInput(Module *, uint32_t map_low, uint32_t map_high); // Read input and map the results
     uint16_t readInput10Bit(Module *module, uint32_t map_low, uint32_t map_high);
     uint16_t readInput12Bit(Module *module, uint32_t map_low, uint32_t map_high);

@@ -27,10 +27,10 @@ uint16_t Module::run(uint8_t cycle)
   return(this->output);
 }
 
-uint16_t Module::readInput(Module *module, int conversion)
+uint16_t Module::readInput(Module *module, uint8_t conversion)
 {
   // If someone forgot to attach a module to an input, assume they mean for that 
-  // input to be 0.
+  // input to be 0.    
   if(! module) return(0);
 
   // When no_output_conversion is true, the actual output value of a module is
@@ -43,7 +43,22 @@ uint16_t Module::readInput(Module *module, int conversion)
   }
   else
   {
-    return(module->run(this->cycle) >> conversion);
+      //default or 16 bit
+      int8_t conv = conversion;
+
+      if (module->module_output_bit == OUTPUT_10BIT)
+      {
+          //10 bit
+          conv = conversion - 6;
+      }else if (module->module_output_bit == OUTPUT_12BIT) {
+          //12 bit
+          conv = conversion - 4;
+      }
+
+      if (conv<0) conv = 0;
+
+      return(module->run(this->cycle) >> conv );
+
   }
 }
 
