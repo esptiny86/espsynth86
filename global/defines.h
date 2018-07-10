@@ -41,17 +41,34 @@
 #define SAMPLE_RATE_FLOAT 44100.0
 
 // Conversion constants used by uint16_t readInput(Module *, int conversion);
-#define CONVERT_TO_1_BIT 11
-#define CONVERT_TO_2_BIT 10
-#define CONVERT_TO_3_BIT 9
-#define CONVERT_TO_4_BIT 8
-#define CONVERT_TO_5_BIT 7
-#define CONVERT_TO_6_BIT 6
-#define CONVERT_TO_7_BIT 5
-#define CONVERT_TO_8_BIT 4
-#define CONVERT_TO_9_BIT 3
-#define CONVERT_TO_10_BIT 2
-#define CONVERT_TO_11_BIT 1
+//#define CONVERT_TO_1_BIT 11
+//#define CONVERT_TO_2_BIT 10
+//#define CONVERT_TO_3_BIT 9
+//#define CONVERT_TO_4_BIT 8
+//#define CONVERT_TO_5_BIT 7
+//#define CONVERT_TO_6_BIT 6
+//#define CONVERT_TO_7_BIT 5
+//#define CONVERT_TO_8_BIT 4
+//#define CONVERT_TO_9_BIT 3
+//#define CONVERT_TO_10_BIT 2
+//#define CONVERT_TO_11_BIT 1
+//#define NO_COVERSION 0
+
+#define CONVERT_TO_1_BIT 15
+#define CONVERT_TO_2_BIT 14
+#define CONVERT_TO_3_BIT 13
+#define CONVERT_TO_4_BIT 12
+#define CONVERT_TO_5_BIT 11
+#define CONVERT_TO_6_BIT 10
+#define CONVERT_TO_7_BIT 9
+#define CONVERT_TO_8_BIT 8
+#define CONVERT_TO_9_BIT 7
+#define CONVERT_TO_10_BIT 6
+#define CONVERT_TO_11_BIT 5
+#define CONVERT_TO_12_BIT 4
+#define CONVERT_TO_13_BIT 3
+#define CONVERT_TO_14_BIT 2
+#define CONVERT_TO_15_BIT 1
 #define NO_COVERSION 0
 
 // Define clock divisions for use in ModuleClock and ModuleExtClock constructors
