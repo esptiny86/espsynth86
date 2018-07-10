@@ -19,7 +19,7 @@ ModuleWavetableOsc::ModuleWavetableOsc()
 uint16_t ModuleWavetableOsc::compute()
 {
   // Read the frequency
-  frequency = this->readInput(frequency_input, CONVERT_TO_12_BIT); // convert will not scale if input is smaller than desired conversion
+  frequency = this->readInput(frequency_input, CONVERT_TO_10_BIT); // 10 bit ok... 11,12 glitch,,, convert will not scale if input is smaller than desired conversion
   wavetable = this->readInput(wavetable_input,CONVERT_TO_2_BIT); //convert 10, 12, 16 bit number to 2 bit
   wavetable = constrain(wavetable,0,3);
 
