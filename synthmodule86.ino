@@ -11,7 +11,8 @@
 #include "synthtest.h"
 
 #define ENABLE_OTA
-#define ENABLE_APPLEMIDI
+//#define ENABLE_APPLEMIDI
+#define ENABLE_WIFI
 
 #ifdef ENABLE_OTA
 #include <ArduinoOTA.h>
@@ -123,12 +124,15 @@ void OnAppleMidiControlChange(byte channel, byte note, byte value);
 
 void setup() {
 
+  //160MHZ clock speed
   system_update_cpu_freq(160);
-  WiFi.begin(ssid, pass);
 
+#ifdef ENABLE_WIFI
+  WiFi.begin(ssid, pass);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
   }
+#endif
 
 #ifdef ENABLE_OTA
   ArduinoOTA.begin();
