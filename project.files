@@ -114,6 +114,10 @@ module/ModuleLFO.cpp
 module/ModuleLFO.h
 module/ModuleLowpassFilter.cpp
 module/ModuleLowpassFilter.h
+module/ModuleMixer2.cpp
+module/ModuleMixer2.h
+module/ModuleMixer3.cpp
+module/ModuleMixer3.h
 module/ModuleOutput.cpp
 module/ModuleOutput.cpp
 module/ModuleOutput.cpp
