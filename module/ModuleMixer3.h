@@ -60,9 +60,9 @@ class ModuleMixer3 : public Module
     uint16_t compute();  
 
     // Inputs
-    Module *input_1;
-    Module *input_2;
-    Module *input_3;
+    Module *ch1;
+    Module *ch2;
+    Module *ch3;
 };
 
 #endif
