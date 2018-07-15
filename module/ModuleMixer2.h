@@ -42,8 +42,8 @@ class ModuleMixer2 : public Module
     uint16_t compute();  
 
     // Inputs
-    Module *input_1;
-    Module *input_2;
+    Module *ch1;
+    Module *ch2;
 };
 
 #endif
