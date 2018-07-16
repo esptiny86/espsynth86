@@ -2,7 +2,7 @@
 #define defines_h
 
 // Ring Buffer Size
-#define RING_BUFFER_SIZE 5000
+#define RING_BUFFER_SIZE 10000
 
 // Number of wavetable in GlobalWavetables.cpp
 #define NUMBER_OF_WAVETABLES 32 
