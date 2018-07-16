@@ -14,8 +14,9 @@ ModuleClockDivider::ModuleClockDivider()
 uint16_t ModuleClockDivider::compute()
 {
   uint32_t clock = this->readInput(clock_input);
-  uint32_t clock_division = this->readInput(division_input);
+  uint32_t clock_division = this->readInput(division_input,0,20);
   
+
   if((clock < MID_CV) && clocked) clocked = false;
   
   if((clock >= MID_CV) && !clocked) 
