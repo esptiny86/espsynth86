@@ -13,6 +13,7 @@
 #define ENABLE_OTA
 //#define ENABLE_APPLEMIDI
 #define ENABLE_WIFI
+//#define USE_PDM
 
 #ifdef ENABLE_OTA
 #include <ArduinoOTA.h>
@@ -267,10 +268,16 @@ void ICACHE_RAM_ATTR onTimerISR() {
 //              i2s_write_lr_nb((((((tmp)<<8)))),0);
 
 
-                sample[0] = (DAC-0x8000); //normalize
-                sample[1] = sample[0];
+
                 //i2s_write_lr_nb( sample[0], sample[1]);
-                soundOut.ConsumeSample(sample);
+
+                #ifdef USE_PDM
+                    writeDAC(DAC);
+                #else
+                    sample[0] = (DAC-0x8000); //normalize
+                    sample[1] = sample[0];
+                    soundOut.ConsumeSample(sample);
+                #endif
 
             }
         }
