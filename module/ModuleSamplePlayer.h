@@ -11,10 +11,13 @@
 #include "Module.h"
 #include "drum_sampler.h"
 
+#ifndef STRUCT_SAMPLER
+#define STRUCT_SAMPLER
 struct sample_data {
     const uint16_t * sample_loc;
     unsigned long length;
 };
+#endif
 
 class ModuleSamplePlayer : public Module
 {
