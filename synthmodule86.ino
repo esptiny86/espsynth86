@@ -87,10 +87,7 @@ void writeDAC(uint16_t DAC) {
 }
 #endif
 
-//#include "EquationBankPtah.h";
-//#include "EquationBankKhepri.h";
 
-//EquationBankPtah ptah;
 uint16_t potc[] = {1,1,1,1,1,1,1,1};
 
 //uint16_t sine2[256] = {
