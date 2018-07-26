@@ -5,3 +5,17 @@
 
 #include "ModuleConstant.h"
 #include "ModuleDelay.h"
+#include "ModuleTinySynth.h"
+#include "ModuleVCA.h"
+#include "ModuleDelay.h"
+#include "ModuleWavetableOsc.h"
+#include "ModuleClock.h"
+#include "ModuleClockDivider.h"
+#include "ModuleMixer2.h"
+#include "ModuleMixer3.h"
+#include "ModuleLFO.h"
+#include "ModuleLowpassFilter.h"
+#include "ModuleBitReducer.h"
+#include "ModuleReverb.h"
+
+
