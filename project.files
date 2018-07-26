@@ -133,6 +133,8 @@ module/ModuleReverb.cpp
 module/ModuleReverb.h
 module/ModuleSamplePlayer.cpp
 module/ModuleSamplePlayer.h
+module/ModuleTinySynth.cpp
+module/ModuleTinySynth.h
 module/ModuleVCA.cpp
 module/ModuleVCA.h
 module/ModuleWaveshaper.cpp
