@@ -17,5 +17,5 @@
 #include "ModuleLowpassFilter.h"
 #include "ModuleBitReducer.h"
 #include "ModuleReverb.h"
-
+#include "ModuleEuclideanSeq.h"
 

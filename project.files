@@ -1,5 +1,6 @@
 global/GlobalChords.cpp
 global/GlobalChords.h
+global/GlobalEuclid.h
 global/GlobalFilterTables.cpp
 global/GlobalFilterTables.h
 global/GlobalFixedPointMathTables.cpp
@@ -160,7 +161,9 @@ module/defines.h
 global/globalwavetable.h
 global/globalwavetable.h
 global/globalwavetable.h
+sample/Sample1.h
 sample/drum_sampler.h
+synth/syntheuclid.h
 synthtest.h
 analogmultiplexer.h
 lib/AudioOutput.h
@@ -203,3 +206,4 @@ synth/synthtest.h
 project.ino
 Makefile
 synthmodule86.ino
+sample/Kendang.h
