@@ -70,6 +70,20 @@ bool ICACHE_FLASH_ATTR i2s_write_lr_nb(int16_t left, int16_t right){
   return i2s_write_sample_nb(sample);
 }
 
+//PDM From Jan Ostman
+void writeDAC(uint16_t DAC) {
+  for (uint8_t i=0;i<32;i++) {
+    i2sACC=i2sACC<<1;
+    if(DAC >= err) {
+      i2sACC|=1;
+      err += 0xFFFF-DAC;
+    } else {
+      err -= DAC;
+    }
+  }
+  bool flag=i2s_write_sample(i2sACC);
+}
+
 //#include "EquationBankPtah.h";
 //#include "EquationBankKhepri.h";
 
