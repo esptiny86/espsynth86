@@ -126,7 +126,7 @@ uint16_t potc[] = {1,1,1,1,1,1,1,1};
 //};
 
 
-//Forward declatation
+//Forward declaration
 void ICACHE_RAM_ATTR onTimerISR();
 void onUpdateControl();
 
