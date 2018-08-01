@@ -122,12 +122,18 @@ void OnAppleMidiControlChange(byte channel, byte note, byte value);
 
 void setup() {
 
+    delay(1000);
+
 
 #ifdef ENABLE_WIFI
-  WiFi.begin(ssid, pass);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-  }
+    const char *ssid = "8BITMIXTAPE_WIFI";
+    const char *password = "mixtape";
+
+    WiFi.softAP(ssid, password);
+//  WiFi.begin(ssid, pass);
+//  while (WiFi.status() != WL_CONNECTED) {
+//    delay(500);
+//  }
 #else
     wifi_set_sleep_type(MODEM_SLEEP_T);
     delay(1);
