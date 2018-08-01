@@ -7,7 +7,7 @@
 #include <ESP8266WiFi.h>
 #include "lib/AudioOutputI2S.h"
 #include "analogmultiplexer.h"
-
+#include "NeoLibCore.h"
 
 extern "C" {
 #include "user_interface.h"
@@ -24,6 +24,7 @@ SynthTest mysynth;
 // note:  clicking sound when not conncted to wifi (strange)
 #define ENABLE_WIFI
 //#define USE_PDM
+#define ENABLE_SERIAL
 
 #define MULTIPLEXED_ANALOG_INPUT A0
 #define MUX_A D1
@@ -186,6 +187,9 @@ system_update_cpu_freq(160);
   pinMode(15, INPUT);
   #endif
 
+  #ifdef ENABLE_SERIAL
+  Serial.begin(115200);
+  #endif
 }
 
 void onUpdateControl() {
@@ -225,6 +229,18 @@ void onUpdateControl() {
     //mysynth.param[5].setValue(potc[5]);
     //mysynth.param[6].setValue(potc[6]);
     //mysynth.param[7].setValue(potc[7]);
+
+    #ifdef ENABLE_SERIAL
+    uint8_t btn = wasButtonPressed(potc[0]);
+
+    if (btn == BUTTON_LEFT) Serial.println("LEFT");
+    if (btn == BUTTON_RIGHT) Serial.println("RIGHT");
+    if (btn == BUTTON_LEFT+BUTTON_RIGHT) Serial.println("BOTH");
+
+//    Serial.print(potc[0]);
+//    Serial.print(" -> ");
+//    Serial.println(btn);
+    #endif
 }
 
 #ifdef ENABLE_APPLEMIDI
