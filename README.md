@@ -4,7 +4,7 @@ Synth engine for esptiny86. this module is largely based on MicrobeModular's Equ
 
 # Compiling
 
-* Open and configure "Makefile" file
+* Open and configure "Makefile" file, then on command prompt/terminal type Make
     - Nodemcu Lolin use BOARD = nodemcu
     - Wemos D1 use BOARD = d1_mini
 * Qt Creator is optional but it is recommended for developing further with espsynth86
