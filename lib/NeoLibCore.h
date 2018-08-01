@@ -1,14 +1,11 @@
 #ifndef NEOLIBCORE_H
 #define NEOLIBCORE_H
 // HARDWARE CALIBRATION
-#define Vbutton_releaseLevel  100
-#define Vbutton_left          90
-#define Vbutton_right         70
-#define Vbutton_both          60
+#define Vbutton_releaseLevel  515
+#define Vbutton_left          352
+#define Vbutton_right         267
+#define Vbutton_both          218
 #define Vbutton_pressedLevel  Vbutton_left
-
-#define Vcc                    37 // 3.7 V for LiPo
-#define Vdiv 26 // measure max Voltage on Analog In
 
 //CONSTANTS
 
@@ -33,10 +30,10 @@ uint8_t getButton(uint8_t pot_val)
 }
 
 
-uint8_t wasButtonPressed(uint8_t pot_val)
+uint8_t wasButtonPressed(uint16_t pot_val)
 {
   static uint8_t buttonPressed    = false;
-  static uint8_t buttonState      = 0;
+  static uint8_t buttonState      = BUTTON_NOTPRESSED;
   static uint8_t buttonValue      = BUTTON_NONE;
   static uint8_t buttonMaxValue   = 0;
 
