@@ -1,3 +1,6 @@
+README.md
+build_nodemcu.sh
+build_wemos.sh
 global/GlobalChords.cpp
 global/GlobalChords.h
 global/GlobalEuclid.h
