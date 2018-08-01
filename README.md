@@ -14,7 +14,12 @@ Synth engine for esptiny86. this module is largely based on MicrobeModular's Equ
 There are two methods for generating sound with ESP8266
 
 * PDM - Pulse Density Modulation
-* DAC - Digital Analog Converter
+
+  ![](https://janostman.files.wordpress.com/2017/07/pdm-lpf.jpg?w=525)
+
+* DAC - Digital Analog Converter (tested with PT8211)
+
+  
 
 To choose between modes uncomment
 
