@@ -161,8 +161,9 @@ void setup() {
 //  //Control timer (update pots)
   potTimer.attach_ms(POT_SAMPLE_RATE_MS, onUpdateControl); //Read potentio control at 20ms interval
 
-//  neoPixel.Begin();
-//  neoPixel.Show();
+  neoPixel.Begin();
+  neoPixel.Show();
+
   #ifdef USE_PDM
   pinMode(2, INPUT); //restore GPIOs taken by i2s
   pinMode(15, INPUT);
