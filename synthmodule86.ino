@@ -3,10 +3,10 @@
 #include <pgmspace.h>
 #include <i2s.h>
 #include <i2s_reg.h>
-#include "lib/AudioOutputI2S.h"
-#include "analogmultiplexer.h"
 #include <NeoPixelBus.h>
 #include <ESP8266WiFi.h>
+#include "lib/AudioOutputI2S.h"
+#include "analogmultiplexer.h"
 
 
 extern "C" {
@@ -16,6 +16,8 @@ extern "C" {
 //DEFINE SYNTH PATCH
 #include "synth/osc_delay_crush.h"
 SynthTest mysynth;
+
+// ----------------------- START CONFIG -----------------------------
 
 //#define ENABLE_OTA
 //#define ENABLE_APPLEMIDI
@@ -44,6 +46,11 @@ SynthTest mysynth;
 
 #define WIFI_SSID "RUMAH"
 #define WIFI_PASSWORD "rumah4321"
+
+#define WIFI_AP_SSID "8BITMIXTAPEWIFI"
+#define WIFI_AP_PASSWORD "thereisnospoon"
+
+// ----------------------- END CONFIG -----------------------------
 
 #ifdef ENABLE_WIFI
 #include <ESP8266mDNS.h>
@@ -74,8 +81,8 @@ AnalogMultiplexerPin multiplexer;
 
 Ticker potTimer;
 
-const char *ssid = "8BITMIXTAPEWIFI";
-const char *password = "thereisnospoon";
+const char *ssid = WIFI_AP_SSID;
+const char *password = WIFI_AP_PASSWORD;
 
 uint16_t DAC=0x8000;
 int16_t sample[2];
