@@ -31,7 +31,7 @@ SynthTest mysynth;
 #define POT_SAMPLE_RATE_MS 20
 
 // How many leds in your strip?
-#define ENABLE_NEO_PIXEL
+//#define ENABLE_NEO_PIXEL
 #define NEO_NUM_LEDS 8
 #define NEO_DATA_PIN D7
 
@@ -59,10 +59,12 @@ extern "C" {
 #include "user_interface.h"
 }
 
+#ifdef ENABLE_NEO_PIXEL
 NeoPixelBus<NeoRgbFeature, NeoEsp8266BitBang400KbpsMethod> neoPixel(NEO_NUM_LEDS, NEO_DATA_PIN);
 RgbColor red(128, 0, 0);
 RgbColor green(0, 128, 0);
 RgbColor black(0);
+#endif
 
 AudioOutputI2S soundOut;
 AnalogMultiplexerPin multiplexer;
@@ -161,8 +163,10 @@ void setup() {
 //  //Control timer (update pots)
   potTimer.attach_ms(POT_SAMPLE_RATE_MS, onUpdateControl); //Read potentio control at 20ms interval
 
+#ifdef ENABLE_NEO_PIXEL
   neoPixel.Begin();
   neoPixel.Show();
+#endif
 
   #ifdef USE_PDM
   pinMode(2, INPUT); //restore GPIOs taken by i2s
@@ -189,6 +193,7 @@ void onUpdateControl() {
         mysynth.param[4].setValue(potc[2]);
     }
 
+    #ifdef ENABLE_NEO_PIXEL
     for(uint8_t j =0; j < 8; j++)
     {
         if (j < 8) neoPixel.SetPixelColor(j, black);
@@ -200,6 +205,7 @@ void onUpdateControl() {
     }
 
     neoPixel.Show();
+    #endif
 
     //mysynth.param[3].setValue(potc[3]);
     //mysynth.param[4].setValue(potc[4]);
