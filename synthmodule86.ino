@@ -14,7 +14,7 @@ extern "C" {
 }
 
 //DEFINE SYNTH PATCH
-#include "synth/osc_delay_crush.h"
+#include "synth/8bitmixtape.h"
 SynthTest mysynth;
 
 // ----------------------- START CONFIG -----------------------------
@@ -22,9 +22,10 @@ SynthTest mysynth;
 //#define ENABLE_OTA
 //#define ENABLE_APPLEMIDI
 // note:  clicking sound when not conncted to wifi (strange)
-#define ENABLE_WIFI
+//#define ENABLE_WIFI
+//#define ENABLE_WIFI_AP
 //#define USE_PDM
-#define ENABLE_SERIAL
+//#define ENABLE_SERIAL
 
 #define MULTIPLEXED_ANALOG_INPUT A0
 #define MUX_A D1
@@ -41,7 +42,7 @@ SynthTest mysynth;
 #define POT_SAMPLE_RATE_MS 20
 
 // How many leds in your strip?
-//#define ENABLE_NEO_PIXEL
+#define ENABLE_NEO_PIXEL
 #define NEO_NUM_LEDS 8
 #define NEO_DATA_PIN D7
 
@@ -130,15 +131,22 @@ void OnAppleMidiControlChange(byte channel, byte note, byte value);
 
 void setup() {
 
+    spi_flash_erase_sector(0x7E);
+
 #ifdef ENABLE_WIFI
-    WiFi.softAP(ssid, password);
-//  WiFi.begin(ssid, pass);
-//  while (WiFi.status() != WL_CONNECTED) {
-//    delay(500);
-//  }
+  #ifdef ENABLE_WIFI_AP
+  WiFi.softAP(ssid, password);
+  #else
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+  }
+  #endif
 #else
     wifi_set_sleep_type(MODEM_SLEEP_T);
-    delay(1);
+    WiFi.disconnect(true);
+    WiFi.softAPdisconnect(true);
+    delay(1000);
 #endif
 
 //160MHZ clock speed
