@@ -19,7 +19,7 @@ There are two methods for generating sound with ESP8266
 
 * DAC - Digital Analog Converter (tested with PT8211)
 
-  
+  ![](https://i.imgur.com/83EcOqN.png)
 
 To choose between mode uncomment
 
