@@ -83,14 +83,14 @@ uint16_t Module::readInput(Module *module, uint32_t map_low, uint32_t map_high)
     if (module->module_output_bit == OUTPUT_10BIT)
     {
         //10 bit
-        return this->readInput10Bit(module,map_low, map_high);
+        return(((( (module->run(this->cycle)+1) * (map_high - map_low)) >> 10) + map_low));
     }else if (module->module_output_bit == OUTPUT_12BIT) {
         //12 bit
-        return this->readInput12Bit(module,map_low, map_high);
-    }else{
-        //16 bit
-        return this->readInput16Bit(module,map_low, map_high);
+        return((((module->run(this->cycle) * (map_high - map_low)) >> 12) + map_low));
     }
+
+    //16 bit
+    return(((( (module->run(this->cycle)+1) * (map_high - map_low)) >> 16) + map_low));
 
 }
 

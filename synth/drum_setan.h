@@ -22,16 +22,17 @@ class SynthTest : public Synth
 	ModuleSamplePlayer *moduleSamplePlayer_3 = new ModuleSamplePlayer();
 	ModuleMixer3 *moduleMixer3_1 = new ModuleMixer3();
 	ModuleClock *moduleClock_1 = new ModuleClock(1,50);
+    ModuleBitReducer *crush = new ModuleBitReducer();
 
 	moduleSamplePlayer_1->sample_select = new ModuleConstant(64);
 	moduleSamplePlayer_2->sample_select = new ModuleConstant(128);
 	moduleSamplePlayer_3->sample_select = new ModuleConstant(256);
 	moduleClockDivider_1->clock_input=moduleClock_1;
 	moduleSamplePlayer_1->trigger_input=moduleClockDivider_1;
-	moduleClockDivider_1->division_input= &amp;param[0];
+    moduleClockDivider_1->division_input= &param[3];
 	moduleClockDivider_2->clock_input=moduleClock_1;
-	moduleClockDivider_2->division_input= &amp;param[1];
-	moduleClockDivider_3->division_input= &amp;param[2];
+    moduleClockDivider_2->division_input= &param[1];
+    moduleClockDivider_3->division_input= &param[2];
 	moduleClockDivider_3->clock_input=moduleClock_1;
 	moduleSamplePlayer_2->trigger_input=moduleClockDivider_2;
 	moduleSamplePlayer_3->trigger_input=moduleClockDivider_3;
@@ -39,8 +40,10 @@ class SynthTest : public Synth
 	moduleMixer3_1->ch2=moduleSamplePlayer_2;
 	moduleMixer3_1->ch3=moduleSamplePlayer_3;
 
+    crush->audio_input = moduleMixer3_1;
+    crush->bit_input = new ModuleConstant(1000);
 
-	this->last_module = moduleMixer3_1;
+    this->last_module = crush;
         
     }
 };

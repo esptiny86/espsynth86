@@ -11,6 +11,7 @@ ModuleReverb::ModuleReverb()
   audio_input = NULL;
   mix_input = NULL;
   feedback_input = NULL;   
+  this->module_output_bit = OUTPUT_16BIT;
 }
 
 uint16_t ModuleReverb::compute()

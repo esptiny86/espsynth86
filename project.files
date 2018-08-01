@@ -116,6 +116,7 @@ module/ModuleInputSmooth.cpp
 module/ModuleInputSmooth.h
 module/ModuleInputSmooth.h
 module/ModuleInputSmooth.h
+module/ModuleKarplus.h
 module/ModuleLFO.cpp
 module/ModuleLFO.h
 module/ModuleLowpassFilter.cpp
@@ -163,7 +164,15 @@ global/globalwavetable.h
 global/globalwavetable.h
 sample/Sample1.h
 sample/drum_sampler.h
+synth/8bitmixtape.h
+synth/ambience_synth.h
+synth/drum_setan.h
+synth/drum_setan_reverb.h
+synth/osc_delay_crush.h
 synth/syntheuclid.h
+synth/syntheuclid.h
+synth/synthtest.h
+synth/test.h
 synthtest.h
 analogmultiplexer.h
 lib/AudioOutput.h

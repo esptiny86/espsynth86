@@ -24,7 +24,7 @@ class SynthTest : public Synth
     moduleDelay_1->length_input = new ModuleConstant(1023);
     moduleClockDivider_1->clock_input=moduleClock_1;
     moduleTinySynth_1->trigger_input=moduleClockDivider_1;
-    moduleClockDivider_1->division_input= &param[0];
+    moduleClockDivider_1->division_input= &param[2];
     moduleBitReducer_1->bit_input= &param[1];
     moduleBitReducer_1->audio_input=moduleTinySynth_1;
     moduleDelay_1->audio_input=moduleBitReducer_1;
