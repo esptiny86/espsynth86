@@ -9,9 +9,22 @@ Synth engine for esptiny86. this module is largely based on MicrobeModular's Equ
     - Wemos D1 use BOARD = d1_mini
 * Qt Creator is optional but it is recommended for developing further with espsynth86
 
+# Components
+
+There are two methods for generating sound with ESP8266
+
+* PDM - Pulse Density Modulation
+* DAC - Digital Analog Converter
+
+To choose between modes uncomment
+
+```
+define USE_PDM
+```
+
 # Audio design Tools
 
-* inspired by teensy, design tool is also available https://esptiny86.github.io/espnode86
+* Inspired by Teensy, design tool is also available https://esptiny86.github.io/espnode86
 
 
 # Support
