@@ -21,7 +21,7 @@ There are two methods for generating sound with ESP8266
 
   
 
-To choose between modes uncomment
+To choose between mode uncomment
 
 ```
 define USE_PDM
