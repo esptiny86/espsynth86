@@ -1,6 +1,12 @@
 # espsynth86
 
+![](https://i.imgur.com/vtGG80q.png)
+
+
+
 Synth engine for esptiny86. this module is largely based on MicrobeModular's Equation Composer ported to esp8266
+
+
 
 # Compiling
 
@@ -21,7 +27,7 @@ There are two methods for generating sound with ESP8266
 
   ![](https://i.imgur.com/83EcOqN.png)
 
-To choose between mode uncomment in synthmodule86
+To choose between mode uncomment in synthmodule86.ino file
 
 ```
 define USE_PDM
