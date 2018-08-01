@@ -21,7 +21,7 @@ There are two methods for generating sound with ESP8266
 
   ![](https://i.imgur.com/83EcOqN.png)
 
-To choose between mode uncomment
+To choose between mode uncomment in synthmodule86
 
 ```
 define USE_PDM
@@ -41,3 +41,4 @@ define USE_PDM
 * Esp8266 Summer Audio hacking by jan ostman - http://blog.dspsynth.eu/audio-hacking-on-the-esp8266-2/
 * MicrobeModular Equation Composer - https://github.com/clone45/EquationComposer
 * Esp8266 Audio - https://github.com/earlephilhower/ESP8266Audio
+* Bitluni Wavetable Editor - http://bitluni.net
