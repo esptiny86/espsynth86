@@ -20,7 +20,7 @@ SynthTest mysynth;
 //#define ENABLE_OTA
 //#define ENABLE_APPLEMIDI
 // note:  clicking sound when not conncted to wifi (strange)
-//#define ENABLE_WIFI
+#define ENABLE_WIFI
 //#define USE_PDM
 
 #define MULTIPLEXED_ANALOG_INPUT A0
@@ -69,13 +69,13 @@ RgbColor green(0, 128, 0);
 RgbColor black(0);
 #endif
 
-AudioOutputI2S soundOut;
+AudioOutputI2S *soundOut;
 AnalogMultiplexerPin multiplexer;
 
 Ticker potTimer;
 
-char ssid[] = WIFI_SSID; //  your network SSID (name)
-char pass[] = WIFI_PASSWORD;    // your network password (use for WPA, or use as key for WEP)
+const char *ssid = "8BITMIXTAPEWIFI";
+const char *password = "thereisnospoon";
 
 uint16_t DAC=0x8000;
 int16_t sample[2];
@@ -122,13 +122,7 @@ void OnAppleMidiControlChange(byte channel, byte note, byte value);
 
 void setup() {
 
-    delay(1000);
-
-
 #ifdef ENABLE_WIFI
-    const char *ssid = "8BITMIXTAPE_WIFI";
-    const char *password = "mixtape";
-
     WiFi.softAP(ssid, password);
 //  WiFi.begin(ssid, pass);
 //  while (WiFi.status() != WL_CONNECTED) {
@@ -154,10 +148,11 @@ system_update_cpu_freq(160);
   multiplexer.setup(MUX_A, MUX_B, MUX_C, MULTIPLEXED_ANALOG_INPUT);
 
 //  //Soundcard settings
-  soundOut.SetRate(44100);
-  soundOut.SetBitsPerSample(16);
-  soundOut.SetChannels(2);
-  soundOut.begin();
+  soundOut = new AudioOutputI2S();
+  soundOut->SetRate(44100);
+  soundOut->SetBitsPerSample(16);
+  soundOut->SetChannels(2);
+  soundOut->begin();
 //  i2s_begin(); //Start the i2s DMA engine
 //  i2s_set_rate(44100); //Set sample rate
 
@@ -247,7 +242,7 @@ void ICACHE_RAM_ATTR onTimerISR() {
                 #else
                     sample[0] = (DAC-0x8000); //normalize
                     sample[1] = sample[0];
-                    soundOut.ConsumeSample(sample); //more overhead
+                    soundOut->ConsumeSample(sample); //more overhead
 //                    i2s_write_lr_nb( DAC, DAC); //nicer
                 #endif
 
@@ -264,7 +259,7 @@ void ICACHE_RAM_ATTR onTimerISR() {
             #else
                 sample[0] = (DAC-0x8000); //normalize
                 sample[1] = sample[0];
-                soundOut.ConsumeSample(sample); //more overhead
+                soundOut->ConsumeSample(sample); //more overhead
 //                i2s_write_lr_nb( DAC, DAC); //nicer
             #endif
         }
@@ -278,7 +273,7 @@ void ICACHE_RAM_ATTR onTimerISR() {
 void loop() {
 
 #ifdef ENABLE_OTA
-    ArduinoOTA.handle();
+  ArduinoOTA.handle();
 #endif
 
 #ifdef ENABLE_APPLEMIDI
