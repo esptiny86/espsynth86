@@ -30,10 +30,10 @@ class SynthTest : public Synth
     moduleReverb_1->feedback_input = new ModuleConstant(100);
     moduleClockDivider_1->clock_input=moduleClock_1;
     moduleSamplePlayer_1->trigger_input=moduleClockDivider_1;
-    moduleClockDivider_1->division_input= &param[0];
+    moduleClockDivider_1->division_input= &param[1];
     moduleClockDivider_2->clock_input=moduleClock_1;
-    moduleClockDivider_2->division_input= &param[1];
-    moduleClockDivider_3->division_input= &param[2];
+    moduleClockDivider_2->division_input= &param[2];
+    moduleClockDivider_3->division_input= &param[0];
     moduleClockDivider_3->clock_input=moduleClock_1;
     moduleSamplePlayer_2->trigger_input=moduleClockDivider_2;
     moduleSamplePlayer_3->trigger_input=moduleClockDivider_3;

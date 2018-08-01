@@ -23,11 +23,12 @@
 
 #this is all I need at the moment
 CHIP = esp8266
-BOARD = nodemcu
+BOARD = d1_mini
 #UPLOAD_SPEED = 921600
-UPLOAD_PORT = /dev/cu.wchusbserial1420
+UPLOAD_PORT = /dev/cu.wchusbserial1a1240
 VERBOSE = 1
 ESP_ADDR =  192.168.1.102
+FLASH_FILE=test.bin
 #ESP_PORT = 8266
 #ESP_PWD = 123
 
