@@ -6,13 +6,20 @@
 #include "lib/AudioOutputI2S.h"
 #include "analogmultiplexer.h"
 #include <NeoPixelBus.h>
+#include <ESP8266WiFi.h>
+
+
+extern "C" {
+#include "user_interface.h"
+}
 
 //DEFINE SYNTH PATCH
-#include "synth/drum_setan.h"
+#include "synth/osc_delay_crush.h"
 SynthTest mysynth;
 
 //#define ENABLE_OTA
 //#define ENABLE_APPLEMIDI
+// note:  clicking sound when not conncted to wifi (strange)
 //#define ENABLE_WIFI
 //#define USE_PDM
 
@@ -23,9 +30,9 @@ SynthTest mysynth;
 
 //NOTE: IF EVRYTHING STARTED TO ACT WEIRD ERASE FLASH AND SKETCH FROM IDE
 // (1000000 us/44100) × 5 = 113
-//#define USE_AUDIOBLOCK
+#define USE_AUDIOBLOCK
 #define NON_AUDIOBLOCK_RATE 113
-#define AUDIOBLOCK_RATE 2000
+#define AUDIOBLOCK_RATE 1450
 #define AUDIOBLOCK_SIZE 65
 
 #define POT_SAMPLE_RATE_MS 20
@@ -39,7 +46,6 @@ SynthTest mysynth;
 #define WIFI_PASSWORD "rumah4321"
 
 #ifdef ENABLE_WIFI
-#include <ESP8266WiFi.h>
 #include <ESP8266mDNS.h>
 #include <WiFiUdp.h>
 #endif
@@ -55,9 +61,6 @@ SynthTest mysynth;
 #include "GlobalWavetables.h"
 #include "GlobalIncrements.h"
 
-extern "C" {
-#include "user_interface.h"
-}
 
 #ifdef ENABLE_NEO_PIXEL
 NeoPixelBus<NeoRgbFeature, NeoEsp8266BitBang400KbpsMethod> neoPixel(NEO_NUM_LEDS, NEO_DATA_PIN);
@@ -119,8 +122,6 @@ void OnAppleMidiControlChange(byte channel, byte note, byte value);
 
 void setup() {
 
-  //160MHZ clock speed
-  system_update_cpu_freq(160);
 
 #ifdef ENABLE_WIFI
   WiFi.begin(ssid, pass);
@@ -128,8 +129,12 @@ void setup() {
     delay(500);
   }
 #else
-//  WiFi.forceSleepBegin();
+    wifi_set_sleep_type(MODEM_SLEEP_T);
+    delay(1);
 #endif
+
+//160MHZ clock speed
+system_update_cpu_freq(160);
 
 #ifdef ENABLE_OTA
   ArduinoOTA.begin();
@@ -143,12 +148,12 @@ void setup() {
   multiplexer.setup(MUX_A, MUX_B, MUX_C, MULTIPLEXED_ANALOG_INPUT);
 
 //  //Soundcard settings
-//  soundOut.SetRate(44100);
-//  soundOut.SetBitsPerSample(16);
-//  soundOut.SetChannels(2);
-//  soundOut.begin();
-  i2s_begin(); //Start the i2s DMA engine
-  i2s_set_rate(44100); //Set sample rate
+  soundOut.SetRate(44100);
+  soundOut.SetBitsPerSample(16);
+  soundOut.SetChannels(2);
+  soundOut.begin();
+//  i2s_begin(); //Start the i2s DMA engine
+//  i2s_set_rate(44100); //Set sample rate
 
 //  //Soundcard timer
   timer1_attachInterrupt(onTimerISR); //Attach our sampling ISR
@@ -236,8 +241,8 @@ void ICACHE_RAM_ATTR onTimerISR() {
                 #else
                     sample[0] = (DAC-0x8000); //normalize
                     sample[1] = sample[0];
-                    //soundOut.ConsumeSample(sample); //more overhead
-                    i2s_write_lr_nb( DAC, DAC); //nicer
+                    soundOut.ConsumeSample(sample); //more overhead
+//                    i2s_write_lr_nb( DAC, DAC); //nicer
                 #endif
 
             }
