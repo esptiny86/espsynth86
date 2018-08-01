@@ -256,10 +256,10 @@ void ICACHE_RAM_ATTR onTimerISR() {
             #ifdef USE_PDM
                 writeDAC(DAC^0x8000);
             #else
-//                sample[0] = (DAC-0x8000); //normalize
-//                sample[1] = sample[0];
-                //soundOut.ConsumeSample(sample); //more overhead
-                i2s_write_lr_nb( DAC, DAC); //nicer
+                sample[0] = (DAC-0x8000); //normalize
+                sample[1] = sample[0];
+                soundOut.ConsumeSample(sample); //more overhead
+//                i2s_write_lr_nb( DAC, DAC); //nicer
             #endif
         }
 
