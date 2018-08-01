@@ -9,6 +9,15 @@ Synth engine for esptiny86. this module is largely based on MicrobeModular's Equ
     - Wemos D1 use BOARD = d1_mini
 * Qt Creator is optional but it is recommended for developing further with espsynth86
 
+# Audio design Tools
+
+* inspired by teensy, design tool is also available https://esptiny86.github.io/espnode86
+
+
+# Support
+
+* Donation is highly appreciated https://www.patreon.com/badgeek
+
 # Credits
 
 * Esp8266 Summer Audio hacking by jan ostman - http://blog.dspsynth.eu/audio-hacking-on-the-esp8266-2/
