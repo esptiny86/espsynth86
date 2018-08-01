@@ -154,7 +154,7 @@ system_update_cpu_freq(160);
 
   multiplexer.setup(MUX_A, MUX_B, MUX_C, MULTIPLEXED_ANALOG_INPUT);
 
-//  //Soundcard settings
+  //Soundcard settings
   soundOut = new AudioOutputI2S();
   soundOut->SetRate(44100);
   soundOut->SetBitsPerSample(16);
@@ -163,7 +163,7 @@ system_update_cpu_freq(160);
 //  i2s_begin(); //Start the i2s DMA engine
 //  i2s_set_rate(44100); //Set sample rate
 
-//  //Soundcard timer
+  //Soundcard timer
   timer1_attachInterrupt(onTimerISR); //Attach our sampling ISR
   timer1_enable(TIM_DIV16, TIM_EDGE, TIM_LOOP);
 
@@ -173,13 +173,13 @@ system_update_cpu_freq(160);
   timer1_write(NON_AUDIOBLOCK_RATE); //Read potentio control at AUDIOBLOCK_RATE interval
   #endif
 
-//  //Control timer (update pots)
+  //Control timer (update pots)
   potTimer.attach_ms(POT_SAMPLE_RATE_MS, onUpdateControl); //Read potentio control at 20ms interval
 
-#ifdef ENABLE_NEO_PIXEL
+  #ifdef ENABLE_NEO_PIXEL
   neoPixel.Begin();
   neoPixel.Show();
-#endif
+  #endif
 
   #ifdef USE_PDM
   pinMode(2, INPUT); //restore GPIOs taken by i2s
