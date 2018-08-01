@@ -163,6 +163,10 @@ void setup() {
 
 //  neoPixel.Begin();
 //  neoPixel.Show();
+  #ifdef USE_PDM
+  pinMode(2, INPUT); //restore GPIOs taken by i2s
+  pinMode(15, INPUT);
+  #endif
 
 }
 
@@ -221,7 +225,7 @@ void ICACHE_RAM_ATTR onTimerISR() {
                 DAC = mysynth.run(i);
 
                 #ifdef USE_PDM
-                    writeDAC(DAC);
+                    writeDAC(DAC^0x8000);
                 #else
                     sample[0] = (DAC-0x8000); //normalize
                     sample[1] = sample[0];
@@ -238,10 +242,10 @@ void ICACHE_RAM_ATTR onTimerISR() {
         {
             DAC = mysynth.run(cycle++);
             #ifdef USE_PDM
-                writeDAC(DAC);
+                writeDAC(DAC^0x8000);
             #else
-                sample[0] = (DAC-0x8000); //normalize
-                sample[1] = sample[0];
+//                sample[0] = (DAC-0x8000); //normalize
+//                sample[1] = sample[0];
                 //soundOut.ConsumeSample(sample); //more overhead
                 i2s_write_lr_nb( DAC, DAC); //nicer
             #endif
