@@ -1,9 +1,6 @@
 #include <Arduino.h>
 #include <Ticker.h>
 #include <pgmspace.h>
-#include <ESP8266WiFi.h>
-#include <ESP8266mDNS.h>
-#include <WiFiUdp.h>
 #include <i2s.h>
 #include <i2s_reg.h>
 #include "lib/AudioOutputI2S.h"
@@ -16,7 +13,7 @@ SynthTest mysynth;
 
 //#define ENABLE_OTA
 //#define ENABLE_APPLEMIDI
-#define ENABLE_WIFI
+//#define ENABLE_WIFI
 //#define USE_PDM
 
 #define MULTIPLEXED_ANALOG_INPUT A0
@@ -24,20 +21,28 @@ SynthTest mysynth;
 #define MUX_B D2
 #define MUX_C D3
 
+//NOTE: IF EVRYTHING STARTED TO ACT WEIRD ERASE FLASH AND SKETCH FROM IDE
 // (1000000 us/44100) × 5 = 113
 //#define USE_AUDIOBLOCK
-#define NON_AUDIOBLOCK_RATE 22
-#define AUDIOBLOCK_RATE 1450
+#define NON_AUDIOBLOCK_RATE 113
+#define AUDIOBLOCK_RATE 2000
 #define AUDIOBLOCK_SIZE 65
 
 #define POT_SAMPLE_RATE_MS 20
 
 // How many leds in your strip?
+#define ENABLE_NEO_PIXEL
 #define NEO_NUM_LEDS 8
 #define NEO_DATA_PIN D7
 
 #define WIFI_SSID "RUMAH"
 #define WIFI_PASSWORD "rumah4321"
+
+#ifdef ENABLE_WIFI
+#include <ESP8266WiFi.h>
+#include <ESP8266mDNS.h>
+#include <WiFiUdp.h>
+#endif
 
 #ifdef ENABLE_OTA
 #include <ArduinoOTA.h>
@@ -70,6 +75,7 @@ char pass[] = WIFI_PASSWORD;    // your network password (use for WPA, or use as
 uint16_t DAC=0x8000;
 int16_t sample[2];
 int16_t cycle = 0;
+uint16_t potc[] = {1,1,1,1,1,1,1,1};
 
 // Non-blocking I2S write for left and right 16-bit PCM
 bool ICACHE_FLASH_ATTR i2s_write_lr_nb(int16_t left, int16_t right){
@@ -99,9 +105,6 @@ void writeDAC(uint16_t DAC) {
 #endif
 
 
-uint16_t potc[] = {1,1,1,1,1,1,1,1};
-
-
 //Forward declaration
 void ICACHE_RAM_ATTR onTimerISR();
 void onUpdateControl();
@@ -123,7 +126,7 @@ void setup() {
     delay(500);
   }
 #else
-  WiFi.forceSleepBegin();
+//  WiFi.forceSleepBegin();
 #endif
 
 #ifdef ENABLE_OTA
@@ -138,14 +141,16 @@ void setup() {
   multiplexer.setup(MUX_A, MUX_B, MUX_C, MULTIPLEXED_ANALOG_INPUT);
 
 //  //Soundcard settings
-  soundOut.SetRate(44100);
-  soundOut.SetBitsPerSample(16);
-  soundOut.SetChannels(2);
-  soundOut.begin();
+//  soundOut.SetRate(44100);
+//  soundOut.SetBitsPerSample(16);
+//  soundOut.SetChannels(2);
+//  soundOut.begin();
+  i2s_begin(); //Start the i2s DMA engine
+  i2s_set_rate(44100); //Set sample rate
 
 //  //Soundcard timer
   timer1_attachInterrupt(onTimerISR); //Attach our sampling ISR
-  timer1_enable(TIM_DIV16, TIM_EDGE, TIM_SINGLE);
+  timer1_enable(TIM_DIV16, TIM_EDGE, TIM_LOOP);
 
   #ifdef USE_AUDIOBLOCK
   timer1_write(AUDIOBLOCK_RATE); //Read potentio control at AUDIOBLOCK_RATE interval
@@ -220,8 +225,8 @@ void ICACHE_RAM_ATTR onTimerISR() {
                 #else
                     sample[0] = (DAC-0x8000); //normalize
                     sample[1] = sample[0];
-                    soundOut.ConsumeSample(sample);
-                    //i2s_write_lr_nb( DAC, DAC);
+                    //soundOut.ConsumeSample(sample); //more overhead
+                    i2s_write_lr_nb( DAC, DAC); //nicer
                 #endif
 
             }
@@ -237,12 +242,10 @@ void ICACHE_RAM_ATTR onTimerISR() {
             #else
                 sample[0] = (DAC-0x8000); //normalize
                 sample[1] = sample[0];
-//                soundOut.ConsumeSample(sample);
-                i2s_write_lr_nb( DAC, DAC);
-
+                //soundOut.ConsumeSample(sample); //more overhead
+                i2s_write_lr_nb( DAC, DAC); //nicer
             #endif
         }
-        timer1_write(NON_AUDIOBLOCK_RATE); // Render next block in... ms..
 
         #endif
 
