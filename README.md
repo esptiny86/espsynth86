@@ -50,3 +50,4 @@ define USE_PDM
 * Bitluni Wavetable Editor - http://bitluni.net
 * TinySynth - http://www.technoblogy.com/show?Q7H
 * MakeEspArduino - https://github.com/plerup/makeEspArduino
+* RPD (Reactive Patch Development) - http://shamansir.github.io/rpd/
