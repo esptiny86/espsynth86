@@ -8,10 +8,12 @@ Synth engine for esptiny86. this module is largely based on MicrobeModular's Equ
 
 # Compiling
 
-* Open and configure "Makefile" file, then on command prompt/terminal type Make
+* Install Arduino IDE then install esp8266 from board library
+* Open and configure "Makefile" file, then on command prompt/terminal type Make (the Makefile will auto discover your Arduino IDE and Libs))
     - Nodemcu Lolin use BOARD = nodemcu
     - Wemos D1 use BOARD = d1_mini
 * Qt Creator is optional but it is recommended for developing further with espsynth86
+* Edit project.include to your pathto get Intelisense in QT Creator
 
 # Components
 
@@ -38,7 +40,7 @@ define USE_PDM
 
 # Support
 
-* Donation is highly appreciated https://www.patreon.com/badgeek
+* This project is developed independently and without any connection to funding or big organization, Donation is highly appreciated https://www.patreon.com/badgeek
 
 # Credits
 
@@ -47,3 +49,4 @@ define USE_PDM
 * Esp8266 Audio - https://github.com/earlephilhower/ESP8266Audio
 * Bitluni Wavetable Editor - http://bitluni.net
 * TinySynth - http://www.technoblogy.com/show?Q7H
+* MakeEspArduino - https://github.com/plerup/makeEspArduino
