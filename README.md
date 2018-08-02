@@ -46,3 +46,4 @@ define USE_PDM
 * MicrobeModular Equation Composer - https://github.com/clone45/EquationComposer
 * Esp8266 Audio - https://github.com/earlephilhower/ESP8266Audio
 * Bitluni Wavetable Editor - http://bitluni.net
+* TinySynth - http://www.technoblogy.com/show?Q7H
