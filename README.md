@@ -15,7 +15,17 @@ Synth engine for esptiny86. this module is largely based on MicrobeModular's Equ
 * Qt Creator is optional but it is recommended for developing further with espsynth86
 * Edit project.include to your pathto get Intelisense in QT Creator
 
-# Components
+# Boards
+
+### 8BitMixtapeWifi board design by @Dusjagr
+
+![](https://i.imgur.com/9hoTwYZ.png)
+
+### esptiny86 Stompbox design by @Dusjagr
+
+![](https://i.imgur.com/BZcPQyX.png)
+
+# Hardware
 
 There are two methods for generating sound with ESP8266
 
