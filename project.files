@@ -19,9 +19,9 @@ global/GlobalWaveshaperTables.h
 global/GlobalWavetables.cpp
 global/GlobalWavetables.h
 global/globalwavetable.h
+lib/AnalogMultiplexer.h
 lib/NeoLibCore.h
-lib/analogmultiplexer.h
-lib/vector.h
+lib/Vector.h
 module/EquationBank.cpp
 module/EquationBank.cpp
 module/EquationBank.cpp
