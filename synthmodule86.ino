@@ -218,20 +218,6 @@ void onUpdateControl() {
         mysynth.param[4].setValue(potc[2]);
     }
 
-    #ifdef ENABLE_NEO_PIXEL
-    for(uint8_t j =0; j < 8; j++)
-    {
-        if (j < 8) neoPixel.SetPixelColor(j, black);
-    }
-
-    for(uint8_t i =0; i <  ((( (DAC) >>12) - 4)<<1) ; i++)
-    {
-        if (i < 8) neoPixel.SetPixelColor(i, green);
-    }
-
-    neoPixel.Show();
-    #endif
-
     //mysynth.param[3].setValue(potc[3]);
     //mysynth.param[4].setValue(potc[4]);
     //mysynth.param[5].setValue(potc[5]);
@@ -249,6 +235,23 @@ void onUpdateControl() {
 //    Serial.print(" -> ");
 //    Serial.println(btn);
     #endif
+
+    #ifdef ENABLE_NEO_PIXEL
+
+    for(uint8_t j =0; j < 8; j++)
+    {
+        if (j < 8) neoPixel.SetPixelColor(j, black);
+    }
+
+    for(uint8_t i =0; i <  ((( (DAC) >>12) - 4)<<1) ; i++)
+    {
+        if (i < 8) neoPixel.SetPixelColor(i, green);
+    }
+
+    neoPixel.Show();
+
+    #endif
+
 }
 
 #ifdef ENABLE_APPLEMIDI
