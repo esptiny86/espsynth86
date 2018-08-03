@@ -6,7 +6,7 @@
 #include <NeoPixelBus.h>
 #include <ESP8266WiFi.h>
 #include "lib/AudioOutputI2S.h"
-#include "analogmultiplexer.h"
+#include "AnalogMultiplexer.h"
 #include "NeoLibCore.h"
 
 extern "C" {
