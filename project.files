@@ -20,6 +20,7 @@ global/GlobalWavetables.cpp
 global/GlobalWavetables.h
 global/globalwavetable.h
 lib/AnalogMultiplexer.h
+lib/ExprParser.h
 lib/NeoLibCore.h
 lib/Vector.h
 module/EquationBank.cpp
