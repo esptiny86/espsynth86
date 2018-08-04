@@ -68,9 +68,6 @@ SynthTest mysynth;
 #include "AppleMidi.h"
 #endif
 
-#include "GlobalWavetables.h"
-#include "GlobalIncrements.h"
-
 
 #ifdef ENABLE_NEO_PIXEL
 NeoPixelBus<NeoRgbFeature, NeoEsp8266BitBang400KbpsMethod> neoPixel(NEO_NUM_LEDS, NEO_DATA_PIN);
