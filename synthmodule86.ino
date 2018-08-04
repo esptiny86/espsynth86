@@ -294,7 +294,7 @@ void ICACHE_RAM_ATTR onTimerISR() {
                     sample[0] = (DAC-0x8000); //normalize
                     sample[1] = sample[0];
                     soundOut->ConsumeSample(sample); //more overhead
-//                    i2s_write_lr_nb( DAC, DAC); //nicer
+                    //i2s_write_lr_nb( DAC^0x8000, DAC^0x8000); //nicer
                 #endif
 
             }
@@ -313,7 +313,7 @@ void ICACHE_RAM_ATTR onTimerISR() {
                 sample[0] = (DAC-0x8000); //normalize
                 sample[1] = sample[0];
                 soundOut->ConsumeSample(sample); //more overhead
-//                i2s_write_lr_nb( DAC^0x8000, DAC^0x8000); //nicer
+                //i2s_write_lr_nb( DAC^0x8000, DAC^0x8000); //nicer
             #endif
         }
 
