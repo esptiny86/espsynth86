@@ -1,6 +1,8 @@
 #include "ModuleEuclideanSeq.h"
-#include "GlobalEuclid.h"
+#include "EuclidBjork.h"
 #include "defines.h"
+
+// Todo: fix loop overflow
 
 ModuleEuclideanSeq::ModuleEuclideanSeq()
 {
@@ -35,30 +37,32 @@ uint16_t ModuleEuclideanSeq::compute()
     this->eu_step.value = this->readInput(step_input, 0,16);
     this->eu_offset.value = this->readInput(offset_input, 0,16);
 
-    if(this->eu_beat.value != this->eu_beat.prevValue) {
-        this->setBeat(this->eu_beat.value);
-        this->eu_beat.prevValue = this->eu_beat.value;
-    }
-
-    if(this->eu_step.value != this->eu_step.prevValue) {
-        this->setStep(this->eu_step.value);
-        this->eu_step.prevValue = this->eu_step.value;
-    }
-
-    if(this->eu_offset.value != this->eu_offset.prevValue) {
-        this->setOffset(this->eu_offset.value);
-        this->eu_offset.prevValue = this->eu_offset.value;
-    }
-
     if((clock < MID_CV) && clocked)
     {
         clocked = false;
     }
 
+    //Change pattern when it receive high signal
     if((clock >= MID_CV) && !clocked)
     {
       clocked = true;
       counter = counter + 1;
+
+      if(this->eu_beat.value != this->eu_beat.prevValue) {
+          this->setBeat(this->eu_beat.value);
+          this->eu_beat.prevValue = this->eu_beat.value;
+      }
+
+      if(this->eu_step.value != this->eu_step.prevValue) {
+          this->setStep(this->eu_step.value);
+          this->eu_step.prevValue = this->eu_step.value;
+      }
+
+      if(this->eu_offset.value != this->eu_offset.prevValue) {
+          this->setOffset(this->eu_offset.value);
+          this->eu_offset.prevValue = this->eu_offset.value;
+      }
+
     }
 
     return getPatternTick(counter) * MAX_CV;
