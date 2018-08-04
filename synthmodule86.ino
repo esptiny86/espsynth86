@@ -89,7 +89,7 @@ const char *password = WIFI_AP_PASSWORD;
 
 uint16_t DAC=0x8000;
 int16_t sample[2];
-int32_t cycle = 0;
+int16_t cycle = 0;
 uint16_t potc[] = {1,1,1,1,1,1,1,1};
 
 // Non-blocking I2S write for left and right 16-bit PCM
@@ -305,18 +305,7 @@ void ICACHE_RAM_ATTR onTimerISR() {
         if(!i2s_is_full())
         {
 
-            cycle++;
-
-            if (cycle >= 44100) {
-                cycle = 0;
-                toggle = !toggle;
-            }
-
-            if (toggle == true) {
-                DAC = mysynth.run(cycle);
-                DAC = DAC;
-            } else
-                DAC = 0x8000;
+            DAC = mysynth.run(cycle++);
 
             #ifdef USE_PDM
                 writeDAC(DAC^0x8000);
@@ -330,7 +319,7 @@ void ICACHE_RAM_ATTR onTimerISR() {
 
         #endif
 
-        //i2s_write_lr_nb((((((DAC)<<8) ^ 32768))),0); //for one liner
+        //i2s_write_lr_nb((((((DAC)<<8) ^ 0x8000))),0); //for one liner
 
 }
 
