@@ -26,6 +26,7 @@ SynthTest mysynth;
 //#define ENABLE_WIFI_AP
 //#define USE_PDM
 //#define ENABLE_SERIAL
+#define ENABLE_NEO_PIXEL
 
 #define MULTIPLEXED_ANALOG_INPUT A0
 #define MUX_A D1
@@ -34,7 +35,7 @@ SynthTest mysynth;
 
 //NOTE: IF EVRYTHING STARTED TO ACT WEIRD ERASE FLASH AND SKETCH FROM IDE
 // (1000000 us/44100) × 5 = 113
-#define USE_AUDIOBLOCK
+//#define USE_AUDIOBLOCK
 #define NON_AUDIOBLOCK_RATE 113
 #define AUDIOBLOCK_RATE 1450
 #define AUDIOBLOCK_SIZE 65
@@ -42,9 +43,9 @@ SynthTest mysynth;
 #define POT_SAMPLE_RATE_MS 20
 
 // How many leds in your strip?
-#define ENABLE_NEO_PIXEL
 #define NEO_NUM_LEDS 8
 #define NEO_DATA_PIN D7
+#define NEO_SAMPLE_RATE_MS 100
 
 #define WIFI_SSID "RUMAH"
 #define WIFI_PASSWORD "rumah4321"
@@ -88,7 +89,7 @@ const char *password = WIFI_AP_PASSWORD;
 
 uint16_t DAC=0x8000;
 int16_t sample[2];
-int16_t cycle = 0;
+int32_t cycle = 0;
 uint16_t potc[] = {1,1,1,1,1,1,1,1};
 
 // Non-blocking I2S write for left and right 16-bit PCM
@@ -123,6 +124,11 @@ void writeDAC(uint16_t DAC) {
 void ICACHE_RAM_ATTR onTimerISR();
 void onUpdateControl();
 
+#ifdef ENABLE_NEO_PIXEL
+Ticker potNEO;
+void onUpdateNEO();
+#endif
+
 //Applemidi
 #ifdef ENABLE_APPLEMIDI
 APPLEMIDI_CREATE_INSTANCE(WiFiUDP, AppleMIDI); // see definition in AppleMidi_Defs.h
@@ -131,7 +137,7 @@ void OnAppleMidiControlChange(byte channel, byte note, byte value);
 
 void setup() {
 
-    spi_flash_erase_sector(0x7E);
+  spi_flash_erase_sector(0x7E);
 
 #ifdef ENABLE_WIFI
   #ifdef ENABLE_WIFI_AP
@@ -186,6 +192,10 @@ system_update_cpu_freq(160);
   potTimer.attach_ms(POT_SAMPLE_RATE_MS, onUpdateControl); //Read potentio control at 20ms interval
 
   #ifdef ENABLE_NEO_PIXEL
+  potNEO.attach_ms(NEO_SAMPLE_RATE_MS, onUpdateNEO); //Read potentio control at 20ms interval
+  #endif
+
+  #ifdef ENABLE_NEO_PIXEL
   neoPixel.Begin();
   neoPixel.Show();
   #endif
@@ -199,6 +209,27 @@ system_update_cpu_freq(160);
   Serial.begin(115200);
   #endif
 }
+
+#ifdef ENABLE_NEO_PIXEL
+
+void onUpdateNEO() {
+
+for(uint8_t j =0; j < 8; j++)
+{
+    if (j < 8) neoPixel.SetPixelColor(j, black);
+}
+
+for(uint8_t i =0; i <  ((( (DAC) >>12) - 4)<<1) ; i++)
+{
+    if (i < 8) neoPixel.SetPixelColor(i, green);
+}
+
+neoPixel.Show();
+
+}
+
+#endif
+
 
 void onUpdateControl() {
     potc[0] =  multiplexer.read(0,10) >> 0;
@@ -236,22 +267,6 @@ void onUpdateControl() {
 //    Serial.println(btn);
     #endif
 
-    #ifdef ENABLE_NEO_PIXEL
-
-    for(uint8_t j =0; j < 8; j++)
-    {
-        if (j < 8) neoPixel.SetPixelColor(j, black);
-    }
-
-    for(uint8_t i =0; i <  ((( (DAC) >>12) - 4)<<1) ; i++)
-    {
-        if (i < 8) neoPixel.SetPixelColor(i, green);
-    }
-
-    neoPixel.Show();
-
-    #endif
-
 }
 
 #ifdef ENABLE_APPLEMIDI
@@ -261,6 +276,8 @@ void OnAppleMidiControlChange(byte channel, byte note, byte value) {
     }
 }
 #endif
+
+bool toggle = false;
 
 void ICACHE_RAM_ATTR onTimerISR() {
         #ifdef USE_AUDIOBLOCK
@@ -287,14 +304,27 @@ void ICACHE_RAM_ATTR onTimerISR() {
         //We are using realtime clock 44100 Hz
         if(!i2s_is_full())
         {
-            DAC = mysynth.run(cycle++);
+
+            cycle++;
+
+            if (cycle >= 44100) {
+                cycle = 0;
+                toggle = !toggle;
+            }
+
+            if (toggle == true) {
+                DAC = mysynth.run(cycle);
+                DAC = DAC;
+            } else
+                DAC = 0x8000;
+
             #ifdef USE_PDM
                 writeDAC(DAC^0x8000);
             #else
                 sample[0] = (DAC-0x8000); //normalize
                 sample[1] = sample[0];
                 soundOut->ConsumeSample(sample); //more overhead
-//                i2s_write_lr_nb( DAC, DAC); //nicer
+//                i2s_write_lr_nb( DAC^0x8000, DAC^0x8000); //nicer
             #endif
         }
 
