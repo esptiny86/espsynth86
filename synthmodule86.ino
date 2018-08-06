@@ -286,6 +286,7 @@ void ICACHE_RAM_ATTR onTimerISR() {
                 DAC = mysynth.run(i);
 
                 #ifdef USE_PDM
+                    // Jan Ostman PDM..
                     writeDAC(DAC^0x8000);
                 #else
                     sample[0] = (DAC-0x8000); //normalize
@@ -305,6 +306,7 @@ void ICACHE_RAM_ATTR onTimerISR() {
             DAC = mysynth.run(cycle++);
 
             #ifdef USE_PDM
+                // Jan Ostman PDM..
                 writeDAC(DAC^0x8000);
             #else
                 sample[0] = (DAC-0x8000); //normalize
