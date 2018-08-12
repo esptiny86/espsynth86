@@ -10,6 +10,7 @@ private:
   int B;
   int C;
   int D;
+  int T;
 
 public:
     ExpressionParser()
@@ -18,6 +19,7 @@ public:
         B = 0;
         C = 0;
         D = 0;
+        T = 0;
     }
 
     char peek()
@@ -37,7 +39,7 @@ public:
         char g;
         int result;
 
-        if (peek() == 'A'  |  peek() == 'B'  |  peek() == 'C' |  peek() == 'D')
+        if (peek() == 'A'  |  peek() == 'B'  |  peek() == 'C' |  peek() == 'D' |  peek() == 'T')
         {
             result = 0;
         }else{
@@ -46,7 +48,7 @@ public:
         }
 
 
-        while (peek() >= '0' && peek() <= '9' |  peek() == 'A'  |  peek() == 'B'  |  peek() == 'C' |  peek() == 'D' )
+        while (peek() >= '0' && peek() <= '9' |  peek() == 'A'  |  peek() == 'B'  |  peek() == 'C' |  peek() == 'D' |  peek() == 'T'  )
         {
             if (peek() == 'A')
             {
@@ -67,6 +69,11 @@ public:
             {
                 get();
                 result = 100000*result + D;
+            }
+            else if (peek() == 'T')
+            {
+                    get();
+                    result = 100000*result + T;
             }else{
                 g = get();
                 result = 10*result + g - '0';
@@ -78,7 +85,7 @@ public:
 
     int factor()
     {
-        if (peek() >= '0' && peek() <= '9'  |  peek() == 'A'  |  peek() == 'B'  |  peek() == 'C' |  peek() == 'D'  )
+        if (peek() >= '0' && peek() <= '9'  |  peek() == 'A'  |  peek() == 'B'  |  peek() == 'C' |  peek() == 'D'   |  peek() == 'T'  )
         {
             return number();
         }
@@ -115,13 +122,14 @@ public:
         return result;
     }
 
-    int expression(char * expr, int PA, int PB, int PC, int PD)
+    int expression(char * expr, int PA, int PB, int PC, int PD, int PT)
     {
 
         A = PA;
         B = PB;
         C = PC;
         D = PD;
+        T = PT;
 
         expressionToParse = expr;
 
