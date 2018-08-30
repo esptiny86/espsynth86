@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleDelay.h"
-#include "defines.h"
+#include "Defines.h"
 #include "GlobalRingBuffer.h"
 
 ModuleDelay::ModuleDelay()

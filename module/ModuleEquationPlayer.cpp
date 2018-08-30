@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleEquationPlayer.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleEquationPlayer::ModuleEquationPlayer(EquationBank *equation_bank)
 {

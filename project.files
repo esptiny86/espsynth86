@@ -1,6 +1,7 @@
 README.md
 build_nodemcu.sh
 build_wemos.sh
+global/Defines.h
 global/GlobalChords.cpp
 global/GlobalChords.h
 global/GlobalEuclid.h
@@ -162,7 +163,6 @@ module/Synth.cpp
 module/Synth.h
 module/Synth.h
 module/Synth.h
-global/defines.h
 module/defines.h
 module/defines.h
 sample/Sample1.h

@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleInput.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleInput::ModuleInput()
 {

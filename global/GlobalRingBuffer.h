@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "defines.h"
+#include "Defines.h"
 
 #ifndef RingBuffer_h
 #define RingBuffer_h

@@ -1,5 +1,5 @@
 #include "ModuleMixer3.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleMixer3::ModuleMixer3()
 {

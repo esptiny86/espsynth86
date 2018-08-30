@@ -1,6 +1,6 @@
 #include "ModuleEuclideanSeq.h"
 #include "EuclidBjork.h"
-#include "defines.h"
+#include "Defines.h"
 
 // Todo: fix loop overflow
 

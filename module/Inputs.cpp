@@ -1,5 +1,5 @@
 #include "Inputs.h"
-#include "defines.h"
+#include "Defines.h"
 
 Inputs::Inputs()
 {

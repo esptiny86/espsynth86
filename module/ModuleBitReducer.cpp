@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleBitReducer.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleBitReducer::ModuleBitReducer()
 {

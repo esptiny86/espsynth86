@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleConstant.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleConstant::ModuleConstant()
 {

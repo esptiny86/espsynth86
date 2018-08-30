@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "defines.h"
+#include "Defines.h"
 #include "Synth.h"
 
 uint16_t Synth::run(uint8_t cycle)

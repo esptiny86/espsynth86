@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleClock.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleClock::ModuleClock(uint16_t bpm, int clock_division)
 {

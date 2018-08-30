@@ -1,5 +1,5 @@
 #include "ModuleTinySynth.h"
-#include "defines.h"
+#include "Defines.h"
 #include "GlobalChords.h"
 #include "GlobalWavetables.h"
 #include "GlobalIncrements.h"

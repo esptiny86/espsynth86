@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleLowpassFilter.h"
-#include "defines.h"
+#include "Defines.h"
 #include "GlobalFilterTables.h"
 
 // Special thanks to Gaetan Ro for adapting this filter 

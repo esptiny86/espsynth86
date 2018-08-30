@@ -1,7 +1,7 @@
 #ifndef Inputs_h
 #define Inputs_h
 
-#include "defines.h"
+#include "Defines.h"
 #include "ModuleAnalogInput.h"
 #include "ModuleDigitalInput.h"
 

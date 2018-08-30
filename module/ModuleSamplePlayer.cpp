@@ -1,5 +1,5 @@
 #include "ModuleSamplePlayer.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleSamplePlayer::ModuleSamplePlayer()
 {

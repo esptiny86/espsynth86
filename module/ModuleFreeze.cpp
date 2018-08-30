@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleFreeze.h"
-#include "defines.h"
+#include "Defines.h"
 #include "GlobalRingBuffer.h"
 
 ModuleFreeze::ModuleFreeze()

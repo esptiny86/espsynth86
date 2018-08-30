@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleWavetableOsc.h"
-#include "defines.h"
+#include "Defines.h"
 #include "GlobalWavetables.h"
 #include "GlobalIncrements.h"
 #include "GlobalWavetable.h"

@@ -1,5 +1,5 @@
 #include "ModuleAnalogInput.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleAnalogInput::ModuleAnalogInput(int input_pin)
 {

@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleInputSmooth.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleInputSmooth::ModuleInputSmooth(Module *parent_module)
 {
