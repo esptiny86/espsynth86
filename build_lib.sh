@@ -1,4 +1,4 @@
-COMPILE_PATH=/tmp/mkESP/synthmodule86_d1_mini
+COMPILE_PATH=build
 AR_PATH=/Users/xcorex/Library/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/bin/xtensa-lx106-elf-ar
 
 mkdir -p ./src/esp8266
