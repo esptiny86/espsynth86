@@ -5,7 +5,7 @@
 #include <i2s_reg.h>
 #include <NeoPixelBus.h>
 #include <ESP8266WiFi.h>
-#include "lib/AudioOutputI2S.h"
+#include "AudioOutputI2S.h"
 #include "AnalogMultiplexer.h"
 #include "NeoLibCore.h"
 
