@@ -20,8 +20,7 @@
 #  FLASH_FILE           File name for dump and restore flash operations
 #  VERBOSE              Set to 1 to get full printout of the build
 #  SINGLE_THREAD        Use only one build thread
-
-EXCLUDE_DIRS = $(SKETCH_DIR)/experimental $(SKETCH_DIR)/notported $(SKETCH_DIR)/synth-example
+EXCLUDE_DIRS = $(SKETCH_DIR)/experimental $(SKETCH_DIR)/notported $(SKETCH_DIR)/synth-example $(SKETCH_DIR)/old
 #this is all I need at the moment
 CHIP = esp8266
 BOARD = d1_mini
