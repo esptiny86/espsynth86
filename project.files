@@ -16,9 +16,9 @@ global/GlobalScales.cpp
 global/GlobalScales.h
 global/GlobalWaveshaperTables.cpp
 global/GlobalWaveshaperTables.h
+global/GlobalWavetable.h
 global/GlobalWavetables.cpp
 global/GlobalWavetables.h
-global/globalwavetable.h
 lib/AnalogMultiplexer.h
 lib/EuclidBjork.h
 lib/ExprParser.h
@@ -165,9 +165,6 @@ module/Synth.h
 global/defines.h
 module/defines.h
 module/defines.h
-global/globalwavetable.h
-global/globalwavetable.h
-global/globalwavetable.h
 sample/Sample1.h
 sample/drum_sampler.h
 synth/8bitmixtape.h

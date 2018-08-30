@@ -3,7 +3,7 @@
 #include "GlobalChords.h"
 #include "GlobalWavetables.h"
 #include "GlobalIncrements.h"
-#include "globalwavetable.h"
+#include "GlobalWavetable.h"
 
 ModuleTinySynth::ModuleTinySynth(const char * ample)
 {
