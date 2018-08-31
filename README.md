@@ -47,17 +47,16 @@ define USE_PDM
 
 * Inspired by Teensy, design tool is also available https://esptiny86.github.io/espnode86
 
-
 # Support
 
 * This project is developed independently and without any connection to funding or big organization, Donation is highly appreciated https://www.patreon.com/badgeek
 
 # Credits
 
-* Esp8266 Summer Audio hacking by Jan Ostman - http://blog.dspsynth.eu/audio-hacking-on-the-esp8266-2/
 * MicrobeModular Equation Composer - https://github.com/clone45/EquationComposer
-* Esp8266 Audio - https://github.com/earlephilhower/ESP8266Audio
-* Bitluni Wavetable Editor - http://bitluni.net
-* TinySynth - http://www.technoblogy.com/show?Q7H
 * MakeEspArduino - https://github.com/plerup/makeEspArduino
 * RPD (Reactive Patch Development) - http://shamansir.github.io/rpd/
+* Bitluni Wavetable Editor - http://bitluni.net
+* TinySynth - http://www.technoblogy.com/show?Q7H
+* Esp8266 Summer Audio hacking by Jan Ostman - http://blog.dspsynth.eu/audio-hacking-on-the-esp8266-2/
+* Esp8266 Audio - https://github.com/earlephilhower/ESP8266Audio
