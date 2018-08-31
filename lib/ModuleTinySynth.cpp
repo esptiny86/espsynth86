@@ -1,3 +1,14 @@
+/*
+   Tiny Synth v5
+ 
+   David Johnson-Davies - www.technoblogy.com - 6th November 2017
+   ATtiny85 @ 8MHz (internal oscillator; BOD disabled)
+   
+   CC BY 4.0
+   Licensed under a Creative Commons Attribution 4.0 International license: 
+   http://creativecommons.org/licenses/by/4.0/
+*/
+
 #include "ModuleTinySynth.h"
 #include "Defines.h"
 #include "GlobalChords.h"
