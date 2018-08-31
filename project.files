@@ -112,3 +112,4 @@ project.ino
 Makefile
 synthmodule86.ino
 sample/Kendang.h
+build_lib.sh
