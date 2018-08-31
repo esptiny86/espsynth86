@@ -46,10 +46,6 @@ public:
 
     int readChannel (const uint8_t _pin_index)
     {
-        // set switch to output (not sure why, but must be set everytime..)
-//        pinMode(s1, OUTPUT);
-//        pinMode(s2, OUTPUT);
-//        pinMode(s3, OUTPUT);
 
         // set multiplexer, select channel
         digitalWrite(s1, (_pin_index & 0x01));
