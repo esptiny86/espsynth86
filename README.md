@@ -47,6 +47,25 @@ define USE_PDM
 
 * Inspired by Teensy, design tool is also available https://esptiny86.github.io/espnode86
 
+# Recommended Libraries
+
+* NeoPixelBus (works well with esp8266) - https://github.com/Makuna/NeoPixelBus
+
+```
+
+//declare
+NeoPixelBus<NeoRgbFeature, NeoEsp8266BitBang400KbpsMethod> neoPixel(NEO_NUM_LEDS, NEO_DATA_PIN);
+RgbColor green(0, 128, 0);
+
+//setup
+neoPixel.Begin();
+neoPixel.Show();
+
+//update
+neoPixel.SetPixelColor(i, green);
+
+```
+
 # Support
 
 * This project is developed independently and without any connection to funding or big organization, Donation is highly appreciated https://www.patreon.com/badgeek
