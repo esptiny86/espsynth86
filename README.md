@@ -49,7 +49,7 @@ define USE_PDM
 
 # Tips
 
-* NeoPixelBus (works well with esp8266) - https://github.com/Makuna/NeoPixelBus
+## NeoPixelBus (works well with esp8266) - https://github.com/Makuna/NeoPixelBus
 
 ```
 
@@ -66,7 +66,7 @@ neoPixel.SetPixelColor(i, green);
 
 ```
 
-* Fix clicking sound
+## Fix clicking sound
 
 ```
 
