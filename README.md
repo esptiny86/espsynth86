@@ -47,7 +47,7 @@ define USE_PDM
 
 * Inspired by Teensy, design tool is also available https://esptiny86.github.io/espnode86
 
-# Recommended Libraries
+# Tips
 
 * NeoPixelBus (works well with esp8266) - https://github.com/Makuna/NeoPixelBus
 
@@ -63,6 +63,18 @@ neoPixel.Show();
 
 //update
 neoPixel.SetPixelColor(i, green);
+
+```
+
+* Fix clicking sound
+
+```
+
+#include "ESP8266WiFi.h" // wifi header only needed to turn it off
+
+void setup() {
+    WiFi.forceSleepBegin(); // turn of wifi to reduce power consumption
+}
 
 ```
 
