@@ -15,11 +15,17 @@ Synth engine for esptiny86. this module is largely based on MicrobeModular's Equ
 * Qt Creator is optional but it is recommended for developing further with espsynth86
 * Edit project.include to your pathto get Intelisense in QT Creator
 
+# Compiling (library version)
+
+* Install Arduino IDE then install esp8266 from board library
+* Open and configure "Makefile" file, then on command prompt/terminal type Make (the Makefile will auto discover your Arduino IDE and Libs))
+    - Nodemcu Lolin use BOARD = nodemcu
+    - Wemos D1 use BOARD = d1_mini
+* Qt Creator is optional but it is recommended for developing further with espsynth86
+* Edit project.include to your pathto get Intelisense in QT Creator
+* sh build_lib.sh
+
 # Boards
-
-### 8BitMixtapeWifi board design by @Dusjagr
-
-![](https://i.imgur.com/9hoTwYZ.png)
 
 ### esptiny86 Stompbox design by @Dusjagr
 
