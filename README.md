@@ -4,6 +4,8 @@
 
 Synth engine for esptiny86. this module is largely based on MicrobeModular's Equation Composer ported to esp8266 with full featured Audio Design tool https://esptiny86.github.io/espnode86
 
+This project is created and maintained by Budi Prakosa aka Badgeek
+
 ![](https://i.imgur.com/olUcqB0.png)
 
 # Compiling
