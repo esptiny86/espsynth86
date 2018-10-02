@@ -32,9 +32,9 @@
 #include "synthx.h" // change this for other synth patch
 #include "ESP8266WiFi.h" // wifi header only needed to turn it off
 
-#include <OSCMessage.h>
-#include <OSCBundle.h>
-#include <OSCData.h>
+//#include <OSCMessage.h>
+//#include <OSCBundle.h>
+//#include <OSCData.h>
 
 extern "C" {
 #include "user_interface.h"
