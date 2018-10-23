@@ -6,24 +6,14 @@ Synth engine for esptiny86. this module is largely based on MicrobeModular's Equ
 
 ![](https://i.imgur.com/olUcqB0.png)
 
-# Compiling
+# How To install (For user)
 
-* Install Arduino IDE then install esp8266 from board library
-* Open and configure "Makefile" file, then on command prompt/terminal type Make (the Makefile will auto discover your Arduino IDE and Libs))
-    - Nodemcu Lolin use BOARD = nodemcu
-    - Wemos D1 use BOARD = d1_mini
-* Qt Creator is optional but it is recommended for developing further with espsynth86
-* Edit project.include to your pathto get Intelisense in QT Creator
-
-# Compiling (library version)
-
-* Install Arduino IDE then install esp8266 from board library
-* Open and configure "Makefile" file, then on command prompt/terminal type Make (the Makefile will auto discover your Arduino IDE and Libs))
-    - Nodemcu Lolin use BOARD = nodemcu
-    - Wemos D1 use BOARD = d1_mini
-* Qt Creator is optional but it is recommended for developing further with espsynth86
-* Edit project.include to your pathto get Intelisense in QT Creator
-* sh build_lib.sh
+* Make sure your Arduino Ide at version 1.8.6 or more
+* Add https://esptiny86.github.io/espboard8266/package_espsynth_index.json to board url on Arduino preferences
+* Install Espsynth86 from board manager
+* Install Espsynth library latest version from https://github.com/esptiny86/espboard8266/tree/master/library Arduino > Sketch > Include Library > Add Zip file
+* Choose ESPSYNTH Modules from Tools > Board > ESPSYNTH Module > Wemos D1 etc..
+* Open example sketch
 
 # Boards
 
@@ -85,6 +75,25 @@ void setup() {
 }
 
 ```
+
+# Compiling (for developer)
+
+* Install Arduino IDE then install esp8266 from board library
+* Open and configure "Makefile" file, then on command prompt/terminal type Make (the Makefile will auto discover your Arduino IDE and Libs))
+    - Nodemcu Lolin use BOARD = nodemcu
+    - Wemos D1 use BOARD = d1_mini
+* Qt Creator is optional but it is recommended for developing further with espsynth86
+* Edit project.include to your pathto get Intelisense in QT Creator
+
+# Compiling (for developer) (library version)
+
+* Install Arduino IDE then install esp8266 from board library
+* Open and configure "Makefile" file, then on command prompt/terminal type Make (the Makefile will auto discover your Arduino IDE and Libs))
+    - Nodemcu Lolin use BOARD = nodemcu
+    - Wemos D1 use BOARD = d1_mini
+* Qt Creator is optional but it is recommended for developing further with espsynth86
+* Edit project.include to your pathto get Intelisense in QT Creator
+* sh build_lib.sh
 
 # Support
 
