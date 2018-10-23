@@ -1,23 +1,46 @@
+#!/bin/bash
+
+#
+# 	Folder Structure
+#
+# 	COMPILE_PATH = make build result
+#	LIBRARY_PATH = lib build result
+# 	SOURCE_PATH = Actual Library Source Code
+#
+
 COMPILE_PATH=build
-AR_PATH=/Users/xcorex/Library/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/bin/xtensa-lx106-elf-ar
+SOURCE_PATH=src
+LIBRARY_PATH=./library/espsynth86
+LIBRARY_SRC_PATH=${LIBRARY_PATH}/src
+PRECOMPILED_PATH=${LIBRARY_SRC_PATH}/esp8266
 
-mkdir -p ./src/esp8266
+ESPTOOL_PATH=/Users/xcorex/Library/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/bin
+AR_PATH=$ESPTOOL_PATH/xtensa-lx106-elf-ar
 
-rm -fr ./src/esp8266/libespsynth86.a
+rm -fr ${LIBRARY_PATH}
 
-rm -fr ./src/*.h
+mkdir -p ${LIBRARY_PATH}
+mkdir -p ${LIBRARY_SRC_PATH}
+mkdir -p ${PRECOMPILED_PATH}
 
-cp ./lib/*.h src
+#Copy header file to library
+cp ./$SOURCE_PATH/*.h $LIBRARY_SRC_PATH
 
+cp ./library.json $LIBRARY_PATH
+
+cp ./library.properties $LIBRARY_PATH
+
+
+#Build Sketch
 make
 
-cd lib
-
+cd $SOURCE_PATH
 LIB_FILES=`ls *.cpp | while read f; do echo ${COMPILE_PATH}/${f}.o; done;`
-
 cd ..
 
-${AR_PATH} rvs ./src/esp8266/libespsynth86.a ${LIB_FILES}
+
+
+${AR_PATH} rvs $PRECOMPILED_PATH/libespsynth86.a ${LIB_FILES}
 
 
 # /Users/xcorex/Library/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/bin/xtensa-lx106-elf-ar rvs espsynth86.a /tmp/mkESP/synthmodule86_d1_mini/Global*.o
