@@ -69,6 +69,5 @@ Thumbs.db
 *.dll
 *.exe
 
-/build
-src/*.h
+/build/*
 library/*
