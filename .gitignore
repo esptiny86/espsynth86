@@ -71,3 +71,4 @@ Thumbs.db
 
 /build
 src/*.h
+library/*
