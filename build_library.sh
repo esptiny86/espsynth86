@@ -26,6 +26,7 @@ mkdir -p ${PRECOMPILED_PATH}
 
 #Copy header file to library
 cp ./$SOURCE_PATH/*.h $LIBRARY_SRC_PATH
+cp -r ./examples $LIBRARY_PATH
 cp ./library.json $LIBRARY_PATH
 cp ./library.properties $LIBRARY_PATH
 
