@@ -15,25 +15,6 @@ Synth engine for esptiny86. this module is largely based on MicrobeModular's Equ
 * Choose ESPSYNTH Modules from Tools > Board > ESPSYNTH Module > Wemos D1 etc..
 * Open example sketch
 
-# Compiling
-
-* Install Arduino IDE then install esp8266 from board library
-* Open and configure "Makefile" file, then on command prompt/terminal type Make (the Makefile will auto discover your Arduino IDE and Libs))
-    - Nodemcu Lolin use BOARD = nodemcu
-    - Wemos D1 use BOARD = d1_mini
-* Qt Creator is optional but it is recommended for developing further with espsynth86
-* Edit project.include to your pathto get Intelisense in QT Creator
-
-# Compiling (library version)
-
-* Install Arduino IDE then install esp8266 from board library
-* Open and configure "Makefile" file, then on command prompt/terminal type Make (the Makefile will auto discover your Arduino IDE and Libs))
-    - Nodemcu Lolin use BOARD = nodemcu
-    - Wemos D1 use BOARD = d1_mini
-* Qt Creator is optional but it is recommended for developing further with espsynth86
-* Edit project.include to your pathto get Intelisense in QT Creator
-* sh build_lib.sh
-
 # Boards
 
 ### esptiny86 Stompbox design by @Dusjagr
@@ -94,6 +75,27 @@ void setup() {
 }
 
 ```
+
+# For Developer only
+
+# Compiling
+
+* Install Arduino IDE then install esp8266 from board library
+* Open and configure "Makefile" file, then on command prompt/terminal type Make (the Makefile will auto discover your Arduino IDE and Libs))
+    - Nodemcu Lolin use BOARD = nodemcu
+    - Wemos D1 use BOARD = d1_mini
+* Qt Creator is optional but it is recommended for developing further with espsynth86
+* Edit project.include to your pathto get Intelisense in QT Creator
+
+# Compiling (library version)
+
+* Install Arduino IDE then install esp8266 from board library
+* Open and configure "Makefile" file, then on command prompt/terminal type Make (the Makefile will auto discover your Arduino IDE and Libs))
+    - Nodemcu Lolin use BOARD = nodemcu
+    - Wemos D1 use BOARD = d1_mini
+* Qt Creator is optional but it is recommended for developing further with espsynth86
+* Edit project.include to your pathto get Intelisense in QT Creator
+* sh build_lib.sh
 
 # Support
 
