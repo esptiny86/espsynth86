@@ -1,6 +1,6 @@
 # espsynth86
 
-![](https://i.imgur.com/vtGG80q.png)
+![](https://i.imgur.com/0sRnXs3.png)
 
 Synth engine for esptiny86. this module is largely based on MicrobeModular's Equation Composer ported to esp8266 with full featured Audio Design tool https://esptiny86.github.io/espnode86
 
