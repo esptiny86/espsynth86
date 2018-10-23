@@ -12,6 +12,7 @@ Synth engine for esptiny86. this module is largely based on MicrobeModular's Equ
 * Add https://esptiny86.github.io/espboard8266/package_espsynth_index.json to board url on Arduino preferences
 * Install Espsynth86 from board manager
 * Install Espsynth library latest version from https://github.com/esptiny86/espboard8266/tree/master/library Arduino > Sketch > Include Library > Add Zip file
+* Choose ESPSYNTH Modules from Tools > Board > ESPSYNTH Module > Wemos D1 etc..
 * Open example sketch
 
 # Compiling
