@@ -76,9 +76,7 @@ void setup() {
 
 ```
 
-# For Developer only
-
-# Compiling
+# Compiling (for developer)
 
 * Install Arduino IDE then install esp8266 from board library
 * Open and configure "Makefile" file, then on command prompt/terminal type Make (the Makefile will auto discover your Arduino IDE and Libs))
@@ -87,7 +85,7 @@ void setup() {
 * Qt Creator is optional but it is recommended for developing further with espsynth86
 * Edit project.include to your pathto get Intelisense in QT Creator
 
-# Compiling (library version)
+# Compiling (for developer) (library version)
 
 * Install Arduino IDE then install esp8266 from board library
 * Open and configure "Makefile" file, then on command prompt/terminal type Make (the Makefile will auto discover your Arduino IDE and Libs))
