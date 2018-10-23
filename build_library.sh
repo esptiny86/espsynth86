@@ -38,6 +38,7 @@ cd ..
 
 ${AR_PATH} rvs $PRECOMPILED_PATH/libespsynth86.a ${LIB_FILES}
 
+rm -fr ${LIBRARY_PATH}.zip
 zip -r ${LIBRARY_PATH}.zip ${LIBRARY_PATH}
 
 # /Users/xcorex/Library/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/bin/xtensa-lx106-elf-ar rvs espsynth86.a /tmp/mkESP/synthmodule86_d1_mini/Global*.o
