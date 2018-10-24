@@ -98,7 +98,9 @@ void setup() {
 
 # Support
 
-* This project is developed independently and without any connection to funding or big organization, Donation is highly appreciated https://www.patreon.com/badgeek
+![https://www.patreon.com/badgeek](https://i.imgur.com/gtLViWX.png)
+
+* This project is developed independently and without any connection to funding or big collective or organization, Donation is highly appreciated, go to https://www.patreon.com/badgeek become a patron and support this project
 
 # Credits
 
