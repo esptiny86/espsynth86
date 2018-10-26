@@ -16,7 +16,7 @@ Synth engine for esptiny86. this module is largely based on MicrobeModular's Equ
 * Choose ESPSYNTH Modules from Tools > Board > ESPSYNTH Module > Wemos D1 etc..
 * Open example sketch
 
-# Hardware Implementation
+# Hardware Implementation Example
 
 ### 8BitmixtapeWIFI
 
