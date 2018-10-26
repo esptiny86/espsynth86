@@ -16,13 +16,17 @@ Synth engine for esptiny86. this module is largely based on MicrobeModular's Equ
 * Choose ESPSYNTH Modules from Tools > Board > ESPSYNTH Module > Wemos D1 etc..
 * Open example sketch
 
-# Boards
+# Hardware Implementation
+
+### 8BitmixtapeWIFI
+
+![](https://i.imgur.com/I05r3Wv.jpg)
 
 ### esptiny86 Stompbox design by @Dusjagr
 
 ![](https://i.imgur.com/BZcPQyX.png)
 
-# Hardware
+# Schematics
 
 There are two methods for generating sound with ESP8266
 
