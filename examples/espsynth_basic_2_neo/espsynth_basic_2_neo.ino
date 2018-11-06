@@ -19,6 +19,8 @@
   ********************* list of outhors **********************************
 
   v0.1   24.August.2018  ChrisMicro  initial version
+  v0.2   xxOctober 2018  badgeek, multiplexer moved to library and neoLibCore added
+  v0.3   24.August.2018  ChrisMicro, I2S format addapted to PT8211 I2S DAC
 
   It is mandatory to keep the list of authors in this code.
   Please add your name if you improve/extend something
@@ -32,15 +34,6 @@
 #include "synthx.h" // change this for other synth patch
 #include "ESP8266WiFi.h" // wifi header only needed to turn it off
 
-//#include <OSCMessage.h>
-//#include <OSCBundle.h>
-//#include <OSCData.h>
-
-extern "C" {
-#include "user_interface.h"
-}
-
-
 #define SAMPLINGFREQUENCY 44100
 
 // multipexer select pins
@@ -49,7 +42,7 @@ extern "C" {
 #define MUX_B D2
 #define MUX_C D3
 
-uint16_t potc[] = {1,1,1,1,1,1,1,1};
+uint16_t potc[] = {1, 1, 1, 1, 1, 1, 1, 1};
 
 AnalogMultiplexerPin multiplexer;
 
@@ -70,41 +63,39 @@ void setup()
   // usually connected to potis
   // range: 0..1024
   // this parameters can be set on the fly in the slow loop
-
-multiplexer.setup(MUX_A, MUX_B, MUX_C, MULTIPLEXED_ANALOG_INPUT);
-
-
+  multiplexer.setup(MUX_A, MUX_B, MUX_C, MULTIPLEXED_ANALOG_INPUT);
 }
 
 
 void slowLoop()
 {
-  
-potc[0] =  multiplexer.read(0,10) >> 0;
 
-    if (potc[0] < 360){
-        mysynth.param[1].setValue(multiplexer.read(1,8) >> 0);
-        mysynth.param[2].setValue(multiplexer.read(2,8) >> 0);
-    }else{
-        mysynth.param[3].setValue(multiplexer.read(1,8) >> 0);
-        mysynth.param[4].setValue(multiplexer.read(2,8) >> 0);
-    }
+  potc[0] =  multiplexer.read(0, 10) >> 0;
+
+  if (potc[0] < 360) {
+    mysynth.param[1].setValue(multiplexer.read(1, 8) >> 0);
+    mysynth.param[2].setValue(multiplexer.read(2, 8) >> 0);
+  } else {
+    mysynth.param[3].setValue(multiplexer.read(1, 8) >> 0);
+    mysynth.param[4].setValue(multiplexer.read(2, 8) >> 0);
+  }
 
 }
-
 
 void loop()
 {
   static int16_t cycle = 0;
   static uint16_t counter = 0;
-  uint16_t dacValue;
+  int32_t dacValue;
 
-  dacValue = mysynth.run(cycle++);
-  i2s_write_sample(dacValue ^ 0x8000);
+  dacValue = (int32_t)mysynth.run(cycle++) - 0x8000;
+
+  // I2S write mono for PD8211 DAC needs left justified data
+  i2s_write_sample(dacValue << 1);
 
   counter++;
 
-  if (counter > SAMPLINGFREQUENCY/250)
+  if (counter > SAMPLINGFREQUENCY / 250)
   {
     counter = 0;
     slowLoop();
@@ -112,3 +103,5 @@ void loop()
 
 
 }
+
+

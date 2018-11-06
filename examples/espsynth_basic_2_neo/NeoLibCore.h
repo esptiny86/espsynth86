@@ -1,4 +1,4 @@
-﻿#ifndef NEOLIBCORE_H
+#ifndef NEOLIBCORE_H
 #define NEOLIBCORE_H
 // HARDWARE CALIBRATION
 #define Vbutton_releaseLevel  515
