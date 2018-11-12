@@ -1,4 +1,3 @@
-
 /*
   synthesizer with potis
 
@@ -19,9 +18,10 @@
   (at your option) any later version.
   ********************* list of outhors **********************************
 
-  v0.1   24.August.2018  ChrisMicro  initial version
-  v0.2   xxOctober 2018  badgeek, multiplexer moved to library
-  v0.3   24.August.2018  ChrisMicro, I2S format addapted to PT8211 I2S DAC
+  v0.1   24.August   2018  ChrisMicro  initial version
+  v0.2   30.August   2018  badgeek,    multiplexer moved to library
+  v0.3   06.Novembe  2018  ChrisMicro, I2S format addapted to PT8211 I2S DAC
+  v0.4   12.November 2018  ChrisMicro, I2S now supports more DACs
 
   It is mandatory to keep the list of authors in this code.
   Please add your name if you improve/extend something
@@ -29,8 +29,7 @@
 */
 
 #include <Arduino.h>
-#include <i2s.h>
-#include <i2s_reg.h>
+#include "I2S.h"
 #include "AnalogMultiplexer.h"
 #include "synthx.h" // change this for other synth patch
 #include "ESP8266WiFi.h" // wifi header only needed to turn it off
@@ -47,6 +46,8 @@ AnalogMultiplexerPin multiplexer;
 
 SynthTest mysynth;
 
+I2SClass I2S;
+
 
 void setup()
 {
@@ -55,8 +56,19 @@ void setup()
   delay(1);
   system_update_cpu_freq(160); // run MCU core with full speed
 
-  i2s_begin();
-  i2s_set_rate(SAMPLINGFREQUENCY);
+/* i2s_mode
+  
+  I2S audio dacs from different manufacturers need dedicated setups.
+
+  i2s mode                     DAC
+  =========================    ============================
+  I2S_PHILIPS_MODE             MAS98357a,UDA1334A  
+  I2S_RIGHT_JUSTIFIED_MODE,    PT8211
+  I2S_PDM_MODE                 pulse density mode for direct RC-low 
+                               pass connection at pin and no hardware DAC
+
+ */
+  I2S.begin(I2S_LEFT_JUSTIFIED_MODE, SAMPLINGFREQUENCY, 16);
 
   // synthesizer input parameters
   // usually connected to potis
@@ -75,14 +87,19 @@ void slowLoop()
 
 void loop()
 {
-  static int16_t cycle = 0;
   static uint16_t counter = 0;
-  int32_t dacValue;
+  static int16_t cycle = 0;
+  int16_t value;
+  int16_t dacLeft, dacRight;
 
-  dacValue = (int32_t)mysynth.run(cycle++)-0x8000;
+  //get new synthesizer sample and
+  //convert to zero line centered signed value
+  value = (int32_t)mysynth.run(cycle++) - 0x8000; 
 
-  // I2S write mono for PD8211 DAC needs left justified data
-  i2s_write_sample(dacValue << 1);
+  dacLeft = value;
+  dacRight = value;
+  
+  I2S.write(dacLeft, dacRight);
 
   counter++;
 
