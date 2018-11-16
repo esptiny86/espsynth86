@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleEquationShot.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleEquationShot::ModuleEquationShot(Equations *equations)
 {

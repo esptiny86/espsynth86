@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleClockedRandom.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleClockedRandom::ModuleClockedRandom()
 {

@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "defines.h"
+#include "Defines.h"
 #include "SynthMini.h"
 
 SynthMini::SynthMini(Inputs* inputs)

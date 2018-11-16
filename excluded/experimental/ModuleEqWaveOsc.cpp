@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleEqWaveOsc.h"
-#include "defines.h"
+#include "Defines.h"
 
 // #define WAVETABLE_LENGTH 512
 

@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleMap.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleMap::ModuleMap(uint32_t low, uint32_t high)
 {

@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleSwitch.h"
-#include "defines.h"
+#include "Defines.h"
 
 uint16_t ModuleSwitch::compute()
 {  

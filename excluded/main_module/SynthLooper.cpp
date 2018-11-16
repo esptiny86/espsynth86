@@ -1,4 +1,4 @@
-#include "defines.h"
+#include "Defines.h"
 #include "SynthLooper.h"
 
 SynthLooper::SynthLooper(Inputs* inputs)

@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleChatBot.h"
-#include "defines.h"
+#include "Defines.h"
 
 /*
 

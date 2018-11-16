@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "defines.h"
+#include "Defines.h"
 #include "SynthDCOffsetTest.h"
 
 SynthDCOffsetTest::SynthDCOffsetTest(Module* inputs[])

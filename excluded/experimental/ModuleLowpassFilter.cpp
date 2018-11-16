@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleLowpassFilter.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleLowpassFilter::ModuleLowpassFilter()
 {

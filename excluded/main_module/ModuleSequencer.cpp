@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleSequencer.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleSequencer::ModuleSequencer(int values[])
 {

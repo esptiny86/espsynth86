@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleExtClock.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleExtClock::ModuleExtClock(uint8_t bpm, uint16_t clock_division)
 {

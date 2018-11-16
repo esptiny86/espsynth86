@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleReverb.h"
-#include "defines.h"
+#include "Defines.h"
 #include "GlobalRingBuffer.h"
 
 ModuleReverb::ModuleReverb()

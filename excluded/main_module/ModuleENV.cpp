@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleENV.h"
-#include "defines.h"
+#include "Defines.h"
 #include "GlobalSlopes.h"
 
 ModuleENV::ModuleENV()

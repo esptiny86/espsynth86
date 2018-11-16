@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleSoundToy.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleSoundToy::ModuleSoundToy()
 {

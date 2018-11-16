@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleWavetable.h"
-#include "defines.h"
+#include "Defines.h"
 
 #define WAVETABLE_LENGTH 512
 

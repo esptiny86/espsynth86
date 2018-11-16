@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "defines.h"
+#include "Defines.h"
 #include "SynthArpeggio1.h"
 
 SynthArpeggio1::SynthArpeggio1(Inputs* inputs)
