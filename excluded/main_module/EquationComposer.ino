@@ -46,7 +46,7 @@ TODO:
 
 
 
-#include "defines.h"
+#include "Defines.h"
 
 // Setting the debug flag to 1 turns off the timer functions.  This causes the
 // code to run slowly, and at that slow frequency the module is inaudible.  

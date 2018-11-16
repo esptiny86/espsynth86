@@ -1,4 +1,4 @@
-#include "defines.h"
+#include "Defines.h"
 #include "EquationBankClassic.h"
 
 EquationBankClassic::EquationBankClassic()

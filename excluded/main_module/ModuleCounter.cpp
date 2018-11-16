@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleCounter.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleCounter::ModuleCounter(int target)
 {

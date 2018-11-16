@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModulePatternGenerator.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModulePatternGenerator::ModulePatternGenerator()
 {

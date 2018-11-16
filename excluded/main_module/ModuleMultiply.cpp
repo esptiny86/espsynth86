@@ -1,5 +1,5 @@
 #include "ModuleMultiply.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleMultiply::ModuleMultiply()
 {

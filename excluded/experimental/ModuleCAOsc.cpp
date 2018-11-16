@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleCAOsc.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleCAOsc::ModuleCAOsc()
 {

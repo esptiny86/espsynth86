@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleSampleAndHold.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleSampleAndHold::ModuleSampleAndHold()
 {

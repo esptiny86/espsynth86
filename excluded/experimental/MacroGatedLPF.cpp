@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "MacroGatedLPF.h"
-#include "defines.h"
+#include "Defines.h"
 
 // Include the modules
 #include "ModuleLowpassFilter.h"

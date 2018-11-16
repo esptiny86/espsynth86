@@ -1,5 +1,5 @@
 
-#include "defines.h"
+#include "Defines.h"
 #include "ModuleWaveshaper.h"
 
 ModuleWaveshaper::ModuleWaveshaper()

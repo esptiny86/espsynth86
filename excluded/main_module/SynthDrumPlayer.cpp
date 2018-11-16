@@ -1,4 +1,4 @@
-#include "defines.h"
+#include "Defines.h"
 #include "SynthDrumPlayer.h"
 
 SynthDrumPlayer::SynthDrumPlayer(Inputs* inputs)

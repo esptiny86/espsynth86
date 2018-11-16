@@ -1,5 +1,5 @@
 #include "ModuleWaveFolder.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleWaveFolder::ModuleWaveFolder()
 {

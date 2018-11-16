@@ -1,5 +1,5 @@
 #include "ModuleAdd.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleAdd::ModuleAdd()
 {

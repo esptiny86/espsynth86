@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleEquationLooper.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleEquationLooper::ModuleEquationLooper(EquationBank *equation_bank)
 {

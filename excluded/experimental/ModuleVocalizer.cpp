@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleVocalizer.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleVocalizer::ModuleVocalizer()
 {

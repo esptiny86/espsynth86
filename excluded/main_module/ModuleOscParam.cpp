@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleOscParam.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleOscParam::ModuleOscParam()
 {

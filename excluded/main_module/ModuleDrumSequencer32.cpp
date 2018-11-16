@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "ModuleDrumSequencer32.h"
-#include "defines.h"
+#include "Defines.h"
 
 ModuleDrumSequencer32::ModuleDrumSequencer32()
 {
