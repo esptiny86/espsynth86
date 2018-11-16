@@ -103,7 +103,7 @@ SynthTest mysynth(&inputManager);
 #ifdef DEBUG_SERIAL
 void printInputList(Input_Manager * inputManager)
 {
-  Serial.println("Esptiny Available Input:"
+  Serial.println("Esptiny Available Input:");
   for(int i=0; i<inputManager->osc.size(); ++i) {
     Serial.print("Input OSC: ");
     Serial.println(inputManager->osc[i]->address);
