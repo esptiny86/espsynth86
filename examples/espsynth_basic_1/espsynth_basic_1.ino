@@ -31,10 +31,11 @@
 #include <Arduino.h>
 #include "I2S.h"
 #include "AnalogMultiplexer.h"
-#include "synthx.h" // change this for other synth patch
+#include "SynthTest.h" // change this for other synth patch
 #include "ESP8266WiFi.h" // wifi header only needed to turn it off
 
-#define SAMPLINGFREQUENCY 44100
+#define SAMPLINGFREQUENCY 44100 // 44100 Hz
+#define NOISE 4 //Noise filter for multiplexer
 
 // multipexer select pins
 #define MULTIPLEXED_ANALOG_INPUT A0
@@ -43,11 +44,10 @@
 #define MUX_C D3
 
 AnalogMultiplexerPin multiplexer;
-
-SynthTest mysynth;
+Input_Manager inputManager;
+SynthTest synthTest(&inputManager);
 
 I2SClass I2S;
-
 
 void setup()
 {
@@ -79,10 +79,16 @@ void setup()
 
 void slowLoop()
 {
-  static uint8_t count = 0;
-  mysynth.param[count].setValue(multiplexer.read(count, 8));
-  count++;
-  if (count > 7) count = 0;
+  static uint8_t idx = 0;
+  //skip if no pot input needed
+  if (inputManager.pot.size() > 0)
+  {
+    //Read analog multiplexer
+    inputManager.pot[idx]->setValue(multiplexer.read(inputManager.pot[idx]->pot_index,NOISE));
+    //Round robin reading
+    idx++;
+    if (idx > (inputManager.pot.size()-1) ) idx = 0;    
+  }
 }
 
 void loop()
@@ -94,7 +100,7 @@ void loop()
 
   //get new synthesizer sample and
   //convert to zero line centered signed value
-  value = (int32_t)mysynth.run(cycle++) - 0x8000; 
+  value = (int32_t)synthTest.run(cycle++) - 0x8000; 
 
   dacLeft = value;
   dacRight = value;
@@ -108,6 +114,4 @@ void loop()
     counter = 0;
     slowLoop();
   }
-
-
 }
