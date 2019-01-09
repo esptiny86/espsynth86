@@ -7,16 +7,20 @@
 #	LIBRARY_PATH = lib build result
 # 	SOURCE_PATH = Actual Library Source Code
 #
-
+CWD=`pwd`
 COMPILE_PATH=build
 SOURCE_PATH=src
 LIBRARY_VERSION_TAG=`git describe --tag`
 LIBRARY_PATH=./library/espsynth86-${LIBRARY_VERSION_TAG}
+LIBRARY_BUILD_NAME=espsynth86-${LIBRARY_VERSION_TAG}
 LIBRARY_SRC_PATH=${LIBRARY_PATH}/src
 PRECOMPILED_PATH=${LIBRARY_SRC_PATH}/esp8266
 
 ESPTOOL_PATH=/Users/xcorex/Library/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/bin
 AR_PATH=$ESPTOOL_PATH/xtensa-lx106-elf-ar
+
+git submodule update --init
+
 
 rm -fr ${LIBRARY_PATH}
 
@@ -35,13 +39,18 @@ make
 
 cd $SOURCE_PATH
 LIB_FILES=`ls *.cpp | while read f; do echo ${COMPILE_PATH}/${f}.o; done;`
-cd ..
+cd $CWD
 
 ${AR_PATH} rvs $PRECOMPILED_PATH/libespsynth86.a ${LIB_FILES}
 
+cp ./external/*/src/* $LIBRARY_SRC_PATH 
+
+
 rm -fr ${LIBRARY_PATH}.zip
 
-zip -r ${LIBRARY_PATH}.zip ${LIBRARY_PATH}
+cd library
+
+zip -r ${LIBRARY_BUILD_NAME}.zip ${LIBRARY_BUILD_NAME}
 
 # /Users/xcorex/Library/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/bin/xtensa-lx106-elf-ar rvs espsynth86.a /tmp/mkESP/synthmodule86_d1_mini/Global*.o
 # /Users/xcorex/Library/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/bin/xtensa-lx106-elf-ar rvs espsynth86.a /tmp/mkESP/synthmodule86_d1_mini/Defines*.o
