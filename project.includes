@@ -34,3 +34,7 @@ module
 global
 synth
 sample
+excluded/main_module
+src
+excluded/experimental
+external/OSCLib-for-ESP8266/src
