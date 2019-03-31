@@ -28,7 +28,7 @@ uint16_t ModuleSamplePlayer::compute()
         clocked = false;
 
     if (this->counter<this->sample[samp_sel].length)
-        return (pgm_read_word_near(this->sample[samp_sel].sample_loc + this->counter++)^32768);
+        return ((pgm_read_word_near(this->sample[samp_sel].sample_loc + this->counter++))^0x8000);
     else
         return(0x8000);
 

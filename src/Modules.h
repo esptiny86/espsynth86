@@ -20,3 +20,4 @@
 #include "ModuleEuclideanSeq.h"
 #include "ModuleSamplePlayer.h"
 #include "ModuleExternalInput.h"
+#include "﻿ModuleOutputDAC.h"
