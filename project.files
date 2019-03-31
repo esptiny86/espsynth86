@@ -216,6 +216,7 @@ src/EquationBank.cpp
 src/EquationBank.h
 src/EquationBankClassic.cpp
 src/EquationBankClassic.h
+src/EspSynth.h
 src/EuclidBjork.h
 src/ExprParser.h
 src/FixedPointMath.cpp
@@ -284,6 +285,8 @@ src/ModuleMixer3.cpp
 src/ModuleMixer3.h
 src/ModuleOutput.cpp
 src/ModuleOutput.h
+src/ModuleOutputDAC.cpp
+src/ModuleOutputDAC.h
 src/ModuleReverb.cpp
 src/ModuleReverb.h
 src/ModuleSamplePlayer.cpp
@@ -298,12 +301,18 @@ src/ModuleWavetableOsc.cpp
 src/ModuleWavetableOsc.h
 src/Modules.h
 src/NeoLibCore.h
+src/OSCBundleReader.cpp
+src/OSCBundleReader.h
 src/Rand.cpp
 src/Rand.h
 src/SoundOutput.cpp
 src/SoundOutput.h
 src/Synth.cpp
 src/Synth.h
+src/SynthExtended.cpp
+src/SynthExtended.h
+src/SynthManager.cpp
+src/SynthManager.h
 src/Vector.h
 src/drum_sampler.h
 synth/8bitmixtape.h
