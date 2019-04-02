@@ -71,3 +71,5 @@ Thumbs.db
 
 /build/*
 library/*
+/build-dir
+/build-cache
