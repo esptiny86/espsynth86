@@ -1,25 +1,27 @@
 
-ARDUINO_JAVA=/Applications/Arduino.app/Contents/Java
-ARDUINO_15=/Users/xcorex/Library/Arduino15
-BUILD_CACHE=/Volumes/LOCALBRAIN/Projects/Synthesizer/manticore/synthmodule86/build-cache
-BUILD_DIR=/Volumes/LOCALBRAIN/Projects/Synthesizer/manticore/synthmodule86/build-dir
-BUILD_SRC=/Volumes/LOCALBRAIN/Projects/Synthesizer/manticore/synthmodule86/synthmodule86/synthmodule86.ino
-
-
-ESPTOOL_PATH=/Users/xcorex/Library/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9/bin
-AR_PATH=$ESPTOOL_PATH/xtensa-lx106-elf-ar
-
-COMPILED_PATH=/Volumes/LOCALBRAIN/Projects/Synthesizer/manticore/synthmodule86/build-dir/libraries/espsynth86-1.0.4-38-g47aef06
 CWD=`pwd`
 
+ARDUINO_JAVA=/Applications/Arduino.app/Contents/Java
+ARDUINO_15=/Users/xcorex/Library/Arduino15
+BUILD_CACHE=$CWD/build-cache
+BUILD_DIR=$CWD/build-dir
+BUILD_SRC=$CWD/synthmodule86/synthmodule86.ino
+
+
+ESPTOOL_PATH=$ARDUINO_15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9/bin
+AR_PATH=$ESPTOOL_PATH/xtensa-lx106-elf-ar
+
+COMPILED_PATH=$CWD/build-dir/libraries/src
+
 LIBRARY_VERSION_TAG=`git describe --tag`
+
 LIBRARY_PATH=./library/espsynth86-${LIBRARY_VERSION_TAG}
 LIBRARY_BUILD_NAME=espsynth86-${LIBRARY_VERSION_TAG}
 LIBRARY_SRC_PATH=${LIBRARY_PATH}/src
 PRECOMPILED_PATH=${LIBRARY_SRC_PATH}/esp8266
 SOURCE_PATH=src
 
-ARDUINO_LIBRARY_PATH=/Users/xcorex/Documents/Arduino/libraries
+ARDUINO_LIBRARY_PATH=$CWD:$CWD/external
 
 rm -fr ${LIBRARY_PATH}
 
