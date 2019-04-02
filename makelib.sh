@@ -25,6 +25,9 @@ mkdir -p ${LIBRARY_PATH}
 mkdir -p ${LIBRARY_SRC_PATH}
 mkdir -p ${PRECOMPILED_PATH}
 
+mkdir -p $BUILD_DIR
+mkdir -p $BUILD_CACHE
+
 cp ./$SOURCE_PATH/*.h $LIBRARY_SRC_PATH
 cp -r ./examples $LIBRARY_PATH
 cp ./library.json $LIBRARY_PATH
