@@ -3,11 +3,12 @@ CWD=`pwd`
 
 ARDUINO_JAVA=/Applications/Arduino.app/Contents/Java
 ARDUINO_15=/Users/xcorex/Library/Arduino15
+ARDUINO_HARDWARE_FOLDER=/Users/xcorex/Documents/Arduino/hardware
 BUILD_CACHE=$CWD/build-cache
 BUILD_DIR=$CWD/build-dir
 BUILD_SRC=$CWD/synthmodule86/synthmodule86.ino
 
-
+ARDUINO_FQBN=esp8266:esp8266:d1_mini:xtal=80,vt=flash,exception=disabled,eesz=4M,ip=lm2f,dbg=Disabled,lvl=None____,wipe=none,baud=921600
 ESPTOOL_PATH=$ARDUINO_15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9/bin
 AR_PATH=$ESPTOOL_PATH/xtensa-lx106-elf-ar
 
@@ -39,7 +40,7 @@ cp ./library.properties $LIBRARY_PATH
 
 git submodule update --init
 
-$ARDUINO_JAVA/arduino-builder -compile -logger=machine -hardware $ARDUINO_JAVA/hardware -hardware $ARDUINO_15/packages -hardware /Users/xcorex/Documents/Arduino/hardware -tools $ARDUINO_JAVA/tools-builder -tools $ARDUINO_JAVA/hardware/tools/avr -tools $ARDUINO_15/packages -built-in-libraries $ARDUINO_JAVA/libraries -libraries $ARDUINO_LIBRARY_PATH -fqbn=esp8266:esp8266:d1_mini:xtal=80,vt=flash,exception=disabled,eesz=4M,ip=lm2f,dbg=Disabled,lvl=None____,wipe=none,baud=921600 -ide-version=10808 -build-path $BUILD_DIR -warnings=none -build-cache $BUILD_CACHE -prefs=build.warn_data_percentage=75 -prefs=runtime.tools.esptool.path=$ARDUINO_15/packages/esp8266/tools/esptool/2.5.0-3-20ed2b9 -prefs=runtime.tools.esptool-2.5.0-3-20ed2b9.path=$ARDUINO_15/packages/esp8266/tools/esptool/2.5.0-3-20ed2b9 -prefs=runtime.tools.xtensa-lx106-elf-gcc.path=$ARDUINO_15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9 -prefs=runtime.tools.xtensa-lx106-elf-gcc-2.5.0-3-20ed2b9.path=$ARDUINO_15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9 -prefs=runtime.tools.mkspiffs.path=$ARDUINO_15/packages/esp8266/tools/mkspiffs/2.5.0-3-20ed2b9 -prefs=runtime.tools.mkspiffs-2.5.0-3-20ed2b9.path=$ARDUINO_15/packages/esp8266/tools/mkspiffs/2.5.0-3-20ed2b9 -verbose $BUILD_SRC
+$ARDUINO_JAVA/arduino-builder -compile -logger=machine -hardware $ARDUINO_JAVA/hardware -hardware $ARDUINO_15/packages -hardware $ARDUINO_HARDWARE_FOLDER -tools $ARDUINO_JAVA/tools-builder -tools $ARDUINO_JAVA/hardware/tools/avr -tools $ARDUINO_15/packages -built-in-libraries $ARDUINO_JAVA/libraries -libraries $ARDUINO_LIBRARY_PATH -fqbn=$ARDUINO_FQBN -ide-version=10808 -build-path $BUILD_DIR -warnings=none -build-cache $BUILD_CACHE -prefs=build.warn_data_percentage=75 -prefs=runtime.tools.esptool.path=$ARDUINO_15/packages/esp8266/tools/esptool/2.5.0-3-20ed2b9 -prefs=runtime.tools.esptool-2.5.0-3-20ed2b9.path=$ARDUINO_15/packages/esp8266/tools/esptool/2.5.0-3-20ed2b9 -prefs=runtime.tools.xtensa-lx106-elf-gcc.path=$ARDUINO_15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9 -prefs=runtime.tools.xtensa-lx106-elf-gcc-2.5.0-3-20ed2b9.path=$ARDUINO_15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9 -prefs=runtime.tools.mkspiffs.path=$ARDUINO_15/packages/esp8266/tools/mkspiffs/2.5.0-3-20ed2b9 -prefs=runtime.tools.mkspiffs-2.5.0-3-20ed2b9.path=$ARDUINO_15/packages/esp8266/tools/mkspiffs/2.5.0-3-20ed2b9 -verbose $BUILD_SRC
 
 
 
