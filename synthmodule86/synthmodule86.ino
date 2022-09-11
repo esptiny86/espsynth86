@@ -5,11 +5,11 @@
 
 
 // multipexer select pins
-#define MULTIPLEXED_ANALOG_INPUT A0
-#define MUX_A D0
-#define MUX_B D1
-#define MUX_C D2
-#define DEBUG_SERIAL
+//#define MULTIPLEXED_ANALOG_INPUT A0
+//#define MUX_A D0
+//#define MUX_B D1
+//#define MUX_C D2
+//#define DEBUG_SERIAL
 
 
 WiFiUDP Udp;
@@ -34,7 +34,7 @@ void setup() {
   pinMode(2, INPUT); //restore GPIOs taken by i2s
   pinMode(15, INPUT);
 
-   multiplexer.setup(MUX_A, MUX_B, MUX_C, MULTIPLEXED_ANALOG_INPUT);
+//   multiplexer.setup(MUX_A, MUX_B, MUX_C, MULTIPLEXED_ANALOG_INPUT);
 
   syntManager.attachOscReader(&oscBundleReader);
   syntManager.attachMultiplexer(&multiplexer);
