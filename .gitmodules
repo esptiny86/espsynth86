@@ -1,6 +1,3 @@
 [submodule "external/OSCLib-for-ESP8266"]
 	path = external/OSCLib-for-ESP8266
 	url = https://github.com/stahlnow/OSCLib-for-ESP8266
-[submodule "tools"]
-	path = tools
-	url = https://github.com/plerup/makeEspArduino
