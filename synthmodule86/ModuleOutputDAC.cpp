@@ -2,13 +2,13 @@
 #include "ModuleOutputDAC.h"
 #include "Defines.h"
 
-I2SClass * ModuleOutputDAC::I2S = NULL;
+I2SExtended * ModuleOutputDAC::I2S = NULL;
 
 ModuleOutputDAC::ModuleOutputDAC()
 {
   if (I2S == NULL)
   {
-      I2S = new I2SClass();
+      I2S = new I2SExtended();
       I2S->begin(I2S_LEFT_JUSTIFIED_MODE, 44100, 16);
   }
 }

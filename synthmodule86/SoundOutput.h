@@ -22,7 +22,7 @@
 //https://www.arduino.cc/en/Reference/I2S
 
 #include "Arduino.h"
-#include <i2s.h>
+#include <I2SExtended.h>
 #include <i2s_reg.h>
 
 

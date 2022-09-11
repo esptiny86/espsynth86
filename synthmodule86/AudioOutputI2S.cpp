@@ -22,7 +22,7 @@
 #ifdef ESP32
   #include "driver/i2s.h"
 #else
-  #include <i2s.h>
+  #include <I2S.h>
 #endif
 #include "AudioOutputI2S.h"
 

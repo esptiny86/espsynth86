@@ -31,7 +31,7 @@
 #define ModuleOutputDAC_h
 
 #include "Module.h"
-#include "I2S.h"
+#include "I2SExtended.h"
 
 class ModuleOutputDAC : public Module
 {
@@ -42,7 +42,7 @@ class ModuleOutputDAC : public Module
     // Inputs
     Module *left;
     Module *right;
-    static I2SClass *I2S;
+    static I2SExtended *I2S;
 
 
 };
