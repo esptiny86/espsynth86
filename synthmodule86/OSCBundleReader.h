@@ -2,9 +2,9 @@
 #define OSCBUNDLEREADER_H
 
 #include <WiFiUdp.h>
-#include <OSCMessage.h>
-#include <OSCBundle.h>
-#include <OSCData.h>
+//#include <OSCMessage.h>
+//#include <OSCBundle.h>
+//#include <OSCData.h>
 #include <ModuleExternalInput.h>
 
 enum OSC_TYPE {
